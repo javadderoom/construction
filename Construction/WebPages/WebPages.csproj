@@ -90,7 +90,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NewClient.aspx" />
     <Content Include="packages.config" />
+    <Content Include="fonts\IRANSansWeb_Light.woff" />
+    <Content Include="fonts\IRANSansWeb_Medium.woff" />
+    <Content Include="fonts\IRANSansWeb_UltraLight.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -102,6 +106,7 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
+    <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\StyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +119,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewClient.aspx.cs">
+      <DependentUpon>NewClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewClient.aspx.designer.cs">
+      <DependentUpon>NewClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

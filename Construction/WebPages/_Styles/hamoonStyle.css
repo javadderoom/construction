@@ -1,0 +1,26 @@
+﻿
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: IRANSansWeb_Light,Tahoma,sans-serif;
+}
+
+@font-face {
+    font-family: 'IRANSansWeb_Light';
+    src: url('../fonts/IRANSansWeb_Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'IRANSansWeb_Medium';
+    src: url('../fonts/IRANSansWeb_Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'IRANSansWeb_UltraLight';
+    src: url('../fonts/IRANSansWeb_UltraLight.woff') format('woff');
+}
+
+.content {
+    direction: rtl;
+    margin-top: 30px;
+}

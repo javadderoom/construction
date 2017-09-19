@@ -104,6 +104,9 @@
     <Content Include="fonts\Weblogma_Yekan.ttf" />
     <Content Include="fonts\Weblogma_Yekan.woff" />
     <Content Include="fonts\IRANSansLight.woff" />
+    <Content Include="fonts\Yekan.eot" />
+    <Content Include="fonts\Yekan.ttf" />
+    <Content Include="fonts\Yekan.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,10 +124,17 @@
     <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
     <Content Include="bootstrap-3.3.7-dist\js\npm.js" />
     <Content Include="fonts\weblogma_yekan.css" />
+    <Content Include="fonts\Yekan.svg" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="Icons\instagram-logo .png" />
+    <Content Include="Icons\instagram-logo green.png" />
+    <Content Include="Icons\instagram-logo.png" />
+    <Content Include="Icons\telegram-logo green.png" />
+    <Content Include="Icons\telegram-logo.png" />
     <Content Include="Web.config" />
-    <Content Include="_Styles\StyleSheet.css" />
+    <Content Include="_Scripts\jquery-3.2.1.min.js" />
+    <Content Include="_Styles\HomeStyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

@@ -7,22 +7,36 @@
     <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous" />
+
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/npm.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="_Styles/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <div class="container-fluid " style="height: 800px">
-                <div class="navbar navbar-light bg-faded nav-bg">
+            <div class="container-fluid " style="height: 800px; margin: 0px;">
+                <div class="top-nav ">
+                    <div class="top-nav-inner">
+                        <div class="email">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            <a href="#" class="">demo@gmail.com</a>
+                        </div>
+                        <div class="phone">
+                            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                            <a href="#" class="">09111112514</a>
+                        </div>
+                        <div class="sosioal-network">
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar navbar-light bg-faded nav-bg navbar-toggler">
 
-                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+                    <a class="navbar-brand" href="#">Construction</a>
                 </div>
             </div>
-
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         </div>
     </form>
 </body>

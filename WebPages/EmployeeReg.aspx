@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebPages.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeReg.aspx.cs" Inherits="WebPages.EmployeeReg" %>
 
 <!DOCTYPE html>
 
@@ -22,13 +22,48 @@
     <script src="js/jquery.validate.min.js"></script>
     <link href="_Styles/StyleSheet.css" rel="stylesheet" />
     <link href="_Styles/sasan.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $("#txtmobile").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+
+            $("#txtzip").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 </head>
 <body style="overflow-x: hidden">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container myFont">
+        <div class=" container myFont">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class=" navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
@@ -36,7 +71,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -62,7 +97,7 @@
     <header>
         <div class="container myFont" id="maincontent" tabindex="-1">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <img class="img-responsive" src="img/profile.png" alt="" style="width: 100px; height: 100px;">
                     <div class="intro-text">
                         <h1 class="name myFont">
@@ -79,30 +114,69 @@
         <form id="form1" runat="server">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div class="container-fluid MainDiv">
-                <div class="col-md-8" style="direction: rtl; margin-top: 10px;">
-
-                    <asp:RadioButton ID="rdiEmployees" runat="server" Text="همکاران" CssClass="rdiLogin" GroupName="login" />
-                    <asp:RadioButton ID="rdiUsers" runat="server" Text="مشتریان" CssClass="rdiLogin" GroupName="login" Checked="true" />
-                </div>
                 <div class="row mrgTop20">
-                    <div class="col-md-8">
-                    </div>
+                    <%--<div class="col-md-8">
+                    </div>--%>
                     <div class="col-md-8" style="margin-top: 20px;">
+                        نام
+                  <br />
+                        <input type="text" class="form-control" id="txtName" runat="server" maxlength="50" style="width: 400px;" placeholder="نام خود را وارد کنید" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام خود را وارد کنید"></asp:RequiredFieldValidator>
+                        <br />
+                        نام خانوادگی
+                  <br />
+                        <input type="text" class="form-control" id="txtFamily" runat="server" maxlength="50" style="width: 400px;" placeholder="نام خانوادگی خود را وارد کنید" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtPassword" CssClass="alert-danger" runat="server" ErrorMessage="نام خانوادگی را وارد کنید"></asp:RequiredFieldValidator>
+                        <br />
+
                         نام کاربری
                   <br />
-                        <input type="text" class="form-control" id="txtName" runat="server" maxlength="50" style="width: 400px;" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
+                        <input type="text" class="form-control" id="txtusername" runat="server" maxlength="50" style="width: 400px;" placeholder="نام کاربری خود را وارد کنید" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
                         <br />
                         رمز عبور
                   <br />
-                        <input type="password" class="form-control" id="txtPassword" runat="server" maxlength="50" style="width: 400px;" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
+                        <input type="password" class="form-control" placeholder="رمز عبور خود را وارد کنید" id="txtPassword" runat="server" maxlength="50" style="width: 400px;" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TxtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
                         <br />
-                        <%-- <div id="dvCaptcha">
+
+                        تکرار رمز عبور
+                  <br />
+                        <input type="password" class="form-control" placeholder="رمز عبور خود را دوباره وارد کنید" id="txtpassword2" runat="server" maxlength="50" style="width: 400px;" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="رمز عبور خود را دوباره وارد کنید"></asp:RequiredFieldValidator>
+                        <br />
+                        موبایل
+                  <br />
+                        <input type="text" class="form-control" placeholder="شماره موبایل خود را وارد کنید" id="txtmobile" runat="server" maxlength="11" style="width: 400px;" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="TxtPassword" CssClass="alert-danger" runat="server" ErrorMessage="شماره موبایل خود را وارد کنید"></asp:RequiredFieldValidator>
+                        <br />
+
+
+                        آدرس
+                  <br />
+                        <input type="text" class="form-control" placeholder="آدرس خود را وارد کنید" id="txtadress" runat="server" maxlength="50" style="width: 400px;" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="آدرس را وارد کنید"></asp:RequiredFieldValidator>
+                        <br />
+                        کد پستی
+                  <br />
+                        <input type="text" class="form-control" placeholder="کدپستی خود را بدون خط تیره وارد کنید" id="txtzip" runat="server" maxlength="10" style="width: 400px;" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="TxtPassword" CssClass="alert-danger" runat="server" ErrorMessage="کدپستی خود را وارد کنید"></asp:RequiredFieldValidator>
+                        <br />
+                        <div>
+                            استان :
+                            <asp:DropDownList ID="ddlState" runat="server" Width="150" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                            <br />
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    شهر &nbsp :
+                                    <asp:DropDownList ID="ddlCity" runat="server" Width="150"></asp:DropDownList>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </div>
-                        <asp:TextBox ID="txtCaptcha" runat="server" Style="display: none" />
-                        <asp:RequiredFieldValidator ID="rfvCaptcha" ErrorMessage="Captcha validation is required." ControlToValidate="txtCaptcha"
-                            runat="server" ForeColor="Red" Display="Dynamic" />--%>
+                        <br />
 
                         <asp:UpdatePanel ID="UpdateImage" runat="server">
                             <ContentTemplate>
@@ -117,14 +191,14 @@
                         </asp:UpdatePanel>
                         <input type="text" id="txtImage" runat="server" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline"></input>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button runat="server" ID="BtnLogin" CssClass="btn btn-success" Text="ورود" OnClick="BtnLogin_Click" Height="50" Width="100" />
+                        <asp:Button runat="server" ID="BtnLogin" CssClass="btn btn-success" Text="ثبت نام" OnClick="BtnLogin_Click" Height="50" Width="100" />
                         <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" BackColor="LightPink"></asp:Label>
                         <span runat="server" id="SpLabl" class="alert-danger"></span>
                         <br />
                         <br />
                     </div>
-                    <div class="col-md-4">
-                    </div>
+                    <%--<div class="col-md-4">
+                    </div>--%>
                 </div>
 
             </div>

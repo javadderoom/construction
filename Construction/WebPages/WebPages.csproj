@@ -90,6 +90,35 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ie8.css" />
+    <Content Include="assets\css\ie9.css" />
+    <Content Include="assets\css\images\arrow.svg" />
+    <Content Include="assets\css\images\ie\banner-overlay.png" />
+    <Content Include="assets\css\images\overlay.png" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\ie\html5shiv.js" />
+    <Content Include="assets\js\ie\PIE.htc" />
+    <Content Include="assets\js\ie\respond.min.js" />
+    <Content Include="assets\js\jquery-3.2.1.min.js" />
+    <Content Include="assets\js\jquery.dropotron.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.scrollex.min.js" />
+    <Content Include="assets\js\jquery.scrolly.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\skel.min.js" />
+    <Content Include="assets\js\util.js" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\pic01.jpg" />
+    <Content Include="Images\pic02.jpg" />
+    <Content Include="Images\pic03.jpg" />
+    <Content Include="Images\pic04.jpg" />
+    <Content Include="Images\pic05.jpg" />
+    <Content Include="Images\pic06.jpg" />
+    <Content Include="Images\pic07.jpg" />
+    <Content Include="Images\pic08.jpg" />
+    <Content Include="Images\Steel_construction.jpg" />
     <Content Include="packages.config" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
@@ -107,6 +136,18 @@
     <Content Include="fonts\Yekan.eot" />
     <Content Include="fonts\Yekan.ttf" />
     <Content Include="fonts\Yekan.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\sass\ie8.scss" />
+    <Content Include="assets\sass\ie9.scss" />
+    <Content Include="assets\sass\libs\_functions.scss" />
+    <Content Include="assets\sass\libs\_mixins.scss" />
+    <Content Include="assets\sass\libs\_skel.scss" />
+    <Content Include="assets\sass\libs\_vars.scss" />
+    <Content Include="assets\sass\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,8 +173,13 @@
     <Content Include="Icons\instagram-logo.png" />
     <Content Include="Icons\telegram-logo green.png" />
     <Content Include="Icons\telegram-logo.png" />
+    <Content Include="test.aspx" />
     <Content Include="Web.config" />
+    <Content Include="_Scripts\HomeJavaScript.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
+    <Content Include="_Scripts\jquery.minv1.11.3.js" />
+    <Content Include="_Slider\JavaScript.js" />
+    <Content Include="_Slider\_sliderStyle.css" />
     <Content Include="_Styles\HomeStyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +194,13 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,7 +5,17 @@ body {
     padding-right: 0px;
     padding-left: 0px;
     font-family: IRANSansLight,Arial;
-    background-color: aliceblue;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.fixclass {
+    border-bottom: none !important;
+    background-color: #190f0f;
+    opacity: 0.85;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
 }
 
 @font-face {
@@ -42,11 +52,6 @@ body {
     padding-left: 0px;
 }
 
-.inner-container {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
 a {
     text-decoration: none;
     color: #9E9E9E;
@@ -56,14 +61,6 @@ a {
         text-decoration: none;
         color: #1FBF67;
     }
-
-.navbar {
-    margin-bottom: 0px;
-}
-
-.navbar-default {
-    background-image: none;
-}
 
 .top-nav {
     width: 100%;
@@ -86,12 +83,54 @@ a {
 }
 
 .second-nav {
-    position: relative;
-    max-width: 1170px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
+    background-image: none !important;
     margin-right: auto;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    margin-top: 0px;
+    position: absolute;
+    z-index: 999;
+    max-width: 1170px;
+    width: 100%;
+    padding-right: 15px;
+    box-shadow: none !important;
+}
+
+.line_verticall {
+    border-bottom: 1px #DDE2E6 solid;
+    height: 51px;
+    width: 100%;
+    z-index: 998;
+    position: absolute;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.3), (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (min-device-pixel-ratio: 1.3), (min-device-width: 1200px),(max-device-width: 1600px) {
+    #myNavbar {
+        float: right;
+        direction: rtl;
+    }
+}
+
+@media(max-width:767px) {
+    #myNavbar {
+        text-align: center;
+        float: none !important;
+    }
+}
+
+@media (min-device-width: 200px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: portrait) {
+    #myNavbar {
+        text-align: center;
+        float: none !important;
+    }
+}
+
+@media (min-device-width: 200px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: Landscape) {
+    #myNavbar {
+        text-align: center;
+        float: none !important;
+    }
 }
 
 .email {

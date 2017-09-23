@@ -73,6 +73,8 @@ namespace WebPages
                 if (eid == 0)
                 {
                     lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    txtImage.Value = "";
+                    FillImageText();
                     return;
                 }
                 else
@@ -90,6 +92,8 @@ namespace WebPages
                 if (uid == 0)
                 {
                     lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    txtImage.Value = "";
+                    FillImageText();
                     return;
                 }
                 else

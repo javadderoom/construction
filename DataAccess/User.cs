@@ -22,7 +22,11 @@ namespace DataAccess
         public string Mobile { get; set; }
         public string Address { get; set; }
         public string PostalCode { get; set; }
-        public string State { get; set; }
-        public string City { get; set; }
+        public Nullable<int> State { get; set; }
+        public Nullable<int> City { get; set; }
+        public string Email { get; set; }
+    
+        public virtual State State1 { get; set; }
+        public virtual State State2 { get; set; }
     }
 }

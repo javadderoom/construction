@@ -13,6 +13,7 @@ namespace Common
 {
     public class OnlineTools
     {
+        static public string conString = "data source =.; initial catalog = ConstructionCompany; integrated security = True;";
         public static void ShowMessage(Label lbl, string msg, Color col)
         {
             lbl.Text = msg;

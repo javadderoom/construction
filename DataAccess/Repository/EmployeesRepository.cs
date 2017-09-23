@@ -8,6 +8,7 @@ using System.Data;
 using System.Web.Configuration;
 using System.Configuration;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace DataAccess.Repository
 {
@@ -29,7 +30,14 @@ namespace DataAccess.Repository
 
             return query;
         }
-
+        public int getLastEmployeeID()
+        {
+            int query =
+               (from r in database.Employees
+                orderby r.EmployeeID descending
+                select r.EmployeeID).FirstOrDefault();
+            return query;
+        }
         public void SaveEmployees(Employee kramand)
         {
 
@@ -48,7 +56,15 @@ namespace DataAccess.Repository
             database.SaveChanges();
 
         }
-
+        public DataTable getEmployeeProfileInfo(int id)
+        {
+            string Command = string.Format("select *,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Employees left outer join States on Employees.State = States.StateID left outer join Cities on Employees.City = Cities.CityID where EmployeeID = {0}", id);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
 
 
         public void DeleteEmployee(int EID)

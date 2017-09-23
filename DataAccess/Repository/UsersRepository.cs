@@ -8,6 +8,7 @@ using System.Data;
 using System.Web.Configuration;
 using System.Configuration;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace DataAccess.Repository
 {
@@ -29,7 +30,14 @@ namespace DataAccess.Repository
 
             return query;
         }
-
+        public int getLastUserID()
+        {
+            int query =
+               (from r in database.Users
+                orderby r.UserID descending
+                select r.UserID).FirstOrDefault();
+            return query;
+        }
         public void SaveUsers(User user)
         {
 
@@ -78,6 +86,16 @@ namespace DataAccess.Repository
                 db.ExecuteCommand("TRUNCATE TABLE Users");
             }
 
+        }
+
+        public DataTable getUserProfileInfo(int id)
+        {
+            string Command = string.Format("select *,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Users left outer join States on Users.State = States.StateID left outer join Cities on Users.City = Cities.CityID where UserID = {0}", id);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
         }
     }
 }

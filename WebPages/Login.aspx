@@ -22,6 +22,11 @@
     <script src="js/jquery.validate.min.js"></script>
     <link href="_Styles/StyleSheet.css" rel="stylesheet" />
     <link href="_Styles/sasan.css" rel="stylesheet" />
+    <style>
+        .form-control:focus {
+            border-color: #18bc9c;
+        }
+    </style>
 </head>
 <body style="overflow-x: hidden">
 
@@ -49,7 +54,7 @@
                         <a href="../../pages/Users/Loginpage.aspx">ورود </a>
                     </li>
                     <li class="page-scroll">
-                        <a href="../../pages/Users/RegUser.aspx">ثبت نام</a>
+                        <a href="">ثبت نام</a>
                     </li>
                 </ul>
             </div>
@@ -115,7 +120,7 @@
                                 </table>
                             </ContentTemplate>
                         </asp:UpdatePanel>
-                        <input type="text" id="txtImage" runat="server" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline"></input>
+                        <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline"></input>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button runat="server" ID="BtnLogin" CssClass="btn btn-success" Text="ورود" OnClick="BtnLogin_Click" Height="50" Width="100" />
                         <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" BackColor="LightPink"></asp:Label>

@@ -19,12 +19,15 @@ namespace DataAccess
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string Profession { get; set; }
-        public Nullable<int> CV { get; set; }
-        public string State { get; set; }
-        public string City { get; set; }
+        public byte[] CV { get; set; }
+        public Nullable<int> State { get; set; }
+        public Nullable<int> City { get; set; }
         public string Address { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
+        public string PostalCode { get; set; }
+    
+        public virtual City City1 { get; set; }
+        public virtual State State1 { get; set; }
     }
 }

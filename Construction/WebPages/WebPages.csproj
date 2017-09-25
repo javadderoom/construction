@@ -109,7 +109,14 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\skel.min.js" />
     <Content Include="assets\js\util.js" />
+    <Content Include="Images\1 %281%29.jpg" />
+    <Content Include="Images\1 %282%29.jpg" />
+    <Content Include="Images\1 %283%29.jpg" />
+    <Content Include="Images\1 %284%29.jpg" />
+    <Content Include="Images\1 %285%29.jpg" />
+    <Content Include="Images\1 %286%29.jpg" />
     <Content Include="Images\banner.jpg" />
+    <Content Include="Images\BKTP.png" />
     <Content Include="Images\pic01.jpg" />
     <Content Include="Images\pic02.jpg" />
     <Content Include="Images\pic03.jpg" />
@@ -118,7 +125,7 @@
     <Content Include="Images\pic06.jpg" />
     <Content Include="Images\pic07.jpg" />
     <Content Include="Images\pic08.jpg" />
-    <Content Include="Images\Steel_construction.jpg" />
+    <Content Include="Images\profile.png" />
     <Content Include="packages.config" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />

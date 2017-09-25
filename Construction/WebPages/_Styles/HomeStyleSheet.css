@@ -68,7 +68,7 @@ a {
     margin-right: 0px;
     margin-left: 0px;
     border-bottom: 1px #DDE2E6 solid;
-    background-color: white;
+    background-color: #20212a;
 }
 
 .top-nav-inner {
@@ -198,3 +198,24 @@ a {
             width: 25px;
             background-image: url('../Icons/instagram-logo green.png');
         }
+
+/*------------back to top-----------------*/
+.scrollToTop {
+    z-index: 99999999999;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    display: none;
+    background-image: url('../Images/BKTP.png');
+    background-size: contain;
+}
+
+    .scrollToTop:hover {
+        text-decoration: none;
+    }

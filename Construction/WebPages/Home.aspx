@@ -1,4 +1,4 @@
-﻿d+8\[piu '<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WebPages.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WebPages.Home" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
     <title></title>
     <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link href="assets/css/main.css" rel="stylesheet" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -16,7 +16,6 @@
     <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <script src="_Scripts/jquery.minv1.11.3.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
     <script src="_Slider/JavaScript.js"></script>
     <link href="_Slider/_sliderStyle.css" rel="stylesheet" />
     <link href="_Styles/HomeStyleSheet.css" rel="stylesheet" />
@@ -27,7 +26,9 @@
     <form id="form1" runat="server">
         <div>
             <div class="container-fluid ">
-
+                <a
+                    href="#"
+                    class="scrollToTop"></a>
                 <div class="top-nav hidden-xs hidden-s">
                     <div class="top-nav-inner">
                         <div class="email">
@@ -149,14 +150,15 @@
                         <section id="banner">
                             <div class="content">
                                 <header>
-                                    <h2>The future has landed</h2>
+                                    <h2>آینده اینجاست</h2>
                                     <p>
-                                        And there are no hoverboards or flying cars.<br />
-                                        Just apps. Lots of mother flipping apps.
+                                        و هیچ ماشین پرده ای وجود ندارد<br />
+                                        . فقط نرم افزار ، خیلی نرم افزار
                                     </p>
                                 </header>
                                 <span class="image">
-                                    <img src="images/pic01.jpg" alt="" /></span>
+                                    <img src="Images/profile.png" />
+                                </span>
                             </div>
                             <a href="#one" class="goto-next scrolly">Next</a>
                         </section>
@@ -164,7 +166,7 @@
                         <!-- One -->
                         <section id="one" class="spotlight style1 bottom">
                             <span class="image fit main">
-                                <img src="images/pic02.jpg" alt="" /></span>
+                                <img src="images/1 (3).jpg" alt="" /></span>
                             <div class="content">
                                 <div class="container">
                                     <div class="row">
@@ -201,13 +203,100 @@
                         <!-- Two -->
                         <section id="two" class="spotlight style2 right">
                             <span class="image fit main">
-                                <img src="images/pic03.jpg" alt="" /></span>
+                                <img src="images/1 (4).jpg" alt="" /></span>
                             <div class="content">
-                                <header>
-                                    <h2>Interdum amet non magna accumsan</h2>
-                                    <p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
-                                </header>
-                                <p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
+                                <div class="cont">
+                                    <div class="demo">
+                                        <div class="login">
+                                            <div class="login__check"></div>
+                                            <div class="login__form">
+                                                <div class="login__row">
+                                                    <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+                                                        <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+                                                    </svg>
+                                                    <input type="text" class="login__input name" />
+                                                </div>
+                                                <div class="login__row">
+                                                    <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+                                                        <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+                                                    </svg>
+                                                    <input type="password" class="login__input pass" />
+                                                </div>
+                                                <button type="button" class="login__submit">Sign in</button>
+                                                <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="app">
+                                            <div class="app__top">
+                                                <div class="app__menu-btn">
+                                                    <span></span>
+                                                </div>
+                                                <svg class="app__icon search svg-icon" viewBox="0 0 20 20">
+                                                    <!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
+                                                    <path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
+                                                </svg>
+                                                <p class="app__hello">Good Morning!</p>
+                                                <div class="app__user">
+                                                    <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app__user-photo" />
+                                                    <span class="app__user-notif">3</span>
+                                                </div>
+                                                <div class="app__month">
+                                                    <span class="app__month-btn left"></span>
+                                                    <p class="app__month-name">March</p>
+                                                    <span class="app__month-btn right"></span>
+                                                </div>
+                                            </div>
+                                            <div class="app__bot">
+                                                <div class="app__days">
+                                                    <div class="app__day weekday">Sun</div>
+                                                    <div class="app__day weekday">Mon</div>
+                                                    <div class="app__day weekday">Tue</div>
+                                                    <div class="app__day weekday">Wed</div>
+                                                    <div class="app__day weekday">Thu</div>
+                                                    <div class="app__day weekday">Fri</div>
+                                                    <div class="app__day weekday">Sad</div>
+                                                    <div class="app__day date">8</div>
+                                                    <div class="app__day date">9</div>
+                                                    <div class="app__day date">10</div>
+                                                    <div class="app__day date">11</div>
+                                                    <div class="app__day date">12</div>
+                                                    <div class="app__day date">13</div>
+                                                    <div class="app__day date">14</div>
+                                                </div>
+                                                <div class="app__meetings">
+                                                    <div class="app__meeting">
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-80_5.jpg" alt="" class="app__meeting-photo" />
+                                                        <p class="app__meeting-name">Feed the cat</p>
+                                                        <p class="app__meeting-info">
+                                                            <span class="app__meeting-time">8 - 10am</span>
+                                                            <span class="app__meeting-place">Real-life</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="app__meeting">
+                                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app__meeting-photo" />
+                                                        <p class="app__meeting-name">Feed the cat!</p>
+                                                        <p class="app__meeting-info">
+                                                            <span class="app__meeting-time">1 - 3pm</span>
+                                                            <span class="app__meeting-place">Real-life</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="app__meeting">
+                                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app__meeting-photo" />
+                                                        <p class="app__meeting-name">FEED THIS CAT ALREADY!!!</p>
+                                                        <p class="app__meeting-info">
+                                                            <span class="app__meeting-time">This button is just for demo ></span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="app__logout">
+                                                <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
+                                                    <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <ul class="actions">
                                     <li><a href="#" class="button">Learn More</a></li>
                                 </ul>
@@ -218,11 +307,11 @@
                         <!-- Three -->
                         <section id="three" class="spotlight style3 left">
                             <span class="image fit main bottom">
-                                <img src="images/pic04.jpg" alt="" /></span>
+                                <img src="images/1 (6).jpg" alt="" /></span>
                             <div class="content">
                                 <header>
-                                    <h2>Interdum felis blandit praesent sed augue</h2>
-                                    <p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
+                                    <h2>Interdum amet non magna accumsan</h2>
+                                    <p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
                                 </header>
                                 <p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
                                 <ul class="actions">
@@ -329,6 +418,7 @@
                 </div>
             </div>
         </div>
+        <
 
         <script src="_Scripts/HomeJavaScript.js"></script>
     </form>

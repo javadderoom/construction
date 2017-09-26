@@ -95,8 +95,8 @@
                                             <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                                         </svg>
                                         <div class="slide__text">
-                                            <h2 class="slide__text-heading">Project name 1</h2>
-                                            <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+                                            <h2 class="slide__text-heading">نام پروژه</h2>
+                                            <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگی متن ساختگی متن ساختگیمتن ساختگیمتن ساختگی</p>
                                             <a class="slide__text-link">Project link</a>
                                         </div>
                                     </div>
@@ -108,8 +108,8 @@
                                             <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                                         </svg>
                                         <div class="slide__text">
-                                            <h2 class="slide__text-heading">Project name 2</h2>
-                                            <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+                                            <h2 class="slide__text-heading">نام پروژه </h2>
+                                            <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگی متن ساختگیمتن ساختگی متن ساختگی</p>
                                             <a class="slide__text-link">Project link</a>
                                         </div>
                                     </div>
@@ -121,8 +121,8 @@
                                             <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                                         </svg>
                                         <div class="slide__text">
-                                            <h2 class="slide__text-heading">Project name 3</h2>
-                                            <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+                                            <h2 class="slide__text-heading">نام پروژه</h2>
+                                            <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگی متن ساختگی متن ساختگی متن ساختگی</p>
                                             <a class="slide__text-link">Project link</a>
                                         </div>
                                     </div>
@@ -134,8 +134,8 @@
                                             <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                                         </svg>
                                         <div class="slide__text">
-                                            <h2 class="slide__text-heading">Project name 4</h2>
-                                            <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
+                                            <h2 class="slide__text-heading">نام پروژه</h2>
+                                            <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگیمتن ساختگی ر متن ساختگی</p>
                                             <a class="slide__text-link">Project link</a>
                                         </div>
                                     </div>
@@ -172,26 +172,25 @@
                                     <div class="row">
                                         <div class="4u 12u$(medium)">
                                             <header>
-                                                <h2>Odio faucibus ipsum integer consequat</h2>
-                                                <p>Nascetur eu nibh vestibulum amet gravida nascetur praesent</p>
+                                                <h2>متن ساختگی</h2>
+                                                <p>متن ساختگی</p>
                                             </header>
                                         </div>
                                         <div class="4u 12u$(medium)">
                                             <p>
-                                                Feugiat accumsan lorem eu ac lorem amet sed accumsan donec.
-									Blandit orci porttitor semper. Arcu phasellus tortor enim mi
-									nisi praesent dolor adipiscing. Integer mi sed nascetur cep aliquet
-									augue varius tempus lobortis porttitor accumsan consequat
-									adipiscing lorem dolor.
+                                                لورم ایپسوم متن ساختگی با
+                                                تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                                                از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
+                                                 درصد گذشته، حال و آینده شناخت فراوان جامعه
                                             </p>
                                         </div>
                                         <div class="4u$ 12u$(medium)">
                                             <p>
-                                                Morbi enim nascetur et placerat lorem sed iaculis neque ante
-									adipiscing adipiscing metus massa. Blandit orci porttitor semper.
-									Arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer
-									mi sed nascetur cep aliquet augue varius tempus. Feugiat lorem
-									ipsum dolor nullam.
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                                                 از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
+                                                 برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                 کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبدی
                                             </p>
                                         </div>
                                     </div>
@@ -298,7 +297,7 @@
                                     </div>
                                 </div>
                                 <ul class="actions">
-                                    <li><a href="#" class="button">Learn More</a></li>
+                                    <li><a href="#" class="button">ادامه</a></li>
                                 </ul>
                             </div>
                             <a href="#three" class="goto-next scrolly">Next</a>
@@ -310,10 +309,15 @@
                                 <img src="images/1 (6).jpg" alt="" /></span>
                             <div class="content">
                                 <header>
-                                    <h2>Interdum amet non magna accumsan</h2>
-                                    <p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
+                                    <h2>لورم ایپسوم</h2>
+                                    <p>لورم ایپسوم</p>
                                 </header>
-                                <p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                                                 از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
+                                                 برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                 کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبدی
+                                </p>
                                 <ul class="actions">
                                     <li><a href="#" class="button">Learn More</a></li>
                                 </ul>
@@ -322,68 +326,68 @@
                         </section>
 
                         <!-- Four -->
-                        <section id="four" class="wrapper style1 special fade-up">
+                        <section id="four" class="wrapper style1 special fade-up" style="background-color: #1C1D26">
                             <div class="container">
                                 <header class="major">
-                                    <h2>Accumsan sed tempus adipiscing blandit</h2>
-                                    <p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
+                                    <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.</h2>
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                 </header>
                                 <div class="box alt">
                                     <div class="row uniform">
                                         <section class="4u 6u(medium) 12u$(xsmall)">
                                             <span class="icon alt major fa-area-chart"></span>
-                                            <h3>Ipsum sed commodo</h3>
-                                            <p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+                                            <h3>بخش</h3>
+                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                         </section>
                                         <section class="4u 6u$(medium) 12u$(xsmall)">
                                             <span class="icon alt major fa-comment"></span>
-                                            <h3>Eleifend lorem ornare</h3>
-                                            <p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+                                            <h3>بخش</h3>
+                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                         </section>
                                         <section class="4u$ 6u(medium) 12u$(xsmall)">
                                             <span class="icon alt major fa-flask"></span>
-                                            <h3>Cubilia cep lobortis</h3>
-                                            <p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+                                            <h3>بخش</h3>
+                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                         </section>
                                         <section class="4u 6u$(medium) 12u$(xsmall)">
                                             <span class="icon alt major fa-paper-plane"></span>
-                                            <h3>Non semper interdum</h3>
-                                            <p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+                                            <h3>بخش</h3>
+                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                         </section>
                                         <section class="4u 6u(medium) 12u$(xsmall)">
                                             <span class="icon alt major fa-file"></span>
-                                            <h3>Odio laoreet accumsan</h3>
-                                            <p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+                                            <h3>بخش</h3>
+                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                         </section>
                                         <section class="4u$ 6u$(medium) 12u$(xsmall)">
                                             <span class="icon alt major fa-lock"></span>
-                                            <h3>Massa arcu accumsan</h3>
-                                            <p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+                                            <h3>بخش</h3>
+                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                         </section>
                                     </div>
                                 </div>
                                 <footer class="major">
                                     <ul class="actions">
-                                        <li><a href="#" class="button">Magna sed feugiat</a></li>
+                                        <li><a href="#" class="button">اکشن</a></li>
                                     </ul>
                                 </footer>
                             </div>
                         </section>
 
                         <!-- Five -->
-                        <section id="five" class="wrapper style2 special fade">
+                        <section id="five" class="wrapper style2 special fade-up">
                             <div class="container">
                                 <header>
-                                    <h2>Magna faucibus lorem diam</h2>
-                                    <p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
+                                    <h2>لورم ایپسوم</h2>
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                 </header>
                                 <div <%--method="post" action="#"--%> class="container 50%">
                                     <div class="row uniform 50%">
                                         <div class="8u 12u$(xsmall)">
-                                            <input type="email" name="email" id="email" placeholder="Your Email Address" />
+                                            <input type="email" name="email" id="email" placeholder="آدرس ایمیل شما" />
                                         </div>
                                         <div class="4u$ 12u$(xsmall)">
-                                            <input type="submit" value="Get Started" class="fit special" />
+                                            <input type="submit" value="شروع" class="fit special" />
                                         </div>
                                     </div>
                                 </div>
@@ -400,10 +404,10 @@
                                 <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
                                 <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
                             </ul>
-                            <ul class="copyright">
+                            <%--  <ul class="copyright">
                                 <li>&copy; Untitled. All rights reserved.</li>
                                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                            </ul>
+                            </ul>--%>
                         </footer>
                     </div>
                     <!-- Scripts -->

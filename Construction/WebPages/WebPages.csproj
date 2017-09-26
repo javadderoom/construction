@@ -90,6 +90,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+
+    <Content Include="NewClient.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\IRANSansWeb_Light.woff" />
+    <Content Include="fonts\IRANSansWeb_Medium.woff" />
+    <Content Include="fonts\IRANSansWeb_UltraLight.woff" />
+
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\ie8.css" />
     <Content Include="assets\css\ie9.css" />
@@ -155,6 +162,7 @@
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
     <Content Include="assets\sass\main.scss" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -182,12 +190,17 @@
     <Content Include="Icons\telegram-logo.png" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />
+
+    <Content Include="_Styles\hamoonStyle.css" />
+    
+
     <Content Include="_Scripts\HomeJavaScript.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
     <Content Include="_Slider\JavaScript.js" />
     <Content Include="_Slider\_sliderStyle.css" />
     <Content Include="_Styles\HomeStyleSheet.css" />
+
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -199,6 +212,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewClient.aspx.cs">
+      <DependentUpon>NewClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewClient.aspx.designer.cs">
+      <DependentUpon>NewClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.aspx.cs">

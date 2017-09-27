@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/UserPanel/UsersMaster.Master" AutoEventWireup="true" CodeBehind="MessageInbox.aspx.cs" Inherits="WebPages.Panels.UserPanel.MessageInbox" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="MessageInboxEmployee.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.MessageInboxEmployee" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8" />
@@ -90,4 +90,5 @@
         </div>
     </div>
     <div class="extra"></div>
+
 </asp:Content>

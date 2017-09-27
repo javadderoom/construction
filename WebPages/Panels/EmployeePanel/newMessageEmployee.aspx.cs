@@ -3,7 +3,6 @@ using DataAccess;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Transactions;
@@ -11,9 +10,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebPages.Panels.UserPanel
+namespace WebPages.Panels.EmployeePanel
 {
-    public partial class newMessage : System.Web.UI.Page
+    public partial class newMessageEmployee : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,8 +42,8 @@ namespace WebPages.Panels.UserPanel
                 return;
             }
 
-            int id = Session["userid"].ToString().ToInt();
-            string tbl = "use";
+            int id = Session["employeeid"].ToString().ToInt();
+            string tbl = "emp";
 
             string filename = Path.GetFileName(FileUpload1.FileName);
             string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();

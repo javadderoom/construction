@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPages.Panels.UserPanel
-{
-
-
-    public partial class newMessage
-    {
-
+namespace WebPages.Panels.EmployeePanel {
+    
+    
+    public partial class newMessageEmployee {
+        
         /// <summary>
         /// txtSubject control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtSubject;
-
+        
         /// <summary>
         /// RequiredFieldValidator7 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-
+        
         /// <summary>
         /// tbxMessageText control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea tbxMessageText;
-
+        
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
+        
         /// <summary>
         /// FileUpload1 control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
+        
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-
+        
         /// <summary>
         /// btnSend control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace WebPages.Panels.UserPanel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputButton btnSend;
-
+        
         /// <summary>
         /// lblWarning control.
         /// </summary>

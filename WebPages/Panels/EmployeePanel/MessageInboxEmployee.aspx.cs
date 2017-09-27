@@ -7,9 +7,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebPages.Panels.UserPanel
+namespace WebPages.Panels.EmployeePanel
 {
-    public partial class MessageInbox : System.Web.UI.Page
+    public partial class MessageInboxEmployee : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@ namespace WebPages.Panels.UserPanel
 
         private void fillGV()
         {
-            int id = Session["userid"].ToString().ToInt();
+            int id = Session["employeeid"].ToString().ToInt();
             ChatsRepository cr = new ChatsRepository();
             gvChats.DataSource = cr.Inbox(id);
             gvChats.DataBind();
@@ -29,7 +29,7 @@ namespace WebPages.Panels.UserPanel
 
         protected void btnSearch_ServerClick(object sender, EventArgs e)
         {
-            int id = Session["userid"].ToString().ToInt();
+            int id = Session["employeeid"].ToString().ToInt();
             ChatsRepository cr = new ChatsRepository();
             gvChats.DataSource = cr.Search(id, tbxSearch.Value);
             gvChats.DataBind();
@@ -55,8 +55,9 @@ namespace WebPages.Panels.UserPanel
             {
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrue(Session["chatidForMessages"].ToString().ToInt(), "adm");
-                Response.Redirect("http://localhost:6421/Panels/UserPanel/Messages.aspx");
+                Response.Redirect("http://localhost:6421/Panels/EmployeePanel/MessagesEmployee.aspx");
             }
         }
+
     }
 }

@@ -17,7 +17,7 @@ namespace WebPages
 
             Response.Clear();
             int height = 30;
-            int width = 70;
+            int width = 100;
             Bitmap bt = new Bitmap(width, height);
 
             RectangleF rectf = new RectangleF(7, 5, 0, 0);

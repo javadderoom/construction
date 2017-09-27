@@ -97,5 +97,37 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+
+        public void setNewPassForUser(int userid, string pass)
+        {
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("update Users set users.Password=N'{1}' where UserID={0}", userid, pass);
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public string getUserPass(int userid)
+        {
+            string pass =
+                (
+                    from r in database.Users
+                    where r.UserID == userid
+                    select r.Password
+                ).FirstOrDefault();
+            return pass;
+        }
+
+        public void setNewMobileForUser(int userid, string mobile)
+        {
+
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("update Users set users.Mobile=N'{1}' where UserID={0}", userid, mobile);
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

@@ -80,7 +80,7 @@ namespace WebPages
                 else
                 {
                     Session.Add("employeeid", eid);
-                    //Response.Redirect();
+                    Response.Redirect("http://localhost:6421/Panels/EmployeePanel/profile.aspx");
 
                 }
 
@@ -98,8 +98,10 @@ namespace WebPages
                 }
                 else
                 {
-                    Session.Add("employeeid", uid);
-                    //Response.Redirect();
+
+                    Session.Add("userid", uid);
+                    Response.Redirect("http://localhost:6421/Panels/UserPanel/profile.aspx");
+
 
                 }
             }

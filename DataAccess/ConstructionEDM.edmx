@@ -117,6 +117,7 @@
           <Property Name="SenderTable" Type="nvarchar" MaxLength="3" />
           <Property Name="SenderID" Type="int" />
           <Property Name="ChatID" Type="int" />
+          <Property Name="hasSeen" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -481,6 +482,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="SenderTable" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="SenderID" Type="Int32" />
           <Property Name="ChatID" Type="Int32" />
+          <Property Name="hasSeen" Type="Boolean" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -749,6 +751,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySetMapping Name="Messages">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Message">
               <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="hasSeen" ColumnName="hasSeen" />
                 <ScalarProperty Name="ChatID" ColumnName="ChatID" />
                 <ScalarProperty Name="SenderID" ColumnName="SenderID" />
                 <ScalarProperty Name="SenderTable" ColumnName="SenderTable" />

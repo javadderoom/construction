@@ -1,11 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UsersMaster.master.cs" Inherits="WebPages.Panels.UserPanel.UsersMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="WebPages.Panels.Admin.AdminMaster" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -246,5 +245,6 @@
         <script src="../../js/JavaScript.js"></script>
         <script src="../../js/sidebar_menu.js"></script>
     </form>
+
 </body>
 </html>

@@ -24,11 +24,41 @@ namespace DataAccess.Repository
         {
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
             conn.Open();
-            string sql2 = string.Format("update Messages set hasSeen = 1 where ChatID = {0} and SenderTable = '{1}'", chatid, tbl);
+            string sql2 = string.Format("update Messages set hasSeen = 0 where ChatID = {0} and SenderTable = '{1}'", chatid, tbl);
             SqlCommand myCommand2 = new SqlCommand(sql2, conn);
             myCommand2.ExecuteNonQuery();
             conn.Close();
 
+        }
+        public DataTable getMessages(int chatid)
+        {
+            string Command = string.Format("select *,MessageDate +' - ' +MessageTime as fullTime from Messages where ChatID = {0} order by MessageID desc", chatid);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
+        public int getChatMessgesCount(int chatid)
+        {
+            int query =
+                (
+                    from r in database.Messages
+                    where r.ChatID == chatid
+                    select r
+                ).Count();
+
+            return query;
+        }
+
+        public DataTable getMessagesInfo(int chatid)
+        {
+            string Command = string.Format("select Chats.*,UserName	,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID asc) as firstMsgDate from Chats left outer join Employees on Chats.User_Employee_ID = Employees.EmployeeID where ChatID = {0}", chatid);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
         }
 
 

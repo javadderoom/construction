@@ -14,6 +14,7 @@ namespace WebPages.Panels.UserPanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Add("userid", 1);
             if (!IsPostBack)
             {
                 setLabels();

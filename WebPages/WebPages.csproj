@@ -174,7 +174,14 @@
     <Content Include="bin2\System.Web.WebPages.xml" />
     <Content Include="bin2\WebPages.dll" />
     <Content Include="bin2\WebPages.pdb" />
+    <Content Include="Panels\Admin\page.aspx" />
+    <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
+    <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
+    <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
+    <Content Include="Panels\EmployeePanel\profile.aspx" />
+    <Content Include="Panels\UserPanel\ChangeInfo.aspx" />
     <Content Include="Panels\UserPanel\MessageInbox.aspx" />
+    <Content Include="Panels\UserPanel\Messages.aspx" />
     <Content Include="Panels\UserPanel\newMessage.aspx" />
     <Content Include="Panels\UserPanel\profile.aspx" />
     <Content Include="Register.aspx" />
@@ -203,6 +210,8 @@
     <Content Include="bin2\persianDateTime\FarsiLibrary.Win.dll.refresh" />
     <Content Include="bin2\persianDateTime\PersianCalander.dll.refresh" />
     <Content Include="bin2\persianDateTime\WebCalendar.dll.refresh" />
+    <Content Include="Panels\Admin\AdminMaster.Master" />
+    <Content Include="Panels\EmployeePanel\EmployeeMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,12 +258,75 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\page.aspx.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\page.aspx.designer.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
+      <DependentUpon>EmployeeMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.designer.cs">
+      <DependentUpon>EmployeeMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\MessageInboxEmployee.aspx.cs">
+      <DependentUpon>MessageInboxEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\MessageInboxEmployee.aspx.designer.cs">
+      <DependentUpon>MessageInboxEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\MessagesEmployee.aspx.cs">
+      <DependentUpon>MessagesEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\MessagesEmployee.aspx.designer.cs">
+      <DependentUpon>MessagesEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\newMessageEmployee.aspx.cs">
+      <DependentUpon>newMessageEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\newMessageEmployee.aspx.designer.cs">
+      <DependentUpon>newMessageEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserPanel\ChangeInfo.aspx.cs">
+      <DependentUpon>ChangeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\UserPanel\ChangeInfo.aspx.designer.cs">
+      <DependentUpon>ChangeInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\UserPanel\MessageInbox.aspx.cs">
       <DependentUpon>MessageInbox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Panels\UserPanel\MessageInbox.aspx.designer.cs">
       <DependentUpon>MessageInbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserPanel\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\UserPanel\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\UserPanel\newMessage.aspx.cs">
       <DependentUpon>newMessage.aspx</DependentUpon>
@@ -296,7 +368,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Panels\EmployeePanel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

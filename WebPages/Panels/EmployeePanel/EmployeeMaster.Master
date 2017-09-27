@@ -1,11 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UsersMaster.master.cs" Inherits="WebPages.Panels.UserPanel.UsersMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EmployeeMaster.master.cs" Inherits="WebPages.Panels.EmployeePanel.EmployeeMaster" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -63,7 +62,7 @@
                             <ul class="nav-pills nav-stacked" style="list-style-type: none; display: block;">
                                 <li>
 
-                                    <a href="http://localhost:6421/Panels/UserPanel/profile.aspx" class="a-properties sub-menu">
+                                    <a href="http://localhost:6421/Panels/EmployeePanel/profile.aspx" class="a-properties sub-menu">
                                         <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
                                         <asp:Literal runat="server" Text="مشاهده ی پروفایل" />
                                         <span class="fa-stack fa-lg pull-left"></span>
@@ -88,13 +87,13 @@
                                     <i class="fa fa-user fa-stack-1x " style="float: left;"></i></span>
                             </a>
                             <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:6421/Panels/UserPanel/newMessage.aspx" class="a-properties sub-menu">
+                                <li><a href="http://localhost:6421/Panels/EmployeePanel/newMessageEmployee.aspx" class="a-properties sub-menu">
                                     <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
                                     <asp:Literal runat="server" Text="پیام جدید" />
                                     <span class="fa-stack fa-lg pull-left"></span>
                                 </a>
                                 </li>
-                                <li><a href="http://localhost:6421/Panels/UserPanel/MessageInbox.aspx" class="a-properties sub-menu">
+                                <li><a href="http://localhost:6421/Panels/EmployeePanel/MessageInboxEmployee.aspx" class="a-properties sub-menu">
                                     <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
                                     <asp:Literal runat="server" Text="صندوق پیام ها" />
 
@@ -246,5 +245,6 @@
         <script src="../../js/JavaScript.js"></script>
         <script src="../../js/sidebar_menu.js"></script>
     </form>
+
 </body>
 </html>

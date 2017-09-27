@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/UserPanel/UsersMaster.Master" AutoEventWireup="true" CodeBehind="newMessage.aspx.cs" Inherits="WebPages.Panels.UserPanel.newMessage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="newMessageEmployee.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.newMessageEmployee" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8" />
@@ -15,13 +15,13 @@
 
     <link href="../../_Styles/StyleSheet.css" rel="stylesheet" />
     <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="c-title">
         <h4>
 
-            <asp:Literal runat="server" Text="پیام جدید" /></h4>
+            <asp:literal runat="server" text="پیام جدید" />
+        </h4>
     </div>
 
     <div class="right_col" role="main" style="min-height: 420px;">
@@ -173,7 +173,7 @@
 
                                             <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
                                                 <input type="text" runat="server" maxlength="50" id="txtSubject" class="form-control text-right dirRight tbxCounter" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtSubject" CssClass="alert-danger" runat="server" ErrorMessage="موضوع پیام را وارد کنید"></asp:RequiredFieldValidator>
+                                                <asp:requiredfieldvalidator id="RequiredFieldValidator7" controltovalidate="txtSubject" cssclass="alert-danger" runat="server" errormessage="موضوع پیام را وارد کنید"></asp:requiredfieldvalidator>
                                             </div>
 
                                         </div>
@@ -189,7 +189,7 @@
 
                                         <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right dirRight">
                                             <textarea name="" runat="server" rows="2" cols="20" id="tbxMessageText" class="form-control text-right dirRight" maxlength="500" style="height: 160px;"></textarea>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="tbxMessageText" CssClass="alert-danger" runat="server" ErrorMessage="متن پیام را وارد کنید"></asp:RequiredFieldValidator>
+                                            <asp:requiredfieldvalidator id="RequiredFieldValidator1" controltovalidate="tbxMessageText" cssclass="alert-danger" runat="server" errormessage="متن پیام را وارد کنید"></asp:requiredfieldvalidator>
 
                                             <div style="width: 648px; text-align: right; color: green" id="lblcnt">ظرفیت : 500 کاراکتر</div>
                                         </div>
@@ -219,7 +219,7 @@
                                         <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
                                             <span id="ContentPlaceHolder1_FileUploadMessage" class="control-label formLabel" style="color: Green; font-size: 100%;">!حداکثر ظرفیت فایل آپلود 1 مگابایت</span>
 
-                                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                                            <asp:fileupload id="FileUpload1" runat="server" />
                                         </div>
                                     </div>
                                 </div>
@@ -227,14 +227,14 @@
 
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
-                                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                    <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
                                     <div class="col-xs-4 text-left">
                                     </div>
                                     <div class="col-xs-8 text-right">
 
                                         <input style="float: right; margin-left: 50px; margin-top: -3px" type="button" id="btnSend" class="btn btn-success" runat="server" onserverclick="btnSend_ServerClick" value="ارسال پیام" />
 
-                                        <asp:Label ID="lblWarning" runat="server" Text=""></asp:Label>
+                                        <asp:label id="lblWarning" runat="server" text=""></asp:label>
 
 
                                     </div>
@@ -290,6 +290,5 @@
         </footer>
         <!-- /footer content -->
     </div>
+
 </asp:Content>
-
-

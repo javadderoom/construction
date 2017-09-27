@@ -65,17 +65,17 @@
                             </div>
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#">Home</a></li>
+                                    <li class="active"><a href="#">خانه</a></li>
                                     <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">صفحه 1  <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Page 1-1</a></li>
-                                            <li><a href="#">Page 1-2</a></li>
-                                            <li><a href="#">Page 1-3</a></li>
+                                            <li><a href="#">صفحه 1-1</a></li>
+                                            <li><a href="#">صفحه 1-2</a></li>
+                                            <li><a href="#">صفحه</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Page 2</a></li>
-                                    <li><a href="#">Page 3</a></li>
+                                    <li><a href="#">صفحه 2</a></li>
+                                    <li><a href="#">صفحه 3</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                         <div class="slide__text">
                                             <h2 class="slide__text-heading">نام پروژه</h2>
                                             <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگی متن ساختگی متن ساختگیمتن ساختگیمتن ساختگی</p>
-                                            <a class="slide__text-link">Project link</a>
+                                            <a class="slide__text-link">لینک پروژه</a>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                         <div class="slide__text">
                                             <h2 class="slide__text-heading">نام پروژه </h2>
                                             <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگی متن ساختگیمتن ساختگی متن ساختگی</p>
-                                            <a class="slide__text-link">Project link</a>
+                                            <a class="slide__text-link">لینک پروژه</a>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                         <div class="slide__text">
                                             <h2 class="slide__text-heading">نام پروژه</h2>
                                             <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگی متن ساختگی متن ساختگی متن ساختگی</p>
-                                            <a class="slide__text-link">Project link</a>
+                                            <a class="slide__text-link">لینک پروژه</a>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
                                         <div class="slide__text">
                                             <h2 class="slide__text-heading">نام پروژه</h2>
                                             <p class="slide__text-desc">متن ساختگی متن ساختگی متن ساختگیمتن ساختگی ر متن ساختگی</p>
-                                            <a class="slide__text-link">Project link</a>
+                                            <a class="slide__text-link">لینک پروژه</a>
                                         </div>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                             <span class="image fit main">
                                 <img src="images/1 (4).jpg" alt="" /></span>
                             <div class="content">
-                                <div class="cont">
+                                <%--     <div class="cont">
                                     <div class="demo">
                                         <div class="login">
                                             <div class="login__check"></div>
@@ -295,7 +295,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
+                                <header>
+                                    <h2>لورم ایپسوم</h2>
+                                    <p>لورم ایپسوم</p>
+                                </header>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                                                 از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
+                                                 برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                 کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبدی
+                                </p>
                                 <ul class="actions">
                                     <li><a href="#" class="button">ادامه</a></li>
                                 </ul>
@@ -319,10 +329,10 @@
                                                  کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبدی
                                 </p>
                                 <ul class="actions">
-                                    <li><a href="#" class="button">Learn More</a></li>
+                                    <li><a href="#" class="button">ادامه</a></li>
                                 </ul>
                             </div>
-                            <a href="#four" class="goto-next scrolly">Next</a>
+                            <a href="#four" class="goto-next scrolly"></a>
                         </section>
 
                         <!-- Four -->

@@ -49,12 +49,20 @@ body {
 
 a {
     text-decoration: none;
-    color: #9E9E9E;
+    color: #9E9E9E !important;
 }
 
     a:hover {
         text-decoration: none;
-        color: #1FBF67;
+        color: #3d3dff !important;
+    }
+
+.navbar-default li a {
+    color: white !important;
+}
+
+    .navbar-default li a:hover {
+        color: #3d3dff;
     }
 
 .top-nav {
@@ -79,6 +87,8 @@ a {
 
 .second-nav {
     background-image: none !important;
+    opacity: 0.7;
+    background-color: #190f0f;
     margin-right: auto;
     margin-left: auto;
     left: 0;
@@ -92,7 +102,18 @@ a {
     box-shadow: none !important;
 }
 
+    .second-nav a {
+        color: blue;
+    }
+
+    .second-nav .active a {
+        background-color: #0200AE !important;
+        background-image: none !important;
+    }
+
 .line_verticall {
+    opacity: 0.7;
+    background-color: #190f0f;
     border-bottom: 1px #DDE2E6 solid;
     height: 51px;
     width: 100%;
@@ -109,6 +130,8 @@ a {
 
 @media(max-width:767px) {
     #myNavbar {
+        background-color: #190f0f;
+        opacity: 0.85;
         text-align: center;
         float: none !important;
     }
@@ -116,6 +139,8 @@ a {
 
 @media (min-device-width: 200px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: portrait) {
     #myNavbar {
+        background-color: #190f0f;
+        opacity: 0.85;
         text-align: center;
         float: none !important;
     }
@@ -123,6 +148,8 @@ a {
 
 @media (min-device-width: 200px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: Landscape) {
     #myNavbar {
+        background-color: #190f0f;
+        opacity: 0.85;
         text-align: center;
         float: none !important;
     }
@@ -138,6 +165,10 @@ a {
     line-height: 41px;
     text-align: center;
 }
+
+    .email:hover {
+        color: red;
+    }
 
 .phone {
     width: 182px;

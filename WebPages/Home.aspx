@@ -19,7 +19,6 @@
     <script src="_Slider/JavaScript.js"></script>
     <link href="_Slider/_sliderStyle.css" rel="stylesheet" />
     <link href="_Styles/HomeStyleSheet.css" rel="stylesheet" />
-    <script src="_Scripts/HomeJavaScript.js"></script>
 </head>
 
 <body class="landing">
@@ -32,12 +31,16 @@
                 <div class="top-nav hidden-xs hidden-s">
                     <div class="top-nav-inner">
                         <div class="email">
-                            <span class="glyphicon glyphicon-envelope iconColor" aria-hidden="true"></span>
-                            <a href="#" class="">demo@gmail.com</a>
+
+                            <a href="#" class="">
+                                <span class="glyphicon glyphicon-envelope " aria-hidden="true"></span>
+                                demo@gmail.com</a>
                         </div>
                         <div class="phone">
-                            <span class="glyphicon glyphicon-earphone iconColor" aria-hidden="true"></span>
-                            <a href="#" class="">1234</a>
+
+                            <a href="#" class="">
+                                <span class="glyphicon glyphicon-earphone " aria-hidden="true"></span>
+                                1234</a>
                         </div>
                         <div class="sosioal-network">
                             <ul>
@@ -52,7 +55,7 @@
                     </div>
                 </div>
                 <div class="line_verticall" id="fixme">
-                    <nav class="navbar-default  second-nav" style="background-color: transparent;">
+                    <nav class="navbar-default  second-nav">
 
                         <div class="container-fluid">
                             <div class="navbar-header">

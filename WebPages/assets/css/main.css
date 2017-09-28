@@ -3968,8 +3968,8 @@ body.is-touch #banner {
 
 svg {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    /*width: 2rem;
+    height: 2rem;*/
     overflow: visible;
 }
 

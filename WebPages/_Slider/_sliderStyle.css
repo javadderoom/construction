@@ -19,8 +19,8 @@ body {
 }
 
 svg {
-    display: block;
-    overflow: visible;
+    display: block !important;
+    overflow: visible !important;
 }
 
 .slider-container {
@@ -30,6 +30,14 @@ svg {
     user-select: none;
     cursor: all-scroll;
 }
+
+    .slider-container a {
+        color: white !important;
+    }
+
+    .slider-container h2 {
+        color: #0200ae !important;
+    }
 
 .slider-control {
     z-index: 2;
@@ -53,12 +61,12 @@ svg {
 
     .slider-control.left {
         left: 0;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.385) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 100%);
     }
 
     .slider-control.right {
         right: 0;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.385) 100%);
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 100%);
     }
 
 .slider-pagi {
@@ -146,7 +154,7 @@ svg {
 
     .slide:nth-child(1) .slide__bg {
         left: 0;
-        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-3.jpg");
+        background-image: url('../Images/3d-slider-3.jpg');
     }
 
     .slide:nth-child(1) .slide__overlay-path {
@@ -165,7 +173,7 @@ svg {
 
     .slide:nth-child(2) .slide__bg {
         left: -50%;
-        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-2.jpg");
+        background-image: url('../Images/3d-slider-2.jpg');
     }
 
     .slide:nth-child(2) .slide__overlay-path {
@@ -184,7 +192,7 @@ svg {
 
     .slide:nth-child(3) .slide__bg {
         left: -100%;
-        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-1.jpg");
+        background-image: url('../Images/3d-slider-1.jpg');
     }
 
     .slide:nth-child(3) .slide__overlay-path {
@@ -203,7 +211,7 @@ svg {
 
     .slide:nth-child(4) .slide__bg {
         left: -150%;
-        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-4.jpg");
+        background-image: url('../Images/3d-slider-4.jpg');
     }
 
     .slide:nth-child(4) .slide__overlay-path {
@@ -272,7 +280,6 @@ svg {
 }
 
 .slide__text-heading {
-    font-family: "Polar", Helvetica, Arial, sans-serif;
     font-size: 5rem;
     margin-bottom: 2rem;
 }
@@ -285,7 +292,7 @@ svg {
 }
 
 .slide__text-desc {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    /*font-family: "Open Sans", Helvetica, Arial, sans-serif;*/
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
@@ -302,7 +309,7 @@ svg {
     position: relative;
     padding: 0.5rem;
     cursor: pointer;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    /*font-family: "Open Sans", Helvetica, Arial, sans-serif;*/
     font-size: 2.3rem;
     perspective: 1000px;
 }

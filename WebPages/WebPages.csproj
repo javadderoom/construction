@@ -125,6 +125,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ie8.css" />
+    <Content Include="assets\css\ie9.css" />
+    <Content Include="assets\css\images\arrow.svg" />
+    <Content Include="assets\css\images\ie\banner-overlay.png" />
+    <Content Include="assets\css\images\overlay.png" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\ie\html5shiv.js" />
+    <Content Include="assets\js\ie\PIE.htc" />
+    <Content Include="assets\js\ie\respond.min.js" />
+    <Content Include="assets\js\jquery-3.2.1.min.js" />
+    <Content Include="assets\js\jquery.dropotron.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.scrollex.min.js" />
+    <Content Include="assets\js\jquery.scrolly.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\skel.min.js" />
+    <Content Include="assets\js\util.js" />
     <Content Include="bin2\persianDateTime\FarsiLibrary.Resources.dll" />
     <Content Include="bin2\persianDateTime\FarsiLibrary.Resources.xml" />
     <Content Include="bin2\persianDateTime\FarsiLibrary.Utils.dll" />
@@ -134,6 +153,28 @@
     <Content Include="bin2\persianDateTime\PersianCalander.dll" />
     <Content Include="bin2\persianDateTime\WebCalendar.dll" />
     <Content Include="Catchimage.aspx" />
+    <Content Include="Icons\instagram-logo .png" />
+    <Content Include="Icons\instagram-logo green.png" />
+    <Content Include="Icons\instagram-logo.png" />
+    <Content Include="Icons\telegram-logo green.png" />
+    <Content Include="Icons\telegram-logo.png" />
+    <Content Include="Images\1 %281%29.jpg" />
+    <Content Include="Images\1 %282%29.jpg" />
+    <Content Include="Images\1 %283%29.jpg" />
+    <Content Include="Images\1 %284%29.jpg" />
+    <Content Include="Images\1 %285%29.jpg" />
+    <Content Include="Images\1 %286%29.jpg" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\BKTP.png" />
+    <Content Include="Images\pic01.jpg" />
+    <Content Include="Images\pic02.jpg" />
+    <Content Include="Images\pic03.jpg" />
+    <Content Include="Images\pic04.jpg" />
+    <Content Include="Images\pic05.jpg" />
+    <Content Include="Images\pic06.jpg" />
+    <Content Include="Images\pic07.jpg" />
+    <Content Include="Images\pic08.jpg" />
+    <Content Include="Images\profile.png" />
     <Content Include="img\profile.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.min.js" />
@@ -212,6 +253,18 @@
     <Content Include="bin2\persianDateTime\WebCalendar.dll.refresh" />
     <Content Include="Panels\Admin\AdminMaster.Master" />
     <Content Include="Panels\EmployeePanel\EmployeeMaster.Master" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\sass\ie8.scss" />
+    <Content Include="assets\sass\ie9.scss" />
+    <Content Include="assets\sass\libs\_functions.scss" />
+    <Content Include="assets\sass\libs\_mixins.scss" />
+    <Content Include="assets\sass\libs\_skel.scss" />
+    <Content Include="assets\sass\libs\_vars.scss" />
+    <Content Include="assets\sass\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,12 +285,22 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
+    <Content Include="_Scripts\HomeJavaScript.js" />
+    <Content Include="_Scripts\jquery-3.2.1.min.js" />
+    <Content Include="_Scripts\jquery.minv1.11.3.js" />
+    <Content Include="_Slider\2016-Kia-Optima-exterior-driving.jpg" />
+    <Content Include="_Slider\350.jpg" />
+    <Content Include="_Slider\JavaScript.js" />
+    <Content Include="_Slider\Modern-Pool-12.jpg" />
+    <Content Include="_Slider\Modern-Pool-8.jpg" />
+    <Content Include="_Slider\_sliderStyle.css" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
+    <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />
-    <Content Include="_Styles\StyleSheet.css" />
+    <Content Include="_Styles\HomeStyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\DBManager.cs" />

@@ -148,6 +148,10 @@ a {
     text-align: center;
 }
 
+.iconColor {
+    color: green;
+}
+
 .sosioal-network {
     float: right;
     width: 215px;

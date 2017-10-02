@@ -283,3 +283,8 @@ a {
     height: 1px;
     margin: 20px 0;
 }
+
+.inner-container {
+    margin-left: 10px;
+    margin-right: 10px;
+}

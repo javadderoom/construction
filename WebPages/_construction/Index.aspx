@@ -375,10 +375,10 @@
                         <div class="row m0 postExcerpts">
                             <div class="row m0 postExcerptInner">
                                 <a href="single-post.html" class="postTitle row m0">
-                                    <h4>Faceted Search Has Landed</h4>
+                                    <h4>نام خبر در این بخش</h4>
                                 </a>
-                                <p>This year in our 2014 roadmap one of our goals was to improve financial tooling for authors. A big part of that is the withdrawal cycle.</p>
-                                <a href="single-post.html" class="readMore">read more</a>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                                <a href="single-post.html" class="readMore">بیشتر بخوانید</a>
                             </div>
                         </div>
                     </div>
@@ -396,10 +396,10 @@
                         <div class="row m0 postExcerpts">
                             <div class="row m0 postExcerptInner">
                                 <a href="single-post.html" class="postTitle row m0">
-                                    <h4>Vat and Global Marketplace</h4>
+                                    <h4>نام خبر در این بخش</h4>
                                 </a>
-                                <p>This year in our 2014 roadmap one of our goals was to improve financial tooling for authors. A big part of that is the withdrawal cycle.</p>
-                                <a href="single-post.html" class="readMore">read more</a>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                                <a href="single-post.html" class="readMore">بیشتر بخوانید</a>
                             </div>
                         </div>
                     </div>
@@ -417,10 +417,10 @@
                         <div class="row m0 postExcerpts">
                             <div class="row m0 postExcerptInner">
                                 <a href="single-post.html" class="postTitle row m0">
-                                    <h4>Default withdrawal option</h4>
+                                    <h4>نام خبر در این بخش</h4>
                                 </a>
-                                <p>This year in our 2014 roadmap one of our goals was to improve financial tooling for authors. A big part of that is the withdrawal cycle.</p>
-                                <a href="single-post.html" class="readMore">read more</a>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                                <a href="single-post.html" class="readMore">بیشتر بخوانید</a>
                             </div>
                         </div>
                     </div>
@@ -433,8 +433,8 @@
     <section id="testimonials" class="row">
         <div class="container">
             <div class="row sectionTitles">
-                <h2 class="sectionTitle whiteTC">Latest Posts</h2>
-                <div class="sectionSubTitle whiteTC">fresh news</div>
+                <h2 class="sectionTitle whiteTC">نظرات مشتریان</h2>
+                <div class="sectionSubTitle whiteTC">مشتریان درباره ما می نویسند</div>
             </div>
             <div class="row">
                 <div class="owl-carousel testimonialSlider row m0">
@@ -442,28 +442,31 @@
                         <div class="clientPhoto row m0">
                             <img src="images/testimonial/photo.png" alt="">
                         </div>
-                        <div class="clientNameTitle row m0">John Smith, CEO at Evanto</div>
+                        <div class="clientNameTitle row m0">
+                            <h4>مجید محمدی</h4>
+                        </div>
                         <div class="arrow row m0">
                             <img src="images/testimonial/arrow.png" alt="arrow down">
                         </div>
-                        <div class="testimonial row m0">This is Photoshop's version of Lorem Ipsum Proin gravida nibh vel velit auctor aliquet. Aenean Sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,</div>
+                        <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </div>
                     </div>
                     <div class="item">
                         <div class="clientPhoto row m0">
                             <img src="images/testimonial/photo.png" alt="">
                         </div>
-                        <div class="clientNameTitle row m0">John Smith, CEO at Evanto</div>
+                        <div class="clientNameTitle row m0">
+                            <h4>مجید محمدی</h4>
+                        </div>
                         <div class="arrow row m0">
                             <img src="images/testimonial/arrow.png" alt="arrow down">
                         </div>
-                        <div class="testimonial row m0">This is Photoshop's version of Lorem Ipsum Proin gravida nibh vel velit auctor aliquet. Aenean Sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,</div>
+                        <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--Testimonials-->
-
     <section id="elements" class="row">
         <div class="row sectionTitles m0">
             <h2 class="sectionTitle">Accordion &amp; Tabs</h2>

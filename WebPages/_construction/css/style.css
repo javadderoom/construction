@@ -2642,71 +2642,73 @@ header .social_nav {
     min-height: 120px;
     text-align: center;
     color: #FFF;
+    padding-left: 10px;
+    padding-right: 20px;
     padding: 110px 0 80px;
     margin-top: -70px;
     font-family: 'Raleway', sans-serif;
     overflow: hidden;
 }
 
-    .footerBox .twitterSlider {
-        position: relative;
+.footerBox .twitterSlider {
+    position: relative;
+}
+
+    .footerBox .twitterSlider .owl-stage-outer .owl-item .item i.fa {
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 
-        .footerBox .twitterSlider .owl-stage-outer .owl-item .item i.fa {
-            font-size: 24px;
-            margin-bottom: 10px;
+    .footerBox .twitterSlider .owl-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+        .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev,
+        .footerBox .twitterSlider .owl-controls .owl-nav .owl-next {
+            position: absolute;
+            bottom: -80px;
         }
 
-        .footerBox .twitterSlider .owl-controls {
-            position: absolute;
-            bottom: 0;
+            .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev:before,
+            .footerBox .twitterSlider .owl-controls .owl-nav .owl-next:before {
+                content: '';
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                position: absolute;
+                bottom: -50px;
+            }
+
+            .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev i,
+            .footerBox .twitterSlider .owl-controls .owl-nav .owl-next i {
+                position: relative;
+                z-index: 1;
+                color: #FFF;
+                width: 23px;
+                line-height: 37px;
+                font-size: 24px;
+            }
+
+        .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev {
             left: 0;
+        }
+
+            .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev:before {
+                border-left: 50px solid #f7b71e;
+            }
+
+        .footerBox .twitterSlider .owl-controls .owl-nav .owl-next {
             right: 0;
         }
 
-            .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev,
-            .footerBox .twitterSlider .owl-controls .owl-nav .owl-next {
-                position: absolute;
-                bottom: -80px;
+            .footerBox .twitterSlider .owl-controls .owl-nav .owl-next:before {
+                border-right: 50px solid #f7b71e;
+                left: -27px;
             }
-
-                .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev:before,
-                .footerBox .twitterSlider .owl-controls .owl-nav .owl-next:before {
-                    content: '';
-                    width: 0;
-                    height: 0;
-                    border-top: 50px solid transparent;
-                    border-bottom: 50px solid transparent;
-                    position: absolute;
-                    bottom: -50px;
-                }
-
-                .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev i,
-                .footerBox .twitterSlider .owl-controls .owl-nav .owl-next i {
-                    position: relative;
-                    z-index: 1;
-                    color: #FFF;
-                    width: 23px;
-                    line-height: 37px;
-                    font-size: 24px;
-                }
-
-            .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev {
-                left: 0;
-            }
-
-                .footerBox .twitterSlider .owl-controls .owl-nav .owl-prev:before {
-                    border-left: 50px solid #f7b71e;
-                }
-
-            .footerBox .twitterSlider .owl-controls .owl-nav .owl-next {
-                right: 0;
-            }
-
-                .footerBox .twitterSlider .owl-controls .owl-nav .owl-next:before {
-                    border-right: 50px solid #f7b71e;
-                    left: -27px;
-                }
 
 .footerWidget {
     margin: 30px -15px;
@@ -2715,6 +2717,7 @@ header .social_nav {
 #widgetLeft {
     float: left;
     padding-right: 25px;
+    padding-left: 40px;
 }
 
 #widgetRight {

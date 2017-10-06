@@ -7,7 +7,7 @@
 
     <section id="nr_slider" class="row">
         <div class="mainSliderContainer">
-            <div class="mainSlider">
+            <div class="mainSlider" style="direction: rtl;">
                 <ul>
                     <!-- SLIDE  -->
                     <li data-transition="boxslide" data-slotamount="7">
@@ -18,7 +18,7 @@
                             data-speed="700"
                             data-start="1700"
                             data-easing="easeOutBack">
-                            <h2>We Are <strong>Construction</strong> Company</h2>
+                            <h2>ما شرکت <strong>ساخت و ساز</strong>هستیم</h2>
                         </div>
                         <div class="caption sfl stl"
                             data-x="center"
@@ -26,7 +26,15 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <div class="cont-row">from small <span class="bb3">houses</span> to big <span class="bb1">buildings </span></div>
+                            <div class="cont-row">
+                                از
+                                <span class="bb3">خانه های</span>
+                                کوچک
+                                تا
+
+                                <span class="bb1">ساختمان های </span>
+                                بزرگ
+                            </div>
                         </div>
                         <div class="caption skewfromleft skewtoleft"
                             data-x="center"
@@ -71,7 +79,11 @@
                             data-speed="700"
                             data-start="1700"
                             data-easing="easeOutBack">
-                            <h3><strong>Flexible</strong> and Easy to Use Template</h3>
+                            <h3>یک کمپانی قابل
+                                <strong>اعتماد</strong>
+                                و
+                                <strong>مطمئن</strong>
+                            </h3>
                         </div>
                         <div class="caption sfl stl"
                             data-x="-100"
@@ -79,7 +91,7 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <h4>Ultra <strong>Responsive</strong> Layout</h4>
+                            <h4>لورم اسپوم متن ساختگی</h4>
                         </div>
                         <div class="caption skewfromleft skewtoleft"
                             data-x="-100"
@@ -89,10 +101,10 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <p>
-                                This is Photoshop's version of Lorem Ipsum. Proin gravi-<br>
-                                da nibh vel velit auctor aliquet. Aenean solicitudin. lorem
+                                لورم اسپوم متن ساختگی با استفاده<br>
+                                در صنعت چاپ و گرافیک
                                 <br>
-                                quis bibendum auctor, nisi elit consequant.
+                                و مورد استفاده طراحان وب
                             </p>
                         </div>
                         <div class="caption sfb stb"
@@ -102,7 +114,7 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <a type="button" class="btn btn-default">Learn More</a>
+                            <a type="button" class="btn btn-default">بیشتر بدانید</a>
                         </div>
                         <div class="caption skewfromright skewtoright"
                             data-x="right"
@@ -125,7 +137,9 @@
                             data-speed="700"
                             data-start="1700"
                             data-easing="easeOutBack">
-                            <h3><strong>Construction</strong> Template</h3>
+                            <h3>قالب
+                                <strong>ساخت و ساز</strong>
+                            </h3>
                         </div>
                         <div class="caption sfl stl"
                             data-x="-100"
@@ -133,7 +147,9 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <h4>Built with <strong>Bootstrap</strong></h4>
+                            <h4>ساخته شده با
+                                <strong>بوت استرپ</strong>
+                            </h4>
                         </div>
                         <div class="caption skewfromleft skewtoleft"
                             data-x="-100"
@@ -143,10 +159,11 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <p>
-                                This is Photoshop's version of Lorem Ipsum. Proin gravi-<br>
-                                da nibh vel velit auctor aliquet. Aenean solicitudin. lorem
+                                لورم اسپوم یک متن ساختگی با
                                 <br>
-                                quis bibendum auctor, nisi elit consequant.
+                                لورم اسپوم یک متن ساختگی با
+                                <br>
+                                لورم اسپوم یک متن ساختگی با
                             </p>
                         </div>
                         <div class="caption sfb stb"
@@ -156,7 +173,7 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <a type="button" class="btn btn-default">Learn More</a>
+                            <a type="button" class="btn btn-default">بیشتر بدانید</a>
                         </div>
                         <div class="caption skewfromright skewtoright"
                             data-x="right"
@@ -180,25 +197,17 @@
     <!--Slider-->
 
     <section id="nr_services" class="row">
-        <div class="container">
+        <div class="container" style="direction: rtl">
             <div class="row sectionTitles">
-                <h2 class="sectionTitle">Our Services</h2>
-                <div class="sectionSubTitle">what we offer</div>
+                <h2 class="sectionTitle">خدمات ما</h2>
+                <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
             <div class="row m0 text-center">
                 <div class="col-sm-3">
                     <div class="row m0 service">
                         <div class="row m0 innerRow">
                             <i class="fa fa-laptop"></i>
-                            <div class="serviceName" data-hover="Architecture Plans">Architecture Plans</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-film"></i>
-                            <div class="serviceName" data-hover="Construction Designs">Construction Designs</div>
+                            <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +215,15 @@
                     <div class="row m0 service">
                         <div class="row m0 innerRow">
                             <i class="fa fa-clock-o"></i>
-                            <div class="serviceName" data-hover="Fast Building">Fast Building</div>
+                            <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row m0 service">
+                        <div class="row m0 innerRow">
+                            <i class="fa fa-film"></i>
+                            <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
                         </div>
                     </div>
                 </div>
@@ -214,7 +231,7 @@
                     <div class="row m0 service">
                         <div class="row m0 innerRow">
                             <i class="fa fa-building-o"></i>
-                            <div class="serviceName" data-hover="House Rebuilding">House Rebuilding</div>
+                            <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
                         </div>
                     </div>
                 </div>
@@ -225,21 +242,21 @@
 
     <section id="projects" class="row fullWidth">
         <div class="row sectionTitles m0">
-            <h2 class="sectionTitle">Our Projects</h2>
-            <div class="sectionSubTitle">latest works</div>
+            <h2 class="sectionTitle">پروژه های ما</h2>
+            <div class="sectionSubTitle">آخرین کار ها</div>
         </div>
         <div class="row filters m0">
             <button type="button" class="collapsed project_filderButton visible-xs" data-toggle="collapse" data-target="#filters">
                 <span class="btn-text"><i class="fa fa-filter"></i>Project Filter</span>
             </button>
             <ul class="list-inline text-center collapse navbar-collapse" id="filters">
-                <li class="filter" data-filter="all"><i class="fa fa-th"></i>Show All</li>
-                <li class="filter" data-filter=".catHospital">Hospitals</li>
-                <li class="filter" data-filter=".catSchools">Schools</li>
-                <li class="filter" data-filter=".catHouses">Houses</li>
-                <li class="filter" data-filter=".catFlats">Flats</li>
-                <li class="filter" data-filter=".catOffices">Offices</li>
-                <li class="filter" data-filter=".catUniversities">Universities</li>
+                <li class="filter" data-filter="all"><i class="fa fa-th"></i>نمایش همه</li>
+                <li class="filter" data-filter=".catHospital">بیمارستان</li>
+                <li class="filter" data-filter=".catSchools">مدرسه</li>
+                <li class="filter" data-filter=".catHouses">خانه</li>
+                <li class="filter" data-filter=".catFlats">آپارتمان</li>
+                <li class="filter" data-filter=".catOffices">دفتر کار</li>
+                <li class="filter" data-filter=".catUniversities">دانشگاه ها</li>
             </ul>
         </div>
         <div class="row projects m0">
@@ -341,14 +358,14 @@
     <section id="latestPosts" class="row">
         <div class="container">
             <div class="row sectionTitles">
-                <h2 class="sectionTitle">Latest Posts</h2>
-                <div class="sectionSubTitle">fresh news</div>
+                <h2 class="sectionTitle">آخرین مقالات</h2>
+                <div class="sectionSubTitle">جدید ترین ها</div>
             </div>
             <div class="row">
                 <div class="col-sm-4 blog latest-blog">
                     <div class="row m0 blogInner">
                         <div class="row m0 blogDateTime">
-                            <i class="fa fa-calendar"></i>18 November 2014, 11:50 AM
+                            <i class="fa fa-calendar"></i>15 شهریور 1395 - ساعت 21:15
                         </div>
                         <div class="row m0 featureImg">
                             <a href="single-post.html">
@@ -369,7 +386,7 @@
                 <div class="col-sm-4 blog latest-blog">
                     <div class="row m0 blogInner">
                         <div class="row m0 blogDateTime">
-                            <i class="fa fa-calendar"></i>16 November 2014, 12:20 AM
+                            <i class="fa fa-calendar"></i>15 شهریور 1395 - ساعت 21:15
                         </div>
                         <div class="row m0 featureImg">
                             <a href="single-post.html">
@@ -390,7 +407,7 @@
                 <div class="col-sm-4 blog latest-blog">
                     <div class="row m0 blogInner">
                         <div class="row m0 blogDateTime">
-                            <i class="fa fa-calendar"></i>14 November 2014, 10:50 AM
+                            <i class="fa fa-calendar"></i>15 شهریور 1395 - ساعت 21:15
                         </div>
                         <div class="row m0 featureImg">
                             <a href="single-post.html">
@@ -588,4 +605,7 @@
         </div>
     </section>
     <!--Elements-->
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="map" runat="server">
+    <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
 </asp:Content>

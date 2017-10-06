@@ -39,11 +39,16 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+        <link href="../_Styles/hamoonStyle.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <a
+        href="#"
+        class="scrollToTop"></a>
     <form id="form1" runat="server">
         <div>
+
             <div id="pageloader" class="row m0">
                 <div class="loader-item">
                     <img src="images/loader.gif" alt="loading" />
@@ -64,17 +69,20 @@
             <!--Top Strip-->
 
             <header class="row">
-                <div class="container">
+                <div class="container dirToLeft ">
                     <div class="row">
                         <div class="logo col-sm-6">
-                            <div class="row">
+                            <div class="row ">
+
                                 <a href="index.html">
-                                    <img src="images/logo.png" alt="Construction - Construction Company HTML Template" /></a>
+
+                                    <img src="images/logo.png" alt="Construction" />
+                                </a>
                             </div>
                         </div>
-                        <div class="social_nav col-sm-6">
+                        <div class="social_nav col-sm-6 ">
                             <div class="row">
-                                <ul class="list-inline fright">
+                                <ul class="list-inline">
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -101,37 +109,38 @@
                         </div>
                         <div class="collapse navbar-collapse" id="main_nav">
                             <ul class="nav navbar-nav">
-                                <li class="active "><a href="index.html">Home</a></li>
+
+                                <li class="active "><a href="index.html">خانه</a></li>
                                 <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">about</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">راه های ارتباطی</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="about-us.html">About us</a></li>
-                                        <li><a href="about-us2.html">About us 2</a></li>
+                                        <li><a href="contact.html">راه ارتباطی 1</a></li>
+                                        <li><a href="contact2.html">راه ارتباطی 2</a></li>
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">projects</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">اخبار</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="projects_full.html">Full Width Projects</a></li>
-                                        <li><a href="projects2.html">2 Collumn Projects</a></li>
-                                        <li><a href="projects3.html">3 Collumn Projects</a></li>
+                                        <li><a href="blog.html">وبلاگ</a></li>
+                                        <li><a href="blog2.html">وبلاگ 2 سطونه</a></li>
+                                        <li><a href="blog3.html">وبلاگ 3 سطونه</a></li>
+                                        <li><a href="single-post.html">تک پست</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="services.html">services</a></li>
+                                <li><a href="services.html">سرویس ها</a></li>
                                 <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">news</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">پروژه های ما</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog2.html">Blog 2 Col</a></li>
-                                        <li><a href="blog3.html">Blog 3 Col</a></li>
-                                        <li><a href="single-post.html">Sinlge Post</a></li>
+                                        <li><a href="projects_full.html">عرض کامل</a></li>
+                                        <li><a href="projects2.html">2 سطونه</a></li>
+                                        <li><a href="projects3.html">3 سطونه</a></li>
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">contact</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">درباره ما</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="contact.html">Conact us</a></li>
-                                        <li><a href="contact2.html">Conact us 2</a></li>
+                                        <li><a href="about-us.html">درباره ما</a></li>
+                                        <li><a href="about-us2.html">درباره ما2</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -140,58 +149,63 @@
                 </div>
             </nav>
             <!--Main Nav-->
-
+            <%--///////////////////////////////////////////// CONTENT //////////////////////////////////////////--%>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+
+            <%--//////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
+
             <footer id="nr_footer" class="row">
                 <div class="container">
                     <div class="row goTop">
                         <a href="#top"><i class="fa fa-angle-up"></i></a>
                     </div>
-                    <div class="row twitterSlide">
-                        <div class="owl-carousel twitterSlider">
-                            <div class="item">
-                                <i class="fa fa-twitter"></i>
-                                <br />
-                                Check out 'Momental - Vertical Navigation HTML5 Template' on <a href="#">@EnvatoMarket</a> by <a href="#">@premiummlayers</a> #themeforest <span><a href="#">http://t.co/eva3o65Kky</a></span>
-                            </div>
-                            <div class="item">
-                                <i class="fa fa-twitter"></i>
-                                <br />
-                                Nunc euismod ac libero a aliquam. Duis laoreet dictum tempus ut pharetra mauris,<a href="#">@EnvatoMarket</a> by <a href="#">@premiummlayers</a> #themeforest <span><a href="#">http://t.co/eva3o65Kky</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footerWidget row">
-                        <div class="col-sm-6 widget">
-                            <div class="getInTouch_widget row">
-                                <div class="widgetHeader row m0">
-                                    <img src="images/whiteSquare.png" alt="" />Get in touch
-                                </div>
-                                <div class="row getInTouch_tab m0">
-                                    <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
-                                        <li role="presentation" class="active"><a href="#contactPhone" aria-controls="contactPhone" role="tab" data-toggle="tab"><i class="fa fa-phone"></i></a></li>
-                                        <li role="presentation"><a href="#contactEmail" aria-controls="contactEmail" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i></a></li>
-                                        <li role="presentation"><a href="#contactHome" aria-controls="contactHome" role="tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                                    </ul>
+                    <div class="row " id="footerBox">
+                        <div class="footerWidget row">
+                            <div class="col-sm-6 widget" id="widgetRight">
+                                <div class="getInTouch_widget row">
+                                    <div class="widgetHeader row m0">
+                                        <img src="images/whiteSquare.png" alt="" />
+                                        با ما درارتباط باشید
+                                    </div>
+                                    <div class="row getInTouch_tab m0">
+                                        <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
+                                            <li role="presentation" class="active"><a href="#contactPhone" aria-controls="contactPhone" role="tab" data-toggle="tab"><i class="fa fa-phone"></i></a></li>
+                                            <li role="presentation"><a href="#contactEmail" aria-controls="contactEmail" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i></a></li>
+                                            <li role="presentation"><a href="#contactHome" aria-controls="contactHome" role="tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                                        </ul>
 
-                                    <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" id="contactPhone"><i class="fa fa-phone"></i>call us at: +399 (500) 321 9548</div>
-                                        <div role="tabpanel" class="tab-pane" id="contactEmail"><i class="fa fa-envelope"></i>email us at: support@construction.com</div>
-                                        <div role="tabpanel" class="tab-pane" id="contactHome"><i class="fa fa-home"></i>Pawsar, Bicrompur, Munshigonj.</div>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="contactPhone"><i class="fa fa-phone"></i>call us at: +399 (500) 321 9548</div>
+                                            <div role="tabpanel" class="tab-pane" id="contactEmail"><i class="fa fa-envelope"></i>email us at: support@construction.com</div>
+                                            <div role="tabpanel" class="tab-pane" id="contactHome"><i class="fa fa-home"></i>Pawsar, Bicrompur, Munshigonj.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 widget" id="widgetLeft">
+                                <div class="row ">
+                                    <div class="row">
+                                        <div class="widgetHeader row m0">
+                                            <img src="images/whiteSquare.png" alt="" />
+                                            درباره ساخت و ساز ما
+                                        </div>
+                                        <div class="row m0 footer-white">
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 widget">
-                            <div class="row flickrSlider">
-                                <div class="widgetHeader row m0">
-                                    <img src="images/whiteSquare.png" alt="" />Flickr Gallery
-                                </div>
-                                <div class="row flickrSliderRow m0">
-                                    <div data-toggle="jsfg" data-tags="dogs" data-per-page="5" data-set-id="72157650377967655"></div>
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-1">
+                        </div>
+                        <div class="col-xs-10">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3205.641975912522!2d52.67459231491417!3d36.53863098000326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDMyJzE5LjEiTiA1MsKwNDAnMzYuNCJF!5e0!3m2!1sen!2sde!4v1507270554124" width="100%" height="400px" frameborder="0" style="margin-left: auto; margin-right: auto; border: 0" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-xs-1">
                         </div>
                     </div>
                     <div class="row copyrightRow">
@@ -213,7 +227,7 @@
 
         <script src="vendors/js-flickr-gallery/js/js-flickr-gallery.min.js"></script>
         <script src="vendors/lightbox/js/lightbox.min.js"></script>
-
+        <script src="../_Scripts/HomeJavaScript.js"></script>
         <!--Construction JS-->
         <script src="js/construction.js"></script>
     </form>

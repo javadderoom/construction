@@ -26,7 +26,7 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <div class="cont-row">from small <span class="bb3">houses</span> to big <span class="bb1">buildings</span></div>
+                            <div class="cont-row">from small <span class="bb3">houses</span> to big <span class="bb1">buildings </span></div>
                         </div>
                         <div class="caption skewfromleft skewtoleft"
                             data-x="center"
@@ -248,13 +248,14 @@
                     <img src="images/projects/project1.png" alt="Project 1" class="projectImg">
                 </a>
                 <div class="projectDetails row m0">
-                    <div class="fleft nameType">
-                        <div class="row m0 projectName">Central Hospital</div>
-                        <div class="row m0 projectType">building</div>
-                    </div>
-                    <div class="fright projectIcons btn-group" role="group">
+
+                    <div class="fleft projectIcons btn-group" role="group">
                         <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
                         <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
+                    </div>
+                    <div class="fright nameType">
+                        <div class="row m0 projectName">بیمارستان مرکزی</div>
+                        <div class="row m0 projectType">ساخت و ساز</div>
                     </div>
                 </div>
             </div>
@@ -263,13 +264,13 @@
                     <img src="images/projects/project2.png" alt="Project 1" class="projectImg">
                 </a>
                 <div class="projectDetails row m0">
-                    <div class="fleft nameType">
-                        <div class="row m0 projectName">Construction CEO</div>
-                        <div class="row m0 projectType">ceo, architect</div>
-                    </div>
-                    <div class="fright projectIcons btn-group" role="group">
-                        <a href="images/projects/project2.png" data-lightbox="project" data-title="Construction CEO (ceo, architect)" class="btn btn-default"><i class="fa fa-search"></i></a>
+                    <div class="fleft projectIcons btn-group" role="group">
+                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
                         <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
+                    </div>
+                    <div class="fright nameType">
+                        <div class="row m0 projectName">بیمارستان مرکزی</div>
+                        <div class="row m0 projectType">ساخت و ساز</div>
                     </div>
                 </div>
             </div>
@@ -278,13 +279,13 @@
                     <img src="images/projects/project3.png" alt="Project 1" class="projectImg">
                 </a>
                 <div class="projectDetails row m0">
-                    <div class="fleft nameType">
-                        <div class="row m0 projectName">Workder Accessories</div>
-                        <div class="row m0 projectType">tools, accessories</div>
-                    </div>
-                    <div class="fright projectIcons btn-group" role="group">
-                        <a href="images/projects/project3.png" data-lightbox="project" data-title="Workder Accessories (tools, accessories)" class="btn btn-default"><i class="fa fa-search"></i></a>
+                    <div class="fleft projectIcons btn-group" role="group">
+                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
                         <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
+                    </div>
+                    <div class="fright nameType">
+                        <div class="row m0 projectName">بیمارستان مرکزی</div>
+                        <div class="row m0 projectType">ساخت و ساز</div>
                     </div>
                 </div>
             </div>
@@ -293,13 +294,13 @@
                     <img src="images/projects/project4.png" alt="Project 1" class="projectImg">
                 </a>
                 <div class="projectDetails row m0">
-                    <div class="fleft nameType">
-                        <div class="row m0 projectName">Rebuilding an old University</div>
-                        <div class="row m0 projectType">university, building</div>
-                    </div>
-                    <div class="fright projectIcons btn-group" role="group">
-                        <a href="images/projects/project4.png" data-lightbox="project" data-title="Rebuilding an old University (university, building)" class="btn btn-default"><i class="fa fa-search"></i></a>
+                    <div class="fleft projectIcons btn-group" role="group">
+                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
                         <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
+                    </div>
+                    <div class="fright nameType">
+                        <div class="row m0 projectName">بیمارستان مرکزی</div>
+                        <div class="row m0 projectType">ساخت و ساز</div>
                     </div>
                 </div>
             </div>
@@ -308,13 +309,13 @@
                     <img src="images/projects/project5.png" alt="Project 1" class="projectImg">
                 </a>
                 <div class="projectDetails row m0">
-                    <div class="fleft nameType">
-                        <div class="row m0 projectName">Construction Tools</div>
-                        <div class="row m0 projectType">tools, assets</div>
-                    </div>
-                    <div class="fright projectIcons btn-group" role="group">
-                        <a href="images/projects/project5.png" data-lightbox="project" data-title="Construction Tools (tools, assets)" class="btn btn-default"><i class="fa fa-search"></i></a>
+                    <div class="fleft projectIcons btn-group" role="group">
+                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
                         <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
+                    </div>
+                    <div class="fright nameType">
+                        <div class="row m0 projectName">بیمارستان مرکزی</div>
+                        <div class="row m0 projectType">ساخت و ساز</div>
                     </div>
                 </div>
             </div>
@@ -323,13 +324,13 @@
                     <img src="images/projects/project6.png" alt="Project 1" class="projectImg">
                 </a>
                 <div class="projectDetails row m0">
-                    <div class="fleft nameType">
-                        <div class="row m0 projectName">Big Trucks on Action</div>
-                        <div class="row m0 projectType">cat, building</div>
-                    </div>
-                    <div class="fright projectIcons btn-group" role="group">
-                        <a href="images/projects/project6.png" data-lightbox="project" data-title="Big Trucks on Action (cat, building)" class="btn btn-default"><i class="fa fa-search"></i></a>
+                    <div class="fleft projectIcons btn-group" role="group">
+                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
                         <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
+                    </div>
+                    <div class="fright nameType">
+                        <div class="row m0 projectName">بیمارستان مرکزی</div>
+                        <div class="row m0 projectType">ساخت و ساز</div>
                     </div>
                 </div>
             </div>

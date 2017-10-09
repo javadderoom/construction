@@ -71,22 +71,29 @@
             <header class="row">
                 <div class="container dirToLeft ">
                     <div class="row">
-                        <div class="logo col-sm-6">
+
+                        <div class="logo col-xs-2 col-md-6">
                             <div class="row ">
-
-                                <a href="index.html">
-
-                                    <img src="images/logo.png" alt="Construction" />
+                                <a href="#"
+                                    data-toggle="popover" data-html="true" data-placement="bottom"
+                                    data-content="<a style='text-align: center' href='#'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام کنید</a>">
+                                    <div class="Profile"></div>
                                 </a>
                             </div>
                         </div>
-                        <div class="social_nav col-sm-6 ">
+                        <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
-                                <ul class="list-inline">
+
+                                <a href="index.html">
+
+                                    <div class="logoImg"></div>
+                                    <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
+                                </a>
+                                <%-- <ul class="list-inline">
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                </ul>
+                                </ul>--%>
                             </div>
                         </div>
                     </div>
@@ -107,7 +114,9 @@
                                 <span class="btn-text">Select Page</span>
                             </button>
                         </div>
+
                         <div class="collapse navbar-collapse" id="main_nav">
+
                             <ul class="nav navbar-nav">
 
                                 <li class="active "><a href="index.html">خانه</a></li>
@@ -250,7 +259,7 @@
 
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);
             //Callout Content
-            var contentString = 'Some address here..';
+            var contentString = 'ما اینجا هستیم';
             //Set window width + content
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,

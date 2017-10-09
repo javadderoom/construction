@@ -239,11 +239,15 @@
     <Content Include="_construction\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="_construction\fonts\glyphicons-halflings-regulard41d.eot" />
     <Content Include="_construction\images\Pin-location.png" />
+    <Content Include="_construction\images\user.png" />
+    <Content Include="_construction\images\user64px.png" />
+    <Content Include="_construction\images\user64pxHover.png" />
     <Content Include="_construction\Index.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
     <Content Include="_construction\IndexMaster.Master" />
+    <Content Include="_construction\fonts\IranSans.woff" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />

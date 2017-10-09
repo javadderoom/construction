@@ -15,6 +15,32 @@ $(document).ready(function () {
             scrollspeed: 60
         });
 
+        // popover
+        var options = {
+            trigger: 'focus'
+        }
+        if ($(window).width() < 768) {
+            $(document).ready(function () {
+                $('[data-toggle="popover"]').popover(options);
+            });
+        }
+        if ($(window).width() >= 768) {
+            $('[data-toggle="popover"]').popover({ trigger: "manual", html: true, animation: false })
+            .on("mouseenter", function () {
+                var _this = this;
+                $(this).popover("show");
+                $(".popover").on("mouseleave", function () {
+                    $(_this).popover('hide');
+                });
+            }).on("mouseleave", function () {
+                var _this = this;
+                setTimeout(function () {
+                    if (!$(".popover:hover").length) {
+                        $(_this).popover("hide");
+                    }
+                }, 300);
+            });
+        }
         /*Go Top*/
         $('a[href="#top"]').click(function () {
             $('html, body').animate({ scrollTop: 0 }, 800);

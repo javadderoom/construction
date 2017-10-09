@@ -52,23 +52,23 @@ Base Color 4 : #293133; // less variable @baseColor4
 Base Color 5 : #8a8a8a; // less variable @baseColor5
 Base Color 6 : #4c545f; // less variable @baseColor6
 -------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[Fonts]
 
-Base Fonts 1 : Raleway // less variable @baseFont
-Base Fonts 2 : Open Sans // less variable @baseFont2
--------------------------------------------------------------------*/
-/*
-*
-*
-*/
-/*----------------------------------------------------------------*/
+.popover {
+    min-width: 6.5em !important;
+    text-align: center !important;
+}
+
 @font-face {
     font-family: 'Yekan';
     src: url('../../fonts/Weblogma_Yekan.woff') format('woff');
     src: url('../../fonts/Weblogma_Yekan.eot') format('embedded-opentype');
     src: url('../../fonts/Weblogma_Yekan.ttf') format('truetype');
     src: url('../../fonts/Weblogma_Yekan.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'IranSans';
+    src: url('../fonts/IranSans.woff') format('woff');
 }
 
 @font-face {
@@ -106,7 +106,7 @@ Base Fonts 2 : Open Sans // less variable @baseFont2
 
 body {
     position: relative;
-    font-family: "Yekan","IRANSansLight",Arial;
+    font-family: "IranSans","Yekan","IRANSansLight",Arial;
 }
 /*Floating*/
 .fleft {
@@ -124,6 +124,19 @@ footer.row {
     position: relative;
 }
 /*Ancore*/
+.Profile {
+    background-image: url('../images/user64px.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+    .Profile:hover {
+        background-image: url('../images/user64pxHover.png');
+    }
+
 a {
     outline: none;
     transition: all 300ms ease-in-out;
@@ -447,13 +460,34 @@ header .social_nav {
         padding-right: 0;
     }
 
+.logoImg {
+    background-image: url('../images/logo.png');
+    width: 262px;
+    height: 45px;
+    background-size: contain;
+}
+
+@media (max-width:320px) {
+    .logoImg {
+        margin-top: 10px;
+        background-image: url(../images/logo.png);
+        width: 200px;
+        max-width: 262px;
+        height: 45px;
+        /* max-height: 45px; */
+        /* height: auto; */
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
 @media (max-width: 767px) {
     header {
         height: auto;
     }
 
         header .logo {
-            float: none !important;
+            /*float: none !important;*/
             text-align: center;
         }
 
@@ -623,7 +657,7 @@ header .social_nav {
                         line-height: 60px;
                         /*text-align: left;*/
                         padding: 0 15px;
-                        font-size: 13px;
+                        font-size: 15px;
                     }
 
                         .navbar-static-top .navbar-collapse ul li.dropdown .dropdown-menu li a:hover {
@@ -1958,7 +1992,7 @@ header .social_nav {
         }
 
             .blog .blogInner:hover .blogDateTime i:after {
-                border-left-color: #f7b71e;
+                border-right-color: #f7b71e;
             }
 
         .blog .blogInner:hover .featureImg a img {

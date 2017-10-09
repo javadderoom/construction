@@ -183,6 +183,7 @@
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="Panels\Admin\page.aspx" />
+    <Content Include="Panels\Admin\test.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
@@ -218,6 +219,7 @@
     <Content Include="bin\rosyln\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\rosyln\VBCSCompiler.exe.config" />
     <Content Include="bin\WebPages.dll.config" />
+    <Content Include="Panels\Admin\NewAdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -398,12 +400,26 @@
     <Compile Include="Panels\Admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
+      <DependentUpon>NewAdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
+      <DependentUpon>NewAdminMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\page.aspx.cs">
       <DependentUpon>page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Panels\Admin\page.aspx.designer.cs">
       <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>

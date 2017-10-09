@@ -20,7 +20,6 @@
         <EntityTypeShape EntityType="ConstructionCompanyModel.Satisfaction" Width="1.5" PointX="11.75" PointY="3.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Slider" Width="1.5" PointX="4.75" PointY="11.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.State" Width="1.5" PointX="0.75" PointY="4.125" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.sysdiagram" Width="1.5" PointX="11.75" PointY="6.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.User" Width="1.5" PointX="3" PointY="4.875" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Cities_States" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Employees_Cities" />
@@ -28,6 +27,7 @@
         <AssociationConnector Association="ConstructionCompanyModel.FK_Jobs_JobGroups" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Users_States" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Users_States1" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Admin" Width="1.5" PointX="12.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

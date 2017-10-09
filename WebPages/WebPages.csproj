@@ -53,15 +53,15 @@
     </Reference>
     <Reference Include="FarsiLibrary.Resources, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\components\c#\PersianCalender\FarsiLibrary.Resources.dll</HintPath>
+      <HintPath>C:\Users\HAMOON\Desktop\New folder\FarsiLibrary.Resources.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Utils, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\components\c#\PersianCalender\FarsiLibrary.Utils.dll</HintPath>
+      <HintPath>C:\Users\HAMOON\Desktop\New folder\FarsiLibrary.Utils.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Win, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\components\c#\PersianCalender\FarsiLibrary.Win.dll</HintPath>
+      <HintPath>C:\Users\HAMOON\Desktop\New folder\FarsiLibrary.Win.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -74,13 +74,7 @@
     </Reference>
     <Reference Include="PersianCalander, Version=1.0.2511.37744, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\components\c#\PersianCalender\PersianCalander.dll</HintPath>
-    </Reference>
-    <Reference Include="PersianDate">
-      <HintPath>D:\components\c#\taghvim farsi(control)\PersianDate.dll</HintPath>
-    </Reference>
-    <Reference Include="PersianDateControls">
-      <HintPath>D:\components\c#\taghvim farsi(control)\PersianDateControls.dll</HintPath>
+      <HintPath>C:\Users\HAMOON\Desktop\New folder\PersianCalander.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
@@ -121,7 +115,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebCalendar, Version=1.0.2509.30447, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\components\c#\PersianCalender\WebCalendar.dll</HintPath>
+      <HintPath>C:\Users\HAMOON\Desktop\New folder\WebCalendar.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

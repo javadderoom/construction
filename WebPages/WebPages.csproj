@@ -173,6 +173,9 @@
     <Content Include="Images\3d-slider-3.jpg" />
     <Content Include="Images\3d-slider-4.jpg" />
     <Content Include="Images\BKTP.png" />
+    <Content Include="Images\loginBg.jpg" />
+    <Content Include="Images\loginbg_1280x1024.jpg" />
+    <Content Include="Images\Loginbg_1366x768.jpg" />
     <Content Include="Images\passicon.png" />
     <Content Include="Images\profile.png" />
     <Content Include="Images\userMD.png" />

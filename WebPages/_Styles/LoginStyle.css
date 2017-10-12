@@ -1,0 +1,174 @@
+﻿@font-face {
+    font-family: 'IranSans';
+    src: url('../_construction/fonts/IranSans.woff') format('woff');
+}
+
+body {
+    font-family: IranSans;
+    overflow-x: hidden;
+    background-color: aliceblue;
+    direction: rtl;
+    background-size: cover;
+    color: black;
+    /*-webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);*/
+}
+
+.page-bg {
+    background-image: url('../Images/1 (1).jpg');
+    /*background: url('http://www.planwallpaper.com/static/images/general-night-golden-gate-bridge-hd-wallpapers-golden-gate-bridge-wallpaper.jpg');*/
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.loginContainer {
+    filter: unset !important;
+    position: relative;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.28);
+    top: 50px;
+}
+
+.loginLogo {
+    background-image: url(../Images/userMD.png);
+    width: 64px;
+    height: 64px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.MainDiv {
+    font-family: IranSans;
+    position: absolute;
+}
+
+label {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.loginContent {
+    margin: 20px;
+    position: relative;
+}
+
+.rdiDiv {
+    float: right;
+    margin-right: 34.7px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.userText {
+    width: 100%;
+    height: 34px;
+    border-bottom: 1px solid;
+}
+
+.glyphicon-user {
+    vertical-align: middle;
+    margin-top: 9px;
+    margin-right: 10px;
+}
+
+.passText {
+    width: 100%;
+    height: 34px;
+    border-bottom: 1px solid;
+}
+
+.passIcon {
+    background-image: url('../Images/passicon.png');
+    width: 17px;
+    height: 17px;
+    background-size: cover;
+}
+
+#txtName {
+    border: none;
+    background: transparent;
+    width: 90%;
+    float: right;
+    height: 100%;
+    text-align: left;
+    direction: ltr;
+}
+
+.passcontainer {
+    padding-left: 5px;
+    padding-top: 8px;
+    float: left;
+}
+
+#txtPassword {
+    border: none;
+    background: transparent;
+    width: 90%;
+    float: right;
+    height: 100%;
+    text-align: left;
+    direction: ltr;
+}
+
+.captchaBlock {
+    float: right;
+}
+
+.btnLogin {
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+    font-family: IranSans;
+    border: 2px solid #F7B818;
+    background-color: transparent;
+}
+
+    .btnLogin:hover {
+        background-color: #F7B818;
+    }
+
+.emailForgot {
+    margin-top: 34px;
+    font-size: smaller;
+    padding-right: 50px;
+}
+
+input:focus {
+    box-shadow: none !important;
+    border: none !important;
+    outline: 0px !important;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    -webkit-appearance: none;
+}

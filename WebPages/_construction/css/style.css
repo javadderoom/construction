@@ -3076,7 +3076,7 @@ header .social_nav {
                     color: #FFF;
                 }
 
-                #pageCover .pageBreadcrumbs .breadcrumb li + li:before {
+                /*#pageCover .pageBreadcrumbs .breadcrumb li + li:before {
                     content: "\f061";
                     display: inline-block;
                     font: normal normal normal 14px/1 FontAwesome;
@@ -3084,8 +3084,10 @@ header .social_nav {
                     text-rendering: auto;
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
-                }
-
+                }*/
+    #pageCover.AddNewsHead {
+        background-image: url('../images/projects/penCover.jpg');
+    }
     #pageCover.blogPage {
         background-image: url("../images/projects/cover.png");
     }

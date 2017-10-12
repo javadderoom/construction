@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-  <title></title>
+    <title></title>
+    <script src="../../ckeditor/ckeditor.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,8 +14,7 @@
     <asp:ContentPlaceHolder ID="StyleSheet" runat="server">
 
         <!--Favicons-->
-        
-
+        <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
         <link rel="apple-touch-icon" sizes="57x57" href="../../_construction/favicon/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="../../_construction/favicon/apple-touch-icon-60x60.png" />
         <link rel="icon" type="image/png" href="../../_construction/favicon/favicon-16x16.png" sizes="16x16" />
@@ -22,19 +22,19 @@
         <meta name="msapplication-TileColor" content="#da532c" />
 
         <!--Bootstrap and Other Vendors-->
-    
+
         <link rel="stylesheet" href="../../_construction/css/bootstrap.min.css" />
         <link rel="stylesheet" href="../../_construction/css/bootstrap-theme.min.css" />
         <link rel="stylesheet" href="../../_construction/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="vendors/owl.carousel/css/owl.carousel.css" />
-        
-        
+        <link rel="stylesheet" href="../../_construction/vendors/owl.carousel/css/owl.carousel.css" />
+
+
         <link rel="stylesheet" type="text/css" href="../../_construction/vendors/rs-plugin/css/settings.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../../_construction/vendors/js-flickr-gallery/css/js-flickr-gallery.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../../_construction/vendors/lightbox/css/lightbox.css" media="screen" />
 
         <!--Fonts-->
-        
+        <link href="../../TagsInput/bootstrap-tagsinput.css" rel="stylesheet" />
         <!--Construction Styles-->
         <link rel="stylesheet" href="../../_construction/css/style.css" />
 
@@ -43,13 +43,9 @@
       <script src="../../_construction/js/respond.min.js"></script>
     <![endif]-->
         <link href="../../_Styles/hamoonStyle.css" rel="stylesheet" />
-        <style>
-            #nr_footer .container .copyrightRow{
-                border-top:none !important;
-            }
-        </style>
+
     </asp:ContentPlaceHolder>
-   
+
 </head>
 <body>
     <a
@@ -76,26 +72,29 @@
                 </div>
             </section>
             <!--Top Strip-->
-
+            <!--wdadawd-->
             <header class="row">
                 <div class="container dirToLeft ">
                     <div class="row">
-                        <div class="logo col-sm-6">
+
+                        <div class="logo col-xs-2 col-md-6">
                             <div class="row ">
-
-                                <a href="index.html">
-
-                                    <img src="../../_construction/images/logo.png" alt="Construction" />
+                                <a href="#"
+                                    data-toggle="popover" data-html="true" data-placement="bottom"
+                                    data-content="<a style='text-align: center' href='#'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام کنید</a>">
+                                    <div class="Profile"></div>
                                 </a>
                             </div>
                         </div>
-                        <div class="social_nav col-sm-6 ">
+                        <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
-                                <ul class="list-inline">
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                </ul>
+
+                                <a href="index.html">
+
+                                    <div class="logoImg"></div>
+
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -116,7 +115,9 @@
                                 <span class="btn-text">Select Page</span>
                             </button>
                         </div>
+
                         <div class="collapse navbar-collapse" id="main_nav">
+
                             <ul class="nav navbar-nav">
 
                                 <li class="active "><a href="index.html">خانه</a></li>
@@ -169,19 +170,23 @@
                     <div class="row goTop">
                         <a href="#top"><i class="fa fa-angle-up"></i></a>
                     </div>
-                   
 
-                 
+
+
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
+                   
+                   
+                   
+                   
                     </div>
                 </div>
             </footer>
         </div>
         <!--jQuery, Bootstrap and other vendor JS-->
-        
+
         <script src="../../_construction/js/jquery-2.1.3.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
+
         <script src="../../_construction/js/bootstrap.min.js"></script>
 
         <script src="../../_construction/vendors/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
@@ -190,11 +195,27 @@
         <script src="../../_construction/vendors/nicescroll/jquery.nicescroll.js"></script>
         <script src="../../_construction/vendors/mixitup/jquery.mixitup.js"></script>
 
-        <script src="../../_construction/vendors/js-flickr-gallery/js/js-flickr-gallery.min.js"></script>
         <script src="../../_construction/vendors/lightbox/js/lightbox.min.js"></script>
-        <script src="../../_Scripts/HomeJavaScript.js"></script>
         <!--Construction JS-->
         <script src="../../_construction/js/construction.js"></script>
+        <script src="../../TagsInput/bootstrap-tagsinput.js"></script>
+        <script src="../../_Scripts/HomeJavaScript.js"></script>
+        <script>
+
+            $("#ContentPlaceHolder1_KeyWords").keypress(function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                }
+            }).tagsinput({ focusClass: 'my-focus-class' });
+            $("#ContentPlaceHolder1_Tags").keypress(function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                }
+            }).tagsinput({ focusClass: 'my-focus-class' });
+
+        </script>
+
+
     </form>
 </body>
 </html>

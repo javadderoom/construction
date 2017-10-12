@@ -16,7 +16,6 @@ namespace DataAccess
     {
         public int GroupID { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public Nullable<int> FatherID { get; set; }
     }
 }

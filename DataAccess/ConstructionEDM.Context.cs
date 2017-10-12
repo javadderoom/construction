@@ -25,6 +25,7 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Article> Articles { get; set; }
         public virtual DbSet<Chat> Chats { get; set; }
         public virtual DbSet<City> Cities { get; set; }
@@ -41,6 +42,5 @@ namespace DataAccess
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Admin> Admins { get; set; }
     }
 }

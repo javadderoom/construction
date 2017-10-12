@@ -74,7 +74,6 @@
           </Key>
           <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="FatherID" Type="int" />
         </EntityType>
         <EntityType Name="Images">
@@ -321,6 +320,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
     <edmx:ConceptualModels>
       <Schema Namespace="ConstructionCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ConstructionCompanyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="ConstructionCompanyModel.Admin" />
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
@@ -361,8 +361,15 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="Admins" EntityType="ConstructionCompanyModel.Admin" />
         </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="ArticleID" />
@@ -418,9 +425,9 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="empImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="Employee" ToRole="State" />
-          <Property Name="empImage" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -428,7 +435,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           </Key>
           <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FatherID" Type="Int32" />
         </EntityType>
         <EntityType Name="Image">
@@ -622,20 +628,21 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="AdminID" />
-          </Key>
-          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ConstructionCompanyModelStoreContainer" CdmEntityContainer="ConstructionCompanyEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Articles">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Article">
               <MappingFragment StoreEntitySet="Articles">
@@ -699,7 +706,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="FatherID" ColumnName="FatherID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
@@ -824,15 +830,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

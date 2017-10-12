@@ -42,5 +42,6 @@ namespace DataAccess
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

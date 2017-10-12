@@ -946,15 +946,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-
     <Content Include="TagsInput\bootstrap-tagsinput.css" />
     <Content Include="TagsInput\bootstrap-tagsinput.js" />
     <Content Include="TagsInput\bootstrap-tagsinput.min.js" />
-
     <Content Include="test\testpage.aspx" />
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />
-
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.ttf" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.woff" />
@@ -1113,6 +1110,7 @@
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\LoginStyle.css" />
+    <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />
     <Content Include="_Styles\HomeStyleSheet.css" />

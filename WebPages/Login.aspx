@@ -42,7 +42,7 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 "></div>
                     <div class="loginContainer col-md-4 col-sm-12 col-xs-12">
 
                         <div class=" MainDiv ">
@@ -52,7 +52,7 @@
                                 <asp:RadioButton ID="rdiEmployees" runat="server" Text="همکاران" CssClass="rdiLogin" GroupName="login" />
                                 <asp:RadioButton ID="rdiUsers" runat="server" Text="مشتریان" CssClass="rdiLogin" GroupName="login" Checked="true" />
                             </div>
-                            <div class="col-md-12 loginContent">
+                            <div class="col-md-12 col-sm-12 col-xs-12 loginContent">
 
                                 <div>
 
@@ -61,24 +61,24 @@
                                         <div class="userText">
                                             <span class="glyphicon glyphicon-user "></span>
                                             <input type="text" placeholder="نام کاربری" class="" id="txtName" runat="server" maxlength="50" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="myAlert"
+                                                runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger"
-                                            runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
-                                        <br />
 
                                         <br />
+
                                         <div class="passText">
                                             <div class="passcontainer">
                                                 <div class="passIcon"></div>
                                             </div>
                                             <input type="password" placeholder="رمز عبور" class="" id="txtPassword" runat="server" maxlength="50" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtPassword" CssClass="myAlert"
+                                                runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                            <br />
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtPassword" CssClass="alert-danger"
-                                            runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
-                                        <br />
                                     </div>
                                     <div class="row captchaBlock">
-                                        <div class="col-md-5">
+                                        <div class="col-md-5 col-xs-5">
                                             <asp:UpdatePanel ID="UpdateImage" runat="server">
                                                 <ContentTemplate>
                                                     <table>
@@ -91,23 +91,25 @@
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>
-                                        <div class="col-md-7">
+                                        <div class="col-md-7 col-xs-7">
                                             <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline"></input>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 btnLogindiv" style="">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <asp:Button runat="server" ID="BtnLogin" CssClass="btnLogin" Text="ورود" OnClick="BtnLogin_Click" />
                                             </div>
 
                                             <br />
-                                            <div class="col-md-12">
-                                                <asp:Label ID="lblWarning" CssClass="alert-danger" runat="server" Text="" ForeColor="Red" BackColor="LightPink"></asp:Label>
-                                            </div>
                                         </div>
-                                        <div class="col-md-12 emailForgot">
-                                            <a href="#">رمز عبور خود را فراموش کرده اید؟</a>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 emailForgot">
+
+                                            <nav class="cl-effect-21">
+                                                رمز عبور خود را فراموش کرده اید؟
+                                                <a href="#">اینجا</a>
+                                                را کلیک کنید
+                                            </nav>
                                         </div>
                                     </div>
                                     <br />

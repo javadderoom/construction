@@ -127,10 +127,11 @@
           <Property Name="ChatID" Type="int" />
           <Property Name="hasSeen" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="Orders">
-          <Property Name="OrderID" Type="int" />
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="IsSeen" Type="bit" />
@@ -139,7 +140,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="CIty" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Projects">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -285,6 +286,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Satisfaction" EntityType="Self.Satisfaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
@@ -361,6 +363,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Orders" EntityType="ConstructionCompanyModel.Order" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -628,6 +631,20 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSeen" Type="Boolean" />
+          <Property Name="MaxStartTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DeadLine" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CIty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -830,6 +847,21 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CIty" ColumnName="CIty" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+                <ScalarProperty Name="MaxStartTime" ColumnName="MaxStartTime" />
+                <ScalarProperty Name="IsSeen" ColumnName="IsSeen" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

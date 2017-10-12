@@ -105,6 +105,9 @@
     <Compile Include="Message.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>ConstructionEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Project.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>

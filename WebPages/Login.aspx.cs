@@ -57,7 +57,7 @@ namespace WebPages
             else
             {
                 //System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Hello this is an Alert;)</SCRIPT>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('شما با آدرس اشتباه وارد شده اید ! ');window.location ='http://localhost:6421/Login.aspx'", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');window.location ='http://localhost:6421/Login.aspx'", true);
                 // lblWarning.Text = "کد وارد شده صحیح نمی باشد";
                 txtImage.Value = "";
                 FillImageText();
@@ -70,7 +70,8 @@ namespace WebPages
                 int eid = r.getEmployeeIDByUsername_Password(txtName.Value, txtPassword.Value);
                 if (eid == 0)
                 {
-                    lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='http://localhost:6421/Login.aspx'", true);
+                    //lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
                     txtImage.Value = "";
                     FillImageText();
                     return;
@@ -87,7 +88,8 @@ namespace WebPages
                 int uid = r.getUserIDByUsername_Password(txtName.Value, txtPassword.Value);
                 if (uid == 0)
                 {
-                    lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='http://localhost:6421/Login.aspx'", true);
+                    // lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
                     txtImage.Value = "";
                     FillImageText();
                     return;

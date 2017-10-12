@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿/// <reference path="F:\job related\Source\construction\WebPages\fileman/index.html" />
+$(document).ready(function () {
     //Check to see if the window is top if not then display button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 180) {
@@ -14,6 +15,10 @@
         return false;
     });
 });
+
+
+   
+
 
 //$(document).ready(function () {
 //    $(window).scroll(function () {

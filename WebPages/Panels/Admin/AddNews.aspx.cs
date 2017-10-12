@@ -68,8 +68,6 @@ namespace WebPages.Panels.Admin
             }
             else
             {
-
-
                 ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "key_name", "alert('شما هیچ موردی را انتخاب نکرده اید!');", true);
             }
 

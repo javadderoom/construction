@@ -87,7 +87,7 @@
                                     </asp:UpdatePanel>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline"></input>
+                                    <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline" />
                                 </div>
                             </div>
                             <div class="row">

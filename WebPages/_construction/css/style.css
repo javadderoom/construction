@@ -124,18 +124,6 @@ footer.row {
     position: relative;
 }
 /*Ancore*/
-.Profile {
-    background-image: url('../images/user64px.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-}
-
-    .Profile:hover {
-        background-image: url('../images/user64pxHover.png');
-    }
 
 a {
     outline: none;
@@ -3076,7 +3064,7 @@ header .social_nav {
                     color: #FFF;
                 }
 
-                /*#pageCover .pageBreadcrumbs .breadcrumb li + li:before {
+    /*#pageCover .pageBreadcrumbs .breadcrumb li + li:before {
                     content: "\f061";
                     display: inline-block;
                     font: normal normal normal 14px/1 FontAwesome;
@@ -3088,6 +3076,7 @@ header .social_nav {
     #pageCover.AddNewsHead {
         background-image: url('../images/projects/penCover.jpg');
     }
+
     #pageCover.blogPage {
         background-image: url("../images/projects/cover.png");
     }

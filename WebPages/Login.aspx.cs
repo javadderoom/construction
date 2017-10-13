@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -11,7 +9,6 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess.Repository;
-
 
 namespace WebPages
 {
@@ -24,7 +21,8 @@ namespace WebPages
                 FillImageText();
             }
         }
-        void FillImageText()
+
+        private void FillImageText()
         {
             try
             {
@@ -44,8 +42,6 @@ namespace WebPages
             }
         }
 
-
-
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtName.Value) || string.IsNullOrEmpty(txtPassword.Value))
@@ -60,7 +56,9 @@ namespace WebPages
             }
             else
             {
-                lblWarning.Text = "کد وارد شده صحیح نمی باشد";
+                //System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Hello this is an Alert;)</SCRIPT>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');window.location ='http://localhost:6421/Login.aspx'", true);
+                // lblWarning.Text = "کد وارد شده صحیح نمی باشد";
                 txtImage.Value = "";
                 FillImageText();
                 return;
@@ -72,7 +70,8 @@ namespace WebPages
                 int eid = r.getEmployeeIDByUsername_Password(txtName.Value, txtPassword.Value);
                 if (eid == 0)
                 {
-                    lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='http://localhost:6421/Login.aspx'", true);
+                    //lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
                     txtImage.Value = "";
                     FillImageText();
                     return;
@@ -81,9 +80,7 @@ namespace WebPages
                 {
                     Session.Add("employeeid", eid);
                     Response.Redirect("http://localhost:6421/Panels/EmployeePanel/profile.aspx");
-
                 }
-
             }
             else
             {
@@ -91,23 +88,18 @@ namespace WebPages
                 int uid = r.getUserIDByUsername_Password(txtName.Value, txtPassword.Value);
                 if (uid == 0)
                 {
-                    lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='http://localhost:6421/Login.aspx'", true);
+                    // lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
                     txtImage.Value = "";
                     FillImageText();
                     return;
                 }
                 else
                 {
-
                     Session.Add("userid", uid);
                     Response.Redirect("http://localhost:6421/Panels/UserPanel/profile.aspx");
-
-
                 }
             }
-
-
-
         }
     }
 }

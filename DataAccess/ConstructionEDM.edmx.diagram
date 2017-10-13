@@ -28,6 +28,7 @@
         <AssociationConnector Association="ConstructionCompanyModel.FK_Jobs_JobGroups" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Users_States" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Users_States1" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Order" Width="1.5" PointX="0.75" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

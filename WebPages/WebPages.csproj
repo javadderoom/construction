@@ -847,8 +847,12 @@
     <Content Include="Images\3d-slider-3.jpg" />
     <Content Include="Images\3d-slider-4.jpg" />
     <Content Include="Images\BKTP.png" />
+    <Content Include="Images\loginBg.jpg" />
+    <Content Include="Images\loginbg_1280x1024.jpg" />
+    <Content Include="Images\Loginbg_1366x768.jpg" />
     <Content Include="Images\passicon.png" />
     <Content Include="Images\profile.png" />
+    <Content Include="Images\register64px.png" />
     <Content Include="Images\userMD.png" />
     <Content Include="Images\username.png" />
     <Content Include="img\profile.png" />
@@ -943,15 +947,13 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-
     <Content Include="TagsInput\bootstrap-tagsinput.css" />
     <Content Include="TagsInput\bootstrap-tagsinput.js" />
     <Content Include="TagsInput\bootstrap-tagsinput.min.js" />
-
     <Content Include="test\testpage.aspx" />
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />
-
+    <Content Include="_construction\css\popoverStyle.css" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.ttf" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.woff" />
@@ -965,6 +967,7 @@
     <Content Include="_construction\images\user.png" />
     <Content Include="_construction\images\user64px.png" />
     <Content Include="_construction\images\user64pxHover.png" />
+    <Content Include="_construction\images\userLogIn.png" />
     <Content Include="_construction\Index.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
@@ -1110,6 +1113,7 @@
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\LoginStyle.css" />
+    <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />
     <Content Include="_Styles\HomeStyleSheet.css" />

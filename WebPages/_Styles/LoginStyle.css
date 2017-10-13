@@ -18,8 +18,7 @@ body {
 }
 
 .page-bg {
-    background-image: url('../Images/1 (1).jpg');
-    /*background: url('http://www.planwallpaper.com/static/images/general-night-golden-gate-bridge-hd-wallpapers-golden-gate-bridge-wallpaper.jpg');*/
+    background-image: url('../Images/Loginbg_1366x768.jpg');
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
@@ -31,9 +30,12 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .loginContainer {
+    float: none !important;
     filter: unset !important;
     position: relative;
     color: white;
@@ -41,7 +43,7 @@ body {
     margin-right: auto;
     width: 350px;
     height: 500px;
-    background-color: rgba(255, 255, 255, 0.28);
+    background-color: rgba(0, 0, 0, 0.38);
     top: 50px;
 }
 
@@ -65,19 +67,25 @@ label {
     vertical-align: middle;
 }
 
+input::placeholder {
+    color: #2a2a2a;
+}
+
 .loginContent {
-    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
 }
 
 .rdiDiv {
     float: right;
-    margin-right: 34.7px;
+    padding-right: 34.7px;
     margin-bottom: 20px;
     margin-top: 40px;
 }
 
 .userText {
+    float: left;
     width: 100%;
     height: 34px;
     border-bottom: 1px solid;
@@ -86,10 +94,14 @@ label {
 .glyphicon-user {
     vertical-align: middle;
     margin-top: 9px;
-    margin-right: 10px;
+    margin-right: 7px;
+    float: left;
+    margin-left: 7px;
 }
 
 .passText {
+    float: left;
+    margin-top: 20px;
     width: 100%;
     height: 34px;
     border-bottom: 1px solid;
@@ -105,11 +117,12 @@ label {
 #txtName {
     border: none;
     background: transparent;
-    width: 90%;
-    float: right;
+    width: 83%;
+    float: left;
     height: 100%;
     text-align: left;
     direction: ltr;
+    margin-left: 4px;
 }
 
 .passcontainer {
@@ -121,54 +134,169 @@ label {
 #txtPassword {
     border: none;
     background: transparent;
-    width: 90%;
-    float: right;
+    width: 83%;
+    float: left;
     height: 100%;
     text-align: left;
     direction: ltr;
+    margin-left: 10px;
 }
 
 .captchaBlock {
     float: right;
+    margin-top: 35px;
 }
 
+    .captchaBlock input {
+        background: transparent;
+        color: white;
+        direction: ltr;
+        text-align: left;
+    }
+
+        .captchaBlock input::placeholder {
+            color: #2a2a2a;
+        }
+
 .btnLogin {
+    text-align: center;
+    transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 30px;
     float: right;
     margin-top: 20px;
     margin-right: 10px;
     font-family: IranSans;
     border: 2px solid #F7B818;
     background-color: transparent;
+    height: 50px;
+    width: 91%;
 }
 
     .btnLogin:hover {
-        background-color: #F7B818;
+        background-color: #f7b918;
     }
 
 .emailForgot {
-    margin-top: 34px;
+    margin-top: 25px;
     font-size: smaller;
-    padding-right: 50px;
+    padding-right: 45px;
 }
 
-input:focus {
+    .emailForgot a:hover {
+        text-decoration: none;
+    }
+
+.myAlert {
+    float: right;
+    padding-top: 10px;
+    color: red;
+    font-size: large;
+    background-color: none;
+    background-image: none;
+}
+
+.loginInfo input:focus {
     box-shadow: none !important;
     border: none !important;
     outline: 0px !important;
 }
 
-textarea:hover,
-input:hover,
-textarea:active,
-input:active,
-textarea:focus,
-input:focus,
+.captchaBlock input:focus {
+    /*border: 1px solid rgb(247, 184, 24);
+    box-shadow: rgb(247, 184, 24) 0px 0px 7.8px 1.3px;*/
+    border-color: #F7B71E;
+    box-shadow: 0 1px 1px rgba(247, 183, 30, 0.075) inset, 0 0 8px rgba(247, 183, 30, 0.6);
+    outline: 0 none;
+}
+
+#BtnLogin:visited, #BtnLogin:active, #BtnLogin:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+    -webkit-appearance: none;
+}
+
+.loginInfo textarea:active,
+.loginInfo textarea:focus,
 button:focus,
 button:active,
 button:hover,
-label:focus,
+.loginInfo label:focus,
 .btn:active,
 .btn.active {
     outline: 0px !important;
     -webkit-appearance: none;
 }
+
+a, a.active, a:active, a:focus, a:hover {
+    color: #f7b918;
+}
+
+nav {
+    color: #F7B918;
+}
+
+    nav a {
+        position: relative;
+        display: inline-block;
+        outline: none;
+        text-decoration: none;
+        font-weight: 400;
+        text-shadow: 0 0 1px rgba(255,255,255,0.3);
+        font-size: 1.35em;
+    }
+
+.cl-effect-21 a {
+    font-weight: 700;
+    text-shadow: none;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+    .cl-effect-21 a::before,
+    .cl-effect-21 a::after {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        content: '';
+        opacity: 0;
+        -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+        -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+        transition: opacity 0.3s, transform 0.3s;
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    .cl-effect-21 a::before {
+        top: 0;
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    .cl-effect-21 a::after {
+        bottom: 0;
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+
+    .cl-effect-21 a:hover,
+    .cl-effect-21 a:focus {
+        color: #fff;
+    }
+
+        .cl-effect-21 a:hover::before,
+        .cl-effect-21 a:focus::before,
+        .cl-effect-21 a:hover::after,
+        .cl-effect-21 a:focus::after {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+            -moz-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+
+/* Read more: ibrahimjabbari.com

@@ -293,6 +293,8 @@
         <script src="js/construction.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
 
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderScripts" runat="server">
+        </asp:ContentPlaceHolder>
         <script>
 
             var myLatlng = new google.maps.LatLng(36.542219, 52.678913);

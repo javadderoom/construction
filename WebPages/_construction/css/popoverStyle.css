@@ -214,3 +214,13 @@ button:focus {
 .fadeIn {
     animation-name: fadeIn;
 }
+
+@media (max-width: 767px) {
+    .popover-container {
+        margin-right: 41px;
+    }
+
+    #myPopoverContent {
+        margin-right: 60px;
+    }
+}

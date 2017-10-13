@@ -20,14 +20,14 @@
         <div class="form-group">
 
             <label for="title">عنوان :</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="title" runat="server" CssClass="error" ErrorMessage="عنوان نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" SetFocusOnError="true" ControlToValidate="title" runat="server" CssClass="error" ErrorMessage="عنوان نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="title" onkeydown="return (event.keyCode!=13);" Style="max-width: 500px; height: 40px;" placeholder="عنوان باید کوتاه و مفید باشد" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="Abstract">توضیح کوتاه : </label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="Abstract" runat="server" CssClass="error" ErrorMessage="توضیح کوتاه نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" SetFocusOnError="true" ControlToValidate="Abstract" runat="server" CssClass="error" ErrorMessage="توضیح کوتاه نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="تعداد کلمات پیشنهادی 160 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
@@ -41,7 +41,7 @@
 
             </label>
             <label style="padding: 18px" id="filename"></label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>
@@ -114,13 +114,13 @@
         </div>
         <div class="form-group" style="margin-top: 20px">
             <label for="KeyWords">کلمات کلیدی:</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="KeyWords" runat="server" CssClass="error" ErrorMessage="کلمات کلیدی نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" SetFocusOnError="true" ControlToValidate="KeyWords" runat="server" CssClass="error" ErrorMessage="کلمات کلیدی نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="KeyWords" Style="max-width: 500px; height: 40px;" placeholder="چند کلمه کلیدی وارد کنید" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="Tags">برچسب ها:</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="Tags" runat="server" CssClass="error" ErrorMessage="برچسب ها نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" SetFocusOnError="true" ControlToValidate="Tags" runat="server" CssClass="error" ErrorMessage="برچسب ها نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>

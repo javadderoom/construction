@@ -1,4 +1,4 @@
-﻿/// <reference path="F:\job related\Source\construction\WebPages\fileman/index.html" />
+﻿
 $(document).ready(function () {
     //Check to see if the window is top if not then display button
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
     }).tagsinput();
 
-
+    ///////////////////////////////////////////////////
     $(document).on('click', '#Content_btnSave', function (e) {
 
 
@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 
     });
-
+    //////////////////////////////////////////////////////////////////////////////////////
     $('#Content_FileUpload1').change(function () {
         var filename = $(this).val();
         var lastIndex = filename.lastIndexOf("\\");
@@ -40,8 +40,7 @@ $(document).ready(function () {
         }
         $('#filename').html(filename);
     });
-
-
+    /////////////////////////////////////////////////////////////////////
     var roxyFileman = '../../fileman/index.html';
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.

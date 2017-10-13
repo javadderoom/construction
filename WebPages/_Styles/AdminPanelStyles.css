@@ -103,3 +103,7 @@ textarea {
 .displaynone {
     display: none !important;
 }
+
+.breadcrumb > li + li:before {
+    content: none !important;
+}

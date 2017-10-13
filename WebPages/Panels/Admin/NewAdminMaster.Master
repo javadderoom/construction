@@ -160,7 +160,7 @@
             </nav>
             <!--Main Nav-->
             <%--///////////////////////////////////////////// CONTENT //////////////////////////////////////////--%>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="Content" runat="server">
             </asp:ContentPlaceHolder>
 
             <%--//////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
@@ -173,6 +173,18 @@
 
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                    
                    
                     </div>
@@ -197,12 +209,8 @@
         <!--Construction JS-->
         <script src="../../_construction/js/construction.js"></script>
         <script src="../../TagsInput/bootstrap-tagsinput.js"></script>
-
         <script src="../../_Scripts/HomeJavaScript.js"></script>
-        <script>
-         
 
-        </script>
 
     </form>
 </body>

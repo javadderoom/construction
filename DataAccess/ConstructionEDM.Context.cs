@@ -30,6 +30,7 @@ namespace DataAccess
         public virtual DbSet<Chat> Chats { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<GroupConnection> GroupConnections { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<JobEmployee> JobEmployees { get; set; }

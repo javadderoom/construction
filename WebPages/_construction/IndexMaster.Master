@@ -222,8 +222,6 @@
                                     <div class="widgetHeader row m0">
                                         <img src="images/whiteSquare.png" alt="" />
                                         با ما درارتباط باشید
-                                   
-                                   
                                     </div>
                                     <div class="row getInTouch_tab m0">
                                         <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
@@ -246,13 +244,9 @@
                                         <div class="widgetHeader row m0">
                                             <img src="images/whiteSquare.png" alt="" />
                                             درباره ساخت و ساز ما
-                                       
-                                       
                                         </div>
                                         <div class="row m0 footer-white">
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
-                                       
-                                       
                                         </div>
                                     </div>
                                 </div>
@@ -277,8 +271,6 @@
                     </div>
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
-                   
-                   
                     </div>
                 </div>
             </footer>
@@ -302,6 +294,8 @@
         <script src="../_Scripts/ScrolToTop.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
 
+        <asp:ContentPlaceHolder ID="Scripts" runat="server">
+        </asp:ContentPlaceHolder>
         <script>
 
             var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
@@ -355,5 +349,4 @@
     <asp:Content ID="Content2" ContentPlaceHolderID="Script" runat="server">
     </asp:Content>
 </body>
-
 </html>

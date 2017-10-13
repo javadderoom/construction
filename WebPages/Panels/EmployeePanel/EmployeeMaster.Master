@@ -76,8 +76,6 @@
                                         <span class="fa-stack fa-lg pull-left"></span>
                                     </a>
                                 </li>
-
-
                             </ul>
                         </li>
                         <li>
@@ -99,131 +97,8 @@
 
                                     <span class="fa-stack fa-lg pull-left"></span>
                                 </a></li>
-
                             </ul>
                         </li>
-                        <%--  <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text="<%$ Resources:Dashboard,StudentsManage%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="glyphicon glyphicon-education fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/Students.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:Dashboard,Students%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text=" <%$ Resources:Dashboard,ClassManagment%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="glyphicon glyphicon-education fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/ClassManagment.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:HamoonResource,ClassList%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text="<%$ Resources:Dashboard,EmployeesManage%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="fa fa-file-text-o fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/Employees.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:Dashboard,Employees%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text="<%$ Resources:Dashboard,LessonsManage%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="fa fa-file-text-o fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/Lessons.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:Dashboard,Lessons%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text="<%$ Resources:Dashboard,LessonGroupsManage%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="fa fa-file-text-o fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/LessonGroups.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:Dashboard,LessonGroups%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text="<%$ Resources:Dashboard,salary%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="fa fa-money fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/StudentsPayment.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:Dashboard,payments%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-
-                            </ul>
-                        </li>
-
-                        <li class="">
-                            <a href="#" class="a-properties ">
-                                <asp:Literal runat="server" Text="<%$ Resources:sasanRes,reports%>" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="fa fa-money fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:4911/Dashboard/Admin/reportsGrades.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:sasanRes,gradereports%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-
-                                <li><a href="http://localhost:4911/Dashboard/Admin/reportsLessonGroups.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:sasanRes,classreports%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-
-                                <li><a href="http://localhost:4911/Dashboard/Admin/reportsStudents.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="<%$ Resources:sasanRes,studentreports%>" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-
-                                <li><a href="http://localhost:4911/Dashboard/Admin/reportsFields.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="گزارش رشته ها" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-
-                            </ul>
-
-                        </li>--%>
                     </ul>
                 </div>
 
@@ -245,6 +120,5 @@
         <script src="../../js/JavaScript.js"></script>
         <script src="../../js/sidebar_menu.js"></script>
     </form>
-
 </body>
 </html>

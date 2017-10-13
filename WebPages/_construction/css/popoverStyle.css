@@ -11,7 +11,16 @@
         background-image: url('../images/user64pxHover.png');
     }
 
+.popover-container {
+    margin-right: 10px;
+}
+
+.fRight {
+    float: right;
+}
+
 .logInProfile {
+    margin-right: 10%;
     position: absolute;
     background-image: url('../images/userLogIn.png');
     background-size: cover;
@@ -22,6 +31,7 @@
 }
 
 #myPopoverContent {
+    margin-right: 5%;
     display: none;
     padding: 10px;
     position: absolute;

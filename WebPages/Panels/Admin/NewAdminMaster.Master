@@ -179,10 +179,50 @@
                    
                    
                    
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                     </div>
                 </div>
             </footer>
         </div>
+
+
         <!--jQuery, Bootstrap and other vendor JS-->
 
         <script src="../../_construction/js/jquery-2.1.3.min.js"></script>
@@ -199,22 +239,17 @@
         <!--Construction JS-->
         <script src="../../_construction/js/construction.js"></script>
         <script src="../../TagsInput/bootstrap-tagsinput.js"></script>
+
         <script src="../../_Scripts/HomeJavaScript.js"></script>
         <script>
+            //var fu1 = document.getElementById("ContentPlaceHolder1_FileUpload1");
+            //$("#ContentPlaceHolder1_FileUpload1").change(function (e) {
 
-            $("#ContentPlaceHolder1_KeyWords").keypress(function (event) {
-                if (event.keyCode == 13) {
-                    event.preventDefault();
-                }
-            }).tagsinput({ focusClass: 'my-focus-class' });
-            $("#ContentPlaceHolder1_Tags").keypress(function (event) {
-                if (event.keyCode == 13) {
-                    event.preventDefault();
-                }
-            }).tagsinput({ focusClass: 'my-focus-class' });
+            //    alert("شما " + fu1.value + "را انتخاب کرده اید");
+            //    $("#uploadName").text = fu1.text;
+            //});
 
         </script>
-
 
     </form>
 </body>

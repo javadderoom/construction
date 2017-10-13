@@ -17,7 +17,7 @@ body {
     direction: rtl;
 }
 
-textarea:focus,
+/*textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
@@ -32,11 +32,11 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
-.uneditable-input:focus, #ContentPlaceHolder1_Abstract:focus, #ContentPlaceHolder1_Tags:focus {
+.uneditable-input:focus, #ContentPlaceHolder1_Abstract:focus, #ContentPlaceHolder1_Tags:focus, select:focus {
     border-color: #F7B71E;
     box-shadow: 0 1px 1px rgba(247, 183, 30, 0.075) inset, 0 0 8px rgba(247, 183, 30, 0.6);
     outline: 0 none;
-}
+}*/
 
 .liststylenone {
     width: 50px;
@@ -57,7 +57,13 @@ textarea {
 }
 
 .error {
+    text-align: center;
     color: red;
+    font-weight: bold;
+}
+
+.textok {
+    color: #6ea11a;
     font-weight: bold;
 }
 
@@ -73,7 +79,7 @@ textarea {
 }
 
 .DDLClass {
-    display: block;
+    display: inline;
     width: 100%;
     max-width: 200px;
     height: 25px;
@@ -90,6 +96,10 @@ textarea {
     display: inline;
 }
 
-#upPan1 > div, #upPan2 > div {
+#upPan1 > div, #upPan2 > div, #upPan3 > div {
     display: inline !important;
+}
+
+.displaynone {
+    display: none !important;
 }

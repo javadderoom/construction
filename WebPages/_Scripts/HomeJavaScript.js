@@ -83,17 +83,3 @@ $(document).ready(function () {
 
 
 });
-
-
-
-
-
-//$(document).ready(function () {
-//    $(window).scroll(function () {
-//        if ($(document).scrollTop() > 41) {
-//            $("#fixme").addClass("fixclass");
-//        } else {
-//            $("#fixme").removeClass("fixclass");
-//        }
-//    });
-//});

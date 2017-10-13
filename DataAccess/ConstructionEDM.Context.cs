@@ -30,6 +30,7 @@ namespace DataAccess
         public virtual DbSet<Chat> Chats { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<GroupConnection> GroupConnections { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<JobEmployee> JobEmployees { get; set; }
@@ -37,11 +38,11 @@ namespace DataAccess
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<Link> Links { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Satisfaction> Satisfactions { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
     }
 }

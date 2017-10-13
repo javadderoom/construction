@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>صفحه ورود کاربران</title>
+    <title>ورود</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,7 +22,7 @@
 
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="_Styles/StyleSheet.css" rel="stylesheet" />
-    <link href="_Styles/sasan.css" rel="stylesheet" />
+
     <link href="_Styles/LoginStyle.css" rel="stylesheet" />
     <style>
         .form-control:focus {

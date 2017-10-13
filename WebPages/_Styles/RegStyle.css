@@ -1,2 +1,210 @@
-﻿body {
+﻿@font-face {
+    font-family: 'IranSans';
+    src: url('../_construction/fonts/IranSans.woff') format('woff');
 }
+
+body {
+    font-family: IranSans;
+    overflow-x: hidden;
+    background-color: aliceblue;
+    direction: rtl;
+    background-size: cover;
+    color: black;
+}
+
+.page-bg {
+    background-image: url('../Images/Loginbg_1366x768.jpg');
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.registerContainer {
+    float: none !important;
+    filter: unset !important;
+    position: relative;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 1089px;
+    background-color: rgba(0, 0, 0, 0.38);
+    top: 50px;
+}
+
+.registerLogo {
+    background-image: url('../Images/register64px.png');
+    width: 64px;
+    height: 64px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.MainDiv {
+    font-family: IranSans;
+    position: absolute;
+    height: 100%;
+}
+
+label {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+input::placeholder {
+    color: #2a2a2a;
+}
+
+.registerContent {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.rdiDiv {
+    float: right;
+    padding-right: 34.7px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+input {
+    background: transparent;
+}
+
+.registerTexts input {
+    width: 100%;
+    height: 33px;
+    border: 1px solid #dedada;
+}
+
+.registerTexts {
+    margin-bottom: 20px;
+}
+
+.dropDiv select {
+    background: transparent;
+    color: black;
+}
+
+    .dropDiv select:first-child {
+        margin-bottom: 10px;
+    }
+
+    .dropDiv select:focus {
+        outline: 0px !important;
+        border: 1px solid #F7B918;
+        box-shadow: 0 0px 4px #F7B918;
+    }
+
+    .dropDiv select::placeholder {
+        color: white;
+    }
+
+    .dropDiv select option {
+        background: #797979;
+    }
+
+/*.dropDiv select.decorated option:hover {
+        box-shadow: 0 0 10px 100px #1882A8 inset;
+    }*/
+
+#ddlCity {
+    width: 140px;
+}
+
+.myAlert {
+    float: right;
+    padding-top: 10px;
+    color: red;
+    font-size: large;
+    background-color: none;
+    background-image: none;
+}
+
+.registerInfo input:focus {
+    /*box-shadow: none !important;*/
+    outline: 0px !important;
+    -webkit-appearance: none;
+}
+
+.registerInfo input:focus {
+    border: 1px solid #F7B918;
+    box-shadow: 0 0px 4px #F7B918;
+    /*box-shadow: 1px 1px 1px rgba(247, 183, 30, 0.075) inset, 0 0 8px rgba(247, 183, 30, 0.6);*/
+}
+
+.captchaBlock input:focus {
+    /*border: 1px solid rgb(247, 184, 24);
+    box-shadow: rgb(247, 184, 24) 0px 0px 7.8px 1.3px;*/
+    border-color: #F7B71E;
+    box-shadow: 0 1px 1px rgba(247, 183, 30, 0.075) inset, 0 0 8px rgba(247, 183, 30, 0.6);
+    outline: 0 none;
+}
+
+#BtnLogin:visited, #BtnLogin:active, #BtnLogin:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+    -webkit-appearance: none;
+}
+
+.registerInfo textarea:active,
+.registerInfo textarea:focus,
+button:focus,
+button:active,
+button:hover,
+.registerInfo label:focus,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    -webkit-appearance: none;
+}
+
+a, a.active, a:active, a:focus, a:hover {
+    color: #f7b918;
+}
+
+.btnRegister {
+    text-align: center;
+    transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 30px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+    font-family: IranSans;
+    border: 2px solid #F7B818;
+    background-color: transparent;
+    height: 50px;
+    width: 91%;
+}
+
+    .btnRegister:hover {
+        background-color: #f7b918;
+    }
+
+.captchaBlock {
+    float: right;
+}
+
+    .captchaBlock input {
+        background: transparent;
+        color: white;
+        direction: ltr;
+        text-align: left;
+    }
+
+        .captchaBlock input::placeholder {
+            color: #2a2a2a;
+        }

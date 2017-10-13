@@ -1,0 +1,44 @@
+﻿.Profile {
+    background-image: url('../images/user64px.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+    .Profile:hover {
+        background-image: url('../images/user64pxHover.png');
+    }
+
+.logInProfile {
+    background-image: url('../images/userLogIn.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+#myPopoverContent {
+    width: 100px;
+    min-height: 100px;
+    background-color: aqua;
+}
+
+.popover-container::before {
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 0;
+    width: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #fff;
+    content: '';
+}

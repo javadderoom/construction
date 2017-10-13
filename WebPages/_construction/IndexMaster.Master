@@ -44,6 +44,8 @@
         <style>
         </style>
     </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="pageStyles" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <a
@@ -76,12 +78,12 @@
                     <div class="row">
 
                         <div class="logo col-xs-2 col-md-6">
-                            <div class="row ">
-                                <a href="#" style="display: none"
+                            <div class=" ">
+                                <%--<a href="#" style="display: none"
                                     data-toggle="popover" data-html="true" data-placement="bottom"
                                     data-content="<a style='text-align: center' href='#'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام کنید</a>">
                                     <div class="Profile"></div>
-                                </a>
+                                </a>--%>
                                 <div class="popover-container">
                                     <button type="button" onclick="displayFunction()" class="logInProfile">
                                     </button>
@@ -222,10 +224,6 @@
                                     <div class="widgetHeader row m0">
                                         <img src="images/whiteSquare.png" alt="" />
                                         با ما درارتباط باشید
-                                   
-                                   
-                                   
-                                   
                                     </div>
                                     <div class="row getInTouch_tab m0">
                                         <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
@@ -248,17 +246,9 @@
                                         <div class="widgetHeader row m0">
                                             <img src="images/whiteSquare.png" alt="" />
                                             درباره ساخت و ساز ما
-                                       
-                                       
-                                       
-                                       
                                         </div>
                                         <div class="row m0 footer-white">
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
-                                       
-                                       
-                                       
-                                       
                                         </div>
                                     </div>
                                 </div>
@@ -276,10 +266,6 @@
                     </div>
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
-                   
-                   
-                   
-                   
                     </div>
                 </div>
             </footer>
@@ -355,6 +341,5 @@
                 }
             }</script>
     </form>
-
 </body>
 </html>

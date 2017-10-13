@@ -173,6 +173,7 @@
 
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
+                                     
                    
                    
                    
@@ -200,6 +201,7 @@
         <script src="../../_construction/js/bootstrap.min.js"></script>
 
         <script src="../../_construction/vendors/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+
         <script src="../../_construction/vendors/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
         <script src="../../_construction/vendors/owl.carousel/js/owl.carousel.min.js"></script>
         <script src="../../_construction/vendors/nicescroll/jquery.nicescroll.js"></script>
@@ -209,7 +211,9 @@
         <!--Construction JS-->
         <script src="../../_construction/js/construction.js"></script>
         <script src="../../TagsInput/bootstrap-tagsinput.js"></script>
-        <script src="../../_Scripts/HomeJavaScript.js"></script>
+        <script src="../../_Scripts/ScrolToTop.js"></script>
+        <asp:ContentPlaceHolder ID="Script" runat="server">
+        </asp:ContentPlaceHolder>
 
 
     </form>

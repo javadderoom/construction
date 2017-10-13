@@ -1107,9 +1107,10 @@
     <Content Include="_construction\vendors\rs-plugin\images\gradient\g40.png" />
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.revolution.min.js" />
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
-    <Content Include="_Scripts\HomeJavaScript.js" />
+    <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
+    <Content Include="_Scripts\ScrolToTop.js" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />

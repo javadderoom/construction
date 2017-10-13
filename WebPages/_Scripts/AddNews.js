@@ -1,37 +1,25 @@
-﻿/// <reference path="F:\job related\Source\construction\WebPages\fileman/index.html" />
+﻿
 $(document).ready(function () {
     //Check to see if the window is top if not then display button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 180) {
-            $('.scrollToTop').fadeIn();
-        } else {
-            $('.scrollToTop').fadeOut();
-        }
-    });
 
-    //Click event to scroll to top
-    $('.scrollToTop').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 800);
-        return false;
-    });
 
-    $("#ContentPlaceHolder1_KeyWords").keypress(function (event) {
+    $("#Content_KeyWords").keypress(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
         }
     }).tagsinput();
-    $("#ContentPlaceHolder1_Tags").keypress(function (event) {
+    $("#Content_Tags").keypress(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
         }
     }).tagsinput();
 
+    ///////////////////////////////////////////////////
+    $(document).on('click', '#Content_btnSave', function (e) {
 
-    $(document).on('click', '#ContentPlaceHolder1_btnSave', function (e) {
 
 
-
-        var messageLength = CKEDITOR.instances['ContentPlaceHolder1_editor1'].getData().replace(/<[^>]*>/gi, '').length;
+        var messageLength = CKEDITOR.instances['Content_editor1'].getData().replace(/<[^>]*>/gi, '').length;
         if (!messageLength) {
             alert('شما هیچ متنی وارد نکرده اید!');
 
@@ -43,8 +31,8 @@ $(document).ready(function () {
 
 
     });
-
-    $('#ContentPlaceHolder1_FileUpload1').change(function () {
+    //////////////////////////////////////////////////////////////////////////////////////
+    $('#Content_FileUpload1').change(function () {
         var filename = $(this).val();
         var lastIndex = filename.lastIndexOf("\\");
         if (lastIndex >= 0) {
@@ -52,12 +40,11 @@ $(document).ready(function () {
         }
         $('#filename').html(filename);
     });
-
-
+    /////////////////////////////////////////////////////////////////////
     var roxyFileman = '../../fileman/index.html';
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-    CKEDITOR.replace('ContentPlaceHolder1_editor1', {
+    CKEDITOR.replace('Content_editor1', {
         toolbar: [
         { name: 'document', items: ['Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'] },
         { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo'] },
@@ -79,6 +66,7 @@ $(document).ready(function () {
         filebrowserImageBrowseUrl: roxyFileman + '?type=image',
         removeDialogTabs: 'link:upload;image:upload', resize_maxHeight: '830'
     });
+
 
 
 

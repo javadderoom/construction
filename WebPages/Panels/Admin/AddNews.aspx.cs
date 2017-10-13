@@ -117,11 +117,11 @@ namespace WebPages.Panels.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            byte[] balance = { 1, 0, 1 };
+
             Article ART = new Article();
             ART.Title = title.Text;
             ART.Content = editor1.Text;
-            ART.Image = balance;
+            //ART.Image = FileUpload1.................
             ART.Abstract = Abstract.Text;
             ART.PostDateTime = OnlineTools.persianFormatedDate();
             ART.Visits = 0;

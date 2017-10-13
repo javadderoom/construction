@@ -26,7 +26,7 @@ namespace DataAccess
         public Nullable<int> City { get; set; }
         public string Email { get; set; }
     
+        public virtual City City1 { get; set; }
         public virtual State State1 { get; set; }
-        public virtual State State2 { get; set; }
     }
 }

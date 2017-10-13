@@ -20,7 +20,6 @@ namespace DataAccess
             this.Cities = new HashSet<City>();
             this.Employees = new HashSet<Employee>();
             this.Users = new HashSet<User>();
-            this.Users1 = new HashSet<User>();
         }
     
         public int StateID { get; set; }
@@ -32,7 +31,5 @@ namespace DataAccess
         public virtual ICollection<Employee> Employees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users1 { get; set; }
     }
 }

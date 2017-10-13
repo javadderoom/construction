@@ -1,8 +1,10 @@
 ﻿using Common;
+using DataAccess;
 using DataAccess.Repository;
 using System;
+using System.Collections.Generic;
 using System.Data;
-//using System.Globalization;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WebPages.Panels.Admin
@@ -11,7 +13,7 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //OnlineTools.persianFormatedDate();
+
             if (!IsPostBack)
             {
                 btnSave.Enabled = false;
@@ -115,8 +117,47 @@ namespace WebPages.Panels.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            byte[] balance = { 1, 0, 1 };
+            Article ART = new Article();
+            ART.Title = title.Text;
+            ART.Content = editor1.Text;
+            ART.Image = balance;
+            ART.Abstract = Abstract.Text;
+            ART.PostDateTime = OnlineTools.persianFormatedDate();
+            ART.Visits = 0;
+            ART.Tags = Tags.Text;
+            ART.KeyWords = KeyWords.Text;
+            ArticleRepository ARTRep = new ArticleRepository();
+            if (ARTRep.SaveArticle(ART))
+            {
+                bool result = true;
+                GroupsConRepository GRConRepo = new GroupsConRepository();
+                List<int> SelectedSubGroupsList = new List<int>();
 
+                int lastid = ARTRep.GetLastArticleID();
+
+                for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                {
+                    GroupConnection GC = new GroupConnection();
+                    GC.ArticleID = lastid;
+                    GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
+                    if (!GRConRepo.SaveGroupCon(GC))
+                    {
+                        result = false;
+                    }
+                }
+                if (!result)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنیدیا با پشتیبانی تماس بگیرید ! ');window.location ='http://localhost:4911/Dashboard/Admin/News.aspx'", true);
+
+                }
+
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنیدیا با پشتیبانی تماس بگیرید ! ');window.location ='http://localhost:4911/Dashboard/Admin/News.aspx'", true);
+
+            }
         }
     }
-
 }

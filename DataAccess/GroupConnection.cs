@@ -12,18 +12,10 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Message
+    public partial class GroupConnection
     {
-        public int MessageID { get; set; }
-        public string MessageText { get; set; }
-        public string MessageDate { get; set; }
-        public string MessageTime { get; set; }
-        public byte[] MessageFile { get; set; }
-        public string SenderTable { get; set; }
-        public Nullable<int> SenderID { get; set; }
-        public Nullable<int> ChatID { get; set; }
-        public Nullable<bool> hasSeen { get; set; }
-    
-        public virtual Chat Chat { get; set; }
+        public int ConectionID { get; set; }
+        public Nullable<int> GroupID { get; set; }
+        public Nullable<int> ArticleID { get; set; }
     }
 }

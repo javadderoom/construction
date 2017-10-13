@@ -27,7 +27,7 @@
         <link rel="stylesheet" type="text/css" href="vendors/rs-plugin/css/settings.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="vendors/js-flickr-gallery/css/js-flickr-gallery.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="vendors/lightbox/css/lightbox.css" media="screen" />
-
+        <link href="css/animate.css" rel="stylesheet" />
         <!--Fonts-->
         <%--<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />--%>
@@ -37,9 +37,9 @@
         <link rel="stylesheet" href="css/style.css" />
 
         <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
         <link href="../_Styles/hamoonStyle.css" rel="stylesheet" />
         <style>
         </style>
@@ -83,13 +83,45 @@
                                     <div class="Profile"></div>
                                 </a>
                                 <div class="popover-container">
-                                    <button type="button" class="logInProfile">
+                                    <button type="button" onclick="displayFunction()" class="logInProfile">
                                     </button>
-                                    <div id="myPopoverContent">
+                                    <div id="myPopoverContent" style="display: none">
                                         <div class="popoverProfile">
 
                                             <img class="popupProfileImg" src="images/user128px.png" />
                                             <div class="personName">جواد شیخ اعظمی</div>
+
+                                            <nav class="ij-effect-3">
+
+                                                <a href="#">پروفایل</a>
+                                            </nav>
+                                        </div>
+                                        <div class="popoverLinks">
+                                            <ul>
+                                                <li class="message">
+                                                    <a href="#">
+                                                        <div class="mssageBox">
+                                                            <span class="messageBox">صندوق پیام ها
+                                                            </span>
+                                                            <span class="messageCount">1
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="#" class="progectReq">
+                                                        <div class="projectDiv">درخواست پروژه</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="logOutDiv">
+                                            <a href="#" runat="server" class="LogOut">
+                                                <div class="logOutContent">
+                                                    <span>خروج</span>
+                                                    <span class="glyphicon glyphicon-off iconLeft"></span>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +288,7 @@
 
         <script src="vendors/js-flickr-gallery/js/js-flickr-gallery.min.js"></script>
         <script src="vendors/lightbox/js/lightbox.min.js"></script>
-        <script src="../_Scripts/HomeJavaScript.js"></script>
+        <%--<script src="../_Scripts/HomeJavaScript.js"></script>--%>
         <!--Construction JS-->
         <script src="js/construction.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
@@ -299,17 +331,17 @@
                 map.setCenter(center);
             });
 
-            google.maps.event.addDomListener(window, 'load', initialize);
+            //google.maps.event.addDomListener(window, 'load', initialize);
         </script>
         <script>
-            $('[data-toggle=popover]').popover({
-                trigger: 'focus',
-                content: $('#myPopoverContent').html(),
-                html: true
-            }).click(function () {
-                $(this).popover('show');
-            });
-        </script>
+            function displayFunction() {
+                var x = document.getElementById("myPopoverContent");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }</script>
     </form>
 </body>
 </html>

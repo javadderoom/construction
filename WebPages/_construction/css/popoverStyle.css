@@ -22,6 +22,7 @@
 }
 
 #myPopoverContent {
+    display: none;
     padding: 10px;
     position: absolute;
     width: 270px;
@@ -30,7 +31,15 @@
     right: -55px;
     background-color: #fdfdfd;
     z-index: 1001;
+    box-shadow: 1px 1px 3px rgba(34,34,34,0.2);
+    -webkit-animation: popover 0.2s ease-in-out;
+    -moz-animation: popover 0.2s ease-in-out;
+    animation: popover 0.2s ease-in-out;
 }
+
+    #myPopoverContent a {
+        color: black;
+    }
 
     #myPopoverContent:before {
         font-size: 1.4em;
@@ -49,7 +58,7 @@
 
     #myPopoverContent .popoverProfile {
         width: 100%;
-        min-height: 120px;
+        min-height: 110px;
         border-bottom: 1px solid #F7B71E;
     }
 
@@ -70,4 +79,109 @@ button:focus {
     float: right;
     min-height: 43px;
     direction: rtl;
+}
+
+.btnPorfile {
+    height: 15px;
+    width: 30px;
+}
+
+.popoverProfile nav {
+    color: #F7B918;
+    float: right;
+    font-size: 12px;
+}
+
+    .popoverProfile nav a {
+        position: relative;
+        display: inline-block;
+        outline: none;
+        color: #000;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+        text-shadow: 0 0 1px rgba(255,255,255,0.3);
+        font-size: 1.35em;
+    }
+
+        .popoverProfile nav a:hover,
+        .popoverProfile nav a:focus {
+            outline: none;
+        }
+
+.ij-effect-3 a::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.3);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+.ij-effect-3 a:hover::after,
+.ij-effect-3 a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.popoverLinks {
+    width: 100%;
+    float: right;
+    direction: rtl;
+    border-bottom: 1px solid #F7B71E;
+}
+
+    .popoverLinks ul {
+        list-style: none;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+.messageCountLink {
+    text-align: center;
+}
+
+.messageCount {
+    text-align: center;
+    float: left;
+    width: 37px;
+    height: 0px;
+    border-radius: 19px;
+    margin-top: 2px;
+    padding-bottom: 36px;
+    margin-left: 13px;
+    background-color: #F7B71E;
+}
+
+.projectDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.logOutDiv {
+    float: right;
+    width: 100%;
+    direction: rtl;
+}
+
+.LogOut {
+    background: transparent;
+}
+
+.iconLeft {
+    float: left;
+    margin-top: 15px;
+    margin-left: 23px;
+    font-size: 19px;
 }

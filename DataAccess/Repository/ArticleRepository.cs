@@ -8,7 +8,7 @@ namespace DataAccess.Repository
         {
             try
             {
-                if (article.UserID > 0)
+                if (article.ArticleID > 0)
                 {
                     //==== UPDATE ====
                     DB.Articles.Attach(article);

@@ -10,7 +10,7 @@
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
                 <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
-                <span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden="true"></span>
+                <li><span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden="true"></span></li>
                 <li class="active" style="color: #F7B71E">افزودن خبر</li>
             </ol>
         </div>

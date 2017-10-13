@@ -171,50 +171,8 @@
                         <a href="#top"><i class="fa fa-angle-up"></i></a>
                     </div>
 
-
-
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
                    
                    
                     </div>
@@ -242,12 +200,7 @@
 
         <script src="../../_Scripts/HomeJavaScript.js"></script>
         <script>
-            //var fu1 = document.getElementById("ContentPlaceHolder1_FileUpload1");
-            //$("#ContentPlaceHolder1_FileUpload1").change(function (e) {
-
-            //    alert("شما " + fu1.value + "را انتخاب کرده اید");
-            //    $("#uploadName").text = fu1.text;
-            //});
+         
 
         </script>
 

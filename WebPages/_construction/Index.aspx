@@ -610,5 +610,13 @@
     <!--Elements-->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="map" runat="server">
-    <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
+    <div class="col-xs-10">
+        <div class="mapBox">
+            <div class="weHere">
+                <p>ما اینجا هستیم</p>
+            </div>
+            <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
+        </div>
+    </div>
+
 </asp:Content>

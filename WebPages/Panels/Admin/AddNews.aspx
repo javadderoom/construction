@@ -31,9 +31,33 @@
 
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="تعداد کلمات پیشنهادی 160 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
+        <div class="form-group text-right input-group">
+            <label style="display: block" for="Abstract">عکس بالای مقاله : </label>
+            <label class="btn btn-info" style="width: 100px;">
+                <asp:Literal runat="server" Text="انتخاب عکس" />
+
+
+                <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
+
+            </label>
+            <label style="padding: 18px" id="filename"></label>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
+        </div>
         <div class="form-group">
-            <label for="DDLGroups">گروه کاری : </label>
+            <label style="display: block" for="DDLGroups">گروه کاری : </label>
             <asp:DropDownList ID="DDLGroups" OnSelectedIndexChanged="DDLGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+            <div class="Displayinline" id="upPan3">
+                <asp:UpdatePanel ID="updatepanel4" runat="server">
+                    <ContentTemplate>
+                        <div runat="server" id="NoItemDiv" style="display: inline; padding: 25px;">
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
+
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
         </div>
         <div class="form-group">
             <label>زیر گروه : </label>
@@ -98,44 +122,30 @@
             <label for="Tags">برچسب ها:</label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="Tags" runat="server" CssClass="error" ErrorMessage="برچسب ها نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
-            <asp:TextBox ID="Tags" data-role="tagsinput" Style="max-width: 500px; height: 85px;" placeholder="برچسب ها باید جملاتی کوتاه باشند" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
-        <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-2">
-                <asp:Button ID="Save" runat="server" OnClick="Save_Click" CssClass="btn btn-success" Text="ذخیره" />
-            </div>
-            <div class="col-md-5"></div>
-        </div>
+
+
+        <asp:UpdatePanel ID="UpdatePanel3" ChildrenAsTriggers="true" runat="server">
+            <ContentTemplate>
+                <div runat="server" class="error" id="diverror">
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2" style="text-align: center;">
+                        <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-success" Text="ذخیره" />
+
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
+                <asp:PostBackTrigger ControlID="btnSave" />
+            </Triggers>
+        </asp:UpdatePanel>
+
     </div>
-
-    <script>
-
-        var roxyFileman = '../../fileman/index.html';
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace('ContentPlaceHolder1_editor1', {
-            toolbar: [
-            { name: 'document', items: ['Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'] },
-            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo'] },
-            { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-'] },
-             '/',
-            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat'] },
-            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'] },
-            { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
-            { name: 'insert', items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'] },
-            '/',
-            { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
-            { name: 'colors', items: ['TextColor', 'BGColor'] },
-            { name: 'tools', items: ['Maximize'] }
-            ],
-            language: 'fa',
-            contentsLangDirection: 'rtl',
-            toolbarDirection: 'rtl',
-            filebrowserBrowseUrl: roxyFileman,
-            filebrowserImageBrowseUrl: roxyFileman + '?type=image',
-            removeDialogTabs: 'link:upload;image:upload', resize_maxHeight: '830'
-        });
-    </script>
 
 </asp:Content>

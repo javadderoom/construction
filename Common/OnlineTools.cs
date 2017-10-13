@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net.Mail;
+using System.Globalization;
 using System.Reflection;
-using System.Text;
 using System.Web.UI.WebControls;
 
 namespace Common
@@ -42,6 +39,63 @@ namespace Common
             }
             //put a breakpoint here and check datatable
             return dataTable;
+        }
+        public static string persianFormatedDate()
+        {
+
+            int pday, pmonth, pyear;
+            DateTime dt = DateTime.Now;
+            PersianCalendar PC = new PersianCalendar();
+
+            ///////////////////////////////////////
+            pyear = PC.GetYear(dt);
+            pmonth = PC.GetMonth(dt);
+            pday = PC.GetDayOfMonth(dt);
+            string translatedMonth = "";
+            switch (pmonth)
+            {
+                case 1:
+                    translatedMonth = "فروردین";
+                    break;
+                case 2:
+                    translatedMonth = "اردیبهشت";
+                    break;
+                case 3:
+                    translatedMonth = "خرداد";
+                    break;
+                case 4:
+                    translatedMonth = "تیر";
+                    break;
+                case 5:
+                    translatedMonth = "مرداد";
+                    break;
+                case 6:
+                    translatedMonth = "شهریور";
+                    break;
+                case 7:
+                    translatedMonth = "مهر";
+                    break;
+                case 8:
+                    translatedMonth = "آبان";
+                    break;
+                case 9:
+                    translatedMonth = "آذر";
+                    break;
+                case 10:
+                    translatedMonth = "دی";
+                    break;
+                case 11:
+                    translatedMonth = "بهمن";
+                    break;
+                case 12:
+                    translatedMonth = "اسفند";
+                    break;
+            }
+
+
+            string PTime = dt.Second + " : " + dt.Minute + " : " + dt.Hour + " , " + pday.ToString() + " / " + translatedMonth + " / " + pyear.ToString();
+
+            return PTime;
         }
     }
 }

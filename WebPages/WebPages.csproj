@@ -1113,6 +1113,7 @@
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
     <Content Include="_Scripts\ScrolToTop.js" />
     <Content Include="_Styles\AdminPanelStyles.css" />
+    <Content Include="_Styles\BlogPost.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\hamoonStyle.css" />

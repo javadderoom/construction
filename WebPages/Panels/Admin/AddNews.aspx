@@ -149,3 +149,6 @@
     </div>
 
 </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Script" runat="server">
+    <script src="../../_Scripts/AddNews.js"></script>
+</asp:Content>

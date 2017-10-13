@@ -41,7 +41,33 @@ $(document).ready(function () {
                 }, 300);
             });
         }
+        $(document).click(function (event) {
+            if (!$(event.target).closest('#btnProfilePopover').length) {
+                if ($('#myPopoverContent').is(":visible")) {
+                    $('#myPopoverContent').hide();
+                }
+            }
+            //else {
+            //    var x = document.getElementById("myPopoverContent");
 
+            //    if (x.style.display === "none") {
+            //        x.style.display = "block";
+            //    } else {
+            //        x.style.display = "none";
+            //    }
+            //}
+        });
+        $('#btnProfilePopover').click(function () {
+            var x = document.getElementById("myPopoverContent");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        })
+        function displayFunction() {
+        }
         /*Go Top*/
         $('a[href="#top"]').click(function () {
             $('html, body').animate({ scrollTop: 0 }, 800);

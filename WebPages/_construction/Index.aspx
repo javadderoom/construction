@@ -433,8 +433,8 @@
     <section id="testimonials" class="row">
         <div class="container">
             <div class="row sectionTitles">
-                <h2 class="sectionTitle whiteTC">نظرات مشتریان</h2>
-                <div class="sectionSubTitle whiteTC">مشتریان درباره ما می نویسند</div>
+                <h2 class="sectionTitle whiteTC">استاد کاران برتر</h2>
+                <div class="sectionSubTitle whiteTC">از دیددگاه شما</div>
             </div>
             <div class="row">
                 <div class="owl-carousel testimonialSlider row m0">
@@ -446,9 +446,11 @@
                             <h4>مجید محمدی</h4>
                         </div>
                         <div class="arrow row m0">
-                            <img src="images/testimonial/arrow.png" alt="arrow down">
+                            <img src="images/testimonial/arrow.png" alt="arrow down" />
                         </div>
-                        <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </div>
+                        <div class="testimonial row m0">
+                            <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
+                        </div>
                     </div>
                     <div class="item">
                         <div class="clientPhoto row m0">
@@ -458,7 +460,7 @@
                             <h4>مجید محمدی</h4>
                         </div>
                         <div class="arrow row m0">
-                            <img src="images/testimonial/arrow.png" alt="arrow down">
+                            <img src="images/testimonial/arrow.png" alt="arrow down" />
                         </div>
                         <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
                     </div>
@@ -618,5 +620,4 @@
             <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
         </div>
     </div>
-
 </asp:Content>

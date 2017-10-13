@@ -46,5 +46,9 @@ namespace DataAccess.Repository
             return result;
 
         }
+        public Article FindeArticleByID(int id)
+        {
+            return DB.Articles.Where(p => p.ArticleID == id).FirstOrDefault();
+        }
     }
 }

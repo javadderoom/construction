@@ -17,26 +17,7 @@ body {
     direction: rtl;
 }
 
-/*textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus, #ContentPlaceHolder1_Abstract:focus, #ContentPlaceHolder1_Tags:focus, select:focus {
-    border-color: #F7B71E;
-    box-shadow: 0 1px 1px rgba(247, 183, 30, 0.075) inset, 0 0 8px rgba(247, 183, 30, 0.6);
-    outline: 0 none;
-}*/
+
 
 .liststylenone {
     width: 50px;
@@ -73,10 +54,7 @@ textarea {
     display: block !important;
 }
 
-.myTag {
-    font-size: 16px !important;
-    line-height: 30px !important;
-}
+
 
 .DDLClass {
     display: inline;

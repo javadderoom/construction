@@ -841,7 +841,7 @@
     <Content Include="Images\1 %283%29.jpg" />
     <Content Include="Images\1 %284%29.jpg" />
     <Content Include="Images\1 %285%29.jpg" />
-    <Content Include="Images\1 %286%29.jpg" />
+    <Content Include="Images\1 %28 6%29 .jpg" />
     <Content Include="Images\3d-slider-1.jpg" />
     <Content Include="Images\3d-slider-2.jpg" />
     <Content Include="Images\3d-slider-3.jpg" />
@@ -964,6 +964,7 @@
     <Content Include="_construction\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="_construction\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="_construction\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="_construction\images\pen_notebook.png" />
     <Content Include="_construction\images\Pin-location.png" />
     <Content Include="_construction\images\projects\penCover.jpg" />
     <Content Include="_construction\images\user.png" />

@@ -12,6 +12,7 @@
     }
 
 .logInProfile {
+    position: absolute;
     background-image: url('../images/userLogIn.png');
     background-size: cover;
     width: 50px;
@@ -21,24 +22,52 @@
 }
 
 #myPopoverContent {
-    width: 100px;
-    min-height: 100px;
-    background-color: aqua;
+    padding: 10px;
+    position: absolute;
+    width: 270px;
+    min-height: 140px;
+    top: 62px;
+    right: -55px;
+    background-color: #fdfdfd;
+    z-index: 1001;
 }
 
-.popover-container::before {
-    position: absolute;
-    top: 50%;
-    right: -4px;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    height: 0;
-    width: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid #fff;
-    content: '';
+    #myPopoverContent:before {
+        font-size: 1.4em;
+        display: block;
+        width: 0;
+        height: 0;
+        content: '';
+        pointer-events: none;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #fdfdfd;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: -.45em;
+        right: .97em;
+    }
+
+    #myPopoverContent .popoverProfile {
+        width: 100%;
+        min-height: 120px;
+        border-bottom: 1px solid #F7B71E;
+    }
+
+button:focus {
+    box-shadow: none !important;
+    border: none !important;
+    outline: 0px !important;
+}
+
+.popupProfileImg {
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.personName {
+    width: 130px;
+    float: right;
+    min-height: 43px;
+    direction: rtl;
 }

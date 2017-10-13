@@ -41,6 +41,8 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
         <link href="../_Styles/hamoonStyle.css" rel="stylesheet" />
+        <style>
+        </style>
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -81,10 +83,14 @@
                                     <div class="Profile"></div>
                                 </a>
                                 <div class="popover-container">
-                                    <button class="logInProfile">
+                                    <button type="button" class="logInProfile">
                                     </button>
-                                    <div id="myPopoverContent" style="color: white; display: none;">
-                                        d/kanwfawfawfaw
+                                    <div id="myPopoverContent">
+                                        <div class="popoverProfile">
+
+                                            <img class="popupProfileImg" src="images/user128px.png" />
+                                            <div class="personName">جواد شیخ اعظمی</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

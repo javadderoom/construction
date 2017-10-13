@@ -965,6 +965,7 @@
     <Content Include="_construction\images\Pin-location.png" />
     <Content Include="_construction\images\projects\penCover.jpg" />
     <Content Include="_construction\images\user.png" />
+    <Content Include="_construction\images\user128px.png" />
     <Content Include="_construction\images\user64px.png" />
     <Content Include="_construction\images\user64pxHover.png" />
     <Content Include="_construction\images\userLogIn.png" />

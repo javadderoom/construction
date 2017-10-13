@@ -117,47 +117,64 @@ namespace WebPages.Panels.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
-            Article ART = new Article();
-            ART.Title = title.Text;
-            ART.Content = editor1.Text;
-            //ART.Image = FileUpload1.................
-            ART.Abstract = Abstract.Text;
-            ART.PostDateTime = OnlineTools.persianFormatedDate();
-            ART.Visits = 0;
-            ART.Tags = Tags.Text;
-            ART.KeyWords = KeyWords.Text;
-            ArticleRepository ARTRep = new ArticleRepository();
-            if (ARTRep.SaveArticle(ART))
+            if (!(String.IsNullOrEmpty(editor1.Text) ||
+                String.IsNullOrEmpty(title.Text) ||
+                String.IsNullOrEmpty(Abstract.Text) ||
+                String.IsNullOrEmpty(Tags.Text) ||
+                String.IsNullOrEmpty(KeyWords.Text)))
             {
-                bool result = true;
-                GroupsConRepository GRConRepo = new GroupsConRepository();
-                List<int> SelectedSubGroupsList = new List<int>();
-
-                int lastid = ARTRep.GetLastArticleID();
-
-                for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                Article ART = new Article();
+                ART.Title = title.Text;
+                ART.Content = editor1.Text;
+                //ART.Image = FileUpload1.................
+                ART.Abstract = Abstract.Text;
+                ART.PostDateTime = OnlineTools.persianFormatedDate();
+                ART.Visits = 0;
+                ART.Tags = Tags.Text;
+                ART.KeyWords = KeyWords.Text;
+                ArticleRepository ARTRep = new ArticleRepository();
+                if (ARTRep.SaveArticle(ART))
                 {
-                    GroupConnection GC = new GroupConnection();
-                    GC.ArticleID = lastid;
-                    GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
-                    if (!GRConRepo.SaveGroupCon(GC))
+                    bool result = true;
+                    GroupsConRepository GRConRepo = new GroupsConRepository();
+                    List<int> SelectedSubGroupsList = new List<int>();
+
+                    int lastid = ARTRep.GetLastArticleID();
+                    int count = SelectedSubGroups.Items.Count;
+                    if (count > 0)
                     {
-                        result = false;
+                        for (int i = 0; i < count; i++)
+                        {
+                            GroupConnection GC = new GroupConnection();
+                            GC.ArticleID = lastid;
+                            GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
+                            if (!GRConRepo.SaveGroupCon(GC))
+                            {
+                                result = false;
+                            }
+                        }
                     }
+                    else
+                    {
+                        diverror.InnerText = "هیچ زیر گروهی انتخاب نشده است!";
+                    }
+
+                    if (!result)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+
+                    }
+
                 }
-                if (!result)
+                else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنیدیا با پشتیبانی تماس بگیرید ! ');window.location ='http://localhost:4911/Dashboard/Admin/News.aspx'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
 
                 }
-
             }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنیدیا با پشتیبانی تماس بگیرید ! ');window.location ='http://localhost:4911/Dashboard/Admin/News.aspx'", true);
 
-            }
+
         }
+
     }
 }

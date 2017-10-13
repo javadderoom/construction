@@ -953,6 +953,7 @@
     <Content Include="test\testpage.aspx" />
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />
+    <Content Include="_construction\BlogPost.aspx" />
     <Content Include="_construction\css\animate.css" />
     <Content Include="_construction\css\popoverStyle.css" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
@@ -1259,6 +1260,13 @@
     </Compile>
     <Compile Include="test\testpage.aspx.designer.cs">
       <DependentUpon>testpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\BlogPost.aspx.cs">
+      <DependentUpon>BlogPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_construction\BlogPost.aspx.designer.cs">
+      <DependentUpon>BlogPost.aspx</DependentUpon>
     </Compile>
     <Compile Include="_construction\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

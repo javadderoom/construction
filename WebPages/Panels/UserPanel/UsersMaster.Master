@@ -37,6 +37,8 @@
         <![endif]-->
         <link href="../../_Styles/hamoonStyle.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="pageStyles" runat="server">
+    </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -84,7 +86,7 @@
                                     <div id="myPopoverContent" style="display: none">
                                         <div class="popoverProfile">
 
-                                            <img class="popupProfileImg" src="images/user128px.png" />
+                                            <img class="popupProfileImg" src="../../_construction/images/user128px.png" />
                                             <div class="personName">جواد شیخ اعظمی</div>
 
                                             <nav class="ij-effect-3">

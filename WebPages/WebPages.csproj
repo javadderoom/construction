@@ -1111,12 +1111,14 @@
     <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
+    <Content Include="_Scripts\PlaceHolderScripts.js" />
     <Content Include="_Scripts\ScrolToTop.js" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\LoginStyle.css" />
+    <Content Include="_Styles\ProfileStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />

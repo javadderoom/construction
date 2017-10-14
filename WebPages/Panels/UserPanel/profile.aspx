@@ -1,152 +1,102 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/UserPanel/UsersMaster.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="WebPages.Panels.UserPanel.profile" %>
 
+<asp:Content ID="content3" ContentPlaceHolderID="pageStyles" runat="server">
+    <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <div class="c-title">
+    <section class="mainSection">
+        <div class="c_title col-md-3 col-sm-12 col-xs-12">
             <h4>
 
                 <asp:Literal runat="server" Text="پروفایل شخصی" />
             </h4>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-
-                <div class="x_content">
-                    <div id="demo-form2" class="form-horizontal form-label-right">
-                        <div class="col-md-6 col-md-offset-3 col-xs-12">
-                            <div id="ContentPlaceHolder1_upWait" style="height: 500px">
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_ID" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">شناسه</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblid" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_StudentCode" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">نام کاربری</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblusername" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_FirstName" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">رمز عبور</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblpassword" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_LastName" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">نام و نام خانوادگی</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblfullname" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_Field" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">شماره موبایل</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblmobile" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="wwwwww" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">کد پستی</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblzip" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="fsfd" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">ایمیل</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblemail" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_AdmissionType" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">استان و شهر</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lblcitystate" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                            <span id="ContentPlaceHolder1_lbl_EntryTerm" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">آدرس</span>
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                            <span id="lbladdress" runat="server" class="control-label formLabel"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 text-right dirRight">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                    <div class="col-xs-12 text-right">
-                                        <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Registration/EditProfile">ویرایش
+            <img class="ProfileImg" src="../../_construction/images/user128px.png" />
+            <h3 runat="server" id="hFullName"></h3>
+            <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
                                         <span class="fa fa-edit"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+            </a>
+        </div>
+        <div class="col-md-8 col-sm-12 col-xs-12 x_panel">
+            <div class="infoContent">
+                <div class="accountInfo col-md-6">
+                    <div class="infoTitle">
+                        اطلاعات کاربری
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>شناسه </label>
+                            <input id="lblid" class="dirToLeft" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>نام کاربری </label>
+                            <input id="lblusername" class="dirToLeft" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>رمز عبور </label>
+                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="password" />
+                        </div>
+                    </div>
+                </div>
+                <div class="peronalInfo col-md-6">
+                    <div class="infoTitle">
+                        اطلاعات شخصی
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>نام و نام خانوادگی </label>
+                            <input id="lblfullname" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>موبایل </label>
+                            <input id="lblmobile" class="dirToLeft" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>کد پستی </label>
+                            <input id="lblzip" class="dirToLeft" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>پست الکترونیک </label>
+                            <input id="lblemail" class="dirToLeft" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>استان و شهر </label>
+                            <input id="lblcitystate" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+
+                        <div class="formGroup">
+                            <label>آدرس </label>
+                            <input id="lbladdress" runat="server" disabled type="text" />
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="" style="display: none">
+
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                    <div class="col-xs-12 text-right">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server"></asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+</asp:Content>

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 namespace DataAccess.Repository
@@ -50,5 +51,21 @@ namespace DataAccess.Repository
         {
             return DB.Articles.Where(p => p.ArticleID == id).FirstOrDefault();
         }
+
+        public List<Article> LatestArticles()
+        {
+            List<Article> list = (from r in DB.Articles
+                                  orderby r.ArticleID descending
+                                  select r).Take(5).ToList();
+            return list;
+        }
+        public List<Article> AllArticles()
+        {
+            List<Article> list = (from r in DB.Articles
+                                  orderby r.ArticleID descending
+                                  select r).ToList();
+            return list;
+        }
+
     }
 }

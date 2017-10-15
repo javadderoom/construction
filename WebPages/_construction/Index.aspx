@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="WebPages._construction.Index1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebPages._construction.Index1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -620,4 +620,49 @@
             <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
         </div>
     </div>
+
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
+    <script>
+
+        var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
+        var imagePath = 'images/Pin-location.png'
+        var mapOptions = {
+            zoom: 11,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        //Callout Content
+        var contentString = 'ما اینجا هستیم';
+        //Set window width + content
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 500
+        });
+
+        //Add Marker
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            icon: imagePath,
+            title: 'image title'
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        });
+
+        //Resize Function
+        google.maps.event.addDomListener(window, "resize", function () {
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        });
+
+        //google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 </asp:Content>

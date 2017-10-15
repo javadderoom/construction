@@ -954,6 +954,7 @@
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />
     <Content Include="_construction\BlogPost.aspx" />
+    <Content Include="_construction\Blogs.aspx" />
     <Content Include="_construction\css\animate.css" />
     <Content Include="_construction\css\popoverStyle.css" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
@@ -972,7 +973,7 @@
     <Content Include="_construction\images\user64px.png" />
     <Content Include="_construction\images\user64pxHover.png" />
     <Content Include="_construction\images\userLogIn.png" />
-    <Content Include="_construction\Index.aspx" />
+    <Content Include="_construction\index.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
@@ -1111,10 +1112,12 @@
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
+    <Content Include="_Scripts\jquery.easyPaginate.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
     <Content Include="_Scripts\ScrolToTop.js" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\BlogPost.css" />
+    <Content Include="_Styles\Blogs.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\hamoonStyle.css" />
@@ -1270,12 +1273,19 @@
     <Compile Include="_construction\BlogPost.aspx.designer.cs">
       <DependentUpon>BlogPost.aspx</DependentUpon>
     </Compile>
-    <Compile Include="_construction\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="_construction\Blogs.aspx.cs">
+      <DependentUpon>Blogs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="_construction\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="_construction\Blogs.aspx.designer.cs">
+      <DependentUpon>Blogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_construction\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="_construction\IndexMaster.Master.cs">
       <DependentUpon>IndexMaster.Master</DependentUpon>

@@ -13,6 +13,15 @@ namespace WebPages._construction {
     public partial class BlogPost {
         
         /// <summary>
+        /// MetaPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder MetaPlaceHolder;
+        
+        /// <summary>
         /// DivHeadTitle control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace WebPages._construction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivHeadTitle;
+        
+        /// <summary>
+        /// DivRecenPosts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivRecenPosts;
         
         /// <summary>
         /// DivPostDate control.

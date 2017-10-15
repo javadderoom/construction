@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="BlogPost.aspx.cs" Inherits="WebPages._construction.BlogPost" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:PlaceHolder ID="MetaPlaceHolder" runat="server" />
+    <%--<asp:PlaceHolder ID="MetaPlaceHolder2" runat="server" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../_Styles/BlogPost.css" rel="stylesheet" />
@@ -21,43 +23,8 @@
                         <div class="pinned">
                             <div class="row m0 recentPostWidget widgetS ">
                                 <h4>پست های اخیر</h4>
-                                <div class="row m0 recentblogs">
-                                    <div class="media recentblog">
-                                        <div class="media-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/blog/recent1.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <a href="#">
-                                                <h5 class="media-heading">اینجا توضیحی در مورد مقاله است</h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="media recentblog">
-                                        <div class="media-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/blog/recent2.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <a href="#">
-                                                <h5 class="media-heading">اینجا توضیحی در مورد مقاله است</h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="media recentblog">
-                                        <div class="media-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/blog/recent3.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <a href="#">
-                                                <h5 class="media-heading">اینجا توضیحی در مورد مقاله است</h5>
-                                            </a>
-                                        </div>
-                                    </div>
+
+                                <div id="DivRecenPosts" runat="server" class="row m0 recentblogs">
                                 </div>
                             </div>
                             <div class="row m0 contactWidget widgetS">

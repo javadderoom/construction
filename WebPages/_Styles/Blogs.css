@@ -1,0 +1,49 @@
+﻿li {
+    list-style: none;
+}
+
+.easyPaginateNav {
+    margin-top: 20px;
+    margin-bottom: 53px;
+    position: relative;
+    display: block !important;
+    width: unset !important;
+    text-align: center;
+}
+
+    .easyPaginateNav > a {
+        display: inline-block;
+        text-align: center;
+        color: black;
+        padding-top: 5px;
+        margin-right: 5px;
+        font-family: IranSans;
+        border: 1px solid #ddd;
+        background-color: transparent;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+        .easyPaginateNav > a:hover {
+            background-color: #F7B71E;
+            color: white;
+            border: 1px solid #fff;
+        }
+
+a.current {
+    background-color: #F7B71E !important;
+    color: white !important;
+    border: 1px solid #fff !important;
+}
+
+.easyPaginateNav > a.last, .easyPaginateNav > a.first {
+    width: 80px !important;
+}
+
+.easyPaginateNav > a.next, .easyPaginateNav > a.prev {
+    width: 40px !important;
+}
+
+div.blogDateTime {
+    direction: rtl;
+}

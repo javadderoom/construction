@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="AddNews.aspx.cs" Inherits="WebPages.Panels.Admin.AddNews1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="AddBlog.aspx.cs" Inherits="WebPages.Panels.Admin.AddNews1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,7 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <section id="pageCover" class="row AddNewsHead">
-        <div class="row pageTitle">افزودن خبر</div>
+        <div class="row pageTitle">افزودن وبلاگ</div>
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
                 <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
@@ -20,16 +20,15 @@
         <div class="form-group">
 
             <label for="title">عنوان :</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" SetFocusOnError="true" ControlToValidate="title" runat="server" CssClass="error" ErrorMessage="عنوان نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Display="Dynamic" SetFocusOnError="true" ControlToValidate="title" runat="server" CssClass="error" ErrorMessage="عنوان نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="title" onkeydown="return (event.keyCode!=13);" Style="max-width: 500px; height: 40px;" placeholder="عنوان باید کوتاه و مفید باشد" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="Abstract">توضیح کوتاه : </label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" SetFocusOnError="true" ControlToValidate="Abstract" runat="server" CssClass="error" ErrorMessage="توضیح کوتاه نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
-
-            <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="تعداد کلمات پیشنهادی 160 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:RegularExpressionValidator Display="Dynamic" SetFocusOnError="true" ControlToValidate="Abstract" CssClass="error" ID="RegularExpressionValidator2" ValidationExpression="^[\s\S]{130,}$" runat="server" ErrorMessage="حداقل 130 کاراکتر وارد کنید"></asp:RegularExpressionValidator>
+            <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
             <label style="display: block" for="Abstract">عکس بالای مقاله : </label>
@@ -41,7 +40,7 @@
 
             </label>
             <label style="padding: 18px" id="filename"></label>
-            <asp:RequiredFieldValidator SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator Display="Dynamic" SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>
@@ -114,13 +113,13 @@
         </div>
         <div class="form-group" style="margin-top: 20px">
             <label for="KeyWords">کلمات کلیدی:</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" SetFocusOnError="true" ControlToValidate="KeyWords" runat="server" CssClass="error" ErrorMessage="کلمات کلیدی نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator3" SetFocusOnError="true" ControlToValidate="KeyWords" runat="server" CssClass="error" ErrorMessage="کلمات کلیدی نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="KeyWords" Style="max-width: 500px; height: 40px;" placeholder="چند کلمه کلیدی وارد کنید" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="Tags">برچسب ها:</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" SetFocusOnError="true" ControlToValidate="Tags" runat="server" CssClass="error" ErrorMessage="برچسب ها نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator4" SetFocusOnError="true" ControlToValidate="Tags" runat="server" CssClass="error" ErrorMessage="برچسب ها نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
             <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>

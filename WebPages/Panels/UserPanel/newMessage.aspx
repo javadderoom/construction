@@ -165,14 +165,6 @@
 
             <!-- footer content -->
 
-            <footer>
-                <div class="copyright-info">
-                    <p class="pull-right dirRight" style="color: #34516d;">
-                        <span id="lblFooter">تمامی حقوق این سامانه برای شرکت پیمانکاری محفوظ است | تولید۱۳۹6</span>
-                    </p>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
             <!-- /footer content -->
         </div>
     </div>

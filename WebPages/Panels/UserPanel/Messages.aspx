@@ -3,7 +3,27 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="direction: rtl; padding: 28px 100px 20px 100px;">
+    <style>
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            float: left;
+        }
+
+        #msg {
+            width: 50%;
+            border: 1px solid #dad0d0;
+            margin: auto;
+            margin-bottom: 20px;
+            direction: rtl;
+            overflow-wrap: break-word;
+        }
+
+        @media(max-Width:414px) {
+            #msg {
+                width: 100%;
+            }
+        }
+    </style>
+    <div style="direction: rtl; padding: 28px 5% 20px 5%;">
         <input id="hiddenControl" type="hidden" runat="server" />
         <div class="c-title">
             <h4>
@@ -21,7 +41,7 @@
                     <div class="x_content">
                         <div id="demo-form2" class="form-horizontal form-label-right">
                             <div class="col-md-8 col-md-offset-2 col-xs-12">
-                                <div id="ContentPlaceHolder1_upWait">
+                                <div id="ContentPlaceHolder1_upWait" style="padding-right: 8%">
 
                                     <div class="form-group">
                                         <div class="row">

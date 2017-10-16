@@ -6,11 +6,12 @@
     <link href="../../_Styles/GridView.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="direction: rtl; padding: 28px 100px 20px 100px;">
+    <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
         <div class="c-title" style="margin-bottom: 20px; font-size: 16px; font-weight: bold">
             <h3>
 
-                <asp:Literal runat="server" Text="لیست گفتگو ها" /></h3>
+                <asp:literal runat="server" text="لیست گفتگو ها" />
+            </h3>
         </div>
 
         <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 64px">
@@ -28,10 +29,10 @@
             </div>
         </div>
 
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
         <div id="ContentPlaceHolder1_upGrid">
             <div style="overflow-x: auto; width: 100%;">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <asp:updatepanel id="UpdatePanel1" runat="server">
                     <ContentTemplate>
 
                         <asp:GridView ID="gvChats" runat="server" BackColor="White" BorderColor="#CCCCCC"
@@ -68,14 +69,14 @@
                             <SortedDescendingHeaderStyle BackColor="#242121" />
                         </asp:GridView>
                     </ContentTemplate>
-                </asp:UpdatePanel>
+                </asp:updatepanel>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-5 col-md-push-7 col-xs-6 col-xs-push-6">
                 <button type="button" id="btnViewAll" class="btn btn-auto-h btn-info goRight" runat="server" style="margin-right: 5px; display: block" onserverclick="btnViewAll_ServerClick">
-                    <asp:Literal runat="server" Text="مشاهده تمام گفتگوها" />
+                    <asp:literal runat="server" text="مشاهده تمام گفتگوها" />
                     <span class="fa fa-list"></span>
                 </button>
             </div>

@@ -104,4 +104,49 @@ button[disabled], html input[disabled] {
     background-color: transparent !important;
 }
 
+@media(max-width:991px) {
+    .x_panel {
+        margin-right: 0;
+    }
+
+    .mainSection {
+        min-height: 1024px;
+        padding-left: 0px;
+        padding-right: 0;
+    }
+}
+
+@media(max-width:414px) {
+    .x_panel {
+        margin-right: 0;
+    }
+
+    .mainSection {
+        min-height: 1024px;
+        padding-left: 0px;
+        padding-right: 0;
+    }
+}
+
+@media(max-width:767px) {
+    .x_panel {
+        margin-right: 0;
+    }
+
+    .mainSection {
+        min-height: 1024px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #nr_footer .container .goTop {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width:1200) {
+    #nr_footer .container:after {
+        margin-left: -99px;
+    }
+}
 /*-----------------------------------------------------------------------------*/

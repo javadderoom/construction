@@ -10,78 +10,60 @@
 namespace WebPages._construction {
     
     
-    public partial class BlogPost {
+    public partial class Blogs {
         
         /// <summary>
-        /// MetaPlaceHolder control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder MetaPlaceHolder;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// DivHeadTitle control.
+        /// ddlGroups control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivHeadTitle;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGroups;
         
         /// <summary>
-        /// DivRecenPosts control.
+        /// updatepanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivRecenPosts;
+        protected global::System.Web.UI.UpdatePanel updatepanel1;
         
         /// <summary>
-        /// DivPostDate control.
+        /// ddlSubGroups control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivPostDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSubGroups;
         
         /// <summary>
-        /// ImageTag control.
+        /// updatepanel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage ImageTag;
+        protected global::System.Web.UI.UpdatePanel updatepanel5;
         
         /// <summary>
-        /// DivTitle control.
+        /// UlArticles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivTitle;
-        
-        /// <summary>
-        /// DivBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivBody;
-        
-        /// <summary>
-        /// DivTags control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivTags;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UlArticles;
     }
 }

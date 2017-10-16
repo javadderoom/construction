@@ -1116,6 +1116,7 @@
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
+    <Content Include="_Styles\GridView.css" />
     <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\LoginStyle.css" />
     <Content Include="_Styles\ProfileStyles.css" />

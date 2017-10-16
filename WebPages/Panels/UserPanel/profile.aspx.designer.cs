@@ -13,13 +13,22 @@ namespace WebPages.Panels.UserPanel {
     public partial class profile {
         
         /// <summary>
+        /// hFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hFullName;
+        
+        /// <summary>
         /// lblid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblid;
         
         /// <summary>
         /// lblusername control.
@@ -28,7 +37,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblusername;
         
         /// <summary>
         /// lblpassword control.
@@ -37,7 +46,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblpassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword lblpassword;
         
         /// <summary>
         /// lblfullname control.
@@ -46,7 +55,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblfullname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblfullname;
         
         /// <summary>
         /// lblmobile control.
@@ -55,7 +64,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblmobile;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblmobile;
         
         /// <summary>
         /// lblzip control.
@@ -64,7 +73,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblzip;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblzip;
         
         /// <summary>
         /// lblemail control.
@@ -73,7 +82,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblemail;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblemail;
         
         /// <summary>
         /// lblcitystate control.
@@ -82,7 +91,7 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcitystate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblcitystate;
         
         /// <summary>
         /// lbladdress control.
@@ -91,6 +100,6 @@ namespace WebPages.Panels.UserPanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbladdress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lbladdress;
     }
 }

@@ -20,8 +20,8 @@ namespace WebPages.Panels.UserPanel
         }
 
         private void fillGV()
-        {
-            int id = Session["userid"].ToString().ToInt();
+        {//Session["userid"].ToString().ToInt();
+            int id = 5;
             ChatsRepository cr = new ChatsRepository();
             gvChats.DataSource = cr.Inbox(id);
             gvChats.DataBind();

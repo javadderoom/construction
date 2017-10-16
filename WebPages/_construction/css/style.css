@@ -5,6 +5,23 @@
 .breadcrumb > li + li:before {
     content: none !important;
 }
+
+body {
+    overflow-x: hidden !important;
+}
+
+div#ascrail2000-hr {
+    display: none !important;
+}
+
+div.blogInner {
+    max-height: 490px !important;
+}
+
+li {
+    list-style: none;
+}
+
 /*------------------------------------------------------------------
 [Master Stylesheet]
 

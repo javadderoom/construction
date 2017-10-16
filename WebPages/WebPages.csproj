@@ -863,7 +863,7 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
-    <Content Include="Panels\Admin\AddNews.aspx" />
+    <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\page.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
@@ -1111,6 +1111,7 @@
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.revolution.min.js" />
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="_Scripts\AddNews.js" />
+    <Content Include="_Scripts\BlogsScript.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.easyPaginate.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
@@ -1139,12 +1140,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Admin\AddNews.aspx.cs">
-      <DependentUpon>AddNews.aspx</DependentUpon>
+    <Compile Include="Panels\Admin\AddBlog.aspx.cs">
+      <DependentUpon>AddBlog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Panels\Admin\AddNews.aspx.designer.cs">
-      <DependentUpon>AddNews.aspx</DependentUpon>
+    <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
+      <DependentUpon>AddBlog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>

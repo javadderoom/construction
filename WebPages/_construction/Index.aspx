@@ -361,70 +361,7 @@
                 <h2 class="sectionTitle">آخرین مقالات</h2>
                 <div class="sectionSubTitle">جدید ترین ها</div>
             </div>
-            <div class="row">
-                <div class="col-sm-4 blog latest-blog">
-                    <div class="row m0 blogInner">
-                        <div class="row m0 blogDateTime">
-                            <i class="fa fa-calendar"></i>15 شهریور 1395 - ساعت 21:15
-                        </div>
-                        <div class="row m0 featureImg">
-                            <a href="single-post.html">
-                                <img src="images/blog/blog1.png" alt="Faceted Search Has Landed" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="row m0 postExcerpts">
-                            <div class="row m0 postExcerptInner">
-                                <a href="single-post.html" class="postTitle row m0">
-                                    <h4>نام خبر در این بخش</h4>
-                                </a>
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
-                                <a href="single-post.html" class="readMore">بیشتر بخوانید</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 blog latest-blog">
-                    <div class="row m0 blogInner">
-                        <div class="row m0 blogDateTime">
-                            <i class="fa fa-calendar"></i>15 شهریور 1395 - ساعت 21:15
-                        </div>
-                        <div class="row m0 featureImg">
-                            <a href="single-post.html">
-                                <img src="images/blog/blog2.png" alt="Faceted Search Has Landed" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="row m0 postExcerpts">
-                            <div class="row m0 postExcerptInner">
-                                <a href="single-post.html" class="postTitle row m0">
-                                    <h4>نام خبر در این بخش</h4>
-                                </a>
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
-                                <a href="single-post.html" class="readMore">بیشتر بخوانید</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 blog latest-blog">
-                    <div class="row m0 blogInner">
-                        <div class="row m0 blogDateTime">
-                            <i class="fa fa-calendar"></i>15 شهریور 1395 - ساعت 21:15
-                        </div>
-                        <div class="row m0 featureImg">
-                            <a href="single-post.html">
-                                <img src="images/blog/blog3.png" alt="Faceted Search Has Landed" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="row m0 postExcerpts">
-                            <div class="row m0 postExcerptInner">
-                                <a href="single-post.html" class="postTitle row m0">
-                                    <h4>نام خبر در این بخش</h4>
-                                </a>
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
-                                <a href="single-post.html" class="readMore">بیشتر بخوانید</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" runat="server" id="blogsContainer">
             </div>
         </div>
     </section>

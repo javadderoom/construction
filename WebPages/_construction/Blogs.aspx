@@ -7,6 +7,7 @@
     <link href="../_Styles/Blogs.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <section id="pageCover" class="row blogPage">
 
         <div class="row pageTitle">مقاله ها</div>
@@ -21,11 +22,42 @@
 
     <section id="blogs" class="row">
         <div class="container" style="text-align: right">
-            <div class="row" id="easyPaginate">
-                <ul runat="server" id="UlArticles">
-                </ul>
+            <div class="filters">
+                <label class="filtersLable" for="ddlGroups">فیلتر ها : </label>
+                <div id="divDDL" class="ddlContainer">
+                    <div>
+                        <label for="ddlGroups">گروه اصلی : </label>
+                        <asp:DropDownList ID="ddlGroups" class="DDLClass" AutoPostBack="true" OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged" runat="server"></asp:DropDownList>
+                    </div>
+                    <div>
+                        <label>زیر گروه : </label>
+                        <asp:UpdatePanel ID="updatepanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <asp:DropDownList ID="ddlSubGroups" OnSelectedIndexChanged="ddlSubGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+
+
+                    </div>
+                </div>
             </div>
 
+
+            <asp:UpdatePanel ID="updatepanel5" ChildrenAsTriggers="false" UpdateMode="Conditional" runat="server">
+                <ContentTemplate>
+                    <div class="row" id="easyPaginate">
+                        <ul runat="server" id="UlArticles">
+                        </ul>
+                    </div>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
+                    <asp:AsyncPostBackTrigger ControlID="ddlSubGroups" EventName="SelectedIndexChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
         </div>
 
     </section>
@@ -34,60 +66,5 @@
 
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <script src="../_Scripts/jquery.easyPaginate.js"></script>
-    <script>
-        var lastNum = $('.next').prev().attr('rel');
-        $('#easyPaginate').easyPaginate({
-            paginateElement: 'li', firstButtonText: "اولین صفحه", lastButtonText: "آخرین صفحه", prevButtonText: "قبلی", nextButtonText: "بعدی",
-            elementsPerPage: 3,
-            effect: 'fade',
-        });
-
-        $('a').click(function () {
-
-            myFunction();
-        })
-
-        function setMargins() {
-
-            width = $(".container").width();
-            containerWidth = $(".easyPaginateNav").width();
-            leftMargin = (width - containerWidth) / 2;
-            $(".easyPaginateNav").css("marginLeft", leftMargin);
-        }
-        function myFunction() {
-            var lastone = $('.next').prev().attr('rel');
-
-
-            $(".prev").nextUntil('div').css("display", "inline-block");
-            $('.leftSide').removeClass('leftSide');
-            $('.rightSide').removeClass('rightSide');
-            var selected = $(".current").attr("rel");
-
-            if ((selected - 3) > 1) {
-                var g = selected - 3;
-                $("a[rel='" + g + "']").addClass('leftSide');
-                $(".prev").nextUntil('.leftSide').css("display", "none");
-
-            }
-
-
-            if ((lastone - selected) > 3) {
-                var f = parseInt(selected) + 3;
-                $("a[rel='" + f + "']").addClass('rightSide');
-
-                $(".next").prevUntil('.rightSide').css("display", "none");
-            }
-
-
-        }
-
-        $(document).ready(function () {
-
-            setMargins();
-            $(window).resize(function () {
-                setMargins();
-            });
-            myFunction();
-        });
-    </script>
+    <script src="../_Scripts/BlogsScript.js"></script>
 </asp:Content>

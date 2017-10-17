@@ -10,7 +10,7 @@
 
     <div class="content col-md-9 col-sm-12 col-xs-12">
         <div class="Title">
-            سفارش پروژه
+            جزییات پروژه
         </div>
         <div class="innerContent col-md-12 col-sm-12 col-xs-12">
             <div class="userInfo col-md-4 col-sm-4 col-xs-12">
@@ -36,10 +36,6 @@
                         <input id="Text2" class="dirToLeft" value="deomo@info.com" runat="server" disabled type="text" />
                     </div>
                 </div>
-                <div class="inputDiv">
-                </div>
-                <div class="inputDiv">
-                </div>
             </div>
             <div class="info col-md-4 col-sm-4 col-xs-12">
                 <div class="innerTitles">
@@ -53,12 +49,28 @@
                 </div>
 
                 <div class="inputDiv">
+                    <div class="formGroup">
+                        <label>تاریخ شروع </label>
+                        <input id="Text3" runat="server" disabled type="text" />
+                    </div>
                 </div>
                 <div class="inputDiv">
+                    <div class="formGroup">
+                        <label>تاریخ پایان </label>
+                        <input id="Text4" runat="server" disabled type="text" />
+                    </div>
                 </div>
                 <div class="inputDiv">
+                    <div class="formGroup">
+                        <label>بودجه </label>
+                        <input id="Text5" runat="server" disabled type="text" />
+                    </div>
                 </div>
                 <div class="inputDiv">
+                    <div class="formGroup">
+                        <label>توضیحات </label>
+                        <textarea id="Text6" runat="server" disabled type="text"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="location col-md-4 col-sm-4 col-xs-12">
@@ -66,10 +78,23 @@
                     محل اجرای پروژه
                 </div>
                 <div class="inputDiv">
+                    <div class="formGroup">
+
+                        <label>استان </label>
+                        <input id="Text7" runat="server" disabled type="text" />
+                    </div>
                 </div>
                 <div class="inputDiv">
+                    <div class="formGroup">
+                        <label>شهر </label>
+                        <input id="Text8" runat="server" disabled type="text" />
+                    </div>
                 </div>
                 <div class="inputDiv">
+                    <div class="formGroup">
+                        <label>توضیحات </label>
+                        <textarea id="Textarea1" runat="server" disabled type="text"></textarea>
+                    </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                 </div>

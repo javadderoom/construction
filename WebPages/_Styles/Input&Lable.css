@@ -4,18 +4,19 @@
 
 .inputDiv {
     direction: rtl;
-    margin-top: 22px;
+    margin-top: 5px;
     padding: 0 10px 10px 10px;
 }
+
     /*-----------------------------------------------------------------------------*/
 
     .inputDiv label {
         font-size: 11.5px !important;
-        margin-right: 7px;
+        margin-right: 15px;
         background-color: white;
         position: absolute;
         color: #737373;
-        margin-top: -8px;
+        margin-top: 0px;
         padding-right: 4px;
         padding-left: 4px;
     }
@@ -32,4 +33,18 @@
 
 input {
     border-color: #F7B71E !important;
+}
+
+input, select, textarea {
+    background: transparent;
+    border: 1px solid #f7b71e;
+    padding: 10px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    margin: 10px;
+}
+
+label {
+    margin: 10px;
 }

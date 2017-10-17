@@ -13,6 +13,14 @@ input, select, textarea {
     margin: 10px;
 }
 
+select {
+    height: 43px;
+}
+
+    select:focus {
+        border: 1px solid #f7b71e;
+    }
+
 textarea {
     height: 83px;
 }

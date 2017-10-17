@@ -126,14 +126,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Common.dll" />
+    <Content Include="bin\Common.pdb" />
     <Content Include="bin\DataAccess.dll" />
+    <Content Include="bin\DataAccess.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
     <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\FarsiLibrary.Resources.dll" />
+    <Content Include="bin\FarsiLibrary.Resources.xml" />
+    <Content Include="bin\FarsiLibrary.Utils.dll" />
+    <Content Include="bin\FarsiLibrary.Utils.xml" />
+    <Content Include="bin\FarsiLibrary.Win.dll" />
+    <Content Include="bin\FarsiLibrary.Win.xml" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\PersianCalander.dll" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Resources.dll" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Resources.xml" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Utils.dll" />
@@ -142,6 +151,15 @@
     <Content Include="bin\persianDateTime\FarsiLibrary.Win.XML" />
     <Content Include="bin\persianDateTime\PersianCalander.dll" />
     <Content Include="bin\persianDateTime\WebCalendar.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\rosyln\csc.exe" />
     <Content Include="bin\rosyln\Microsoft.Build.Tasks.CodeAnalysis.dll" />
     <Content Include="bin\rosyln\Microsoft.CodeAnalysis.CSharp.dll" />
@@ -161,7 +179,9 @@
     <Content Include="bin\System.Web.WebPages.Razor.dll" />
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebCalendar.dll" />
     <Content Include="bin\WebPages.dll" />
+    <Content Include="bin\WebPages.pdb" />
     <Content Include="Catchimage.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
@@ -863,7 +883,6 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
-
     <Content Include="bin2\Common.dll" />
     <Content Include="bin2\Common.pdb" />
     <Content Include="bin2\DataAccess.dll" />
@@ -903,9 +922,7 @@
     <Content Include="Panels\Admin\MessagesAdmin.aspx" />
     <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
     <Content Include="Panels\Admin\NewMessageGroup.aspx" />
-
     <Content Include="Panels\Admin\AddBlog.aspx" />
-
     <Content Include="Panels\Admin\page.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
@@ -934,15 +951,6 @@
     <Content Include="Panels\UserPanel\UsersMaster.Master" />
     <Content Include="Panels\Admin\AdminMaster.Master" />
     <Content Include="Panels\EmployeePanel\EmployeeMaster.Master" />
-    <Content Include="bin\persianDateTime\FarsiLibrary.Resources.dll.refresh" />
-    <Content Include="bin\persianDateTime\FarsiLibrary.Utils.dll.refresh" />
-    <Content Include="bin\persianDateTime\FarsiLibrary.Win.dll.refresh" />
-    <Content Include="bin\persianDateTime\PersianCalander.dll.refresh" />
-    <Content Include="bin\persianDateTime\WebCalendar.dll.refresh" />
-    <Content Include="bin\rosyln\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\rosyln\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\rosyln\VBCSCompiler.exe.config" />
-    <Content Include="bin\WebPages.dll.config" />
     <Content Include="Panels\Admin\NewAdminMaster.Master" />
     <Content Include="ckeditor\CHANGES.md" />
     <Content Include="ckeditor\LICENSE.md" />
@@ -984,6 +992,18 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
+    <Content Include="bin\persianDateTime\FarsiLibrary.Resources.dll.refresh" />
+    <Content Include="bin\persianDateTime\FarsiLibrary.Utils.dll.refresh" />
+    <Content Include="bin\persianDateTime\FarsiLibrary.Win.dll.refresh" />
+    <Content Include="bin\persianDateTime\PersianCalander.dll.refresh" />
+    <Content Include="bin\persianDateTime\WebCalendar.dll.refresh" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\rosyln\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\rosyln\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\rosyln\VBCSCompiler.exe.config" />
+    <Content Include="bin\WebPages.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1210,7 +1230,6 @@
     <Compile Include="Panels\Admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
-
     <Compile Include="Panels\Admin\ListForGroupMessage.aspx.cs">
       <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1252,14 +1271,13 @@
     </Compile>
     <Compile Include="Panels\Admin\NewMessageGroup.aspx.designer.cs">
       <DependentUpon>NewMessageGroup.aspx</DependentUpon>
-</Compile>
+    </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
-
     </Compile>
     <Compile Include="Panels\Admin\page.aspx.cs">
       <DependentUpon>page.aspx</DependentUpon>

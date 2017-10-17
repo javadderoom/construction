@@ -23,5 +23,7 @@ namespace DataAccess
         public string State { get; set; }
         public string CIty { get; set; }
         public string Address { get; set; }
+        public string Title { get; set; }
+        public string Budget { get; set; }
     }
 }

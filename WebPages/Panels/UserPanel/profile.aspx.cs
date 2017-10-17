@@ -3,6 +3,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,7 +15,6 @@ namespace WebPages.Panels.UserPanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("userid", 1);
             if (!IsPostBack)
             {
                 setLabels();
@@ -30,14 +30,14 @@ namespace WebPages.Panels.UserPanel
             lblid.InnerText = dt.Rows[0][0].ToString();
             lblfullname.InnerText = dt.Rows[0][16].ToString();
             lblusername.InnerText = dt.Rows[0][1].ToString();
-            lblpassword.InnerText = dt.Rows[0][2].ToString();
             lblzip.InnerText = dt.Rows[0][7].ToString();
             lblmobile.InnerText = dt.Rows[0][5].ToString();
             lblemail.InnerText = dt.Rows[0][10].ToString();
             lbladdress.InnerText = dt.Rows[0][6].ToString();
             lblcitystate.InnerText = dt.Rows[0][17].ToString();
 
-
         }
+
+
     }
 }

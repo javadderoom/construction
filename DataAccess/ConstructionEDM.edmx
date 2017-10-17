@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ConstructionCompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Articles">
           <Key>
             <PropertyRef Name="ArticleID" />
@@ -58,6 +66,7 @@
           <Property Name="Mobile" Type="nvarchar" MaxLength="11" />
           <Property Name="Email" Type="nvarchar" MaxLength="150" />
           <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="empImage" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Groups">
           <Key>
@@ -275,6 +284,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ConstructionCompanyModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chats" EntityType="Self.Chats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
@@ -322,6 +332,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
     <edmx:ConceptualModels>
       <Schema Namespace="ConstructionCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ConstructionCompanyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="ConstructionCompanyModel.Admin" />
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
@@ -364,6 +375,14 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="ArticleID" />
@@ -419,6 +438,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="empImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="Employee" ToRole="State" />
         </EntityType>
@@ -638,6 +658,15 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ConstructionCompanyModelStoreContainer" CdmEntityContainer="ConstructionCompanyEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Articles">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Article">
               <MappingFragment StoreEntitySet="Articles">
@@ -681,6 +710,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="empImage" ColumnName="empImage" />
                 <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />

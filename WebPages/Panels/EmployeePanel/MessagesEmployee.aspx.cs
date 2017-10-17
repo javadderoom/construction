@@ -33,7 +33,14 @@ namespace WebPages.Panels.EmployeePanel
                 {
 
                     int elid = Int32.Parse(elemid.Substring(7));
-                    download(elid);
+                    try
+                    {
+                        download(elid);
+                    }
+                    catch
+                    {
+
+                    }
 
 
                 }
@@ -46,7 +53,7 @@ namespace WebPages.Panels.EmployeePanel
             lblid.InnerText = "صندوق پیام انتخابی :" + chatid;
 
             MessageRepository mr = new MessageRepository();
-            DataTable dt = mr.getMessagesInfo(chatid);
+            DataTable dt = mr.getMessagesInfoOfEmployee(chatid);
 
             lblidnum.InnerText = chatid.ToString();
             lblStartTime.InnerText = dt.Rows[0][5].ToString();
@@ -202,7 +209,7 @@ namespace WebPages.Panels.EmployeePanel
                         dr.Close();
                     }
                     cn.Close();
-                    Response.Redirect(ToSaveFileTo);
+                    //Response.Redirect(ToSaveFileTo);
                 }
             }
         }

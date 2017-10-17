@@ -30,6 +30,28 @@ namespace DataAccess.Repository
             conn.Close();
 
         }
+        public DataTable Search_adminInbox(string txt, int adminid)
+        {
+
+            string Command = string.Format("select*,case when((lastMsgSenderTbl<> 'adm') and(lastMsgSeen = 1)) then 1 else 0 end as seen from(select*,(select top 1 MessageText from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsg, (select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgTime, (select top 1 hasSeen from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSeen, (select top 1 SenderTable from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSenderTbl from Chats left outer join(select* from(select users.UserName, Users.UserID, CityName +' - '+StateName as FullAddress, FirstName+' ' +LastName as FullName, N'مشری' as urole from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName, Employees.EmployeeID, CityName +' - '+StateName as FullAddress, FirstName+' ' +LastName as FullName, N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID)tbl)tbl1 on Chats.User_Employee_ID = tbl1.UserID where AdminID = {1})tbl where ChatID like N'%{0}%' or ChatTitle like N'%{0}%' or UserName like N'%{0}%' or FullName like N'%{0}%' or lastMsg like N'%{0}%' or lastMsgTime like N'%{0}%' order by lastMsgTime desc ", txt, adminid);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+
+        }
+
+        public void setMessagesSeenToTrueForAdmin(int chatid)
+        {
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("update Messages set hasSeen = 0 where ChatID = {0} and (SenderTable ='emp' or SenderTable = 'use') ", chatid);
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
+
+        }
         public DataTable getMessages(int chatid)
         {
             string Command = string.Format("select *,MessageDate +' - ' +MessageTime as fullTime from Messages where ChatID = {0} order by MessageID desc", chatid);
@@ -51,9 +73,19 @@ namespace DataAccess.Repository
             return query;
         }
 
-        public DataTable getMessagesInfo(int chatid)
+        public DataTable getMessagesInfoOfEmployee(int chatid)
         {
             string Command = string.Format("select Chats.*,UserName	,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID asc) as firstMsgDate from Chats left outer join Employees on Chats.User_Employee_ID = Employees.EmployeeID where ChatID = {0}", chatid);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
+
+        public DataTable getMessagesInfoOfUsers(int chatid)
+        {
+            string Command = string.Format("select Chats.*,UserName	,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID asc) as firstMsgDate from Chats left outer join Users on Chats.User_Employee_ID = Users.UserID where ChatID = {0}", chatid);
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();

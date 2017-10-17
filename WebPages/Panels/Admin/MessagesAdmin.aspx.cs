@@ -7,21 +7,20 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebPages.Panels.UserPanel
+namespace WebPages.Panels.Admin
 {
-    public partial class Messages : System.Web.UI.Page
+    public partial class MessagesAdmin : System.Web.UI.Page
     {
         int chatid = 0;
         int userid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            chatid = Session["chatidForMessages"].ToString().ToInt();
-            userid = Session["userid"].ToString().ToInt();
+            chatid = Session["chatidforMessages"].ToString().ToInt();
+            userid = Session["useridforMessages"].ToString().ToInt();
 
             if (!IsPostBack)
             {
@@ -54,12 +53,12 @@ namespace WebPages.Panels.UserPanel
             lblid.InnerText = "صندوق پیام انتخابی :" + chatid;
 
             MessageRepository mr = new MessageRepository();
-            DataTable dt = mr.getMessagesInfoOfUsers(chatid);
+            DataTable dt = mr.getMessagesInfoOfEmployee(chatid);
 
             lblidnum.InnerText = chatid.ToString();
             lblStartTime.InnerText = dt.Rows[0][5].ToString();
             lblSubject.InnerText = dt.Rows[0][1].ToString();
-            lblusername.InnerText = dt.Rows[0][4].ToString();
+            //lblusername.InnerText = dt.Rows[0][4].ToString();
         }
 
         protected void Unnamed_ServerClick(object sender, EventArgs e)
@@ -81,7 +80,7 @@ namespace WebPages.Panels.UserPanel
             }
 
             // int id = Session["userid"].ToString().ToInt();
-            string tbl = "use";
+            string tbl = "adm";
 
             string filename = Path.GetFileName(FileUpload1.FileName);
             string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
@@ -104,7 +103,7 @@ namespace WebPages.Panels.UserPanel
                 msg.MessageDate = DBManager.CurrentPersianDate();
                 msg.MessageTime = DBManager.CurrentTime();
                 msg.SenderTable = tbl;
-                msg.SenderID = Session["userid"].ToString().ToInt();
+                msg.SenderID = Session["adminid"].ToString().ToInt();
                 msg.ChatID = chatid;
                 msg.hasSeen = true;
                 if (contents.Length == 0)
@@ -152,10 +151,10 @@ namespace WebPages.Panels.UserPanel
                 else
                     aa = "";
 
-                if (dt.Rows[i][5].ToString() == "use")
+                if (dt.Rows[i][5].ToString() == "adm")
                     pers = "شما : ";
                 else
-                    pers = "ادمین : ";
+                    pers = "کاربر :";
 
 
                 tag += "<div id = \"msg\" style = \"width: 50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
@@ -210,7 +209,7 @@ namespace WebPages.Panels.UserPanel
                         dr.Close();
                     }
                     cn.Close();
-
+                    //Response.Redirect(ToSaveFileTo);
                 }
             }
         }

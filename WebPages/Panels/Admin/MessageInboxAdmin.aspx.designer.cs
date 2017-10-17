@@ -7,81 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPages.Panels.UserPanel {
+namespace WebPages.Panels.Admin {
     
     
-    public partial class profile {
+    public partial class MessageInboxAdmin {
         
         /// <summary>
-        /// lblid control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblid;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSearch;
         
         /// <summary>
-        /// lblusername control.
+        /// tbxSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxSearch;
         
         /// <summary>
-        /// lblfullname control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblfullname;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// lblmobile control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblmobile;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// lblzip control.
+        /// gvChats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblzip;
+        protected global::System.Web.UI.WebControls.GridView gvChats;
         
         /// <summary>
-        /// lblemail control.
+        /// btnViewAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblemail;
-        
-        /// <summary>
-        /// lblcitystate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcitystate;
-        
-        /// <summary>
-        /// lbladdress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbladdress;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnViewAll;
     }
 }

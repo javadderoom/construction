@@ -7,135 +7,117 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPages.Panels.EmployeePanel {
+namespace WebPages {
     
     
-    public partial class profile {
+    public partial class AdminLogin {
         
         /// <summary>
-        /// Image1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblid control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblid;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// lblusername control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtName;
         
         /// <summary>
-        /// lblfullname control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblfullname;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// lblmobile control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblmobile;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
         
         /// <summary>
-        /// lblzip control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblzip;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// lblemail control.
+        /// UpdateImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblemail;
+        protected global::System.Web.UI.UpdatePanel UpdateImage;
         
         /// <summary>
-        /// lblcitystate control.
+        /// btnImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcitystate;
+        protected global::System.Web.UI.WebControls.Image btnImg;
         
         /// <summary>
-        /// lbladdress control.
+        /// txtImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbladdress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtImage;
         
         /// <summary>
-        /// fileResume control.
+        /// BtnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileResume;
+        protected global::System.Web.UI.WebControls.Button BtnLogin;
         
         /// <summary>
-        /// lblWarningResume control.
+        /// lblWarning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWarningResume;
+        protected global::System.Web.UI.WebControls.Label lblWarning;
         
         /// <summary>
-        /// fileImage control.
+        /// SpLabl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileImage;
-        
-        /// <summary>
-        /// lblWarningImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWarningImage;
-        
-        /// <summary>
-        /// btnEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SpLabl;
     }
 }

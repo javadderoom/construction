@@ -24,7 +24,7 @@
     <div class="c-title">
         <h4>
 
-            <asp:literal runat="server" text="پروفایل شخصی" />
+            <asp:Literal runat="server" Text="پروفایل شخصی" />
         </h4>
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -65,17 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-4 col-sm-push-8 text-right">
-                                        <span id="ContentPlaceHolder1_lbl_FirstName" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">رمز عبور</span>
-                                    </div>
 
-                                    <div class="col-xs-12 col-sm-8 col-sm-pull-4 text-right">
-                                        <span id="lblpassword" runat="server" class="control-label formLabel"></span>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="row">

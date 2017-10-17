@@ -924,6 +924,7 @@
     <Content Include="Panels\Admin\NewMessageGroup.aspx" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\page.aspx" />
+    <Content Include="Panels\Admin\ProjectDetail.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
@@ -1189,9 +1190,11 @@
     <Content Include="_Styles\FloatingLable.css" />
     <Content Include="_Styles\GridView.css" />
     <Content Include="_Styles\hamoonStyle.css" />
+    <Content Include="_Styles\Input&amp;Lable.css" />
     <Content Include="_Styles\LoginStyle.css" />
     <Content Include="_Styles\ProfileStyles.css" />
     <Content Include="_Styles\ProjectAppStyles.css" />
+    <Content Include="_Styles\ProjectDetailStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />
@@ -1285,6 +1288,13 @@
     </Compile>
     <Compile Include="Panels\Admin\page.aspx.designer.cs">
       <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ProjectDetail.aspx.cs">
+      <DependentUpon>ProjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ProjectDetail.aspx.designer.cs">
+      <DependentUpon>ProjectDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>

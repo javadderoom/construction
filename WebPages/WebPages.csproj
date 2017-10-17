@@ -1252,7 +1252,7 @@
     </Compile>
     <Compile Include="Panels\Admin\NewMessageGroup.aspx.designer.cs">
       <DependentUpon>NewMessageGroup.aspx</DependentUpon>
-
+</Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

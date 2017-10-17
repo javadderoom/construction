@@ -15,7 +15,8 @@ namespace WebPages.Panels.EmployeePanel
 {
     public partial class profile : System.Web.UI.Page
     {
-        int empid = 0;
+        private int empid = 0;
+
         //DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,26 +26,25 @@ namespace WebPages.Panels.EmployeePanel
             {
                 setLabels();
             }
-
         }
 
         private void setLabels()
         {
             EmployeesRepository er = new EmployeesRepository();
             DataTable dt = er.getEmployeeProfileInfo(empid);
-            lblfullname.InnerText = dt.Rows[0][18].ToString();
-            lblid.InnerText = dt.Rows[0][0].ToString();
-            lbladdress.InnerText = dt.Rows[0][8].ToString();
-            lblcitystate.InnerText = dt.Rows[0][19].ToString();
-            lblemail.InnerText = dt.Rows[0][10].ToString();
-            lblmobile.InnerText = dt.Rows[0][9].ToString();
-            lblusername.InnerText = dt.Rows[0][3].ToString();
-            lblzip.InnerText = dt.Rows[0][11].ToString();
+            lblfullname.Value = dt.Rows[0][18].ToString();
+            lblid.Value = dt.Rows[0][0].ToString();
+            lbladdress.Value = dt.Rows[0][8].ToString();
+            lblcitystate.Value = dt.Rows[0][19].ToString();
+            lblemail.Value = dt.Rows[0][10].ToString();
+            lblmobile.Value = dt.Rows[0][9].ToString();
+            lblusername.Value = dt.Rows[0][3].ToString();
+            lblzip.Value = dt.Rows[0][11].ToString();
 
             if (dt.Rows[0][12] != DBNull.Value)
                 setImage();
-
         }
+
         private void setImage()
         {
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
@@ -56,7 +56,6 @@ namespace WebPages.Panels.EmployeePanel
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             Image1.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -64,15 +63,12 @@ namespace WebPages.Panels.EmployeePanel
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
         }
+
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-
             if (fileImage.HasFile)
             {
                 if (fileImage.FileBytes.Length > 1024 * 1024)
@@ -93,7 +89,6 @@ namespace WebPages.Panels.EmployeePanel
                 filename = rand + filename;
                 string ps = Server.MapPath(@"~\img\") + filename;
                 fileImage.SaveAs(ps);
-
 
                 FileStream fStream = File.OpenRead(ps);
                 byte[] contents = new byte[fStream.Length];
@@ -130,7 +125,6 @@ namespace WebPages.Panels.EmployeePanel
                 string ps = Server.MapPath(@"~\img\") + filename;
                 fileImage.SaveAs(ps);
 
-
                 FileStream fStream = File.OpenRead(ps);
                 byte[] contents = new byte[fStream.Length];
                 fStream.Read(contents, 0, (int)fStream.Length);
@@ -143,7 +137,6 @@ namespace WebPages.Panels.EmployeePanel
                 lblWarningResume.Text = "اطلاعات با موفقیت ویرایش شد.";
                 lblWarningResume.ForeColor = System.Drawing.Color.Green;
             }
-
         }
     }
 }

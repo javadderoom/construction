@@ -1,196 +1,88 @@
-﻿@font-face {
-    font-family: 'IRANSansWeb_Light';
-    src: url('../fonts/IRANSansWeb_Light.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'IRANSansWeb_Medium';
-    src: url('../fonts/IRANSansWeb_Medium.woff') format('woff');
-}
-
-@font-face {
-    font-family: '';
-    src: url('../fonts/IRANSansWeb_UltraLight.woff') format('woff');
-}
-
-*, #col-left, .container-fluid {
-    margin: 0;
-    padding: 0;
+﻿
+#nr_footer .container .copyrightRow {
+    border-top: none !important;
 }
 
 body {
-    background-color: #F7F7F7;
-    font-family: IRANSansWeb_Light,Tahoma,sans-serif;
+    margin: 0;
 }
 
-.c-title {
-    border-bottom: 2px solid #E6E9ED;
-    padding: 1px 5px 6px;
-    margin-bottom: 10px;
-    float: right;
+#container {
+    height: auto;
     width: 100%;
-}
-
-.c-panel {
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px 17px;
-    display: inline-block;
-    background: #fff;
-    border: 1px solid #E6E9ED;
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
-    opacity: 1;
-    transition: all .2s ease;
-}
-
-.c-title h4 {
-    float: right;
-}
-
-.extra {
-    width: 100%;
-    height: 50px;
-}
-
-.ContentPlaceHolderStyle {
-    border: 1px #E6E9ED solid;
-    margin: 10px;
-    padding: 10px 0;
-}
-
-.c-content {
-    padding: 0 5px 6px;
-    position: relative;
-    width: 100%;
-    float: left;
-    clear: both;
-    margin-top: 5px;
-}
-
-.center-margin {
-    margin: 0 auto;
-    float: none !important;
-}
-
-.ln_solid {
-    border-top: 1px solid #e5e5e5;
-    color: #ffffff;
-    background-color: #ffffff;
-    height: 1px;
-    margin: 20px 0;
-}
-
-.editor-wrapper {
-    min-height: 250px;
-    background-color: #fff;
-    border-collapse: separate;
-    border: 1px solid #ccc;
-    padding: 4px;
-    box-sizing: content-box;
-    box-shadow: rgba(0,0,0,.07451) 0 1px 1px 0 inset;
-    overflow: scroll;
-    outline: 0;
-    border-radius: 3px;
-}
-
-.dirRight {
+    padding-top: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 50px;
     direction: rtl;
 }
 
-.table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-    align-content: center;
-    vertical-align: middle;
-}
 
-    .table tr {
-        text-align: right;
-        vertical-align: middle;
-    }
 
-    .table th {
-        text-align: right;
-    }
-
-.col-xs-12 {
-}
-
-.noprint {
-    display: none;
-}
-
-.print {
-    display: block;
-}
-
-.marginRightForDrpDList {
-    margin-right: 10px !important;
-}
-
-.notvisibile {
-    display: none;
-}
-
-table tr td input {
-    float: left;
+.liststylenone {
     width: 50px;
-    margin-right: 10px;
+    list-style: none !important;
 }
 
-div select {
-    direction: rtl;
-}
-
-dropdownlist {
-    direction: rtl;
-}
-
-.AddLesson {
-    height: 45px !important;
-}
-
-.row {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-.StudentsButton {
-}
-
-.DescriptionTbx {
-    min-width: 200px !important;
-    min-height: 65px !important;
-    overflow-y: scroll;
+textarea {
     resize: none;
 }
 
-.GridPager a, .GridPager span {
-    display: block;
-    height: 17px;
-    width: 15px;
-    margin: 0 2px;
-    font-weight: bold;
+.DivPreviewBorder {
+    display: none;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: solid 2px rgb(247, 183, 30);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.error {
     text-align: center;
-    text-decoration: none;
+    color: red;
+    font-weight: bold;
 }
 
-.GridPager {
-    direction: ltr;
+.textok {
+    color: #6ea11a;
+    font-weight: bold;
 }
 
-    .GridPager a {
-        background-color: #f5f5f5;
-        color: #969696;
-        border: 1px solid #969696;
-    }
+.bootstrap-tagsinput {
+    min-height: 100px;
+    max-width: 500px;
+    display: block !important;
+}
 
-    .GridPager span {
-        background-color: #A1DCF2;
-        color: #000;
-        border: 1px solid #3AC0F2;
-    }
+
+
+
+.DDLClass {
+    display: inline;
+    width: 100%;
+    max-width: 200px;
+    height: 25px;
+}
+
+.LBXClass {
+    width: 100%;
+    height: 100%;
+    max-width: 220px;
+    max-height: 450px;
+}
+
+.Displayinline {
+    display: inline;
+}
+
+#upPan1 > div, #upPan2 > div, #upPan3 > div {
+    display: inline !important;
+}
+
+.displaynone {
+    display: none !important;
+}
+
+.breadcrumb > li + li:before {
+    content: none !important;
+}

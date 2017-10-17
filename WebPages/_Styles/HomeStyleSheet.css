@@ -1,0 +1,290 @@
+﻿@import url('../fonts/weblogma_yekan.css');
+
+body {
+    margin: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    font-family: IRANSansLight,Arial;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.fixclass {
+    border-bottom: none !important;
+    background-color: #190f0f;
+    opacity: 0.85;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+@font-face {
+    font-family: 'glyphicons-halflings-regular';
+    src: url('../bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf') format('truetype');
+    src: url('../bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff') format('woff');
+    src: url('../bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg') format('svg');
+    src: url('../bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'Weblogma_Yekan';
+    src: url('../fonts/Weblogma_Yekan.woff') format('woff');
+    src: url('../fonts/Weblogma_Yekan.eot') format('embedded-opentype');
+    src: url('../fonts/Weblogma_Yekan.ttf') format('truetype');
+    src: url('../fonts/Weblogma_Yekan.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'IRANSansLight';
+    src: url('../fonts/IRANSansLight.woff') format('woff');
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.nav-bg {
+}
+
+a {
+    text-decoration: none;
+    color: #9E9E9E !important;
+}
+
+    a:hover {
+        text-decoration: none;
+        color: #3d3dff !important;
+    }
+
+.navbar-default li a {
+    color: white !important;
+}
+
+    .navbar-default li a:hover {
+        color: #3d3dff;
+    }
+
+.top-nav {
+    width: 100%;
+    height: 41px;
+    margin-right: 0px;
+    margin-left: 0px;
+    border-bottom: 1px #DDE2E6 solid;
+    background-color: #20212a;
+}
+
+.top-nav-inner {
+    position: relative;
+    height: 41px;
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 50;
+}
+
+.second-nav {
+    background-image: none !important;
+    opacity: 0.7;
+    background-color: #190f0f;
+    margin-right: auto;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    margin-top: 0px;
+    position: absolute;
+    z-index: 999;
+    max-width: 1170px;
+    width: 100%;
+    padding-right: 15px;
+    box-shadow: none !important;
+}
+
+    .second-nav a {
+        color: blue;
+    }
+
+    .second-nav .active a {
+        background-color: #0200AE !important;
+        background-image: none !important;
+    }
+
+.line_verticall {
+    opacity: 0.7;
+    background-color: #190f0f;
+    border-bottom: 1px #DDE2E6 solid;
+    height: 51px;
+    width: 100%;
+    z-index: 998;
+    position: absolute;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.3), (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (min-device-pixel-ratio: 1.3), (min-device-width: 1200px),(max-device-width: 1600px) {
+    #myNavbar {
+        float: right;
+        direction: rtl;
+    }
+}
+
+@media(max-width:767px) {
+    #myNavbar {
+        background-color: #190f0f;
+        opacity: 0.85;
+        text-align: center;
+        float: none !important;
+    }
+}
+
+@media (min-device-width: 200px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: portrait) {
+    #myNavbar {
+        background-color: #190f0f;
+        opacity: 0.85;
+        text-align: center;
+        float: none !important;
+    }
+}
+
+@media (min-device-width: 200px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: Landscape) {
+    #myNavbar {
+        background-color: #190f0f;
+        opacity: 0.85;
+        text-align: center;
+        float: none !important;
+    }
+}
+
+.email {
+    border-left: 1px #DDE2E6 solid;
+    border-right: 1px #DDE2E6 solid;
+    height: 41px;
+    width: 235px;
+    display: inline;
+    float: left;
+    line-height: 41px;
+    text-align: center;
+}
+
+    .email:hover {
+        color: red;
+    }
+
+.phone {
+    width: 182px;
+    height: 41px;
+    border-right: 1px #DDE2E6 solid;
+    float: left;
+    line-height: 41px;
+    text-align: center;
+}
+
+.iconColor {
+    color: green;
+}
+
+.sosioal-network {
+    float: right;
+    width: 215px;
+    height: 41px;
+    border-left: 1px #DDE2E6 solid;
+    border-right: 1px #DDE2E6 solid;
+}
+
+    .sosioal-network .telegram {
+        height: 25px;
+        width: 25px;
+        background-image: url('../Icons/telegram-logo.png');
+    }
+
+        .sosioal-network .telegram:hover {
+            height: 25px;
+            width: 25px;
+            background-image: url('../Icons/telegram-logo green.png');
+        }
+
+    .sosioal-network ul {
+        display: block;
+        list-style: none;
+        margin-top: 8px;
+    }
+
+    .sosioal-network li {
+        display: inline;
+        float: left;
+        list-style: none;
+        line-height: 41px;
+        margin-right: 10px;
+    }
+
+    .sosioal-network .instagram {
+        height: 25px;
+        width: 25px;
+        background-image: url('../Icons/instagram-logo .png');
+    }
+
+        .sosioal-network .instagram:hover {
+            height: 25px;
+            width: 25px;
+            background-image: url('../Icons/instagram-logo green.png');
+        }
+
+/*------------back to top-----------------*/
+.scrollToTop {
+    z-index: 99999999999;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    display: none;
+    background-image: url('../Images/BKTP.png');
+    background-size: contain;
+}
+
+    .scrollToTop:hover {
+        text-decoration: none;
+    }
+
+.c-title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px;
+    float: right;
+    width: 100%;
+}
+
+    .c-title h4 {
+        float: right;
+    }
+
+.extra {
+    width: 100%;
+    height: 50px;
+}
+
+.c-content {
+    padding: 0 5px 6px;
+    position: relative;
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 5px;
+}
+
+.ln_solid {
+    border-top: 1px solid #e5e5e5;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.inner-container {
+    margin-left: 10px;
+    margin-right: 10px;
+}

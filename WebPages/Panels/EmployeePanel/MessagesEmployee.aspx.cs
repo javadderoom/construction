@@ -15,8 +15,9 @@ namespace WebPages.Panels.EmployeePanel
 {
     public partial class MessagesEmployee : System.Web.UI.Page
     {
-        int chatid = 0;
-        int empid = 0;
+        private int chatid = 0;
+        private int empid = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             chatid = Session["chatidForMessages"].ToString().ToInt();
@@ -31,8 +32,8 @@ namespace WebPages.Panels.EmployeePanel
                 string elemid = Request.Form["__EVENTTARGET"].ToString();
                 if (elemid.Substring(0, 7) == "btnmsgx")
                 {
-
                     int elid = Int32.Parse(elemid.Substring(7));
+
                     try
                     {
                         download(elid);
@@ -43,8 +44,8 @@ namespace WebPages.Panels.EmployeePanel
                     }
 
 
-                }
 
+                }
             }
         }
 
@@ -88,7 +89,6 @@ namespace WebPages.Panels.EmployeePanel
             string ps = Server.MapPath(@"~\img\") + filename;
             FileUpload1.SaveAs(ps);
 
-
             FileStream fStream = File.OpenRead(ps);
             byte[] contents = new byte[fStream.Length];
             fStream.Read(contents, 0, (int)fStream.Length);
@@ -122,8 +122,8 @@ namespace WebPages.Panels.EmployeePanel
                 lblWarning.Text = "در ارسال پیام مشکلی بوجود آمد.لطفا مجددا سعی کنید";
                 lblWarning.ForeColor = System.Drawing.Color.Red;
             }
-
         }
+
         public string messages()
         {
             MessageRepository mr = new MessageRepository();
@@ -156,7 +156,6 @@ namespace WebPages.Panels.EmployeePanel
                 else
                     pers = "ادمین : ";
 
-
                 tag += "<div id = \"msg\" style = \"width: 50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
                     "<div id = \"mhead\" style = \"height: 40px; background-color: #18bc9c; padding: 10px\" >" +
                         "<div style = \"float: left;color:white\" > " + dt.Rows[i][9].ToString() + " </div>" +
@@ -168,10 +167,6 @@ namespace WebPages.Panels.EmployeePanel
 
                     "</div>" +
               "</div>";
-
-
-
-
             }
             return tag;
         }
@@ -181,6 +176,7 @@ namespace WebPages.Panels.EmployeePanel
             string controlName = Request.Params["__EVENTTARGET"];
             Response.Redirect(controlName);
         }
+
         public void download(int idname)
         {
             string ToSaveFileTo = KnownFolders.GetPath(KnownFolder.Downloads) + "\\" + DBManager.CurrentPersianDateWithoutSlash() + DBManager.CurrentTimeWithoutColons() + "file.zip";// Server.MapPath("~\\File\\file.zip");
@@ -194,7 +190,6 @@ namespace WebPages.Panels.EmployeePanel
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             using (System.IO.FileStream fs = new System.IO.FileStream(ToSaveFileTo, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
                             {
@@ -213,6 +208,5 @@ namespace WebPages.Panels.EmployeePanel
                 }
             }
         }
-
     }
 }

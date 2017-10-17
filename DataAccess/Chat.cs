@@ -14,9 +14,18 @@ namespace DataAccess
     
     public partial class Chat
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Chat()
+        {
+            this.Messages = new HashSet<Message>();
+        }
+    
         public int ChatID { get; set; }
         public string ChatTitle { get; set; }
         public Nullable<int> AdminID { get; set; }
         public Nullable<int> User_Employee_ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages { get; set; }
     }
 }

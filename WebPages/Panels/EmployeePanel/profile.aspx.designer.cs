@@ -13,13 +13,21 @@ namespace WebPages.Panels.EmployeePanel {
     public partial class profile {
         
         /// <summary>
+
         /// Image1 control.
+
+        /// hFullName control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.Image Image1;
+
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hFullName;
+
         
         /// <summary>
         /// lblid control.
@@ -28,7 +36,11 @@ namespace WebPages.Panels.EmployeePanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblid;
+
+     
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblid;
+
         
         /// <summary>
         /// lblusername control.
@@ -37,105 +49,114 @@ namespace WebPages.Panels.EmployeePanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblusername;
         
         /// <summary>
-        /// lblfullname control.
+        /// lblpassword control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblfullname;
-        
-        /// <summary>
-        /// lblmobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblmobile;
-        
-        /// <summary>
-        /// lblzip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblzip;
-        
-        /// <summary>
-        /// lblemail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblemail;
-        
-        /// <summary>
-        /// lblcitystate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcitystate;
+
         
         /// <summary>
         /// lbladdress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbladdress;
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword lblpassword;
         
         /// <summary>
-        /// fileResume control.
+        /// lblfullname control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+
+        /// <summary>
+        /// fileResume control.
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblfullname;
+        
+        /// <summary>
+        /// lblmobile control.
+
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+
         protected global::System.Web.UI.WebControls.FileUpload fileResume;
         
         /// <summary>
         /// lblWarningResume control.
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblmobile;
+        
+        /// <summary>
+        /// lblzip control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblWarningResume;
         
         /// <summary>
         /// fileImage control.
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblzip;
+        
+        /// <summary>
+        /// lblemail control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.FileUpload fileImage;
         
         /// <summary>
         /// lblWarningImage control.
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblemail;
+        
+        /// <summary>
+        /// lblcitystate control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.Label lblWarningImage;
         
         /// <summary>
         /// btnEdit control.
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblcitystate;
+        
+        /// <summary>
+        /// lbladdress control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.Button btnEdit;
+
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lbladdress;
+
     }
 }

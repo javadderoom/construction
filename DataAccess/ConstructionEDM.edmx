@@ -20,16 +20,10 @@
           <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="ImageID" Type="int" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="Abstract" Type="nvarchar(max)" />
-          <Property Name="TopicID" Type="int" />
-          <Property Name="Date" Type="nvarchar" MaxLength="10" />
-          <Property Name="Time" Type="nvarchar" MaxLength="5" />
-          <Property Name="Priority" Type="int" />
+          <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Visits" Type="int" />
-          <Property Name="Status" Type="int" />
-          <Property Name="Links" Type="nvarchar(max)" />
-          <Property Name="UserID" Type="int" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar" MaxLength="150" />
         </EntityType>
@@ -67,6 +61,16 @@
           <Property Name="Email" Type="nvarchar" MaxLength="150" />
           <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
           <Property Name="empImage" Type="varbinary(max)" />
+
+        </EntityType>
+        <EntityType Name="GroupConnections">
+          <Key>
+            <PropertyRef Name="ConectionID" />
+          </Key>
+          <Property Name="ConectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="ArticleID" Type="int" />
+
         </EntityType>
         <EntityType Name="Groups">
           <Key>
@@ -74,7 +78,6 @@
           </Key>
           <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="FatherID" Type="int" />
         </EntityType>
         <EntityType Name="Images">
@@ -128,10 +131,11 @@
           <Property Name="ChatID" Type="int" />
           <Property Name="hasSeen" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="Orders">
-          <Property Name="OrderID" Type="int" />
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="IsSeen" Type="bit" />
@@ -140,7 +144,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="CIty" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Projects">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -184,16 +188,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           </Key>
           <Property Name="StateID" Type="int" Nullable="false" />
           <Property Name="StateName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -259,19 +253,31 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_States">
-          <End Role="States" Type="Self.States" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+        <Association Name="FK_Messages_Chats">
+          <End Role="Chats" Type="Self.Chats" Multiplicity="0..1" />
+          <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="States">
-              <PropertyRef Name="StateID" />
+            <Principal Role="Chats">
+              <PropertyRef Name="ChatID" />
             </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="State" />
+            <Dependent Role="Messages">
+              <PropertyRef Name="ChatID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_States1">
+        <Association Name="FK_Users_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_States">
           <End Role="States" Type="Self.States" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -289,6 +295,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySet Name="Chats" EntityType="Self.Chats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupConnections" EntityType="Self.GroupConnections" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobEmployee" EntityType="Self.JobEmployee" Schema="dbo" store:Type="Tables" />
@@ -296,11 +303,11 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Satisfaction" EntityType="Self.Satisfaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
             <End Role="States" EntitySet="States" />
@@ -318,11 +325,15 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             <End Role="JobGroups" EntitySet="JobGroups" />
             <End Role="Jobs" EntitySet="Jobs" />
           </AssociationSet>
-          <AssociationSet Name="FK_Users_States" Association="Self.FK_Users_States">
-            <End Role="States" EntitySet="States" />
+          <AssociationSet Name="FK_Messages_Chats" Association="Self.FK_Messages_Chats">
+            <End Role="Chats" EntitySet="Chats" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cities" Association="Self.FK_Users_Cities">
+            <End Role="Cities" EntitySet="Cities" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_Users_States1" Association="Self.FK_Users_States1">
+          <AssociationSet Name="FK_Users_States" Association="Self.FK_Users_States">
             <End Role="States" EntitySet="States" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
@@ -337,6 +348,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
           <EntitySet Name="Employees" EntityType="ConstructionCompanyModel.Employee" />
+          <EntitySet Name="GroupConnections" EntityType="ConstructionCompanyModel.GroupConnection" />
           <EntitySet Name="Groups" EntityType="ConstructionCompanyModel.Group" />
           <EntitySet Name="Images" EntityType="ConstructionCompanyModel.Image" />
           <EntitySet Name="JobEmployees" EntityType="ConstructionCompanyModel.JobEmployee" />
@@ -344,12 +356,16 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <EntitySet Name="Jobs" EntityType="ConstructionCompanyModel.Job" />
           <EntitySet Name="Links" EntityType="ConstructionCompanyModel.Link" />
           <EntitySet Name="Messages" EntityType="ConstructionCompanyModel.Message" />
+          <EntitySet Name="Orders" EntityType="ConstructionCompanyModel.Order" />
           <EntitySet Name="Projects" EntityType="ConstructionCompanyModel.Project" />
           <EntitySet Name="Satisfactions" EntityType="ConstructionCompanyModel.Satisfaction" />
           <EntitySet Name="Sliders" EntityType="ConstructionCompanyModel.Slider" />
           <EntitySet Name="States" EntityType="ConstructionCompanyModel.State" />
-          <EntitySet Name="sysdiagrams" EntityType="ConstructionCompanyModel.sysdiagram" />
           <EntitySet Name="Users" EntityType="ConstructionCompanyModel.User" />
+          <AssociationSet Name="FK_Messages_Chats" Association="ConstructionCompanyModel.FK_Messages_Chats">
+            <End Role="Chat" EntitySet="Chats" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
           <AssociationSet Name="FK_Cities_States" Association="ConstructionCompanyModel.FK_Cities_States">
             <End Role="State" EntitySet="States" />
             <End Role="City" EntitySet="Cities" />
@@ -357,6 +373,10 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <AssociationSet Name="FK_Employees_Cities" Association="ConstructionCompanyModel.FK_Employees_Cities">
             <End Role="City" EntitySet="Cities" />
             <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cities" Association="ConstructionCompanyModel.FK_Users_Cities">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_Employees_States" Association="ConstructionCompanyModel.FK_Employees_States">
             <End Role="State" EntitySet="States" />
@@ -367,10 +387,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             <End Role="Job" EntitySet="Jobs" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_States" Association="ConstructionCompanyModel.FK_Users_States">
-            <End Role="State" EntitySet="States" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_States1" Association="ConstructionCompanyModel.FK_Users_States1">
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
@@ -390,16 +406,10 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImageID" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TopicID" Type="Int32" />
-          <Property Name="Date" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Time" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Priority" Type="Int32" />
+          <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Visits" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="Links" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UserID" Type="Int32" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -411,6 +421,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="ChatTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AdminID" Type="Int32" />
           <Property Name="User_Employee_ID" Type="Int32" />
+          <NavigationProperty Name="Messages" Relationship="ConstructionCompanyModel.FK_Messages_Chats" FromRole="Chat" ToRole="Message" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -421,6 +432,7 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="StateID" Type="Int32" />
           <NavigationProperty Name="State" Relationship="ConstructionCompanyModel.FK_Cities_States" FromRole="City" ToRole="State" />
           <NavigationProperty Name="Employees" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="City" ToRole="Employee" />
+          <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="City" ToRole="User" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -442,13 +454,20 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="Employee" ToRole="State" />
         </EntityType>
+        <EntityType Name="GroupConnection">
+          <Key>
+            <PropertyRef Name="ConectionID" />
+          </Key>
+          <Property Name="ConectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="ArticleID" Type="Int32" />
+        </EntityType>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="GroupID" />
           </Key>
           <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FatherID" Type="Int32" />
         </EntityType>
         <EntityType Name="Image">
@@ -503,6 +522,21 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="SenderID" Type="Int32" />
           <Property Name="ChatID" Type="Int32" />
           <Property Name="hasSeen" Type="Boolean" />
+          <NavigationProperty Name="Chat" Relationship="ConstructionCompanyModel.FK_Messages_Chats" FromRole="Message" ToRole="Chat" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSeen" Type="Boolean" />
+          <Property Name="MaxStartTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DeadLine" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CIty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -550,17 +584,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <NavigationProperty Name="Cities" Relationship="ConstructionCompanyModel.FK_Cities_States" FromRole="State" ToRole="City" />
           <NavigationProperty Name="Employees" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="State" ToRole="Employee" />
           <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_States" FromRole="State" ToRole="User" />
-          <NavigationProperty Name="Users1" Relationship="ConstructionCompanyModel.FK_Users_States1" FromRole="State" ToRole="User" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -577,9 +600,21 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
           <Property Name="State" Type="Int32" />
           <Property Name="City" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="User" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Users_States" FromRole="User" ToRole="State" />
-          <NavigationProperty Name="State2" Relationship="ConstructionCompanyModel.FK_Users_States1" FromRole="User" ToRole="State" />
         </EntityType>
+        <Association Name="FK_Messages_Chats">
+          <End Type="ConstructionCompanyModel.Chat" Role="Chat" Multiplicity="0..1" />
+          <End Type="ConstructionCompanyModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="ChatID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="ChatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Cities_States">
           <End Type="ConstructionCompanyModel.State" Role="State" Multiplicity="0..1" />
           <End Type="ConstructionCompanyModel.City" Role="City" Multiplicity="*" />
@@ -600,6 +635,18 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
               <PropertyRef Name="CityID" />
             </Principal>
             <Dependent Role="Employee">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cities">
+          <End Type="ConstructionCompanyModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="ConstructionCompanyModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="User">
               <PropertyRef Name="City" />
             </Dependent>
           </ReferentialConstraint>
@@ -640,18 +687,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_States1">
-          <End Type="ConstructionCompanyModel.State" Role="State" Multiplicity="0..1" />
-          <End Type="ConstructionCompanyModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="State">
-              <PropertyRef Name="StateID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="State" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -672,16 +707,10 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
               <MappingFragment StoreEntitySet="Articles">
                 <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
                 <ScalarProperty Name="Tags" ColumnName="Tags" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Links" ColumnName="Links" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Visits" ColumnName="Visits" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+                <ScalarProperty Name="PostDateTime" ColumnName="PostDateTime" />
                 <ScalarProperty Name="Abstract" ColumnName="Abstract" />
-                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
@@ -726,11 +755,19 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="GroupConnections">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.GroupConnection">
+              <MappingFragment StoreEntitySet="GroupConnections">
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ConectionID" ColumnName="ConectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="FatherID" ColumnName="FatherID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
@@ -793,6 +830,21 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CIty" ColumnName="CIty" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+                <ScalarProperty Name="MaxStartTime" ColumnName="MaxStartTime" />
+                <ScalarProperty Name="IsSeen" ColumnName="IsSeen" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Project">
               <MappingFragment StoreEntitySet="Projects">
@@ -838,17 +890,6 @@ warning 6013: The table/view 'ConstructionCompany.dbo.Orders' does not have a pr
               <MappingFragment StoreEntitySet="States">
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="StateID" ColumnName="StateID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

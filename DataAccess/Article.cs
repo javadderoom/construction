@@ -17,16 +17,10 @@ namespace DataAccess
         public int ArticleID { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public Nullable<int> ImageID { get; set; }
+        public byte[] Image { get; set; }
         public string Abstract { get; set; }
-        public Nullable<int> TopicID { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public Nullable<int> Priority { get; set; }
+        public string PostDateTime { get; set; }
         public Nullable<int> Visits { get; set; }
-        public Nullable<int> Status { get; set; }
-        public string Links { get; set; }
-        public Nullable<int> UserID { get; set; }
         public string Tags { get; set; }
         public string KeyWords { get; set; }
     }

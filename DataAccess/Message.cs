@@ -23,5 +23,7 @@ namespace DataAccess
         public Nullable<int> SenderID { get; set; }
         public Nullable<int> ChatID { get; set; }
         public Nullable<bool> hasSeen { get; set; }
+    
+        public virtual Chat Chat { get; set; }
     }
 }

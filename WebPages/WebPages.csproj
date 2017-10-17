@@ -874,6 +874,7 @@
     <Content Include="Panels\UserPanel\Messages.aspx" />
     <Content Include="Panels\UserPanel\newMessage.aspx" />
     <Content Include="Panels\UserPanel\profile.aspx" />
+    <Content Include="Panels\UserPanel\ProjectApplication.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
@@ -1112,6 +1113,7 @@
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\BlogsScript.js" />
+    <Content Include="_Scripts\FlotingLables.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.easyPaginate.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
@@ -1122,10 +1124,12 @@
     <Content Include="_Styles\Blogs.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
+    <Content Include="_Styles\FloatingLable.css" />
     <Content Include="_Styles\GridView.css" />
     <Content Include="_Styles\hamoonStyle.css" />
     <Content Include="_Styles\LoginStyle.css" />
     <Content Include="_Styles\ProfileStyles.css" />
+    <Content Include="_Styles\ProjectAppStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />
@@ -1240,6 +1244,13 @@
     </Compile>
     <Compile Include="Panels\UserPanel\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserPanel\ProjectApplication.aspx.cs">
+      <DependentUpon>ProjectApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\UserPanel\ProjectApplication.aspx.designer.cs">
+      <DependentUpon>ProjectApplication.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\UserPanel\UsersMaster.Master.cs">
       <DependentUpon>UsersMaster.Master</DependentUpon>

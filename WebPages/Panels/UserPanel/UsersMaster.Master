@@ -49,11 +49,11 @@
     <form id="form1" runat="server">
         <div>
 
-            <div id="pageloader" class="row m0">
+            <%--  <div id="pageloader" class="row m0">
                 <div class="loader-item">
                     <img src="../../_construction/images/loader.gif" alt="Loading" />
                 </div>
-            </div>
+            </div>--%>
             <section id="nr_topStrip" class="row">
                 <div class="container">
                     <div class="row">
@@ -219,7 +219,7 @@
                             <div class="col-sm-6 widget" id="widgetRight">
                                 <div class="getInTouch_widget row">
                                     <div class="widgetHeader row m0">
-                                        <img src="images/whiteSquare.png" alt="" />
+                                        <img src="../../_construction/images/whiteSquare.png" />
                                         با ما درارتباط باشید
                                     </div>
                                     <div class="row getInTouch_tab m0">
@@ -241,7 +241,7 @@
                                 <div class="row ">
                                     <div class="row">
                                         <div class="widgetHeader row m0">
-                                            <img src="images/whiteSquare.png" alt="" />
+                                            <img src="../../_construction/images/whiteSquare.png" />
                                             درباره ساخت و ساز ما
                                         </div>
                                         <div class="row m0 footer-white">

@@ -3,6 +3,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,7 +15,7 @@ namespace WebPages.Panels.UserPanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("userid", 5);
+
             if (!IsPostBack)
             {
                 setLabels();
@@ -26,6 +27,7 @@ namespace WebPages.Panels.UserPanel
             int id = Session["userid"].ToString().ToInt();
             UsersRepository ru = new UsersRepository();
             DataTable dt = ru.getUserProfileInfo(id);
+
             lblid.Value = dt.Rows[0][0].ToString();
             hFullName.InnerText = dt.Rows[0][16].ToString();
             lblfullname.Value = dt.Rows[0][16].ToString();
@@ -37,6 +39,9 @@ namespace WebPages.Panels.UserPanel
             lblemail.Value = dt.Rows[0][10].ToString();
             lbladdress.Value = dt.Rows[0][6].ToString();
             lblcitystate.Value = dt.Rows[0][17].ToString();
+
         }
+
+
     }
 }

@@ -90,6 +90,20 @@ namespace WebPages
                 lblWarning.Text = "کد پستی 10 رقمی خود را وارد کنبد";
                 return;
             }
+            EmployeesRepository em = new EmployeesRepository();
+            UsersRepository urr = new UsersRepository();
+            if (rdiEmployees.Checked && em.isThereUsername(txtusername.Value))
+            {
+                lblWarning.Text = "این نام کاربری از قبل وجود دارد";
+                lblWarning.ForeColor = Color.Red;
+                return;
+            }
+            if (rdiUsers.Checked && urr.isThereUsername(txtusername.Value))
+            {
+                lblWarning.Text = "این نام کاربری از قبل وجود دارد";
+                lblWarning.ForeColor = Color.Red;
+                return;
+            }
             if (Session["ImgValue"].ToString() == txtImage.Value)
             {
                 //lblWarning.Text = "کد وارد شده صحیح می باشد";

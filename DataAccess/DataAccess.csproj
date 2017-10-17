@@ -123,6 +123,7 @@
     <Compile Include="Repository\EmployeesRepository.cs" />
     <Compile Include="Repository\CityRepository.cs" />
     <Compile Include="Repository\StatesRepository.cs" />
+    <Compile Include="Repository\AdminsRepository.cs" />
     <Compile Include="Repository\UsersRepository.cs" />
     <Compile Include="Satisfaction.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>

@@ -863,7 +863,49 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
+
+    <Content Include="bin2\Common.dll" />
+    <Content Include="bin2\Common.pdb" />
+    <Content Include="bin2\DataAccess.dll" />
+    <Content Include="bin2\DataAccess.pdb" />
+    <Content Include="bin2\EntityFramework.dll" />
+    <Content Include="bin2\EntityFramework.SqlServer.dll" />
+    <Content Include="bin2\EntityFramework.SqlServer.xml" />
+    <Content Include="bin2\EntityFramework.xml" />
+    <Content Include="bin2\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin2\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin2\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin2\rosyln\csc.exe" />
+    <Content Include="bin2\rosyln\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin2\rosyln\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin2\rosyln\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin2\rosyln\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin2\rosyln\System.Collections.Immutable.dll" />
+    <Content Include="bin2\rosyln\System.Reflection.Metadata.dll" />
+    <Content Include="bin2\rosyln\vbc.exe" />
+    <Content Include="bin2\rosyln\VBCSCompiler.exe" />
+    <Content Include="bin2\System.Web.Helpers.dll" />
+    <Content Include="bin2\System.Web.Helpers.xml" />
+    <Content Include="bin2\System.Web.Razor.dll" />
+    <Content Include="bin2\System.Web.Razor.xml" />
+    <Content Include="bin2\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin2\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin2\System.Web.WebPages.dll" />
+    <Content Include="bin2\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin2\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin2\System.Web.WebPages.xml" />
+    <Content Include="bin2\WebPages.dll" />
+    <Content Include="bin2\WebPages.pdb" />
+    <Content Include="AdminLogin.aspx" />
+    <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
+    <Content Include="Panels\Admin\ListForMessage.aspx" />
+    <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
+    <Content Include="Panels\Admin\MessagesAdmin.aspx" />
+    <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
+    <Content Include="Panels\Admin\NewMessageGroup.aspx" />
+
     <Content Include="Panels\Admin\AddBlog.aspx" />
+
     <Content Include="Panels\Admin\page.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
@@ -1154,6 +1196,13 @@
     <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1161,12 +1210,56 @@
     <Compile Include="Panels\Admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
+
+    <Compile Include="Panels\Admin\ListForGroupMessage.aspx.cs">
+      <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForGroupMessage.aspx.designer.cs">
+      <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForMessage.aspx.cs">
+      <DependentUpon>ListForMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForMessage.aspx.designer.cs">
+      <DependentUpon>ListForMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.cs">
+      <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.designer.cs">
+      <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\MessagesAdmin.aspx.cs">
+      <DependentUpon>MessagesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\MessagesAdmin.aspx.designer.cs">
+      <DependentUpon>MessagesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\newMesaageAdmin.aspx.cs">
+      <DependentUpon>newMesaageAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\newMesaageAdmin.aspx.designer.cs">
+      <DependentUpon>newMesaageAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\NewMessageGroup.aspx.cs">
+      <DependentUpon>NewMessageGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\NewMessageGroup.aspx.designer.cs">
+      <DependentUpon>NewMessageGroup.aspx</DependentUpon>
+
     <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
+
     </Compile>
     <Compile Include="Panels\Admin\page.aspx.cs">
       <DependentUpon>page.aspx</DependentUpon>

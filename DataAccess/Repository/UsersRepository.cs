@@ -108,6 +108,15 @@ namespace DataAccess.Repository
             conn.Close();
         }
 
+        public bool isThereUsername(string value)
+        {
+            int cnt =
+                (from r in database.Users where r.UserName == value select r).Count();
+
+            if (cnt == 0) return false;
+            return true;
+        }
+
         public string getUserPass(int userid)
         {
             string pass =
@@ -128,6 +137,26 @@ namespace DataAccess.Repository
             SqlCommand myCommand2 = new SqlCommand(sql2, conn);
             myCommand2.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public DataTable getAllUsersAndEmployeesForMessage()
+        {
+            string Command = string.Format("select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID");
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
+
+        public DataTable SearchFor_getAllUsersAndEmployeesForMessage(string txt)
+        {
+            string Command = string.Format("select * from(select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID)tbl where UserName like N'%{0}%' or UserID like N'%{0}%' or FullAddress like N'%{0}%' or FullName like N'%{0}%' or urole like N'%{0}%'", txt);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
         }
     }
 }

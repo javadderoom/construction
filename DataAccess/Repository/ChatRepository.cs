@@ -51,7 +51,7 @@ namespace DataAccess.Repository
 
         public DataTable Inbox(int id)
         {
-            string Command = string.Format(" select* ,CASE WHEN(lastMsgTbl = 'use') THEN  0 WHEN(lastMsgTbl = 'adm' and lastMsgSeen = 1) THEN 1 else 0 END AS seen from(select*,(select top 1 substring(MessageText,0,30) from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgText,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgDate,(select top 1 SenderTable from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgTbl,(select top 1 cast( hasSeen as int)   from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSeen from Chats where User_Employee_ID = {0})tbl order by ChatID desc", id);
+            string Command = string.Format(" select* ,CASE WHEN(lastMsgTbl = 'adm' and lastMsgSeen = 1) THEN 1 else 0 END AS seen from(select*,(select top 1 substring(MessageText,0,30) from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgText,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgDate,(select top 1 SenderTable from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgTbl,(select top 1 cast( hasSeen as int)   from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSeen from Chats where User_Employee_ID = {0})tbl order by lastMsgDate desc", id);
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();
@@ -60,7 +60,7 @@ namespace DataAccess.Repository
         }
         public DataTable Search(int id, string txt)
         {
-            string Command = string.Format("select* ,CASE WHEN(lastMsgTbl = 'use') THEN  0 WHEN(lastMsgTbl = 'adm' and lastMsgSeen = 1) THEN 1 else 0 END AS seen from(select*,(select top 1 substring(MessageText,0,30) from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgText,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgDate,(select top 1 SenderTable from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgTbl,(select top 1 cast( hasSeen as int)   from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSeen from Chats where User_Employee_ID = 1)tbl where  ChatID like N'%{1}%' or ChatTitle like N'%{1}%' or lastMsgText like N'%{1}%' or lastMsgDate like N'%{1}%' order by ChatID desc", id, txt);
+            string Command = string.Format("select* ,CASE  WHEN(lastMsgTbl = 'adm' and lastMsgSeen = 1) THEN 1 else 0 END AS seen from(select*,(select top 1 substring(MessageText,0,30) from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgText,(select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgDate,(select top 1 SenderTable from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgTbl,(select top 1 cast( hasSeen as int)   from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSeen from Chats where User_Employee_ID = 1)tbl where  ChatID like N'%{1}%' or ChatTitle like N'%{1}%' or lastMsgText like N'%{1}%' or lastMsgDate like N'%{1}%' order by lastMsgDate desc", id, txt);
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();
@@ -68,7 +68,15 @@ namespace DataAccess.Repository
             return dtResult;
         }
 
-
+        public DataTable InboxAdmin(int adminid)
+        {
+            string Command = string.Format("select*,case when((lastMsgSenderTbl<> 'adm') and(lastMsgSeen = 1)) then 1 else 0 end as seen from(select*,(select top 1 substring(MessageText,0,30) from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsg, (select top 1 MessageDate+' - ' + MessageTime from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgTime, (select top 1 hasSeen from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSeen, (select top 1 SenderTable from Messages where ChatID = Chats.ChatID order by MessageID desc) as lastMsgSenderTbl from Chats left outer join(select* from(select users.UserName, Users.UserID, CityName +' - '+StateName as FullAddress, FirstName+' ' +LastName as FullName, N'مشتری' as urole from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName, Employees.EmployeeID, CityName +' - '+StateName as FullAddress, FirstName+' ' +LastName as FullName, N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID)tbl)tbl1 on Chats.User_Employee_ID = tbl1.UserID where AdminID = {0})tbl order by lastMsgTime desc", adminid);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
 
         public void DeleteAll()
         {

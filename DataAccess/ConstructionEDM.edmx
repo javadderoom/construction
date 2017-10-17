@@ -61,6 +61,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="150" />
           <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
           <Property Name="empImage" Type="varbinary(max)" />
+
         </EntityType>
         <EntityType Name="GroupConnections">
           <Key>
@@ -69,6 +70,7 @@
           <Property Name="ConectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GroupID" Type="int" />
           <Property Name="ArticleID" Type="int" />
+
         </EntityType>
         <EntityType Name="Groups">
           <Key>

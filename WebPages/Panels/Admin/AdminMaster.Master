@@ -87,13 +87,19 @@
                                     <i class="fa fa-user fa-stack-1x " style="float: left;"></i></span>
                             </a>
                             <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:6421/Panels/UserPanel/newMessage.aspx" class="a-properties sub-menu">
+                                <li><a href="http://localhost:6421/Panels/Admin/ListForMessage.aspx" class="a-properties sub-menu">
                                     <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="پیام جدید" />
+                                    <asp:Literal runat="server" Text="پیام جدید - تکی" />
                                     <span class="fa-stack fa-lg pull-left"></span>
                                 </a>
                                 </li>
-                                <li><a href="http://localhost:6421/Panels/UserPanel/MessageInbox.aspx" class="a-properties sub-menu">
+                                <li><a href="http://localhost:6421/Panels/Admin/ListForGroupMessage.aspx" class="a-properties sub-menu">
+                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
+                                    <asp:Literal runat="server" Text="پیام جدید - گروهی" />
+                                    <span class="fa-stack fa-lg pull-left"></span>
+                                </a>
+                                </li>
+                                <li><a href="http://localhost:6421/Panels/Admin/MessageInboxAdmin.aspx" class="a-properties sub-menu">
                                     <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
                                     <asp:Literal runat="server" Text="صندوق پیام ها" />
 

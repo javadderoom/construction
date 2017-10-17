@@ -56,6 +56,41 @@ namespace DataAccess.Repository
             database.SaveChanges();
 
         }
+        public void setEmployeeImage(int empid, byte[] cnts)
+        {
+            Employee e =
+                  (
+                      from r in database.Employees
+                      where r.EmployeeID == empid
+                      select r
+                  ).FirstOrDefault();
+
+            e.empImage = cnts;
+            database.SaveChanges();
+
+        }
+        public void setEmployeeResume(int empid, byte[] cnts)
+        {
+            Employee e =
+                  (
+                      from r in database.Employees
+                      where r.EmployeeID == empid
+                      select r
+                  ).FirstOrDefault();
+
+            e.CV = cnts;
+            database.SaveChanges();
+
+        }
+
+        public bool isThereUsername(string uname)
+        {
+            int cnt =
+                (from r in database.Employees where r.UserName == uname select r).Count();
+
+            if (cnt == 0) return false;
+            return true;
+        }
         public DataTable getEmployeeProfileInfo(int id)
         {
             string Command = string.Format("select *,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Employees left outer join States on Employees.State = States.StateID left outer join Cities on Employees.City = Cities.CityID where EmployeeID = {0}", id);

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
-
+    <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
     <style>
         div.blogInner {
             max-height: 490px !important;
@@ -202,33 +202,8 @@
         <!--Triangle After Slider-->
     </section>
     <!--Slider-->
+
     <style>
-        .ServisDetails {
-            width: 100%;
-            height: 700px;
-            z-index: 100;
-            position: absolute;
-            display: none;
-            background-color: gold;
-            -webkit-animation: zoomIn 0.4s ease-in-out;
-            -moz-animation: zoomIn 0.4s ease-in-out;
-            animation: zoomIn 0.4s ease-in-out;
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale3d(.3, .3, .3);
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .zoomIn {
-            animation-name: zoomIn;
-        }
     </style>
     <div class="ServisDetails"></div>
     <section id="nr_services" class="row">
@@ -239,10 +214,15 @@
             </div>
             <div class="row m0 text-center">
                 <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-laptop"></i>
-                            <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                    <div class="row m0 service ">
+                        <div class="row m0 innerRow item">
+                            <div>
+                                <i class="fa fa-laptop"></i>
+                                <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                            </div>
+                            <div class="item-overlay left">
+                                <input class="btnService" type="button" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -595,7 +575,9 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
-    <script>
+    <script>nr_services
+        $('.btnService').click(function () { $('.ServisDetails').addClass('active') })
+        $('.ServisDetails').click(function () { $('.ServisDetails').removeClass('active') })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'

@@ -195,7 +195,35 @@
         <!--Triangle After Slider-->
     </section>
     <!--Slider-->
+    <style>
+        .ServisDetails {
+            width: 100%;
+            height: 700px;
+            z-index: 100;
+            position: absolute;
+            display: none;
+            background-color: gold;
+            -webkit-animation: zoomIn 0.4s ease-in-out;
+            -moz-animation: zoomIn 0.4s ease-in-out;
+            animation: zoomIn 0.4s ease-in-out;
+        }
 
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale3d(.3, .3, .3);
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .zoomIn {
+            animation-name: zoomIn;
+        }
+    </style>
+    <div class="ServisDetails"></div>
     <section id="nr_services" class="row">
         <div class="container" style="direction: rtl">
             <div class="row sectionTitles">
@@ -557,7 +585,6 @@
             <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
         </div>
     </div>
-
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
@@ -601,5 +628,4 @@
 
         //google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
 </asp:Content>

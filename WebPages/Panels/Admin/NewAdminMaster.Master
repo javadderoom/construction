@@ -42,7 +42,6 @@
       <script src="../../_construction/js/html5shiv.min.js"></script>
       <script src="../../_construction/js/respond.min.js"></script>
     <![endif]-->
-        <link href="../../_Styles/hamoonStyle.css" rel="stylesheet" />
 
     </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="PageStyle" runat="server">
@@ -175,6 +174,7 @@
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
                                      
+                   
                    
                    
                    

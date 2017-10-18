@@ -864,7 +864,7 @@
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
-    <Content Include="Panels\Admin\page.aspx" />
+    <Content Include="Panels\Admin\ManageBlogs.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
@@ -889,7 +889,6 @@
     <Content Include="fonts\Weblogma_Yekan.woff" />
     <Content Include="fonts\IRANSansLight.woff" />
     <Content Include="Panels\UserPanel\UsersMaster.Master" />
-    <Content Include="Panels\Admin\AdminMaster.Master" />
     <Content Include="Panels\EmployeePanel\EmployeeMaster.Master" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Resources.dll.refresh" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Utils.dll.refresh" />
@@ -1123,7 +1122,7 @@
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\GridView.css" />
-    <Content Include="_Styles\hamoonStyle.css" />
+    <Content Include="_Styles\ManageBlogs.css" />
     <Content Include="_Styles\LoginStyle.css" />
     <Content Include="_Styles\ProfileStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
@@ -1150,12 +1149,12 @@
     <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Admin\AdminMaster.Master.cs">
-      <DependentUpon>AdminMaster.Master</DependentUpon>
+    <Compile Include="Panels\Admin\ManageBlogs.aspx.cs">
+      <DependentUpon>ManageBlogs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Panels\Admin\AdminMaster.Master.designer.cs">
-      <DependentUpon>AdminMaster.Master</DependentUpon>
+    <Compile Include="Panels\Admin\ManageBlogs.aspx.designer.cs">
+      <DependentUpon>ManageBlogs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
@@ -1163,13 +1162,6 @@
     </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\Admin\page.aspx.cs">
-      <DependentUpon>page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Panels\Admin\page.aspx.designer.cs">
-      <DependentUpon>page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>

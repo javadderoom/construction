@@ -115,13 +115,13 @@
             <label for="KeyWords">کلمات کلیدی:</label>
             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator3" SetFocusOnError="true" ControlToValidate="KeyWords" runat="server" CssClass="error" ErrorMessage="کلمات کلیدی نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
-            <asp:TextBox ID="KeyWords" Style="max-width: 500px; height: 40px;" placeholder="چند کلمه کلیدی وارد کنید" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="KeyWords" Style="max-width: 500px; height: 40px;" onkeydown="return (event.keyCode!=13);" data-role="tagsinput" placeholder="چند کلمه کلیدی وارد کنید" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="Tags">برچسب ها:</label>
             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator4" SetFocusOnError="true" ControlToValidate="Tags" runat="server" CssClass="error" ErrorMessage="برچسب ها نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 
-            <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" data-role="tagsinput" onkeydown="return (event.keyCode!=13);" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
 
 

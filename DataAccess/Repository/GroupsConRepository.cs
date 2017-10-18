@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace DataAccess.Repository
 {
@@ -31,6 +33,45 @@ namespace DataAccess.Repository
             }
 
 
+        }
+        public GroupConnection findConByID(int id)
+        {
+            return DB.GroupConnections.Where(p => p.ConectionID == id).FirstOrDefault();
+        }
+        public bool DeletArticleConnections(int artid)
+        {
+            bool ans = true;
+            try
+            {
+
+                List<int> gpid = new List<int>();
+                gpid = (from r in DB.GroupConnections
+                        where r.ArticleID == artid
+                        select r.ConectionID).ToList();
+                if (gpid.Count != 0)
+                {
+                    foreach (int id in gpid)
+                    {
+
+                        DB.GroupConnections.Remove(findConByID(id));
+                        DB.SaveChanges();
+
+                    }
+                }
+                else
+                {
+                    ans = false;
+                }
+
+
+            }
+            catch (System.Exception e)
+            {
+                string text = e.Message;
+
+                ans = false;
+            }
+            return ans;
         }
     }
 }

@@ -3,16 +3,16 @@ $(document).ready(function () {
     //Check to see if the window is top if not then display button
 
 
-    $("#Content_KeyWords").keypress(function (event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
-    }).tagsinput();
-    $("#Content_Tags").keypress(function (event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
-    }).tagsinput();
+    //$("#Content_KeyWords").keypress(function (event) {
+    //    if (event.keyCode == 13) {
+    //        event.preventDefault();
+    //    }
+    //}).tagsinput();
+    //$("#Content_Tags").keypress(function (event) {
+    //    if (event.keyCode == 13) {
+    //        event.preventDefault();
+    //    }
+    //}).tagsinput();
 
     ///////////////////////////////////////////////////
     $(document).on('click', '#Content_btnSave', function (e) {

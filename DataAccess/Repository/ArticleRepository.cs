@@ -118,5 +118,34 @@ namespace DataAccess.Repository
             return list;
         }
 
+        public bool DeletArticleByID(int id)
+        {
+            bool ans = true;
+            try
+            {
+                Article selectedArt = new Article();
+                selectedArt = DB.Articles.Where(p => p.ArticleID == id).Single();
+
+                if (selectedArt != null)
+                {
+                    DB.Articles.Remove(selectedArt);
+                    DB.SaveChanges();
+                }
+                else { ans = false; }
+
+            }
+            catch (System.Exception)
+            {
+
+                ans = false;
+            }
+
+
+
+
+
+            return ans;
+        }
     }
+
 }

@@ -34,7 +34,6 @@
 
         <link href="../../_construction/css/popoverStyle.css" rel="stylesheet" />
 
-        <link href="../../_Styles/hamoonStyle.css" rel="stylesheet" />
         <link href="../../_construction/css/style.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="pageStyles" runat="server">

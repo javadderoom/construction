@@ -5,120 +5,285 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <asp:ContentPlaceHolder ID="StyleSheet" runat="server">
+        <!--Favicons-->
+        <link rel="apple-touch-icon" sizes="57x57" href="../../_construction/favicon/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="../../_construction/favicon/apple-touch-icon-60x60.png" />
+        <link rel="icon" type="image/png" href="../../_construction/favicon/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="../../_construction/favicon/favicon-32x32.png" sizes="32x32" />
+
+        <meta name="msapplication-TileColor" content="#da532c" />
+
+        <!--Bootstrap and Other Vendors-->
+        <link href="../../_construction/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../../_construction/css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="../../_construction/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="../../_construction/vendors/owl.carousel/css/owl.carousel.css" rel="stylesheet" />
+        <link href="../../_construction/vendors/rs-plugin/css/settings.css" rel="stylesheet" />
+        <link href="../../_construction/vendors/js-flickr-gallery/css/js-flickr-gallery.css" rel="stylesheet" />
+        <link href="../../_construction/vendors/lightbox/css/lightbox.css" rel="stylesheet" />
+
+        <!--Fonts-->
+        <%--<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />--%>
+        <!--[if lt IE 9]>
+        <script src="../../_construction/js/html5shiv.min.js"></script>
+        <script src="../../_construction/js/respond.min.js"></script>
+        <![endif]-->
+        <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
+
+        <link href="../../_construction/css/popoverStyle.css" rel="stylesheet" />
+
+        <link href="../../_Styles/hamoonStyle.css" rel="stylesheet" />
+        <link href="../../_construction/css/style.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="pageStyles" runat="server">
+    </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <a
+        href="#"
+        class="scrollToTop"></a>
     <form id="form1" runat="server">
-        <div class="container-fluid">
+        <div>
 
-            <nav class="navbar navbar-default navbar-fixed-top no-margin " style="background-color: #EDEDED;">
-                <!-- bs-example-navbar-collapse-1 -->
-
-                <div class="navbar-header fixed-brand" style="margin-right: 20px;">
-                    <a class="navbar-brand" href="http://localhost:4911/Dashboard/Admin/AddNews.aspx" id="brandIcon">
-                        <i class="fa fa-rocket fa-4"></i>SEEGATESITE</a>
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" id="menu-toggle">
-                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Brand and toggle get grouped for better mobile display -->
-
-                <!-- navbar-header-->
-            </nav>
-
-            <div id="wrapper" class="toggled-2">
-                <!-- Sidebar -->
-
-                <div id="sidebar-wrapper">
-                    <div class=" sid-profile">
-                        <div class="profile-pic" style="float: right">
-
-                            <img src="../Images/3408.jpg" alt="..." class="img-responsive img-circle img-profile" />
-                        </div>
-                        <div class="profile-info" style="text-align: right">
-                            <span>خوش آمدید </span>
-                            <h4>
-                                <span id="lblUsername">جواد شیخ اعظمی</span>
-                            </h4>
-                        </div>
-                    </div>
-                    <%--  -----------------------sidebar---------------------------------------------------%>
-                    <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                        <li>
-
-                            <a href="#" class="a-properties">
-                                <asp:Literal runat="server" Text="پروفایل" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="glyphicon glyphicon-bell" style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none; display: block;">
-                                <li>
-
-                                    <a href="http://localhost:6421/Panels/EmployeePanel/profile.aspx" class="a-properties sub-menu">
-                                        <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                        <asp:Literal runat="server" Text="مشاهده ی پروفایل" />
-                                        <span class="fa-stack fa-lg pull-left"></span>
-                                    </a>
-                                </li>
-                                <li>
-
-                                    <a href="http://localhost:6421/Panels/UserPanel/ChangeInfo.aspx" class="a-properties sub-menu">
-                                        <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                        <asp:Literal runat="server" Text=" تغییر رمز عبور وشماره موبایل" />
-                                        <span class="fa-stack fa-lg pull-left"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="a-properties">
-                                <asp:Literal runat="server" Text="مدیریت پیام ها" /><span class="fa-stack fa-lg pull-left">
-
-                                    <i class="fa fa-user fa-stack-1x " style="float: left;"></i></span>
-                            </a>
-                            <ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                                <li><a href="http://localhost:6421/Panels/EmployeePanel/newMessageEmployee.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="پیام جدید" />
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a>
-                                </li>
-                                <li><a href="http://localhost:6421/Panels/EmployeePanel/MessageInboxEmployee.aspx" class="a-properties sub-menu">
-                                    <span class="glyphicon glyphicon-record icon-style" aria-hidden="true"></span>
-                                    <asp:Literal runat="server" Text="صندوق پیام ها" />
-
-                                    <span class="fa-stack fa-lg pull-left"></span>
-                                </a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- /#sidebar-wrapper -->
-                <!-- Page Content -->
-                <div style="margin-right: 10px">
-                    <div id="page-content-wrapper" class="ContentPlaceHolderStyle">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </div>
+            <div id="pageloader" class="row m0">
+                <div class="loader-item">
+                    <img src="../../_construction/images/loader.gif" alt="Loading" />
                 </div>
             </div>
+            <section id="nr_topStrip" class="row">
+                <div class="container">
+                    <div class="row">
+                        <ul class="list-inline c-info fleft">
+                            <li><a href="tel:123456789012"><i class="fa fa-phone"></i>1234-5678-9012</a></li>
+                            <li><a href="mailto:info@domain.com"><i class="fa fa-envelope-o"></i>info@domain.com</a></li>
+                        </ul>
+                        <ul class="list-inline lang fright">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--Top Strip-->
+            <!--wdadawd-->
+            <header class="row">
+                <div class="container dirToLeft ">
+                    <div class="row">
 
-            <!-- /#page-content-wrapper -->
+                        <div class="logo col-xs-2 col-md-6">
+                            <div class="fRight">
+                                <%--این پایینیه چیزه حذفش نکن اشتباهی--%>
+                                <%--<a href="#" style="display: none"
+                                    data-toggle="popover" data-html="true" data-placement="bottom"
+                                    data-content="<a style='text-align: center' href='#'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام کنید</a>">
+                                    <div class="Profile"></div>
+                                </a>--%>
+                                <div class="popover-container">
+                                    <button type="button" id="btnProfilePopover" class="logInProfile">
+                                    </button>
+                                    <div id="myPopoverContent" style="display: none">
+                                        <div class="popoverProfile">
+
+                                            <img class="popupProfileImg" src="../../_construction/images/user128px.png" />
+                                            <div class="personName">جواد شیخ اعظمی</div>
+
+                                            <nav class="ij-effect-3">
+
+                                                <a href="#">پروفایل</a>
+                                            </nav>
+                                        </div>
+                                        <div class="popoverLinks">
+                                            <ul>
+                                                <li class="message">
+                                                    <a href="#">
+                                                        <div class="mssageBox">
+                                                            <span class="messageBox">صندوق پیام ها
+                                                            </span>
+                                                            <span class="messageCount">1
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="#" class="progectReq">
+                                                        <div class="projectDiv">درخواست پروژه</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="logOutDiv">
+                                            <a href="#" runat="server" class="LogOut">
+                                                <div class="logOutContent">
+                                                    <span>خروج</span>
+                                                    <span class="glyphicon glyphicon-off iconLeft"></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social_nav col-xs-10 col-md-6">
+                            <div class="row">
+
+                                <a href="index.html">
+
+                                    <div class="logoImg"></div>
+                                    <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
+                                </a>
+                                <%-- <ul class="list-inline">
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                </ul>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--Header-->
+
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid container">
+                    <div class="row m04m">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav">
+                                <span class="bars">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </span>
+                                <span class="btn-text">Select Page</span>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="main_nav">
+
+                            <ul class="nav navbar-nav">
+
+                                <li class="active "><a href="index.html">خانه</a></li>
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">راه های ارتباطی</a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="contact.html">راه ارتباطی 1</a></li>
+                                        <li><a href="contact2.html">راه ارتباطی 2</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">اخبار</a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="blog.html">وبلاگ</a></li>
+                                        <li><a href="blog2.html">وبلاگ 2 سطونه</a></li>
+                                        <li><a href="blog3.html">وبلاگ 3 سطونه</a></li>
+                                        <li><a href="single-post.html">تک پست</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="services.html">سرویس ها</a></li>
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">پروژه های ما</a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="projects_full.html">عرض کامل</a></li>
+                                        <li><a href="projects2.html">2 سطونه</a></li>
+                                        <li><a href="projects3.html">3 سطونه</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">درباره ما</a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="about-us.html">درباره ما</a></li>
+                                        <li><a href="about-us2.html">درباره ما2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Nav-->
+            <%--///////////////////////////////////////////// CONTENT //////////////////////////////////////////--%>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <%--//////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
+
+            <footer id="nr_footer" class="row" style="margin-top: 35px;">
+                <div class="container">
+                    <div class="row goTop">
+                        <a href="#top"><i class="fa fa-angle-up"></i></a>
+                    </div>
+                    <div class="row " id="footerBox">
+                        <div class="footerWidget row">
+                            <div class="col-sm-6 widget" id="widgetRight">
+                                <div class="getInTouch_widget row">
+                                    <div class="widgetHeader row m0">
+                                        <img src="images/whiteSquare.png" alt="" />
+                                        با ما درارتباط باشید
+                                    </div>
+                                    <div class="row getInTouch_tab m0">
+                                        <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
+                                            <li role="presentation" class="active"><a href="#contactPhone" aria-controls="contactPhone" role="tab" data-toggle="tab"><i class="fa fa-phone"></i></a></li>
+                                            <li role="presentation"><a href="#contactEmail" aria-controls="contactEmail" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i></a></li>
+                                            <li role="presentation"><a href="#contactHome" aria-controls="contactHome" role="tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="contactPhone"><i class="fa fa-phone"></i>09111234567</div>
+                                            <div role="tabpanel" class="tab-pane" id="contactEmail"><i class="fa fa-envelope"></i>info@demo.com</div>
+                                            <div role="tabpanel" class="tab-pane" id="contactHome"><i class="fa fa-home"></i>مازندارن ، بابل</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 widget" id="widgetLeft">
+                                <div class="row ">
+                                    <div class="row">
+                                        <div class="widgetHeader row m0">
+                                            <img src="images/whiteSquare.png" alt="" />
+                                            درباره ساخت و ساز ما
+                                        </div>
+                                        <div class="row m0 footer-white">
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row copyrightRow">
+                        &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
+                    </div>
+                </div>
+            </footer>
         </div>
 
-        <script src="../../js/jquery.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/JavaScript.js"></script>
-        <script src="../../js/sidebar_menu.js"></script>
+        <!--jQuery, Bootstrap and other vendor JS-->
+        <script src="../../_construction/js/jquery-2.1.3.min.js"></script>
+        <script src="../../_construction/js/bootstrap.min.js"></script>
+
+        <script src="../../_construction/vendors/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script src="../../_construction/vendors/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="../../_construction/vendors/owl.carousel/js/owl.carousel.min.js"></script>
+        <script src="../../_construction/vendors/nicescroll/jquery.nicescroll.js"></script>
+        <script src="../../_construction/vendors/mixitup/jquery.mixitup.js"></script>
+
+        <script src="../../_construction/vendors/js-flickr-gallery/js/js-flickr-gallery.min.js"></script>
+        <script src="../../_construction/vendors/lightbox/js/lightbox.min.js"></script>
+
+        <!--Construction JS-->
+
+        <script src="../../_Scripts/ScrolToTop.js"></script>
+        <script src="../../_construction/js/construction.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
+
+        <asp:ContentPlaceHolder ID="Scripts" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <script>
+        </script>
     </form>
 </body>
 </html>

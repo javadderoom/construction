@@ -40,6 +40,7 @@ namespace WebPages.Panels.UserPanel {
         protected global::System.Web.UI.HtmlControls.HtmlInputText lblusername;
         
         /// <summary>
+
         /// lblpassword control.
         /// </summary>
         /// <remarks>
@@ -49,6 +50,7 @@ namespace WebPages.Panels.UserPanel {
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword lblpassword;
         
         /// <summary>
+
         /// lblfullname control.
         /// </summary>
         /// <remarks>

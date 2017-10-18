@@ -13,6 +13,24 @@ namespace WebPages.Panels.EmployeePanel {
     public partial class EmployeeMaster {
         
         /// <summary>
+        /// StyleSheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder StyleSheet;
+        
+        /// <summary>
+        /// pageStyles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageStyles;
+        
+        /// <summary>
         /// head control.
         /// </summary>
         /// <remarks>
@@ -38,5 +56,14 @@ namespace WebPages.Panels.EmployeePanel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        
+        /// <summary>
+        /// Scripts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Scripts;
     }
 }

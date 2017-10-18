@@ -134,9 +134,11 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="UserID" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="IsSeen" Type="bit" />
+          <Property Name="Budget" Type="nvarchar" MaxLength="20" />
           <Property Name="MaxStartTime" Type="nvarchar" MaxLength="10" />
           <Property Name="DeadLine" Type="nvarchar" MaxLength="10" />
           <Property Name="State" Type="nvarchar" MaxLength="50" />
@@ -535,6 +537,8 @@
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CIty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Budget" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -831,6 +835,8 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="CIty" ColumnName="CIty" />
                 <ScalarProperty Name="State" ColumnName="State" />

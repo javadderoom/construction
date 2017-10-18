@@ -34,7 +34,19 @@ namespace WebPages.Panels.UserPanel
                 if (elemid.Substring(0, 7) == "btnmsgx")
                 {
                     int elid = Int32.Parse(elemid.Substring(7));
-                    download(elid);
+
+                    try
+                    {
+                        download(elid);
+                    }
+                    catch
+                    {
+
+                    }
+
+
+
+
                 }
             }
         }
@@ -44,7 +56,7 @@ namespace WebPages.Panels.UserPanel
             lblid.InnerText = "صندوق پیام انتخابی :" + chatid;
 
             MessageRepository mr = new MessageRepository();
-            DataTable dt = mr.getMessagesInfo(chatid);
+            DataTable dt = mr.getMessagesInfoOfUsers(chatid);
 
             lblidnum.InnerText = chatid.ToString();
             lblStartTime.InnerText = dt.Rows[0][5].ToString();
@@ -194,7 +206,7 @@ namespace WebPages.Panels.UserPanel
                         dr.Close();
                     }
                     cn.Close();
-                    Response.Redirect(ToSaveFileTo);
+
                 }
             }
         }

@@ -864,7 +864,16 @@
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
+    <Content Include="Panels\Admin\EditPost.aspx" />
+    <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
+    <Content Include="Panels\Admin\ListForMessage.aspx" />
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
+    <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
+    <Content Include="Panels\Admin\MessagesAdmin.aspx" />
+    <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
+    <Content Include="Panels\Admin\NewMessageGroup.aspx" />
+    <Content Include="Panels\Admin\page.aspx" />
+    <Content Include="Panels\Admin\ProjectDetail.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
@@ -940,6 +949,7 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
+    <Content Include="Panels\Admin\AdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1150,6 +1160,27 @@
     <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\EditPost.aspx.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\EditPost.aspx.designer.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForGroupMessage.aspx.cs">
+      <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForGroupMessage.aspx.designer.cs">
+      <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForMessage.aspx.cs">
+      <DependentUpon>ListForMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ListForMessage.aspx.designer.cs">
+      <DependentUpon>ListForMessage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\ManageBlogs.aspx.cs">
       <DependentUpon>ManageBlogs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1157,12 +1188,51 @@
     <Compile Include="Panels\Admin\ManageBlogs.aspx.designer.cs">
       <DependentUpon>ManageBlogs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.cs">
+      <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.designer.cs">
+      <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\MessagesAdmin.aspx.cs">
+      <DependentUpon>MessagesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\MessagesAdmin.aspx.designer.cs">
+      <DependentUpon>MessagesAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
       <DependentUpon>NewAdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\newMesaageAdmin.aspx.cs">
+      <DependentUpon>newMesaageAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\newMesaageAdmin.aspx.designer.cs">
+      <DependentUpon>newMesaageAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\NewMessageGroup.aspx.cs">
+      <DependentUpon>NewMessageGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\NewMessageGroup.aspx.designer.cs">
+      <DependentUpon>NewMessageGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\page.aspx.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ProjectDetail.aspx.cs">
+      <DependentUpon>ProjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ProjectDetail.aspx.designer.cs">
+      <DependentUpon>ProjectDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>

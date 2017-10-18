@@ -1,0 +1,93 @@
+﻿
+div#container {
+    min-height: 500px;
+}
+
+.InnerContainer {
+    min-height: 300px;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
+    -moz-box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
+    box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
+    padding: 1px 5px;
+}
+
+div#gvContainer {
+    direction: rtl;
+    padding: 0px 10px;
+    margin-top: 20px;
+}
+
+@media(max-width:790px) {
+    div#gvContainer, div#Content_updatepanel2 {
+        overflow-x: scroll;
+        width: 100%;
+    }
+}
+
+div#Content_diverror {
+    float: left;
+    margin-left: 15px;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+div#Content_divok {
+    float: left;
+    margin-left: 15px;
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+table#Content_gvPosts {
+    min-width: 650px !important;
+}
+
+.filters {
+    float: right;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.ddlContainer {
+    border: 1px solid #f7b71e;
+    width: 100%;
+    max-width: 410px;
+    direction: rtl;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: right;
+    margin-top: 10px;
+    padding-right: 28px;
+    margin-bottom: 10px;
+}
+
+.filtersLable {
+    color: #343434;
+    direction: rtl;
+    float: right;
+    position: absolute;
+    right: 80px;
+    background-color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+
+
+
+@media(max-width:450px) {
+    .filtersLable {
+        right: 75px !important;
+        width: 57px;
+    }
+}
+
+.DDLClass {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: 35px;
+}

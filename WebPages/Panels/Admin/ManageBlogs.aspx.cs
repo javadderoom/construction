@@ -179,9 +179,13 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
-                Session.Timeout = 60;
+                Session.Timeout = 1;
 
-                //Response.Redirect("");
+                Session.Add("svsvdvdv", row.Cells[0].Text);
+                Session.Timeout = 2;
+
+
+                Response.Redirect("http://localhost:6421/Panels/Admin/EditPost.aspx");
             }
             if (e.CommandName == "Show")
             {

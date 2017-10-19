@@ -141,8 +141,8 @@
           <Property Name="Budget" Type="nvarchar" MaxLength="20" />
           <Property Name="MaxStartTime" Type="nvarchar" MaxLength="10" />
           <Property Name="DeadLine" Type="nvarchar" MaxLength="10" />
-          <Property Name="State" Type="nvarchar" MaxLength="50" />
-          <Property Name="CIty" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="int" />
+          <Property Name="City" Type="int" />
           <Property Name="Address" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Projects">
@@ -188,6 +188,16 @@
           </Key>
           <Property Name="StateID" Type="int" Nullable="false" />
           <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -265,6 +275,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Orders_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_States1">
+          <End Role="States" Type="Self.States" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="State" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Cities">
           <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -308,6 +342,7 @@
           <EntitySet Name="Satisfaction" EntityType="Self.Satisfaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
             <End Role="States" EntitySet="States" />
@@ -328,6 +363,14 @@
           <AssociationSet Name="FK_Messages_Chats" Association="Self.FK_Messages_Chats">
             <End Role="Chats" EntitySet="Chats" />
             <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Cities" Association="Self.FK_Orders_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_States1" Association="Self.FK_Orders_States1">
+            <End Role="States" EntitySet="States" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Cities" Association="Self.FK_Users_Cities">
             <End Role="Cities" EntitySet="Cities" />
@@ -361,6 +404,7 @@
           <EntitySet Name="Satisfactions" EntityType="ConstructionCompanyModel.Satisfaction" />
           <EntitySet Name="Sliders" EntityType="ConstructionCompanyModel.Slider" />
           <EntitySet Name="States" EntityType="ConstructionCompanyModel.State" />
+          <EntitySet Name="sysdiagrams" EntityType="ConstructionCompanyModel.sysdiagram" />
           <EntitySet Name="Users" EntityType="ConstructionCompanyModel.User" />
           <AssociationSet Name="FK_Messages_Chats" Association="ConstructionCompanyModel.FK_Messages_Chats">
             <End Role="Chat" EntitySet="Chats" />
@@ -374,6 +418,10 @@
             <End Role="City" EntitySet="Cities" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
+          <AssociationSet Name="FK_Orders_Cities" Association="ConstructionCompanyModel.FK_Orders_Cities">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Cities" Association="ConstructionCompanyModel.FK_Users_Cities">
             <End Role="City" EntitySet="Cities" />
             <End Role="User" EntitySet="Users" />
@@ -385,6 +433,10 @@
           <AssociationSet Name="FK_Jobs_JobGroups" Association="ConstructionCompanyModel.FK_Jobs_JobGroups">
             <End Role="JobGroup" EntitySet="JobGroups" />
             <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_States1" Association="ConstructionCompanyModel.FK_Orders_States1">
+            <End Role="State" EntitySet="States" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_States" Association="ConstructionCompanyModel.FK_Users_States">
             <End Role="State" EntitySet="States" />
@@ -432,6 +484,7 @@
           <Property Name="StateID" Type="Int32" />
           <NavigationProperty Name="State" Relationship="ConstructionCompanyModel.FK_Cities_States" FromRole="City" ToRole="State" />
           <NavigationProperty Name="Employees" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="City" ToRole="Employee" />
+          <NavigationProperty Name="Orders" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="City" ToRole="Order" />
           <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="City" ToRole="User" />
         </EntityType>
         <EntityType Name="Employee">
@@ -529,16 +582,18 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsSeen" Type="Boolean" />
+          <Property Name="Budget" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="MaxStartTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DeadLine" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CIty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="City" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Budget" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="Order" ToRole="City" />
+          <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Orders_States1" FromRole="Order" ToRole="State" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -585,7 +640,18 @@
           <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cities" Relationship="ConstructionCompanyModel.FK_Cities_States" FromRole="State" ToRole="City" />
           <NavigationProperty Name="Employees" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="State" ToRole="Employee" />
+          <NavigationProperty Name="Orders" Relationship="ConstructionCompanyModel.FK_Orders_States1" FromRole="State" ToRole="Order" />
           <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_States" FromRole="State" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -641,6 +707,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Orders_Cities">
+          <End Type="ConstructionCompanyModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="ConstructionCompanyModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Cities">
           <End Type="ConstructionCompanyModel.City" Role="City" Multiplicity="0..1" />
           <End Type="ConstructionCompanyModel.User" Role="User" Multiplicity="*" />
@@ -674,6 +752,18 @@
             </Principal>
             <Dependent Role="Job">
               <PropertyRef Name="JobGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_States1">
+          <End Type="ConstructionCompanyModel.State" Role="State" Multiplicity="0..1" />
+          <End Type="ConstructionCompanyModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="State" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -835,16 +925,16 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Order">
               <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="Budget" ColumnName="Budget" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="CIty" ColumnName="CIty" />
+                <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
                 <ScalarProperty Name="MaxStartTime" ColumnName="MaxStartTime" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
                 <ScalarProperty Name="IsSeen" ColumnName="IsSeen" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -894,6 +984,17 @@
               <MappingFragment StoreEntitySet="States">
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

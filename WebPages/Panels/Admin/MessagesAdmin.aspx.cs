@@ -179,7 +179,8 @@ namespace WebPages.Panels.Admin
         protected void btnDownload_ServerClick(object sender, EventArgs e)
         {
             string controlName = Request.Params["__EVENTTARGET"];
-            Response.Redirect(controlName);
+            //Response.Redirect(controlName);
+            Response.Write("<script>window.open('" + controlName + "');</script>");
         }
         public void download(int idname)
         {
@@ -209,7 +210,7 @@ namespace WebPages.Panels.Admin
                         dr.Close();
                     }
                     cn.Close();
-                    //Response.Redirect(ToSaveFileTo);
+
                 }
             }
         }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="WebPages.Panels.Admin.AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="" Inherits="WebPages.Panels.Admin.AdminMaster" %>
 
 <!DOCTYPE html>
 

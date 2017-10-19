@@ -7,6 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="content col-md-8 col-sm-12 col-xs-12">
         <div class="Title">
             سفارش پروژه
@@ -17,19 +18,19 @@
                     مشخصات پروژه
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" id="title" type="text" placeholder="عنوان پروژه را وارد اینجا بنویسید" alt="عنوان" />
+                    <input class="FloatingLabel" runat="server" id="title" type="text" placeholder="عنوان پروژه را وارد اینجا بنویسید" alt="عنوان" />
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" id="maxTime" type="text" placeholder="تاریخ پیشنهای شروع پروژه" alt="تاریح شروع" />
+                    <input class="FloatingLabel" runat="server" id="maxTime" type="text" placeholder="تاریخ پیشنهای شروع پروژه" alt="تاریح شروع" />
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" id="deadline" type="text" placeholder="تاریخ پیشنهای اتمام پروژه" alt="تاریخ اتمام" />
+                    <input class="FloatingLabel" runat="server" id="deadline" type="text" placeholder="تاریخ پیشنهای اتمام پروژه" alt="تاریخ اتمام" />
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" id="budget" type="text" placeholder="بودجه" alt="بودجه" />
+                    <input class="FloatingLabel" runat="server" id="budget" type="text" placeholder="بودجه" alt="بودجه" />
                 </div>
                 <div class="inputDiv">
-                    <textarea class="FloatingLabel" id="description" placeholder="توضیحات مربوط به پروژه را اینجا بنویسید" alt="توضیحات"></textarea>
+                    <textarea class="FloatingLabel" runat="server" id="description" placeholder="توضیحات مربوط به پروژه را اینجا بنویسید" alt="توضیحات"></textarea>
                 </div>
             </div>
             <div class="location col-md-6 col-sm-6 col-xs-12">
@@ -37,28 +38,24 @@
                     محل اجرای پروژه
                 </div>
                 <div class="inputDiv">
-                    <select>
-                        <option>نور</option>
-                        <option>نور</option>
-                        <option>نور</option>
-                        <option>نور</option>
-                        <option>نور</option>
-                    </select>
+                    <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
                 <div class="inputDiv">
-                    <select>
-                        <option>نور</option>
-                        <option>نور</option>
-                        <option>نور</option>
-                        <option>نور</option>
-                        <option>نور</option>
-                    </select>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="ddlCity" runat="server"></asp:DropDownList>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+
                 </div>
                 <div class="inputDiv">
-                    <textarea class="FloatingLabel" id="address" placeholder="آدرس" alt="آدرس"></textarea>
+                    <textarea class="FloatingLabel" runat="server" id="address" placeholder="آدرس" alt="آدرس"></textarea>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input class="btnSubmit" runat="server" type="button" value="ثبت درخواست" />
+                    <input class="btnSubmit" id="btnSabt" runat="server" type="button" value="ثبت درخواست" onclick="BtnSabt_Click" />
                 </div>
             </div>
         </div>

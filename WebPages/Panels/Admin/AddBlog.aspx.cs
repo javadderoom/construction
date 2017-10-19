@@ -4,6 +4,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -117,16 +118,44 @@ namespace WebPages.Panels.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (!(String.IsNullOrEmpty(editor1.Text) ||
-                String.IsNullOrEmpty(title.Text) ||
-                String.IsNullOrEmpty(Abstract.Text) ||
-                String.IsNullOrEmpty(Tags.Text) ||
-                String.IsNullOrEmpty(KeyWords.Text)))
+
+            if ((String.IsNullOrEmpty(editor1.Text) == false) &&
+                (Abstract.Text.Length >= 130) &&
+                (FileUpload1.HasFile) &&
+                (String.IsNullOrEmpty(title.Text) == false) &&
+                (String.IsNullOrEmpty(Abstract.Text) == false) &&
+                (String.IsNullOrEmpty(Tags.Text) == false) &&
+                (String.IsNullOrEmpty(KeyWords.Text) == false))
             {
+                if (FileUpload1.FileBytes.Length > 1024 * 1024)
+                {
+                    diverror.InnerHtml = "حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!";
+                    return;
+                }
+                string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
+                if ((ext != ".jpg") && (ext != ".png"))
+                {
+                    diverror.InnerHtml = "فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!";
+                    return;
+                }
                 Article ART = new Article();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
-                //ART.Image = FileUpload1.................
+                string filename = Path.GetFileName(FileUpload1.FileName);
+                string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
+                filename = rand + filename;
+                string ps = Server.MapPath(@"~\img\") + filename;
+                FileUpload1.SaveAs(ps);
+
+
+                FileStream fStream = File.OpenRead(ps);
+                byte[] contents = new byte[fStream.Length];
+                fStream.Read(contents, 0, (int)fStream.Length);
+                fStream.Close();
+                FileInfo fi = new FileInfo(ps);
+                fi.Delete();
+
+                ART.Image = contents;
                 ART.Abstract = Abstract.Text;
                 ART.PostDateTime = OnlineTools.persianFormatedDate();
                 ART.Visits = 0;
@@ -175,6 +204,5 @@ namespace WebPages.Panels.Admin
 
 
         }
-
     }
 }

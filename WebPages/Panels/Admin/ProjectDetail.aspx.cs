@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebPages.Panels.Admin
 {
-    public partial class AdminMaster : System.Web.UI.MasterPage
+    public partial class ProjectDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

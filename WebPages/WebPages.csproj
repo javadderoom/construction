@@ -863,15 +863,17 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
-    <Content Include="AdminLogin.aspx" />
+    <Content Include="Panels\Admin\AddBlog.aspx" />
+    <Content Include="Panels\Admin\EditPost.aspx" />
     <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
     <Content Include="Panels\Admin\ListForMessage.aspx" />
+    <Content Include="Panels\Admin\ManageBlogs.aspx" />
     <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
     <Content Include="Panels\Admin\MessagesAdmin.aspx" />
     <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
     <Content Include="Panels\Admin\NewMessageGroup.aspx" />
-    <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\page.aspx" />
+    <Content Include="Panels\Admin\ProjectDetail.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
@@ -881,7 +883,6 @@
     <Content Include="Panels\UserPanel\Messages.aspx" />
     <Content Include="Panels\UserPanel\newMessage.aspx" />
     <Content Include="Panels\UserPanel\profile.aspx" />
-    <Content Include="Panels\UserPanel\ProjectApplication.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
@@ -897,7 +898,6 @@
     <Content Include="fonts\Weblogma_Yekan.woff" />
     <Content Include="fonts\IRANSansLight.woff" />
     <Content Include="Panels\UserPanel\UsersMaster.Master" />
-    <Content Include="Panels\Admin\AdminMaster.Master" />
     <Content Include="Panels\EmployeePanel\EmployeeMaster.Master" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Resources.dll.refresh" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Utils.dll.refresh" />
@@ -949,6 +949,7 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
+    <Content Include="Panels\Admin\AdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -965,6 +966,7 @@
     <Content Include="_construction\Blogs.aspx" />
     <Content Include="_construction\css\animate.css" />
     <Content Include="_construction\css\popoverStyle.css" />
+    <Content Include="_construction\css\ServiseDetailsStyle.css" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.ttf" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.woff" />
@@ -1120,7 +1122,6 @@
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\BlogsScript.js" />
-    <Content Include="_Scripts\FlotingLables.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.easyPaginate.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
@@ -1131,12 +1132,10 @@
     <Content Include="_Styles\Blogs.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
-    <Content Include="_Styles\FloatingLable.css" />
     <Content Include="_Styles\GridView.css" />
-    <Content Include="_Styles\hamoonStyle.css" />
+    <Content Include="_Styles\ManageBlogs.css" />
     <Content Include="_Styles\LoginStyle.css" />
     <Content Include="_Styles\ProfileStyles.css" />
-    <Content Include="_Styles\ProjectAppStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />
@@ -1161,19 +1160,12 @@
     <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    <Compile Include="Panels\Admin\EditPost.aspx.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\Admin\AdminMaster.Master.cs">
-      <DependentUpon>AdminMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Panels\Admin\AdminMaster.Master.designer.cs">
-      <DependentUpon>AdminMaster.Master</DependentUpon>
+    <Compile Include="Panels\Admin\EditPost.aspx.designer.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\ListForGroupMessage.aspx.cs">
       <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
@@ -1189,6 +1181,13 @@
     <Compile Include="Panels\Admin\ListForMessage.aspx.designer.cs">
       <DependentUpon>ListForMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\ManageBlogs.aspx.cs">
+      <DependentUpon>ManageBlogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageBlogs.aspx.designer.cs">
+      <DependentUpon>ManageBlogs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.cs">
       <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1202,6 +1201,13 @@
     </Compile>
     <Compile Include="Panels\Admin\MessagesAdmin.aspx.designer.cs">
       <DependentUpon>MessagesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
+      <DependentUpon>NewAdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
+      <DependentUpon>NewAdminMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\newMesaageAdmin.aspx.cs">
       <DependentUpon>newMesaageAdmin.aspx</DependentUpon>
@@ -1217,19 +1223,16 @@
     <Compile Include="Panels\Admin\NewMessageGroup.aspx.designer.cs">
       <DependentUpon>NewMessageGroup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Admin\NewAdminMaster.Master.cs">
-      <DependentUpon>NewAdminMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Panels\Admin\NewAdminMaster.Master.designer.cs">
-      <DependentUpon>NewAdminMaster.Master</DependentUpon>
-    </Compile>
     <Compile Include="Panels\Admin\page.aspx.cs">
       <DependentUpon>page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Panels\Admin\page.aspx.designer.cs">
-      <DependentUpon>page.aspx</DependentUpon>
+    <Compile Include="Panels\Admin\ProjectDetail.aspx.cs">
+      <DependentUpon>ProjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ProjectDetail.aspx.designer.cs">
+      <DependentUpon>ProjectDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>
@@ -1300,13 +1303,6 @@
     </Compile>
     <Compile Include="Panels\UserPanel\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\UserPanel\ProjectApplication.aspx.cs">
-      <DependentUpon>ProjectApplication.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Panels\UserPanel\ProjectApplication.aspx.designer.cs">
-      <DependentUpon>ProjectApplication.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\UserPanel\UsersMaster.Master.cs">
       <DependentUpon>UsersMaster.Master</DependentUpon>

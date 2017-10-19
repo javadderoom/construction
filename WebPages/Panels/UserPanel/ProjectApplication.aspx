@@ -37,10 +37,22 @@
                     محل اجرای پروژه
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" id="state" type="text" placeholder="استان" alt="استان" />
+                    <select>
+                        <option>نور</option>
+                        <option>نور</option>
+                        <option>نور</option>
+                        <option>نور</option>
+                        <option>نور</option>
+                    </select>
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" id="city" type="text" placeholder="شهر" alt="شهر" />
+                    <select>
+                        <option>نور</option>
+                        <option>نور</option>
+                        <option>نور</option>
+                        <option>نور</option>
+                        <option>نور</option>
+                    </select>
                 </div>
                 <div class="inputDiv">
                     <textarea class="FloatingLabel" id="address" placeholder="آدرس" alt="آدرس"></textarea>

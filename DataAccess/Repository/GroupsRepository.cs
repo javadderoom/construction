@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace DataAccess.Repository
 {
@@ -31,6 +32,33 @@ namespace DataAccess.Repository
                 return result;
             }
 
+        }
+        public DataTable FindTitelesOfaArticle(int artID)
+        {
+            List<Group> ans = new List<Group>();
+
+            List<int?> conIDes = (from r in DB.GroupConnections
+                                  where r.ArticleID == artID
+                                  select r.GroupID).ToList();
+            foreach (int groupId in conIDes)
+            {
+                Group temp = null;
+                temp = (from r in DB.Groups
+                        where r.GroupID == groupId
+                        select r).FirstOrDefault();
+                if (temp != null)
+                {
+                    ans.Add(temp);
+
+
+
+                }
+            }
+
+
+
+
+            return OnlineTools.ToDataTable(ans);
         }
     }
 }

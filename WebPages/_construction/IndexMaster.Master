@@ -38,7 +38,6 @@
         <script src="js/html5shiv.min.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-        <link href="../_Styles/hamoonStyle.css" rel="stylesheet" />
         <style>
         </style>
     </asp:ContentPlaceHolder>

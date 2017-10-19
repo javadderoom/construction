@@ -28,6 +28,7 @@
         <div class="form-group">
             <label for="Abstract">توضیح کوتاه : </label>
             <asp:RegularExpressionValidator Display="Dynamic" SetFocusOnError="true" ControlToValidate="Abstract" CssClass="error" ID="RegularExpressionValidator2" ValidationExpression="^[\s\S]{130,}$" runat="server" ErrorMessage="حداقل 130 کاراکتر وارد کنید"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator20" Display="Dynamic" SetFocusOnError="true" ControlToValidate="Abstract" runat="server" CssClass="error" ErrorMessage="متن توضیح نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
@@ -40,6 +41,7 @@
 
             </label>
             <label style="padding: 18px" id="filename"></label>
+
             <asp:RequiredFieldValidator Display="Dynamic" SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
@@ -125,7 +127,7 @@
         </div>
 
 
-        <asp:UpdatePanel ID="UpdatePanel3" ChildrenAsTriggers="true" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" ChildrenAsTriggers="true" runat="server">
             <ContentTemplate>
                 <div runat="server" class="error" id="diverror">
                 </div>

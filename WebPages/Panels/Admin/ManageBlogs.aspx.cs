@@ -181,11 +181,10 @@ namespace WebPages.Panels.Admin
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
                 Session.Timeout = 1;
 
-                Session.Add("svsvdvdv", row.Cells[0].Text);
-                Session.Timeout = 2;
 
 
-                Response.Redirect("http://localhost:6421/Panels/Admin/EditPost.aspx");
+
+                Response.Redirect("http://localhost:6421/Products/cat/1");
             }
             if (e.CommandName == "Show")
             {

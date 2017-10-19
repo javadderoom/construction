@@ -831,6 +831,7 @@
     <Content Include="fileman\Uploads\Images\DSC_5744.jpg" />
     <Content Include="fileman\Uploads\LICENSE.txt" />
     <Content Include="fileman\Uploads\roxy-fileman-logo.gif" />
+    <Content Include="Global.asax" />
     <Content Include="Icons\instagram-logo .png" />
     <Content Include="Icons\instagram-logo green.png" />
     <Content Include="Icons\instagram-logo.png" />
@@ -998,8 +999,9 @@
     <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
     <Content Include="bootstrap-3.3.7-dist\js\npm.js" />
     <Content Include="fonts\weblogma_yekan.css" />
-    <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="_construction\about-us.html" />
     <Content Include="_construction\about-us2.html" />
     <Content Include="_construction\blog.html" />

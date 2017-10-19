@@ -13,19 +13,53 @@ namespace WebPages.Panels.Admin
 {
     public partial class EditPost : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
-                btnSave.Enabled = false;
-                diverror.InnerText = "هیچ گروهی انتخاب نشده!";
-                GroupsRepository repo = new GroupsRepository();
-                DDLGroups.DataSource = repo.LoadAllGroups();
-                DDLGroups.DataTextField = "Title";
-                DDLGroups.DataValueField = "GroupID";
-                DDLGroups.DataBind();
-                DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                if (Session["PostIDForEdit"] != null)
+                {
+
+                    int id = Session["PostIDForEdit"].ToString().ToInt();
+                    Session.Add("newPostIDForEdit", id);
+                    Session.Remove("PostIDForEdit");
+                    ArticleRepository repArt = new ArticleRepository();
+                    GroupsRepository repo = new GroupsRepository();
+                    Article art = repArt.FindeArticleByID(id);
+                    title.Text = art.Title;
+                    Abstract.Text = art.Abstract;
+                    editor1.Text = art.Content;
+                    KeyWords.Text = art.KeyWords;
+                    Tags.Text = art.Tags;
+                    SelectedSubGroups.DataSource = repo.FindTitelesOfaArticle(id);
+                    SelectedSubGroups.DataTextField = "Title";
+                    SelectedSubGroups.DataValueField = "GroupID";
+                    SelectedSubGroups.DataBind();
+                    for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                    {
+                        if (SelectedSubGroups.Items[i].Value == "-1")
+                        {
+                            SelectedSubGroups.Items[i].Text = "گروه : " + SelectedSubGroups.Items[i].Text;
+                        }
+                    }
+
+
+
+                    DDLGroups.DataSource = repo.LoadAllGroups();
+                    DDLGroups.DataTextField = "Title";
+                    DDLGroups.DataValueField = "GroupID";
+                    DDLGroups.DataBind();
+                    DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                }
+                else
+                {
+                    Response.Redirect("http://localhost:6421/Panels/Admin/ManageBlogs.aspx");
+                }
+
             }
+
         }
 
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,7 +79,7 @@ namespace WebPages.Panels.Admin
             else
             {
                 SubGroups.Items.Clear();
-                SubGroups.Items.Insert(0, new ListItem("گروه : " + DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
+                SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
                 NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
                 NoItemDiv.Attributes["class"] = "textok";
             }
@@ -56,10 +90,10 @@ namespace WebPages.Panels.Admin
             if (SubGroups.SelectedIndex != -1)
             {
                 bool isadd = false;
-                string text = SubGroups.SelectedItem.Text;
+                string text = SubGroups.SelectedItem.Value;
                 for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
                 {
-                    if (SelectedSubGroups.Items[i].Text == text)
+                    if (SelectedSubGroups.Items[i].Value == text)
                     {
                         isadd = true;
                     }
@@ -110,52 +144,70 @@ namespace WebPages.Panels.Admin
                 String.IsNullOrEmpty(title.Text) ||
                 String.IsNullOrEmpty(Abstract.Text) ||
                 String.IsNullOrEmpty(Tags.Text) ||
-                String.IsNullOrEmpty(KeyWords.Text)))
+                String.IsNullOrEmpty(KeyWords.Text) || Abstract.Text.Count() < 130))
             {
-                Article ART = new Article();
-                ART.Title = title.Text;
-                ART.Content = editor1.Text;
-                //ART.Image = FileUpload1.................
-                ART.Abstract = Abstract.Text;
-                ART.PostDateTime = OnlineTools.persianFormatedDate();
-                ART.Visits = 0;
-                ART.Tags = Tags.Text;
-                ART.KeyWords = KeyWords.Text;
-                ArticleRepository ARTRep = new ArticleRepository();
-                if (ARTRep.SaveArticle(ART))
+                if (Session["newPostIDForEdit"] != null)
                 {
-                    bool result = true;
-                    GroupsConRepository GRConRepo = new GroupsConRepository();
-                    List<int> SelectedSubGroupsList = new List<int>();
+                    int id = Session["newPostIDForEdit"].ToString().ToInt();
+                    Session.Remove("newPostIDForEdit");
+                    ArticleRepository repArt = new ArticleRepository();
+                    GroupsRepository repo = new GroupsRepository();
+                    Article art = repArt.FindeArticleByID(id);
 
-                    int lastid = ARTRep.GetLastArticleID();
-                    int count = SelectedSubGroups.Items.Count;
-                    if (count > 0)
+                    art.Title = title.Text;
+                    art.Content = editor1.Text;
+                    //ART.Image = FileUpload1.................
+                    art.Abstract = Abstract.Text;
+                    art.PostDateTime = OnlineTools.persianFormatedDate();
+                    art.Visits = 0;
+                    art.Tags = Tags.Text;
+                    art.KeyWords = KeyWords.Text;
+                    ArticleRepository ARTRep = new ArticleRepository();
+                    if (ARTRep.SaveArticle(art))
                     {
-                        for (int i = 0; i < count; i++)
+                        bool result = true;
+                        GroupsConRepository GRConRepo = new GroupsConRepository();
+                        List<int> SelectedSubGroupsList = new List<int>();
+
+                        int lastid = ARTRep.GetLastArticleID();
+                        int count = SelectedSubGroups.Items.Count;
+                        if (count > 0)
                         {
-                            GroupConnection GC = new GroupConnection();
-                            GC.ArticleID = lastid;
-                            GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
-                            if (!GRConRepo.SaveGroupCon(GC))
+                            for (int i = 0; i < count; i++)
                             {
-                                result = false;
+                                GroupConnection GC = new GroupConnection();
+                                GC.ArticleID = lastid;
+                                GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
+                                if (!GRConRepo.SaveGroupCon(GC))
+                                {
+                                    result = false;
+                                }
                             }
+                        }
+                        else
+                        {
+                            diverror.InnerText = "هیچ زیر گروهی انتخاب نشده است!";
+                        }
+
+                        if (!result)
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='http://localhost:6421/Panels/Admin/ManageBlogs.aspx'", true);
+
                         }
                     }
                     else
-                    {
-                        diverror.InnerText = "هیچ زیر گروهی انتخاب نشده است!";
-                    }
-
-                    if (!result)
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
                     }
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='http://localhost:6421/Panels/Admin/ManageBlogs.aspx'", true);
+
                 }
             }
         }

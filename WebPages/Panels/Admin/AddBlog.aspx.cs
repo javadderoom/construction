@@ -46,7 +46,7 @@ namespace WebPages.Panels.Admin
             else
             {
                 SubGroups.Items.Clear();
-                SubGroups.Items.Insert(0, new ListItem("گروه : " + DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
+                SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
                 NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
                 NoItemDiv.Attributes["class"] = "textok";
             }

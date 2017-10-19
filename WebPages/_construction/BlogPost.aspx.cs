@@ -4,6 +4,7 @@ using System;
 using Common;
 using System.Collections.Generic;
 using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
 
 namespace WebPages._construction
 {
@@ -26,11 +27,13 @@ namespace WebPages._construction
                 meta.Content = post.Abstract.Replace('\n', ' ');
                 MetaPlaceHolder.Controls.Add(meta);
                 //Article
+                if (post.Image != null)
+                    setImage(ImageTag, id.ToInt());
                 DivPostDate.InnerText = post.PostDateTime;
                 DivHeadTitle.InnerText = post.Title;
                 DivTitle.InnerText = post.Title;
                 DivBody.InnerHtml = post.Content;
-                ImageTag.Src = "../Images/1%20(%206)%20.jpg".Replace(" ", "%20");
+
                 string[] words = post.Tags.Split(',');
                 string text = "";
                 foreach (string word in words)
@@ -50,6 +53,31 @@ namespace WebPages._construction
 
             }
 
+        }
+        private void setImage(HtmlImage hi, int arid)
+        {
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            hi.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+
+
+
+                }
+            }
         }
     }
 }

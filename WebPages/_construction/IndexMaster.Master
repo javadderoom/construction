@@ -11,7 +11,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="StyleSheet" runat="server">
-        <%= ResolveUrl("") %>
+
         <!--Favicons-->
         <link rel="apple-touch-icon" sizes="57x57" href="<%= ResolveUrl("favicon/apple-touch-icon-57x57.png") %>" />
         <link rel="apple-touch-icon" sizes="60x60" href="<%= ResolveUrl("favicon/apple-touch-icon-60x60.png") %>" />

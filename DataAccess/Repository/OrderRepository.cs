@@ -34,7 +34,7 @@ namespace DataAccess.Repository
 
 
         }
-        public
+
 
     }
 

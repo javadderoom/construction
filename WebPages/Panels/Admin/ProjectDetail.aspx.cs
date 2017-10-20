@@ -23,7 +23,7 @@ namespace WebPages.Panels.Admin
 
         private void setLabels()
         {
-            Order o =
+            //Order o =
         }
     }
 }

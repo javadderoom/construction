@@ -198,7 +198,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect("http://localhost:6421/_construction/BlogPost.aspx?ID=" + id);//not
+                Response.Redirect("~/وبلاگ-ها/" + id);
             }
             if (e.CommandName == "Delet")
             {

@@ -11,10 +11,7 @@
     <div style="direction: rtl;">
         <section id="pageCover" class="row BlogPostHead">
             <div class="row pageTitle" runat="server" id="DivHeadTitle"></div>
-
         </section>
-
-
         <section id="blogs" class="row ">
             <div class="container dady">
                 <div class="row ">

@@ -884,6 +884,7 @@
     <Content Include="Panels\UserPanel\Messages.aspx" />
     <Content Include="Panels\UserPanel\newMessage.aspx" />
     <Content Include="Panels\UserPanel\profile.aspx" />
+    <Content Include="Panels\UserPanel\ProjectApplication.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
@@ -1305,6 +1306,13 @@
     </Compile>
     <Compile Include="Panels\UserPanel\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserPanel\ProjectApplication.aspx.cs">
+      <DependentUpon>ProjectApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\UserPanel\ProjectApplication.aspx.designer.cs">
+      <DependentUpon>ProjectApplication.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\UserPanel\UsersMaster.Master.cs">
       <DependentUpon>UsersMaster.Master</DependentUpon>

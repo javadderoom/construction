@@ -43,6 +43,7 @@ namespace DataAccess
         public virtual DbSet<Satisfaction> Satisfactions { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

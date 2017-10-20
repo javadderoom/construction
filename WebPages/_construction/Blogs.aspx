@@ -5,11 +5,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../_Styles/Blogs.css" rel="stylesheet" />
-    <style>
-        div.blogInner {
-            max-height: 490px !important;
-        }
-    </style>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

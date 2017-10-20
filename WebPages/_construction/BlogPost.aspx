@@ -47,7 +47,7 @@
 
                                     <div class="row m0 featureImg">
                                         <a href="single-post.html">
-                                            <img src="" runat="server" id="ImageTag" alt="Faceted Search Has Landed" class="img-responsive" />
+                                            <img src="" runat="server" id="ImageTag" alt="عکس بالایی" class="img-responsive" />
                                         </a>
                                     </div>
                                     <div class="row m0 postExcerpts">

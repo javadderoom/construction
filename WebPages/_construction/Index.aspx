@@ -4,11 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="<%= ResolveUrl("css/ServiseDetailsStyle.css") %>" rel="stylesheet" />
-    <style>
-        div.blogInner {
-            max-height: 490px !important;
-        }
-    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

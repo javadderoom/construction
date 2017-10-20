@@ -55,7 +55,7 @@ namespace WebPages.Panels.Admin
                 }
                 else
                 {
-                    Response.Redirect("http://localhost:6421/Panels/Admin/ManageBlogs.aspx");
+                    Response.Redirect("مدیریت-وبلاگ-ها");
                 }
 
             }
@@ -191,22 +191,22 @@ namespace WebPages.Panels.Admin
 
                         if (!result)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//not
                         }
                         else
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='http://localhost:6421/Panels/Admin/ManageBlogs.aspx'", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='~/مدیریت-وبلاگ-ها'", true);
 
                         }
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//not
                     }
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='http://localhost:6421/Panels/Admin/ManageBlogs.aspx'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='~/مدیریت-وبلاگ-ها'", true);
 
                 }
             }

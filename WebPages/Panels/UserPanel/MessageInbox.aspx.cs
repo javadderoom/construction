@@ -55,7 +55,7 @@ namespace WebPages.Panels.UserPanel
             {
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrue(Session["chatidForMessages"].ToString().ToInt(), "adm");
-                Response.Redirect("http://localhost:6421/Panels/UserPanel/Messages.aspx");
+                Response.Redirect("~/پیام-ها");
             }
         }
     }

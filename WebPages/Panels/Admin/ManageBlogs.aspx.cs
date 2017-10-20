@@ -181,11 +181,10 @@ namespace WebPages.Panels.Admin
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
                 Session.Timeout = 1;
 
-                Session.Add("svsvdvdv", row.Cells[0].Text);
-                Session.Timeout = 2;
 
 
-                Response.Redirect("http://localhost:6421/Panels/Admin/EditPost.aspx");
+
+                Response.Redirect("~/ویرایش-وبلاگ");
             }
             if (e.CommandName == "Show")
             {
@@ -199,7 +198,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect("http://localhost:6421/_construction/BlogPost.aspx?ID=" + id);
+                Response.Redirect("http://localhost:6421/_construction/BlogPost.aspx?ID=" + id);//not
             }
             if (e.CommandName == "Delet")
             {

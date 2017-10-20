@@ -50,7 +50,7 @@ namespace WebPages.Panels.Admin
                 Session.Add("useridforMessages", userid);
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrueForAdmin(chatid);
-                Response.Redirect("http://localhost:6421/Panels/Admin/MessagesAdmin.aspx");
+                Response.Redirect("~/همه__پیام__ها");
             }
         }
 

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
-    <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
+    <link href="<%= ResolveUrl("css/ServiseDetailsStyle.css") %>" rel="stylesheet" />
     <style>
         div.blogInner {
             max-height: 490px !important;
@@ -18,7 +18,7 @@
                 <ul>
                     <!-- SLIDE  -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="images/slider/slide1.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="<%= ResolveUrl("images/slider/slide1.png") %>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="center"
                             data-y="140"
@@ -51,7 +51,7 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="ico_box">
-                                <img src="images/slider/ico1.png" alt="brifcase" />
+                                <img src="<%= ResolveUrl("images/slider/ico1.png") %>" alt="brifcase" />
                             </div>
                         </div>
                         <div class="caption sfb stb"
@@ -62,7 +62,7 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="ico_box">
-                                <img src="images/slider/ico2.png" alt="brifcase" />
+                                <img src="<%= ResolveUrl("images/slider/ico2.png") %>" alt="brifcase" />
                             </div>
                         </div>
                         <div class="caption skewfromright skewtoright"
@@ -73,13 +73,13 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="ico_box">
-                                <img src="images/slider/ico3.png" alt="brifcase" />
+                                <img src="<%= ResolveUrl("images/slider/ico3.png") %>" alt="brifcase" />
                             </div>
                         </div>
                     </li>
                     <!-- SLIDE 2 -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="images/slider/slide2.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="<%= ResolveUrl("images/slider/slide2.png") %>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="-100"
                             data-y="135"
@@ -131,13 +131,13 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="tools">
-                                <img src="images/slider/construction_tools.png" alt="brifcase" />
+                                <img src="<%= ResolveUrl("images/slider/construction_tools.png") %>" alt="brifcase" />
                             </div>
                         </div>
                     </li>
                     <!-- SLIDE 3 -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="images/slider/slide3.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="<%= ResolveUrl("images/slider/slide3.png") %>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="-100"
                             data-y="135"
@@ -190,7 +190,7 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="sketch">
-                                <img src="images/slider/sketch.png" alt="brifcase" />
+                                <img src="<%= ResolveUrl("images/slider/sketch.png") %>" alt="brifcase" />
                             </div>
                         </div>
                     </li>
@@ -277,7 +277,7 @@
         <div class="row projects m0">
             <div class="project mix catHouses">
                 <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)">
-                    <img src="images/projects/project1.png" alt="Project 1" class="projectImg" />
+                    <img src="<%= ResolveUrl("images/projects/project1.png") %>" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
 
@@ -293,7 +293,7 @@
             </div>
             <div class="project mix catHospital">
                 <a href="images/projects/project2.png" data-lightbox="project" data-title="Construction CEO (ceo, architect)">
-                    <img src="images/projects/project2.png" alt="Project 1" class="projectImg" />
+                    <img src="<%= ResolveUrl("images/projects/project2.png") %>" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -308,7 +308,7 @@
             </div>
             <div class="project mix catFlats">
                 <a href="images/projects/project3.png" data-lightbox="project" data-title="Workder Accessories (tools, accessories)">
-                    <img src="images/projects/project3.png" alt="Project 1" class="projectImg" />
+                    <img src="<%= ResolveUrl("images/projects/project3.png") %>" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -323,7 +323,7 @@
             </div>
             <div class="project mix catSchools">
                 <a href="images/projects/project4.png" data-lightbox="project" data-title="Rebuilding an old University (university, building)">
-                    <img src="images/projects/project4.png" alt="Project 1" class="projectImg" />
+                    <img src="<%= ResolveUrl("images/projects/project4.png") %>" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -338,7 +338,7 @@
             </div>
             <div class="project mix catUniversities">
                 <a href="images/projects/project5.png" data-lightbox="project" data-title="Construction Tools (tools, assets)">
-                    <img src="images/projects/project5.png" alt="Project 1" class="projectImg" />
+                    <img src="<%= ResolveUrl("images/projects/project5.png") %>" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -353,7 +353,7 @@
             </div>
             <div class="project mix catOffices">
                 <a href="images/projects/project6.png" data-lightbox="project" data-title="Big Trucks on Action (cat, building)">
-                    <img src="images/projects/project6.png" alt="Project 1" class="projectImg" />
+                    <img src="<%= ResolveUrl("images/projects/project6.png") %>" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -392,13 +392,13 @@
                 <div class="owl-carousel testimonialSlider row m0">
                     <div class="item">
                         <div class="clientPhoto row m0">
-                            <img src="images/testimonial/photo.png" alt="" />
+                            <img src="<%= ResolveUrl("images/testimonial/photo.png") %>" alt="" />
                         </div>
                         <div class="clientNameTitle row m0">
                             <h4>مجید محمدی</h4>
                         </div>
                         <div class="arrow row m0">
-                            <img src="images/testimonial/arrow.png" alt="arrow down" />
+                            <img src="<%= ResolveUrl("images/testimonial/arrow.png") %>" alt="arrow down" />
                         </div>
                         <div class="testimonial row m0">
                             <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
@@ -406,13 +406,13 @@
                     </div>
                     <div class="item">
                         <div class="clientPhoto row m0">
-                            <img src="images/testimonial/photo.png" alt="" />
+                            <img src="<%= ResolveUrl("images/testimonial/photo.png") %>" alt="" />
                         </div>
                         <div class="clientNameTitle row m0">
                             <h4>مجید محمدی</h4>
                         </div>
                         <div class="arrow row m0">
-                            <img src="images/testimonial/arrow.png" alt="arrow down" />
+                            <img src="<%= ResolveUrl("images/testimonial/arrow.png") %>" alt="arrow down" />
                         </div>
                         <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
                     </div>
@@ -580,7 +580,7 @@
         $('.ServisDetails').click(function () { $('.ServisDetails').removeClass('active') })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
-        var imagePath = 'images/Pin-location.png'
+        var imagePath = "_construction/images/Pin-location.png";
         var mapOptions = {
             zoom: 11,
             center: myLatlng,

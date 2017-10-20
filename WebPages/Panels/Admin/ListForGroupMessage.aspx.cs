@@ -60,7 +60,7 @@ namespace WebPages.Panels.Admin
                     list.Add(i);
             }
             NewMessageGroup.list = list;
-            Response.Redirect("http://localhost:6421/Panels/Admin/NewMessageGroup.aspx");
+            Response.Redirect("~/ارسال-پیام-دسته-جمعی");
         }
 
         protected void checkAll_CheckedChanged(object sender, EventArgs e)

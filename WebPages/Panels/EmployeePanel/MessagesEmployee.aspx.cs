@@ -174,7 +174,7 @@ namespace WebPages.Panels.EmployeePanel
         protected void btnDownload_ServerClick(object sender, EventArgs e)
         {
             string controlName = Request.Params["__EVENTTARGET"];
-            Response.Redirect(controlName);
+            Response.Redirect(controlName);//not
         }
 
         public void download(int idname)

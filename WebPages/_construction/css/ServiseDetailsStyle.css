@@ -1,8 +1,18 @@
-﻿.ServisDetails {
-    width: 74%;
+﻿#container {
+    width: 300%;
+    overflow: hidden;
+    -webkit-transition: margin-left 500ms ease-in-out;
+    -moz-transition: margin-left 500ms ease-in-out;
+    -o-transition: margin-left 500ms ease-in-out;
+    -ms-transition: margin-left 500ms ease-in-out;
+    transition: margin-left 500ms ease-in-out;
+}
+
+.ServisDetails {
+    width: 83%;
     border-radius: 17px;
-    left: 12%;
-    height: 475px;
+    left: 8%;
+    min-height: 475px;
     z-index: -1;
     position: absolute;
     opacity: 0;
@@ -12,7 +22,7 @@
     animation: fadeOutDown 0.4s ease-in-out;
 }
 
-.active {
+.Active {
     -webkit-animation: zoomIn 0.4s ease-in-out;
     -moz-animation: zoomIn 0.4s ease-in-out;
     animation: zoomIn 0.4s ease-in-out;
@@ -91,3 +101,42 @@
     border: none;
     background-color: #f7b71e;
 }
+
+.btnClose {
+    float: right;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.detailContent {
+    min-height: 385px;
+    margin-top: 10px;
+    float: right;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.subGroup {
+    float: right;
+    direction: rtl;
+    border: 1px solid white;
+    margin-left: 31px;
+    height: 40px;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 40px;
+}
+
+    .subGroup:hover {
+        background-color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .subGroup:focus {
+        background-color: white;
+    }

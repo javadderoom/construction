@@ -3,12 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
-    <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
+
     <style>
         div.blogInner {
             max-height: 490px !important;
         }
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -198,21 +200,76 @@
             </div>
         </div>
 
-        <div class="container sliderAfterTriangle"></div>
+        <div class="container sliderAfterTriangle">
+        </div>
         <!--Triangle After Slider-->
     </section>
     <!--Slider-->
 
     <style>
     </style>
-    <div class="ServisDetails"></div>
+    <div class="ServisDetails">
+        <i class="btnClose material-icons ">close</i>
+        <div class="detailContent col-md-11 col-sm-11 col-xs-11">
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+        </div>
+    </div>
     <section id="nr_services" class="row">
         <div class="container" style="direction: rtl">
             <div class="row sectionTitles">
                 <h2 class="sectionTitle">خدمات ما</h2>
                 <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
+
             <div class="row m0 text-center">
+
                 <div class="col-sm-3">
                     <div class="row m0 service ">
                         <div class="row m0 innerRow item">
@@ -575,9 +632,10 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
-    <script>nr_services
-        $('.btnService').click(function () { $('.ServisDetails').addClass('active') })
-        $('.ServisDetails').click(function () { $('.ServisDetails').removeClass('active') })
+    <script>
+
+        $('.btnService').click(function () { $('.ServisDetails').addClass('Active') })
+        $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'

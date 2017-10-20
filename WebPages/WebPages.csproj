@@ -951,6 +951,9 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="Panels\Admin\AdminMaster.Master" />
+    <Content Include="_Scripts\slick.js" />
+    <Content Include="_Styles\slick-theme.css" />
+    <Content Include="_Styles\slick.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -990,6 +993,7 @@
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
     <Content Include="_construction\IndexMaster.Master" />
     <Content Include="_construction\fonts\IranSans.woff" />
+    <Content Include="_construction\css\test.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
@@ -1123,6 +1127,7 @@
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\BlogsScript.js" />
+    <Content Include="_Scripts\FlotingLables.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.easyPaginate.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />

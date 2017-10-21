@@ -34,7 +34,7 @@ namespace WebPages.Panels.Admin
 
         protected void gvGroups_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Edit")
+            if (e.CommandName == "EditRow")
             {
                 // Retrieve the row index stored in the
                 // CommandArgument property.
@@ -46,11 +46,12 @@ namespace WebPages.Panels.Admin
 
                 //IDholder.Text = row.Cells[0].Text;
                 //tbxOldName.InnerText = row.Cells[1].Text;
+
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#modalShowGroupDetails').modal('show');");
                 sb.Append(@"</script>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(),
+                ScriptManager.RegisterStartupScript(this, this.GetType(),
                 "ModalScript", sb.ToString(), false);
             }
             //if (e.CommandName == "Show")
@@ -84,17 +85,13 @@ namespace WebPages.Panels.Admin
             //        subgroup();
             //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
 
-
-
-
-
             //    }
             //    else
             //    {
             //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
 
             //    }
-            //   
+            //
             //}
         }
     }

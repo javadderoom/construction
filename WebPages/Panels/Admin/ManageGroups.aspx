@@ -15,14 +15,11 @@
 
             <tr>
 
-
-
                 <td class="disp" style="padding-right: 20px;">
 
                     <h3>گروه های اصلی : </h3>
                     <asp:UpdatePanel ID="updatepanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                         <ContentTemplate>
-
 
                             <asp:GridView ID="gvGroups" runat="server"
                                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
@@ -34,16 +31,13 @@
                                     <asp:BoundField DataField="GroupID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
 
-
                                     <asp:TemplateField>
                                         <ItemTemplate>
 
                                             <asp:Button ID="Edid" runat="server"
-                                                CommandName="Edit"
+                                                CommandName="EditRow"
                                                 CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                                 Text="ویرایش" />
-
-
 
                                             <asp:Button OnClientClick="if(!confirm('ایا برای حذف مطمئن هستید؟')) return false;" ID="Delet" runat="server"
                                                 CommandName="Delet"
@@ -62,10 +56,9 @@
                                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                 <SortedDescendingHeaderStyle BackColor="#242121" />
                             </asp:GridView>
-
                         </ContentTemplate>
-                        <Triggers>
-                        </Triggers>
+                        <%--<Triggers>
+                        </Triggers>--%>
                     </asp:UpdatePanel>
                 </td>
                 <td class="disp" style="padding-top: 40px; padding-right: 20px">
@@ -75,7 +68,6 @@
                     </div>
                     <asp:UpdatePanel ID="updatepanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                         <ContentTemplate>
-
 
                             <asp:GridView ID="gvSubGroups" runat="server"
                                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
@@ -87,7 +79,6 @@
                                     <asp:BoundField DataField="GroupID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
 
-
                                     <asp:TemplateField>
                                         <ItemTemplate>
 
@@ -95,8 +86,6 @@
                                                 CommandName="Edit"
                                                 CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                                 Text="ویرایش" />
-
-
 
                                             <asp:Button OnClientClick="if(!confirm('ایا برای حذف مطمئن هستید؟')) return false;" ID="Delet" runat="server"
                                                 CommandName="Delet"
@@ -115,20 +104,13 @@
                                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                 <SortedDescendingHeaderStyle BackColor="#242121" />
                             </asp:GridView>
-
                         </ContentTemplate>
-                        <Triggers>
-                        </Triggers>
+                        <%-- <Triggers>
+                        </Triggers>--%>
                     </asp:UpdatePanel>
-
                 </td>
             </tr>
-
-
-
-
         </table>
-
 
         <input type="button" value="j,hvhv," onclick="$('#modalShowGroupDetails').modal('show');" />
     </div>
@@ -164,10 +146,6 @@
                                 </div>
                             </div>
 
-
-
-
-
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12 " style="direction: rtl!important;">
@@ -192,7 +170,6 @@
 
                                     <div class="col-xs-12 ">
                                         <asp:TextBox ID="tbxNewName" runat="server" class="form-control text-right dirRight"></asp:TextBox>
-
                                     </div>
                                 </div>
                             </div>
@@ -211,9 +188,9 @@
                 </div>
             </div>
         </ContentTemplate>
-        <Triggers>
+        <%-- <Triggers>
             <asp:AsyncPostBackTrigger ControlID="gvGroups" EventName="RowCommand" />
-        </Triggers>
+        </Triggers>--%>
     </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">

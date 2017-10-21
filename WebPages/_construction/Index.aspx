@@ -3,12 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
-
+    <%--    <link href="../_Styles/slick.css" rel="stylesheet" />
+    <link href="../_Styles/slick-theme.css" rel="stylesheet" />--%>
     <style>
         div.blogInner {
             max-height: 490px !important;
         }
     </style>
+    <link href="vendors/owl.carousel/css/owl.theme.default.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
 </asp:Content>
@@ -206,8 +208,6 @@
     </section>
     <!--Slider-->
 
-    <style>
-    </style>
     <div class="ServisDetails">
         <i class="btnClose material-icons ">close</i>
         <div class="detailContent col-md-11 col-sm-11 col-xs-11">
@@ -261,49 +261,96 @@
             <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
         </div>
     </div>
-    <section id="nr_services" class="row">
-        <div class="container" style="direction: rtl">
+    <section class="nr_services row ">
+
+        <div class="container">
             <div class="row sectionTitles">
                 <h2 class="sectionTitle">خدمات ما</h2>
                 <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
-
             <div class="row m0 text-center">
+                <div class="owl-carousel  ">
 
-                <div class="col-sm-3">
-                    <div class="row m0 service ">
-                        <div class="row m0 innerRow item">
-                            <div>
-                                <i class="fa fa-laptop"></i>
-                                <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                    <div class="item">
+                        <div class="row m0 service ">
+                            <div class="row m0 innerRow item">
+                                <div>
+                                    <i class="fa fa-laptop"></i>
+                                    <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                                </div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
                             </div>
-                            <div class="item-overlay left">
-                                <input class="btnService" type="button" />
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-clock-o"></i>
-                            <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-film"></i>
+                                <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-film"></i>
-                            <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-building-o"></i>
+                                <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-building-o"></i>
-                            <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
+                    <div class="item">
+                        <div class="row m0 service ">
+                            <div class="row m0 innerRow item">
+                                <div>
+                                    <i class="fa fa-laptop"></i>
+                                    <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                                </div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -631,9 +678,29 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
+    <%--<script src="../_Scripts/slick.js"></script>--%>
+    <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
+        $('.owl-carousel').owlCarousel({
 
+            loop: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+
+                },
+                600: {
+                    items: 3
+
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
         $('.btnService').click(function () { $('.ServisDetails').addClass('Active') })
         $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
 

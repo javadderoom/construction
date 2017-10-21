@@ -952,6 +952,7 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="Panels\Admin\AdminMaster.Master" />
+    <Content Include="_construction\vendors\owl.carousel\css\owl.theme.default.min.css" />
     <Content Include="_Scripts\slick.js" />
     <Content Include="_Styles\slick-theme.css" />
     <Content Include="_Styles\slick.css" />

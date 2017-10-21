@@ -135,7 +135,6 @@
                                     <div class="logoImg"></div>
                                     <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -284,8 +283,6 @@
 
         <asp:ContentPlaceHolder ID="Scripts" runat="server">
         </asp:ContentPlaceHolder>
-
-
     </form>
 </body>
 </html>

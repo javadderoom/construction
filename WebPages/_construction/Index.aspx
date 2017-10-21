@@ -269,22 +269,22 @@
                 <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
             <div class="row m0 text-center">
-                <div class="owl-carousel  ">
+                <div class="owl-one owl-carousel ">
 
                     <div class="item">
                         <div class="row m0 service ">
                             <div class="row m0 innerRow item">
                                 <div>
                                     <i class="fa fa-laptop"></i>
-                                    <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                                    <div class="serviceName">خدمات سازه ای</div>
                                 </div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" />
+                                            <input class="btnLeftService" value="مقالات" type="button" />
                                         </li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -295,13 +295,13 @@
                         <div class="row m0 service">
                             <div class="row m0 innerRow item">
                                 <i class="fa fa-clock-o"></i>
-                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="serviceName">خدمات پنجره</div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" /></li>
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -311,13 +311,13 @@
                         <div class="row m0 service">
                             <div class="row m0 innerRow item">
                                 <i class="fa fa-film"></i>
-                                <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
+                                <div class="serviceName">خدمات تاسیسات</div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" /></li>
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -327,13 +327,13 @@
                         <div class="row m0 service">
                             <div class="row m0 innerRow item">
                                 <i class="fa fa-building-o"></i>
-                                <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
+                                <div class="serviceName">خدمات آهنگری</div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" /></li>
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -344,14 +344,14 @@
                             <div class="row m0 innerRow item">
                                 <div>
                                     <i class="fa fa-laptop"></i>
-                                    <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                                    <div class="serviceName">خدمات برق کاری</div>
                                 </div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" /></li>
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -361,13 +361,13 @@
                         <div class="row m0 service">
                             <div class="row m0 innerRow item">
                                 <i class="fa fa-clock-o"></i>
-                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="serviceName">استادکاران اجرایی</div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" /></li>
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -377,13 +377,29 @@
                         <div class="row m0 service">
                             <div class="row m0 innerRow item">
                                 <i class="fa fa-clock-o"></i>
-                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="serviceName">پیمانکاری ساختمان</div>
                                 <div class="item-overlay left">
                                     <ul>
                                         <li class="liLeft">
-                                            <input class="btnLeftService" type="button" /></li>
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
                                         <li class="liRight">
-                                            <input class="btnRightService" type="button" /></li>
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName">دکوراسیون</div>
+                                <div class="item-overlay left">
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -718,11 +734,21 @@
     <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
-        $('.owl-carousel').owlCarousel({
+        //$('.btnRightService').mouseenter(function () {
+        //    $(".btnRightService").css("width", "206px");
+        //    $('.btnLeftService').css({ "width": "0px", "height": "0px" });
+        //});
+        //$('.btnRightService').mouseout(function () {
+        //    $(".btnRightService").css("width", "103px");
+        //    $('.btnLeftService').css({ "width": "103px", "height": "206px" });
+        //});
+        $('.owl-one').owlCarousel({
 
             loop: true,
             autoplay: true,
             autoplayHoverPause: true,
+            autoplayTimeout: 3000,
+
             responsive: {
                 0: {
                     items: 1
@@ -737,7 +763,7 @@
                 }
             }
         })
-        $('.btnService').click(function () { $('.ServisDetails').addClass('Active') })
+        $('.btnRightService').click(function () { $('.ServisDetails').addClass('Active') })
         $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);

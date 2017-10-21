@@ -279,7 +279,13 @@
                                     <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
                                 </div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" />
+                                        </li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +297,12 @@
                                 <i class="fa fa-clock-o"></i>
                                 <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -302,7 +313,12 @@
                                 <i class="fa fa-film"></i>
                                 <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -313,7 +329,12 @@
                                 <i class="fa fa-building-o"></i>
                                 <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -326,7 +347,12 @@
                                     <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
                                 </div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +363,12 @@
                                 <i class="fa fa-clock-o"></i>
                                 <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -348,7 +379,12 @@
                                 <i class="fa fa-clock-o"></i>
                                 <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
                                 <div class="item-overlay left">
-                                    <input class="btnService" type="button" />
+                                    <ul>
+                                        <li class="liLeft">
+                                            <input class="btnLeftService" type="button" /></li>
+                                        <li class="liRight">
+                                            <input class="btnRightService" type="button" /></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -696,7 +732,7 @@
                     items: 3
 
                 },
-                1000: {
+                1200: {
                     items: 4
                 }
             }

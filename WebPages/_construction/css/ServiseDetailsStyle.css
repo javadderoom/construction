@@ -83,14 +83,101 @@
     overflow: hidden;
 }
 
-.btnService {
+.item-overlay ul {
+    list-style: none;
+    display: inline;
+}
+
+    .item-overlay ul .liLeft {
+        position: relative;
+        float: left;
+        width: 50%;
+    }
+
+    .item-overlay ul .liRight {
+        position: relative;
+        float: right;
+        position: relative;
+    }
+
+.btnLeftService {
+    border-top-left-radius: 206px;
+    border-bottom-left-radius: 206px;
     position: relative;
-    top: 41%;
-    width: 43px;
-    height: 43px;
-    border-radius: 100%;
+    top: 0%;
+    width: 103px;
+    height: 206px;
+    /* border-radius: 100%; */
     border: none;
     background-color: #f7b71e;
+    right: 0%;
+}
+
+.btnRightService {
+    border-top-right-radius: 206px;
+    border-bottom-right-radius: 206px;
+    position: relative;
+    top: -22px;
+    width: 103px;
+    height: 206px;
+    border: none;
+    background-color: #f7b71e;
+    left: 0%;
+}
+
+@media(max-width:1024px) {
+    .btnLeftService, .btnRightService {
+        height: 160px;
+        width: 80px;
+    }
+
+    .btnLeftService {
+        border-top-left-radius: 160px;
+        border-bottom-left-radius: 160px;
+    }
+
+    .btnRightService {
+        border-top-right-radius: 160px;
+        border-bottom-right-radius: 160px;
+    }
+}
+
+@media(max-width:990px) {
+    .btnLeftService, .btnRightService {
+        height: 118px;
+        width: 59px;
+    }
+
+    .btnLeftService {
+        right: 2px;
+        border-top-left-radius: 118px;
+        border-bottom-left-radius: 118px;
+    }
+
+    .btnRightService {
+        top: -126px;
+        border-top-right-radius: 118px;
+        border-bottom-right-radius: 118px;
+    }
+}
+
+@media(max-width:414px) {
+    .btnLeftService, .btnRightService {
+        height: 166px;
+        width: 83px;
+    }
+
+    .btnLeftService {
+        right: 2px;
+        border-top-left-radius: 166px;
+        border-bottom-left-radius: 166px;
+    }
+
+    .btnRightService {
+        top: -22px;
+        border-top-right-radius: 166px;
+        border-bottom-right-radius: 166px;
+    }
 }
 
 .btnClose {

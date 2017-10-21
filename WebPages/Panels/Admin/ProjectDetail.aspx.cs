@@ -11,8 +11,7 @@ namespace WebPages.Panels.Admin
 {
     public partial class ProjectDetail : System.Web.UI.Page
     {
-        private int orderid = 0;
-
+        int orderid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             orderid = Session["orderidForDetails"].ToString().ToInt();
@@ -24,6 +23,7 @@ namespace WebPages.Panels.Admin
 
         private void setLabels()
         {
+            //Order o =
         }
     }
 }

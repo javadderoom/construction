@@ -2,13 +2,11 @@
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-
 namespace DataAccess.Repository
 {
     public class OrderRepository
     {
         private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
-
         public bool SaveOrder(Order o)
         {
             try
@@ -30,8 +28,14 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
+
                 return false;
             }
+
+
         }
+
+
     }
+
 }

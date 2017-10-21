@@ -120,6 +120,21 @@ div.blogDateTime {
     direction: rtl;
 }
 
-div.blogInner {
-    max-height: 490px !important;
+@media(min-width:1025px) {
+    div.blogInner {
+        height: 490px;
+    }
+}
+
+
+.blog .blogInner .postExcerpts {
+    height: 100%;
+}
+
+
+
+@media(max-width:1024px) and (min-width:768px) {
+    div.blogInner {
+        height: 410px;
+    }
 }

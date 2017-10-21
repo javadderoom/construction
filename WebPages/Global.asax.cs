@@ -59,7 +59,8 @@ namespace WebPages
             routes.MapPageRoute("R11", "", "~/_construction/Index.aspx");
             routes.MapPageRoute("R11.5", "وبلاگ-ها", "~/_construction/Blogs.aspx");
 
-            routes.MapPageRoute("R12", "وبلاگ-ها/{id}", "~/_construction/BlogPost.aspx");
+            //routes.MapPageRoute("R12", "وبلاگ-ها/{id}", "~/_construction/BlogPost.aspx");
+            routes.MapPageRoute("R12", "وبلاگ-ها{id}/", "~/_construction/BlogPost.aspx");
 
 
 

@@ -60,5 +60,12 @@ namespace DataAccess.Repository
 
             return OnlineTools.ToDataTable(ans);
         }
+        public DataTable LoadAllSubGroups()
+        {
+            return OnlineTools.ToDataTable((from r in DB.Groups
+                                            where r.FatherID != -1
+                                            select r
+                           ).ToList());
+        }
     }
 }

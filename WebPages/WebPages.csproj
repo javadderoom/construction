@@ -869,6 +869,7 @@
     <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
     <Content Include="Panels\Admin\ListForMessage.aspx" />
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
+    <Content Include="Panels\Admin\ManageGroups.aspx" />
     <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
     <Content Include="Panels\Admin\MessagesAdmin.aspx" />
     <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
@@ -951,7 +952,6 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
-    <Content Include="Panels\Admin\AdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1003,13 +1003,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="_construction\about-us.html" />
-    <Content Include="_construction\about-us2.html" />
-    <Content Include="_construction\blog.html" />
-    <Content Include="_construction\blog2.html" />
-    <Content Include="_construction\blog3.html" />
-    <Content Include="_construction\contact.html" />
-    <Content Include="_construction\contact2.html" />
     <Content Include="_construction\css\bootstrap-theme.min.css" />
     <Content Include="_construction\css\bootstrap.min.css" />
     <Content Include="_construction\css\font-awesome.min.css" />
@@ -1062,7 +1055,6 @@
     <Content Include="_construction\images\testimonial\background.png" />
     <Content Include="_construction\images\testimonial\photo.png" />
     <Content Include="_construction\images\whiteSquare.png" />
-    <Content Include="_construction\index.html" />
     <Content Include="_construction\js\bootstrap.min.js" />
     <Content Include="_construction\js\construction.js" />
     <Content Include="_construction\js\contact.js" />
@@ -1070,11 +1062,6 @@
     <Content Include="_construction\js\jquery-2.1.3.min.js" />
     <Content Include="_construction\js\jquery.form.js" />
     <Content Include="_construction\js\jquery.validate.min.js" />
-    <Content Include="_construction\projects2.html" />
-    <Content Include="_construction\projects3.html" />
-    <Content Include="_construction\projects_full.html" />
-    <Content Include="_construction\services.html" />
-    <Content Include="_construction\single-post.html" />
     <Content Include="_construction\vendors\js-flickr-gallery\css\js-flickr-gallery.css" />
     <Content Include="_construction\vendors\js-flickr-gallery\js\js-flickr-gallery.min.js" />
     <Content Include="_construction\vendors\lightbox\css\lightbox.css" />
@@ -1138,6 +1125,7 @@
     <Content Include="_Styles\GridView.css" />
     <Content Include="_Styles\ManageBlogs.css" />
     <Content Include="_Styles\LoginStyle.css" />
+    <Content Include="_Styles\ManageGroups.css" />
     <Content Include="_Styles\ProfileStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
@@ -1190,6 +1178,13 @@
     </Compile>
     <Compile Include="Panels\Admin\ManageBlogs.aspx.designer.cs">
       <DependentUpon>ManageBlogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageGroups.aspx.cs">
+      <DependentUpon>ManageGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageGroups.aspx.designer.cs">
+      <DependentUpon>ManageGroups.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.cs">
       <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>

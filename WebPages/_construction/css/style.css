@@ -14,8 +14,6 @@ div#ascrail2000-hr {
     display: none !important;
 }
 
-
-
 li {
     list-style: none;
 }
@@ -1294,11 +1292,12 @@ header .social_nav {
 }
 /*----------------------------------------------------------------*/
 /*Services*/
-#nr_services {
+
+.nr_services {
     padding: 50px 0 0;
 }
 
-    #nr_services .service {
+    .nr_services .service {
         font-size: 16px;
         color: #333d40;
         height: 270px;
@@ -1310,14 +1309,14 @@ header .social_nav {
         margin: 0 auto 10px;
     }
 
-        #nr_services .service .innerRow {
+        .nr_services .service .innerRow {
             border: 2px solid rgba(247, 183, 30, 0.8);
             height: 100%;
             border-radius: 100%;
             transition: all 300ms ease-in-out;
         }
 
-            #nr_services .service .innerRow .fa {
+            .nr_services .service .innerRow .fa {
                 font-size: 50px;
                 line-height: 50px;
                 color: #f7b71e;
@@ -1325,14 +1324,14 @@ header .social_nav {
                 display: block;
             }
 
-            #nr_services .service .innerRow .serviceName {
+            .nr_services .service .innerRow .serviceName {
                 display: inline-block;
                 font-size: 16px;
                 font-weight: bold;
                 position: relative;
             }
 
-                #nr_services .service .innerRow .serviceName:after {
+                .nr_services .service .innerRow .serviceName:after {
                     content: attr(data-hover);
                     position: absolute;
                     display: block;
@@ -1344,33 +1343,33 @@ header .social_nav {
                     transition: all 300ms ease-in-out;
                 }
 
-        #nr_services .service:hover .innerRow {
+        .nr_services .service:hover .innerRow {
             background: #f7b71e;
         }
 
-            #nr_services .service:hover .innerRow .fa {
+            .nr_services .service:hover .innerRow .fa {
                 color: #FFF;
             }
 
-            #nr_services .service:hover .innerRow .serviceName:after {
+            .nr_services .service:hover .innerRow .serviceName:after {
                 max-width: 100%;
             }
 
 @media (max-width: 1024px) {
-    #nr_services .service {
+    .nr_services .service {
         height: 200px;
         width: 200px;
         border: 8px solid #f7b71e;
         padding: 10px;
     }
 
-        #nr_services .service .innerRow .fa {
+        .nr_services .service .innerRow .fa {
             font-size: 26px;
             line-height: 26px;
             margin: 55px 0 5px;
         }
 
-        #nr_services .service .innerRow .serviceName {
+        .nr_services .service .innerRow .serviceName {
             display: inline-block;
             font-size: 13px;
             font-weight: normal;
@@ -1378,32 +1377,32 @@ header .social_nav {
 }
 
 @media (max-width: 990px) {
-    #nr_services .service {
+    .nr_services .service {
         height: 148px;
         width: 148px;
         border: 7px solid #f7b71e;
         padding: 8px;
     }
 
-        #nr_services .service .innerRow .fa {
+        .nr_services .service .innerRow .fa {
             font-size: 24px;
             line-height: 24px;
             margin: 33px 0 3px;
         }
 
-        #nr_services .service .innerRow .serviceName {
+        .nr_services .service .innerRow .serviceName {
             display: inline-block;
             font-size: 11px;
         }
 }
 
 @media (max-width: 767px) {
-    #nr_services .col-sm-3 {
+    .nr_services .col-sm-3 {
         width: calc(100% / 4);
         float: left;
     }
 
-    #nr_services .service {
+    .nr_services .service {
         height: 148px;
         width: 148px;
         border: 7px solid #f7b71e;
@@ -1411,25 +1410,25 @@ header .social_nav {
         margin: 10px auto;
     }
 
-        #nr_services .service .innerRow .fa {
+        .nr_services .service .innerRow .fa {
             font-size: 24px;
             line-height: 24px;
             margin: 33px 0 3px;
         }
 
-        #nr_services .service .innerRow .serviceName {
+        .nr_services .service .innerRow .serviceName {
             display: inline-block;
             font-size: 11px;
         }
 }
 
 @media (max-width: 640px) {
-    #nr_services .col-sm-3 {
+    .nr_services .col-sm-3 {
         width: calc(100% / 4);
         float: left;
     }
 
-    #nr_services .service {
+    .nr_services .service {
         height: 145px;
         width: 145px;
         border: 7px solid #f7b71e;
@@ -1437,25 +1436,25 @@ header .social_nav {
         margin: 10px auto;
     }
 
-        #nr_services .service .innerRow .fa {
+        .nr_services .service .innerRow .fa {
             font-size: 24px;
             line-height: 24px;
             margin: 30px 0 3px;
         }
 
-        #nr_services .service .innerRow .serviceName {
+        .nr_services .service .innerRow .serviceName {
             display: inline-block;
             font-size: 11px;
         }
 }
 
 @media (max-width: 610px) {
-    #nr_services .col-sm-3 {
+    .nr_services .col-sm-3 {
         width: 100%;
         float: none;
     }
 
-    #nr_services .service {
+    .nr_services .service {
         height: 200px;
         width: 200px;
         border: 7px solid #f7b71e;
@@ -1463,13 +1462,13 @@ header .social_nav {
         margin: 15px auto;
     }
 
-        #nr_services .service .innerRow .fa {
+        .nr_services .service .innerRow .fa {
             font-size: 28px;
             line-height: 28px;
             margin: 55px 0 3px;
         }
 
-        #nr_services .service .innerRow .serviceName {
+        .nr_services .service .innerRow .serviceName {
             font-size: 14px;
         }
 }

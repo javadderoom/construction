@@ -3,8 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
-    <link href="<%= ResolveUrl("css/ServiseDetailsStyle.css") %>" rel="stylesheet" />
-
+    <%--    <link href="../_Styles/slick.css" rel="stylesheet" />
+    <link href="../_Styles/slick-theme.css" rel="stylesheet" />--%>
+    <style>
+        div.blogInner {
+            max-height: 490px !important;
+        }
+    </style>
+    <link href="vendors/owl.carousel/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -14,7 +22,7 @@
                 <ul>
                     <!-- SLIDE  -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="<%= ResolveUrl("images/slider/slide1.png") %>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="images/slider/slide1.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="center"
                             data-y="140"
@@ -47,7 +55,7 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="ico_box">
-                                <img src="<%= ResolveUrl("images/slider/ico1.png") %>" alt="brifcase" />
+                                <img src="images/slider/ico1.png" alt="brifcase" />
                             </div>
                         </div>
                         <div class="caption sfb stb"
@@ -58,7 +66,7 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="ico_box">
-                                <img src="<%= ResolveUrl("images/slider/ico2.png") %>" alt="brifcase" />
+                                <img src="images/slider/ico2.png" alt="brifcase" />
                             </div>
                         </div>
                         <div class="caption skewfromright skewtoright"
@@ -69,13 +77,13 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="ico_box">
-                                <img src="<%= ResolveUrl("images/slider/ico3.png") %>" alt="brifcase" />
+                                <img src="images/slider/ico3.png" alt="brifcase" />
                             </div>
                         </div>
                     </li>
                     <!-- SLIDE 2 -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="<%= ResolveUrl("images/slider/slide2.png") %>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="images/slider/slide2.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="-100"
                             data-y="135"
@@ -127,13 +135,13 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="tools">
-                                <img src="<%= ResolveUrl("images/slider/construction_tools.png") %>" alt="brifcase" />
+                                <img src="images/slider/construction_tools.png" alt="brifcase" />
                             </div>
                         </div>
                     </li>
                     <!-- SLIDE 3 -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="<%= ResolveUrl("images/slider/slide3.png") %>" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="images/slider/slide3.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="-100"
                             data-y="135"
@@ -186,7 +194,7 @@
                             data-start="1900"
                             data-easing="easeOutBack">
                             <div class="sketch">
-                                <img src="<%= ResolveUrl("images/slider/sketch.png") %>" alt="brifcase" />
+                                <img src="images/slider/sketch.png" alt="brifcase" />
                             </div>
                         </div>
                     </li>
@@ -194,55 +202,155 @@
             </div>
         </div>
 
-        <div class="container sliderAfterTriangle"></div>
+        <div class="container sliderAfterTriangle">
+        </div>
         <!--Triangle After Slider-->
     </section>
     <!--Slider-->
 
-    <style>
-    </style>
-    <div class="ServisDetails"></div>
-    <section id="nr_services" class="row">
-        <div class="container" style="direction: rtl">
+    <div class="ServisDetails">
+        <i class="btnClose material-icons ">close</i>
+        <div class="detailContent col-md-11 col-sm-11 col-xs-11">
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
+            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
+        </div>
+    </div>
+    <section class="nr_services row ">
+
+        <div class="container">
             <div class="row sectionTitles">
                 <h2 class="sectionTitle">خدمات ما</h2>
                 <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
             <div class="row m0 text-center">
-                <div class="col-sm-3">
-                    <div class="row m0 service ">
-                        <div class="row m0 innerRow item">
-                            <div>
-                                <i class="fa fa-laptop"></i>
-                                <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                <div class="owl-carousel  ">
+
+                    <div class="item">
+                        <div class="row m0 service ">
+                            <div class="row m0 innerRow item">
+                                <div>
+                                    <i class="fa fa-laptop"></i>
+                                    <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                                </div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
                             </div>
-                            <div class="item-overlay left">
-                                <input class="btnService" type="button" />
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-clock-o"></i>
-                            <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-film"></i>
+                                <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-film"></i>
-                            <div class="serviceName" data-hover="طراحی ساختمان">طراحی ساختمان</div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-building-o"></i>
+                                <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="row m0 service">
-                        <div class="row m0 innerRow">
-                            <i class="fa fa-building-o"></i>
-                            <div class="serviceName" data-hover="بازسازی خانه">بازسازی خانه</div>
+                    <div class="item">
+                        <div class="row m0 service ">
+                            <div class="row m0 innerRow item">
+                                <div>
+                                    <i class="fa fa-laptop"></i>
+                                    <div class="serviceName" data-hover="نقشه کشی ساختمان">نقشه کشی ساختمان</div>
+                                </div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row m0 service">
+                            <div class="row m0 innerRow item">
+                                <i class="fa fa-clock-o"></i>
+                                <div class="serviceName" data-hover="سرعت عمل بالا">سرعت عمل بالا</div>
+                                <div class="item-overlay left">
+                                    <input class="btnService" type="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -273,7 +381,7 @@
         <div class="row projects m0">
             <div class="project mix catHouses">
                 <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)">
-                    <img src="<%= ResolveUrl("images/projects/project1.png") %>" alt="Project 1" class="projectImg" />
+                    <img src="images/projects/project1.png" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
 
@@ -289,7 +397,7 @@
             </div>
             <div class="project mix catHospital">
                 <a href="images/projects/project2.png" data-lightbox="project" data-title="Construction CEO (ceo, architect)">
-                    <img src="<%= ResolveUrl("images/projects/project2.png") %>" alt="Project 1" class="projectImg" />
+                    <img src="images/projects/project2.png" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -304,7 +412,7 @@
             </div>
             <div class="project mix catFlats">
                 <a href="images/projects/project3.png" data-lightbox="project" data-title="Workder Accessories (tools, accessories)">
-                    <img src="<%= ResolveUrl("images/projects/project3.png") %>" alt="Project 1" class="projectImg" />
+                    <img src="images/projects/project3.png" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -319,7 +427,7 @@
             </div>
             <div class="project mix catSchools">
                 <a href="images/projects/project4.png" data-lightbox="project" data-title="Rebuilding an old University (university, building)">
-                    <img src="<%= ResolveUrl("images/projects/project4.png") %>" alt="Project 1" class="projectImg" />
+                    <img src="images/projects/project4.png" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -334,7 +442,7 @@
             </div>
             <div class="project mix catUniversities">
                 <a href="images/projects/project5.png" data-lightbox="project" data-title="Construction Tools (tools, assets)">
-                    <img src="<%= ResolveUrl("images/projects/project5.png") %>" alt="Project 1" class="projectImg" />
+                    <img src="images/projects/project5.png" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -349,7 +457,7 @@
             </div>
             <div class="project mix catOffices">
                 <a href="images/projects/project6.png" data-lightbox="project" data-title="Big Trucks on Action (cat, building)">
-                    <img src="<%= ResolveUrl("images/projects/project6.png") %>" alt="Project 1" class="projectImg" />
+                    <img src="images/projects/project6.png" alt="Project 1" class="projectImg" />
                 </a>
                 <div class="projectDetails row m0">
                     <div class="fleft projectIcons btn-group" role="group">
@@ -388,13 +496,13 @@
                 <div class="owl-carousel testimonialSlider row m0">
                     <div class="item">
                         <div class="clientPhoto row m0">
-                            <img src="<%= ResolveUrl("images/testimonial/photo.png") %>" alt="" />
+                            <img src="images/testimonial/photo.png" alt="" />
                         </div>
                         <div class="clientNameTitle row m0">
                             <h4>مجید محمدی</h4>
                         </div>
                         <div class="arrow row m0">
-                            <img src="<%= ResolveUrl("images/testimonial/arrow.png") %>" alt="arrow down" />
+                            <img src="images/testimonial/arrow.png" alt="arrow down" />
                         </div>
                         <div class="testimonial row m0">
                             <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
@@ -402,13 +510,13 @@
                     </div>
                     <div class="item">
                         <div class="clientPhoto row m0">
-                            <img src="<%= ResolveUrl("images/testimonial/photo.png") %>" alt="" />
+                            <img src="images/testimonial/photo.png" alt="" />
                         </div>
                         <div class="clientNameTitle row m0">
                             <h4>مجید محمدی</h4>
                         </div>
                         <div class="arrow row m0">
-                            <img src="<%= ResolveUrl("images/testimonial/arrow.png") %>" alt="arrow down" />
+                            <img src="images/testimonial/arrow.png" alt="arrow down" />
                         </div>
                         <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
                     </div>
@@ -570,13 +678,34 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
+    <%--<script src="../_Scripts/slick.js"></script>--%>
+    <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
-    <script>nr_services
-        $('.btnService').click(function () { $('.ServisDetails').addClass('active') })
-        $('.ServisDetails').click(function () { $('.ServisDetails').removeClass('active') })
+    <script>
+        $('.owl-carousel').owlCarousel({
+
+            loop: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+
+                },
+                600: {
+                    items: 3
+
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
+        $('.btnService').click(function () { $('.ServisDetails').addClass('Active') })
+        $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
-        var imagePath = "_construction/images/Pin-location.png";
+        var imagePath = 'images/Pin-location.png'
         var mapOptions = {
             zoom: 11,
             center: myLatlng,

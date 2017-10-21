@@ -1,8 +1,8 @@
 ﻿.ServisDetails {
-    width: 74%;
+    width: 83%;
     border-radius: 17px;
-    left: 12%;
-    height: 475px;
+    left: 8%;
+    min-height: 475px;
     z-index: -1;
     position: absolute;
     opacity: 0;
@@ -12,7 +12,7 @@
     animation: fadeOutDown 0.4s ease-in-out;
 }
 
-.active {
+.Active {
     -webkit-animation: zoomIn 0.4s ease-in-out;
     -moz-animation: zoomIn 0.4s ease-in-out;
     animation: zoomIn 0.4s ease-in-out;
@@ -50,19 +50,20 @@
     animation-name: zoomIn;
 }
 
-.item:hover .item-overlay.left {
+.service .item:hover .item-overlay.left {
     right: 0;
     left: 0;
     background-color: #ffffff;
 }
 
-.item-overlay {
+.service .item-overlay {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.5);
+    border-radius: 100%;
+    /*background: rgba(0,0,0,0.5);*/
     color: #fac065;
     overflow: hidden;
     text-align: center;
@@ -72,12 +73,12 @@
     transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
 }
 
-    .item-overlay.left {
+    .service .item-overlay.left {
         right: 200%;
         left: -100%;
     }
 
-.item {
+.service .item {
     position: relative;
     overflow: hidden;
 }
@@ -90,4 +91,223 @@
     border-radius: 100%;
     border: none;
     background-color: #f7b71e;
+}
+
+.btnClose {
+    float: right;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.detailContent {
+    min-height: 385px;
+    margin-top: 10px;
+    float: right;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.subGroup {
+    float: right;
+    direction: rtl;
+    border: 1px solid white;
+    margin-left: 31px;
+    height: 40px;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 40px;
+}
+
+    .subGroup:hover {
+        background-color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .subGroup:focus {
+        background-color: white;
+    }
+
+.nr_services {
+    padding: 50px 0 0;
+}
+
+    .nr_services .service {
+        font-size: 16px;
+        color: #333d40;
+        height: 270px;
+        width: 270px;
+        border: 10px solid #f7b71e;
+        padding: 20px;
+        border-radius: 100%;
+        cursor: all-scroll;
+        margin: 0 auto 10px;
+    }
+
+        .nr_services .service .innerRow {
+            border: 2px solid rgba(247, 183, 30, 0.8);
+            height: 100%;
+            border-radius: 100%;
+            transition: all 300ms ease-in-out;
+        }
+
+            .nr_services .service .innerRow .fa {
+                font-size: 50px;
+                line-height: 50px;
+                color: #f7b71e;
+                margin: 70px 0 10px;
+                display: block;
+            }
+
+            .nr_services .service .innerRow .serviceName {
+                display: inline-block;
+                font-size: 16px;
+                font-weight: bold;
+                position: relative;
+            }
+
+                .nr_services .service .innerRow .serviceName:after {
+                    content: attr(data-hover);
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    max-width: 0;
+                    color: #FFF;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    transition: all 300ms ease-in-out;
+                }
+
+        .nr_services .service:hover .innerRow {
+            background: #f7b71e;
+        }
+
+            .nr_services .service:hover .innerRow .fa {
+                color: #FFF;
+            }
+
+            .nr_services .service:hover .innerRow .serviceName:after {
+                max-width: 100%;
+            }
+
+@media (max-width: 1024px) {
+    .nr_services .service {
+        height: 200px;
+        width: 200px;
+        border: 8px solid #f7b71e;
+        padding: 10px;
+    }
+
+        .nr_services .service .innerRow .fa {
+            font-size: 26px;
+            line-height: 26px;
+            margin: 55px 0 5px;
+        }
+
+        .nr_services .service .innerRow .serviceName {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: normal;
+        }
+}
+
+@media (max-width: 990px) {
+    .nr_services .service {
+        height: 148px;
+        width: 148px;
+        border: 7px solid #f7b71e;
+        padding: 8px;
+    }
+
+        .nr_services .service .innerRow .fa {
+            font-size: 24px;
+            line-height: 24px;
+            margin: 33px 0 3px;
+        }
+
+        .nr_services .service .innerRow .serviceName {
+            display: inline-block;
+            font-size: 11px;
+        }
+}
+
+@media (max-width: 767px) {
+    .nr_services .col-sm-3 {
+        width: calc(100% / 4);
+        float: left;
+    }
+
+    .nr_services .service {
+        height: 148px;
+        width: 148px;
+        border: 7px solid #f7b71e;
+        padding: 8px;
+        margin: 10px auto;
+    }
+
+        .nr_services .service .innerRow .fa {
+            font-size: 24px;
+            line-height: 24px;
+            margin: 33px 0 3px;
+        }
+
+        .nr_services .service .innerRow .serviceName {
+            display: inline-block;
+            font-size: 11px;
+        }
+}
+
+@media (max-width: 640px) {
+    .nr_services .col-sm-3 {
+        width: calc(100% / 4);
+        float: left;
+    }
+
+    .nr_services .service {
+        height: 145px;
+        width: 145px;
+        border: 7px solid #f7b71e;
+        padding: 8px;
+        margin: 10px auto;
+    }
+
+        .nr_services .service .innerRow .fa {
+            font-size: 24px;
+            line-height: 24px;
+            margin: 30px 0 3px;
+        }
+
+        .nr_services .service .innerRow .serviceName {
+            display: inline-block;
+            font-size: 11px;
+        }
+}
+
+@media (max-width: 610px) {
+    .nr_services .col-sm-3 {
+        width: 100%;
+        float: none;
+    }
+
+    .nr_services .service {
+        height: 200px;
+        width: 200px;
+        border: 7px solid #f7b71e;
+        padding: 8px;
+        margin: 15px auto;
+    }
+
+        .nr_services .service .innerRow .fa {
+            font-size: 28px;
+            line-height: 28px;
+            margin: 55px 0 3px;
+        }
+
+        .nr_services .service .innerRow .serviceName {
+            font-size: 14px;
+        }
 }

@@ -266,7 +266,6 @@
         </div>
         <!--jQuery, Bootstrap and other vendor JS-->
         <script src="<%= ResolveUrl("js/jquery-2.1.3.min.js") %>"></script>
-        <%--<script src="https://maps.googleapis.com/maps/api/js"></script>--%>
         <script src="<%= ResolveUrl("js/bootstrap.min.js") %>"></script>
 
         <script src="<%= ResolveUrl("vendors/rs-plugin/js/jquery.themepunch.tools.min.js") %>"></script>

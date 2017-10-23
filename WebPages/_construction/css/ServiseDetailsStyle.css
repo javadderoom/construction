@@ -1,12 +1,13 @@
 ﻿.ServisDetails {
+    background: rgba(247, 186, 24, 0.72);
+    margin-top: 126px;
     width: 83%;
     border-radius: 17px;
-    left: 8%;
-    min-height: 475px;
+    left: 8.3%;
+    min-height: 1px;
     z-index: -1;
     position: absolute;
     opacity: 0;
-    background-color: gold;
     -webkit-animation: fadeOutDown 0.4s ease-in-out;
     -moz-animation: fadeOutDown 0.4s ease-in-out;
     animation: fadeOutDown 0.4s ease-in-out;
@@ -50,38 +51,42 @@
     animation-name: zoomIn;
 }
 
-.service .item:hover .item-overlay.left {
-    right: 0;
-    left: 0;
-    background-color: #ffffff;
-}
-
-.service .item-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 100%;
-    /*background: rgba(0,0,0,0.5);*/
-    color: #fac065;
+.service {
     overflow: hidden;
-    text-align: center;
-    width: 100%;
-    -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-    -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-    transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
 }
 
-    .service .item-overlay.left {
-        right: 200%;
-        left: -100%;
+    .service .item:hover .item-overlay.left {
+        right: 0;
+        left: 0;
+        background-color: #ffffff;
     }
 
-.service .item {
-    position: relative;
-    overflow: hidden;
-}
+    .service .item-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 100%;
+        /*background: rgba(0,0,0,0.5);*/
+        color: #fac065;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+        -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+        -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+        transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+    }
+
+        .service .item-overlay.left {
+            right: 200%;
+            left: -100%;
+        }
+
+    .service .item {
+        position: relative;
+        overflow: hidden;
+    }
 
 .item-overlay ul {
     list-style: none;
@@ -107,10 +112,14 @@
     top: 0%;
     width: 103px;
     height: 206px;
-    /* border-radius: 100%; */
     border: none;
     background-color: #f7b71e;
     right: 0%;
+    color: white;
+}
+
+.btnRightService:hover {
+    font-size: larger;
 }
 
 .btnRightService {
@@ -121,8 +130,19 @@
     width: 103px;
     height: 206px;
     border: none;
-    background-color: #f7b71e;
+    color: #e0a000;
+    background-color: white;
     left: 0%;
+}
+
+@-moz-document url-prefix() {
+    .btnRightService {
+        top: 0;
+    }
+}
+
+.btnLeftService :hover {
+    font-size: larger;
 }
 
 @media(max-width:1024px) {
@@ -190,6 +210,8 @@
 }
 
 .detailContent {
+    background: rgba(255, 255, 255, 0);
+    padding-top: 20px;
     min-height: 385px;
     margin-top: 10px;
     float: right;
@@ -198,10 +220,12 @@
 }
 
 .subGroup {
+    background-color: #F7B71E;
     float: right;
     direction: rtl;
     border: 1px solid white;
-    margin-left: 31px;
+    margin-left: 15px;
+    margin-right: 15px;
     height: 40px;
     margin-bottom: 15px;
     text-align: center;

@@ -223,42 +223,6 @@
             <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
             <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
             <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
         </div>
     </div>
     <section class="nr_services row ">
@@ -734,14 +698,7 @@
     <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
-        //$('.btnRightService').mouseenter(function () {
-        //    $(".btnRightService").css("width", "206px");
-        //    $('.btnLeftService').css({ "width": "0px", "height": "0px" });
-        //});
-        //$('.btnRightService').mouseout(function () {
-        //    $(".btnRightService").css("width", "103px");
-        //    $('.btnLeftService').css({ "width": "103px", "height": "206px" });
-        //});
+
         $('.owl-one').owlCarousel({
 
             loop: true,

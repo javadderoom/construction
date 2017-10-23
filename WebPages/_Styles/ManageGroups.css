@@ -1,4 +1,5 @@
 ﻿
+
 div#container {
     direction: rtl;
     min-height: 500px;
@@ -6,8 +7,9 @@ div#container {
 
 .InnerContainer {
     min-height: 300px;
+    max-width: 700px;
     width: 100%;
-    margin-top: 25px;
+    margin: 20px auto;
     -webkit-box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
     -moz-box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
     box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
@@ -15,13 +17,15 @@ div#container {
 }
 
 
-
+td {
+    margin: 0 auto;
+}
 
 
 
 .disp {
+    display: block;
     max-width: 420px;
-    display: inline-block;
 }
 
 
@@ -36,13 +40,12 @@ div#container {
 
 div#gvContainer {
     direction: rtl;
-    padding: 0px 10px;
     margin-top: 20px;
 }
 
-@media(max-width:905px) {
+@media(max-width:960px) {
     .disp {
-        display: block;
+        margin-top: 0px !important;
     }
 }
 

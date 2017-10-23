@@ -1,4 +1,5 @@
 ﻿.ServisDetails {
+    background: rgba(247, 186, 24, 0.72);
     margin-top: 126px;
     width: 83%;
     border-radius: 17px;
@@ -7,7 +8,6 @@
     z-index: -1;
     position: absolute;
     opacity: 0;
-    background-color: gold;
     -webkit-animation: fadeOutDown 0.4s ease-in-out;
     -moz-animation: fadeOutDown 0.4s ease-in-out;
     animation: fadeOutDown 0.4s ease-in-out;
@@ -112,7 +112,6 @@
     top: 0%;
     width: 103px;
     height: 206px;
-    /* border-radius: 100%; */
     border: none;
     background-color: #f7b71e;
     right: 0%;
@@ -120,7 +119,7 @@
 }
 
 .btnRightService:hover {
-    /*box-shadow: -20px 0px 40px 5px white;*/
+    font-size: larger;
 }
 
 .btnRightService {
@@ -143,7 +142,7 @@
 }
 
 .btnLeftService :hover {
-    /*box-shadow: 20px 0px 40px 5px #f7b71e;*/
+    font-size: larger;
 }
 
 @media(max-width:1024px) {
@@ -211,6 +210,8 @@
 }
 
 .detailContent {
+    background: rgba(255, 255, 255, 0);
+    padding-top: 20px;
     min-height: 385px;
     margin-top: 10px;
     float: right;
@@ -219,6 +220,7 @@
 }
 
 .subGroup {
+    background-color: #F7B71E;
     float: right;
     direction: rtl;
     border: 1px solid white;

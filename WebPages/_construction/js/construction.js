@@ -15,10 +15,10 @@ $(document).ready(function () {
             scrollspeed: 60
         });
 
-        $('.btnRightService').mouseenter(function () {
-            $(".btnRightService").css("width", "206px");
-            $('.btnLeftService').css({ "width": "0px", "height": "0px" });
-        });
+        //$('.btnRightService').mouseenter(function () {
+        //    $(".btnRightService").css("width", "206px");
+        //    $('.btnLeftService').css({ "width": "0px", "height": "0px" });
+        //});
         // popover
         var options = {
             trigger: 'focus'

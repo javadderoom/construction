@@ -10,9 +10,10 @@
             max-height: 490px !important;
         }
     </style>
-    <link href="vendors/owl.carousel/css/owl.theme.default.min.css" rel="stylesheet" />
+
+    <link href="<%= ResolveUrl("vendors/owl.carousel/css/owl.theme.default.min.css") %>" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link href="css/ServiseDetailsStyle.css" rel="stylesheet" />
+    <link href="<%= ResolveUrl("css/ServiseDetailsStyle.css") %>" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

@@ -123,6 +123,7 @@
     <Compile Include="Repository\ChatRepository.cs" />
     <Compile Include="Repository\EmployeesRepository.cs" />
     <Compile Include="Repository\CityRepository.cs" />
+    <Compile Include="Repository\SliderRepository.cs" />
     <Compile Include="Repository\StatesRepository.cs" />
     <Compile Include="Repository\AdminsRepository.cs" />
     <Compile Include="Repository\UsersRepository.cs" />
@@ -133,9 +134,6 @@
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="State.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">

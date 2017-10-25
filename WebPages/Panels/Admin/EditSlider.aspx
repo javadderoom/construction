@@ -40,7 +40,7 @@
 
             </div>
             <div class="form-group text-right input-group" style="margin-top: 20px;">
-                <label style="display: block" for="Abstract">عکس سمت راست(اختیاری) : </label>
+                <label style="display: block" for="Abstract">عکس سمت راست : (اختیاری)</label>
                 <div>
                     بدون عکس؟ :   
                 <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -59,12 +59,12 @@
             <hr />
 
             <div class="form-group" style="margin-top: 20px; max-width: 500px">
-                <label for="text">متن سمت راست : </label>
+                <label for="text">متن سمت راست : (اختیاری)</label>
                 <asp:TextBox ID="text" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
             </div>
             <hr />
             <div class="form-group" style="margin-top: 20px; margin-bottom: 20px; max-width: 500px">
-                <label for="tbxLink">لینک (اختیاری) : </label>
+                <label for="tbxLink">لینک : (اختیاری)</label>
                 <asp:TextBox ID="tbxLink" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
             <div style="text-align: center">
@@ -109,21 +109,6 @@
             }
             $('#filename2').html(filename);
         });
-        $(document).on('click', '#Content_btnSave', function (e) {
 
-
-
-            var messageLength = CKEDITOR.instances['Content_text'].getData().replace(/<[^>]*>/gi, '').length;
-            if (!messageLength) {
-                alert('شما هیچ متنی وارد نکرده اید!');
-
-                e.preventDefault();
-                return false;
-            }
-
-
-
-
-        });
     </script>
 </asp:Content>

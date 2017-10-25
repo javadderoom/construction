@@ -20,6 +20,7 @@ namespace DataAccess.Repository
                 {
                     //==== UPDATE ====
 
+
                     DB.Sliders.Attach(slider);
                     DB.Entry(slider).State = EntityState.Modified;
                 }
@@ -32,8 +33,9 @@ namespace DataAccess.Repository
                 DB.SaveChanges();
                 return true;
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
+                string err = e.Message;
 
                 return false;
             }

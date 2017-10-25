@@ -49,12 +49,13 @@ namespace WebPages.Panels.Admin
 
             string id = Request.QueryString["id"];
 
+
             if (!String.IsNullOrEmpty(id))
             {
                 SliderRepository repSlider = new SliderRepository();
-                Slider slider = new Slider();
+                Slider slider = repSlider.FindSlider(id.ToInt());
 
-                slider.SlideID = id.ToInt();
+                //slider.SlideID = id.ToInt();
                 if (FileUpload1.HasFile)
                 {
                     if (FileUpload1.FileBytes.Length > 1024 * 1024)
@@ -84,12 +85,9 @@ namespace WebPages.Panels.Admin
                     slider.BackgroundImg = contents;
 
                 }
-                else
-                {
-                    slider.BackgroundImg = repSlider.FindSlider(id.ToInt()).BackgroundImg;
-                }
 
-                if (FileUpload2.HasFile && CheckBox1.Checked == false)
+
+                if (FileUpload2.HasFile)
                 {
                     if (FileUpload2.FileBytes.Length > 1024 * 1024)
                     {
@@ -118,10 +116,11 @@ namespace WebPages.Panels.Admin
                     slider.thumbnail = contents;
 
                 }
-                else
+                if (CheckBox1.Checked == true)
                 {
                     slider.thumbnail = null;
                 }
+
                 if (tbxLink.Text != "")
                 {
                     slider.Link = tbxLink.Text;
@@ -143,6 +142,11 @@ namespace WebPages.Panels.Admin
 
                 if (repSlider.SaveSlider(slider))
                 { Response.Redirect("~/Panels/Admin/ManageFirstPage.aspx"); }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert' ثبت تغییرات با خطا مواجه شد !  ');", true);
+
+                }
 
             }
         }

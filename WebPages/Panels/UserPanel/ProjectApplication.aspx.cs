@@ -54,27 +54,34 @@ namespace WebPages.Panels.UserPanel
                 (string.IsNullOrEmpty(title.Value) == false) && (string.IsNullOrEmpty(description.Value) == false)
               )
             {
-                Order o = new Order();
-                o.Address = address.Value;
-                o.Budget = budget.Value;
-                o.DeadLine = deadline.Value;
-                o.MaxStartTime = maxTime.Value;
-                o.IsSeen = false;
-                o.Title = title.Value;
-                o.Description = description.Value;
-                o.UserID = Session["userid"].ToString().ToInt();
-                o.City = ddlCity.SelectedValue.ToInt();
-                o.State = ddlState.SelectedValue.ToInt();
-                OrderRepository or = new OrderRepository();
-                or.SaveOrder(o);
+                try
+                {
+                    Order o = new Order();
+                    o.Address = address.Value;
+                    o.Budget = budget.Value;
+                    o.DeadLine = deadline.Value;
+                    o.MaxStartTime = maxTime.Value;
+                    o.IsSeen = false;
+                    o.Title = title.Value;
+                    o.Description = description.Value;
+                    o.UserID = Session["userid"].ToString().ToInt();
+                    o.City = ddlCity.SelectedValue.ToInt();
+                    o.State = ddlState.SelectedValue.ToInt();
+                    OrderRepository or = new OrderRepository();
+                    or.SaveOrder(o);
 
-                address.Value = string.Empty;
-                budget.Value = string.Empty;
-                deadline.Value = string.Empty;
-                maxTime.Value = string.Empty;
-                title.Value = string.Empty;
-                description.Value = string.Empty;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('سفارش شما با موفقیت ارسال گردید.')", true);//لینک بشه
+                    address.Value = string.Empty;
+                    budget.Value = string.Empty;
+                    deadline.Value = string.Empty;
+                    maxTime.Value = string.Empty;
+                    title.Value = string.Empty;
+                    description.Value = string.Empty;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('سفارش شما با موفقیت ارسال گردید.')", true);//لینک بشه
+                }
+                catch
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('در هنگام ثبت سفارش مشکلی بوجود آمد.لطفا مجددا سعی کنید.')", true);//لینک بشه
+                }
             }
 
         }

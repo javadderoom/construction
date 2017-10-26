@@ -57,7 +57,7 @@ namespace WebPages.Panels.EmployeePanel
                         if (dr.Read())
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
-                            Image1.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            //Image1.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
 
                         dr.Close();

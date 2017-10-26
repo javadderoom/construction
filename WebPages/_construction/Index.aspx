@@ -619,15 +619,15 @@
                 }
             })
         });
-        //$('.btnRightService').click(function () {
-        //    $('.ServisDetails').addClass('Active')
+        function myFunc() {
+            $('.ServisDetails').addClass('Active')
+        }
+        $('.btnClose').click(function () {
+            $('.ServisDetails').removeClass('Active')
+            $('#servisContent').innerHtml = "";
 
-        //})
-        //$('.btnClose').click(function () {
-        //    $('.ServisDetails').removeClass('Active')
-        //    $('#servisContent').innerHtml = "";
+        })
 
-        //})
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'

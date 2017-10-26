@@ -199,6 +199,7 @@ namespace WebPages._construction
             fillSungroups(id);
             triggers();
             fillServises();
+            ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "myFunc()", true);
 
         }
 

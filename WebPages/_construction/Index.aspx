@@ -196,6 +196,7 @@
         <asp:UpdatePanel ID="updatepanel2" runat="server">
             <ContentTemplate>
                 <div id="servisContent" runat="server" class="detailContent col-md-11 col-sm-11 col-xs-11">
+                    <img style='text-align: center;' src='images/44frgm.gif' />
                 </div>
             </ContentTemplate>
             <Triggers>
@@ -615,8 +616,12 @@
         $('.btnRightService').click(function () {
             $('.ServisDetails').addClass('Active')
 
+            $('#servisContent').innerHtml = "<img style='text-align: center;' src='images/44frgm.gif' />";
         })
-        $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
+        $('.btnClose').click(function () {
+            $('.ServisDetails').removeClass('Active')
+
+        })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'

@@ -980,8 +980,10 @@
     <Content Include="_construction\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="_construction\fonts\glyphicons-halflings-regulard41d.eot" />
     <Content Include="_construction\images\44frgm.gif" />
+    <Content Include="_construction\images\loading.gif" />
     <Content Include="_construction\images\pen_notebook.png" />
     <Content Include="_construction\images\Pin-location.png" />
+    <Content Include="_construction\images\Progress.gif" />
     <Content Include="_construction\images\projects\penCover.jpg" />
     <Content Include="_construction\images\slider\slide5.jpeg" />
     <Content Include="_construction\images\user.png" />

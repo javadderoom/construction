@@ -21,6 +21,14 @@
     z-index: 100 !important;
 }
 
+.loading {
+    z-index: 10000;
+    position: absolute;
+    text-align: center;
+    left: 44%;
+    top: 90px;
+}
+
 @keyframes fadeOutDown {
     from {
         opacity: 1;

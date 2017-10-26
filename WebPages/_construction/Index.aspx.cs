@@ -69,18 +69,18 @@ namespace WebPages._construction
             Slider slide1 = repSlider.FindSlider(1);
             Slider slide2 = repSlider.FindSlider(2);
             Slider slide3 = repSlider.FindSlider(3);
-            Slider slide4 = repSlider.FindSlider(4);
-            Slider slide5 = repSlider.FindSlider(5);
+            //Slider slide4 = repSlider.FindSlider(4);
+            //Slider slide5 = repSlider.FindSlider(5);
             bImg1.Src = setBKGSrc(1);
             bImg2.Src = setBKGSrc(2);
             bImg3.Src = setBKGSrc(3);
-            bImg4.Src = setBKGSrc(4);
-            bImg5.Src = setBKGSrc(5);
+            //bImg4.Src = setBKGSrc(4);
+            //bImg5.Src = setBKGSrc(5);
             divText1.InnerHtml = slide1.Text;
             divText2.InnerHtml = slide2.Text;
             divText3.InnerHtml = slide3.Text;
-            divText4.InnerHtml = slide4.Text;
-            divText5.InnerHtml = slide5.Text;
+            //divText4.InnerHtml = slide4.Text;
+            //divText5.InnerHtml = slide5.Text;
             if (slide1.thumbnail != null)
             {
                 rightPic.InnerHtml = "<img src='" + setRightimgSrc(1) + "' alt='عکس'/>";
@@ -93,14 +93,14 @@ namespace WebPages._construction
             {
                 rightPic3.InnerHtml = "<img src='" + setRightimgSrc(3) + "' alt='عکس'/>";
             }
-            if (slide4.thumbnail != null)
-            {
-                rightPic4.InnerHtml = "<img src='" + setRightimgSrc(4) + "' alt='عکس'/>";
-            }
-            if (slide5.thumbnail != null)
-            {
-                rightPic5.InnerHtml = "<img src='" + setRightimgSrc(5) + "' alt='عکس'/>";
-            }
+            //if (slide4.thumbnail != null)
+            //{
+            //    rightPic4.InnerHtml = "<img src='" + setRightimgSrc(4) + "' alt='عکس'/>";
+            //}
+            //if (slide5.thumbnail != null)
+            //{
+            //    rightPic5.InnerHtml = "<img src='" + setRightimgSrc(5) + "' alt='عکس'/>";
+            //}
             if (slide1.Link != null)
             {
                 diva1.InnerHtml = "<a type='button' href='" + slide1.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
@@ -113,14 +113,14 @@ namespace WebPages._construction
             {
                 diva3.InnerHtml = "<a type='button' href='" + slide3.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
             }
-            if (slide4.Link != null)
-            {
-                diva4.InnerHtml = "<a type='button' href='" + slide4.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
-            }
-            if (slide5.Link != null)
-            {
-                diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
-            }
+            //if (slide4.Link != null)
+            //{
+            //    diva4.InnerHtml = "<a type='button' href='" + slide4.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            //}
+            //if (slide5.Link != null)
+            //{
+            //    diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            //}
         }
 
         private void fillServises()
@@ -192,7 +192,7 @@ namespace WebPages._construction
 
         private void BtnRight_Click(object sender, EventArgs e)
         {
-            servisContent.InnerHtml = "<img style='text-align: center;' src='images/44frgm.gif'/>";
+            servisContent.InnerHtml = "";
             Button btn = (Button)sender;
 
             string id = btn.ID;

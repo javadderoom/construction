@@ -101,6 +101,7 @@ namespace WebPages.Panels.Admin
                 {
 
                     gvPosts.DataSource = null;
+                    gvPosts.DataBind();
                     gvPosts.DataSource = OnlineTools.ToDataTable(articles);
                     gvPosts.DataBind();
                 }
@@ -198,7 +199,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect("~/وبلاگ-ها/" + id);
+                Response.Redirect("~/وبلاگ-ها" + id);
             }
             if (e.CommandName == "Delet")
             {

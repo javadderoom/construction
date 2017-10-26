@@ -54,9 +54,10 @@ namespace DataAccess.Repository
                     {
 
                         DB.GroupConnections.Remove(findConByID(id));
-                        DB.SaveChanges();
+
 
                     }
+                    DB.SaveChanges();
                 }
                 else
                 {
@@ -68,6 +69,36 @@ namespace DataAccess.Repository
             catch (System.Exception e)
             {
                 string text = e.Message;
+
+                ans = false;
+            }
+            return ans;
+        }
+        public bool DeleteConsBySubGroupIdList(List<int> list)
+        {
+            bool ans = false;
+            try
+            {
+
+                foreach (int ID in list)
+                {
+
+                    GroupConnection gpcon = (from r in DB.GroupConnections
+                                             where r.GroupID == ID
+                                             select r).FirstOrDefault();
+                    if (gpcon != null)
+                    {
+                        DB.GroupConnections.Remove(gpcon);
+
+                        gpcon = null;
+                    }
+                }
+
+                DB.SaveChanges();
+                ans = true;
+            }
+            catch (System.Exception)
+            {
 
                 ans = false;
             }

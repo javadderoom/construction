@@ -15,6 +15,120 @@ namespace WebPages._construction
 {
     public partial class Index1 : System.Web.UI.Page
     {
+        private string setBKGSrc(int SlideID)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select BackgroundImg from Slider where SlideID = {0}", SlideID), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+
+
+
+                }
+            }
+            return ans;
+        }
+        private string setRightimgSrc(int SlideID)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select thumbnail from Slider where SlideID = {0}", SlideID), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+
+
+
+                }
+            }
+            return ans;
+        }
+        private void LoadSliders()
+        {
+            SliderRepository repSlider = new SliderRepository();
+            Slider slide1 = repSlider.FindSlider(1);
+            Slider slide2 = repSlider.FindSlider(2);
+            Slider slide3 = repSlider.FindSlider(3);
+            Slider slide4 = repSlider.FindSlider(4);
+            Slider slide5 = repSlider.FindSlider(5);
+            bImg1.Src = setBKGSrc(1);
+            bImg2.Src = setBKGSrc(2);
+            bImg3.Src = setBKGSrc(3);
+            bImg4.Src = setBKGSrc(4);
+            bImg5.Src = setBKGSrc(5);
+            divText1.InnerHtml = slide1.Text;
+            divText2.InnerHtml = slide2.Text;
+            divText3.InnerHtml = slide3.Text;
+            divText4.InnerHtml = slide4.Text;
+            divText5.InnerHtml = slide5.Text;
+            if (slide1.thumbnail != null)
+            {
+                rightPic.InnerHtml = "<img src='" + setRightimgSrc(1) + "' alt='عکس'/>";
+            }
+            if (slide2.thumbnail != null)
+            {
+                rightPic2.InnerHtml = "<img src='" + setRightimgSrc(2) + "' alt='عکس'/>";
+            }
+            if (slide3.thumbnail != null)
+            {
+                rightPic3.InnerHtml = "<img src='" + setRightimgSrc(3) + "' alt='عکس'/>";
+            }
+            if (slide4.thumbnail != null)
+            {
+                rightPic4.InnerHtml = "<img src='" + setRightimgSrc(4) + "' alt='عکس'/>";
+            }
+            if (slide5.thumbnail != null)
+            {
+                rightPic5.InnerHtml = "<img src='" + setRightimgSrc(5) + "' alt='عکس'/>";
+            }
+            if (slide1.Link != null)
+            {
+                diva1.InnerHtml = "<a type='button' href='" + slide1.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            }
+            if (slide2.Link != null)
+            {
+                diva2.InnerHtml = "<a type='button' href='" + slide2.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            }
+            if (slide3.Link != null)
+            {
+                diva3.InnerHtml = "<a type='button' href='" + slide3.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            }
+            if (slide4.Link != null)
+            {
+                diva4.InnerHtml = "<a type='button' href='" + slide4.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            }
+            if (slide5.Link != null)
+            {
+                diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            }
+
+        }
         private void fillServises()
         {
             GroupsRepository gr = new GroupsRepository();
@@ -137,21 +251,27 @@ namespace WebPages._construction
                     {
                         if ((130 - (article.Title.Count() - 30)) < 1)
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                         else
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                     }
                     else
                     {
-                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+
                     }
                 }
                 else
                 {
-                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+
                 }
             }
             blogsContainer.InnerHtml = text;
@@ -159,7 +279,7 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            fillServises();
+
             if (!IsPostBack)
             {
                 List<Article> articles = new List<Article>();
@@ -177,6 +297,8 @@ namespace WebPages._construction
                     trigger.EventName = "Click";
                     updatepanel2.Triggers.Add(trigger);
                 }
+                LoadSliders();
+                fillServises();
             }
         }
 

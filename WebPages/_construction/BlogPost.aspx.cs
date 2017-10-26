@@ -42,13 +42,13 @@ namespace WebPages._construction
                     {
                         text += " <div class='badge badge-pill badge-warning myTag'>" + word + "</div>";
                     }
-                    DivTags.InnerHtml = text + text + text + text + text;
+                    DivTags.InnerHtml = text;
                     //Recent
                     List<Article> ArticleList = ART.LatestArticles();
                     text = "";
                     foreach (Article article in ArticleList)
                     {
-                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + article.ArticleID + "'><img src='" + setInlineImage(article.ArticleID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + article.ArticleID + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
+                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "وبلاگ-ها" + article.ArticleID + "'><img src='" + setInlineImage(article.ArticleID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "وبلاگ-ها" + article.ArticleID + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
                     }
 
                     DivRecenPosts.InnerHtml = text;
@@ -58,7 +58,7 @@ namespace WebPages._construction
             }
             else
             {
-                Response.Redirect("~/وبلاگ-ها");
+                Response.Redirect("وبلاگ-ها");
             }
 
         }

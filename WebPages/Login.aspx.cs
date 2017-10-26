@@ -57,7 +57,7 @@ namespace WebPages
             else
             {
                 //System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Hello this is an Alert;)</SCRIPT>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');window.location ='ورود'", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');", true);
                 // lblWarning.Text = "کد وارد شده صحیح نمی باشد";
                 txtImage.Value = "";
                 FillImageText();
@@ -70,7 +70,7 @@ namespace WebPages
                 int eid = r.getEmployeeIDByUsername_Password(txtName.Value, txtPassword.Value);
                 if (eid == 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='ورود'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');", true);
                     //lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
                     txtImage.Value = "";
                     FillImageText();

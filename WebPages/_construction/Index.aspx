@@ -22,111 +22,26 @@
             <div class="mainSlider" style="direction: rtl;">
                 <ul>
                     <!-- SLIDE  -->
+                    <!-- SLIDE 1 -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="images/slider/slide1.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-                        <div class="caption sfr str"
-                            data-x="center"
-                            data-y="140"
-                            data-speed="700"
-                            data-start="1700"
-                            data-easing="easeOutBack">
-                            <h2>ما شرکت <strong>ساخت و ساز</strong>هستیم</h2>
-                        </div>
-                        <div class="caption sfl stl"
-                            data-x="center"
-                            data-y="225"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <div class="cont-row">
-                                از
-                                <span class="bb3">خانه های</span>
-                                کوچک
-                                تا
-
-                                <span class="bb1">ساختمان های </span>
-                                بزرگ
-                            </div>
-                        </div>
-                        <div class="caption skewfromleft skewtoleft"
-                            data-x="center"
-                            data-y="310"
-                            data-hoffset="-176"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <div class="ico_box">
-                                <img src="images/slider/ico1.png" alt="brifcase" />
-                            </div>
-                        </div>
-                        <div class="caption sfb stb"
-                            data-x="center"
-                            data-y="310"
-                            data-hoffset="0"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <div class="ico_box">
-                                <img src="images/slider/ico2.png" alt="brifcase" />
-                            </div>
-                        </div>
-                        <div class="caption skewfromright skewtoright"
-                            data-x="center"
-                            data-y="310"
-                            data-hoffset="176"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <div class="ico_box">
-                                <img src="images/slider/ico3.png" alt="brifcase" />
-                            </div>
-                        </div>
-                    </li>
-                    <!-- SLIDE 2 -->
-                    <li data-transition="boxslide" data-slotamount="7">
-                        <img src="images/slider/slide2.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="" alt="slidebg1" runat="server" id="bImg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="-100"
                             data-y="135"
                             data-speed="700"
                             data-start="1700"
                             data-easing="easeOutBack">
-                            <h3>یک کمپانی قابل
-                                <strong>اعتماد</strong>
-                                و
-                                <strong>مطمئن</strong>
-                            </h3>
+                            <div runat="server" id="divText1"></div>
                         </div>
-                        <div class="caption sfl stl"
-                            data-x="-100"
-                            data-y="190"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <h4>لورم اسپوم متن ساختگی</h4>
-                        </div>
-                        <div class="caption skewfromleft skewtoleft"
-                            data-x="-100"
-                            data-y="265"
-                            data-hoffset="-176"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <p>
-                                لورم اسپوم متن ساختگی با استفاده<br />
-                                در صنعت چاپ و گرافیک
-                                <br />
-                                و مورد استفاده طراحان وب
-                            </p>
-                        </div>
-                        <div class="caption sfb stb"
+
+
+                        <div runat="server" id="diva1" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
                             data-hoffset="0"
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <a type="button" href="#" class="btn btn-default">بیشتر بدانید</a>
                         </div>
                         <div class="caption skewfromright skewtoright"
                             data-x="right"
@@ -135,70 +50,140 @@
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <div class="tools">
-                                <img src="images/slider/construction_tools.png" alt="brifcase" />
+                            <div class="tools" runat="server" id="rightPic">
                             </div>
                         </div>
                     </li>
-                    <!-- SLIDE 3 -->
+                    <!-- SLIDE 2 -->
                     <li data-transition="boxslide" data-slotamount="7">
-                        <img src="images/slider/slide3.png" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <img src="" alt="slidebg1" runat="server" id="bImg2" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
                             data-x="-100"
                             data-y="135"
                             data-speed="700"
                             data-start="1700"
                             data-easing="easeOutBack">
-                            <h3>قالب
-                                <strong>ساخت و ساز</strong>
-                            </h3>
+                            <div runat="server" id="divText2"></div>
                         </div>
-                        <div class="caption sfl stl"
-                            data-x="-100"
-                            data-y="190"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <h4>ساخته شده با
-                                <strong>بوت استرپ</strong>
-                            </h4>
-                        </div>
-                        <div class="caption skewfromleft skewtoleft"
-                            data-x="-100"
-                            data-y="265"
-                            data-hoffset="-176"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <p>
-                                لورم اسپوم یک متن ساختگی با
-                                <br />
-                                لورم اسپوم یک متن ساختگی با
-                                <br />
-                                لورم اسپوم یک متن ساختگی با
-                            </p>
-                        </div>
-                        <div class="caption sfb stb"
+
+
+                        <div runat="server" id="diva2" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
                             data-hoffset="0"
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <a type="button" href="#" class="btn btn-default">بیشتر بدانید</a>
                         </div>
                         <div class="caption skewfromright skewtoright"
                             data-x="right"
-                            data-y="0"
+                            data-y="130"
                             data-hoffset="176"
                             data-speed="500"
                             data-start="1900"
                             data-easing="easeOutBack">
-                            <div class="sketch">
-                                <img src="images/slider/sketch.png" alt="brifcase" />
+                            <div class="tools" runat="server" id="rightPic2">
                             </div>
                         </div>
                     </li>
+                    <!-- SLIDE 3 -->
+                    <li data-transition="boxslide" data-slotamount="7">
+                        <img src="" alt="slidebg1" runat="server" id="bImg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <div class="caption sfr str"
+                            data-x="-100"
+                            data-y="135"
+                            data-speed="700"
+                            data-start="1700"
+                            data-easing="easeOutBack">
+                            <div runat="server" id="divText3"></div>
+                        </div>
+
+
+                        <div runat="server" id="diva3" class="caption sfb stb"
+                            data-x="-100"
+                            data-y="375"
+                            data-hoffset="0"
+                            data-speed="500"
+                            data-start="1900"
+                            data-easing="easeOutBack">
+                        </div>
+                        <div class="caption skewfromright skewtoright"
+                            data-x="right"
+                            data-y="130"
+                            data-hoffset="176"
+                            data-speed="500"
+                            data-start="1900"
+                            data-easing="easeOutBack">
+                            <div class="tools" runat="server" id="rightPic3">
+                            </div>
+                        </div>
+                    </li>
+                    <!-- SLIDE 4 -->
+                    <li data-transition="boxslide" data-slotamount="7">
+                        <img src="" alt="slidebg1" runat="server" id="bImg4" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <div class="caption sfr str"
+                            data-x="-100"
+                            data-y="135"
+                            data-speed="700"
+                            data-start="1700"
+                            data-easing="easeOutBack">
+                            <div runat="server" id="divText4"></div>
+                        </div>
+
+
+                        <div runat="server" id="diva4" class="caption sfb stb"
+                            data-x="-100"
+                            data-y="375"
+                            data-hoffset="0"
+                            data-speed="500"
+                            data-start="1900"
+                            data-easing="easeOutBack">
+                        </div>
+                        <div class="caption skewfromright skewtoright"
+                            data-x="right"
+                            data-y="130"
+                            data-hoffset="176"
+                            data-speed="500"
+                            data-start="1900"
+                            data-easing="easeOutBack">
+                            <div class="tools" runat="server" id="rightPic4">
+                            </div>
+                        </div>
+                    </li>
+                    <!-- SLIDE 5 -->
+                    <li data-transition="boxslide" data-slotamount="7">
+                        <img src="" alt="slidebg1" runat="server" id="bImg5" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                        <div class="caption sfr str"
+                            data-x="-100"
+                            data-y="135"
+                            data-speed="700"
+                            data-start="1700"
+                            data-easing="easeOutBack">
+                            <div runat="server" id="divText5"></div>
+                        </div>
+
+
+                        <div runat="server" id="diva5" class="caption sfb stb"
+                            data-x="-100"
+                            data-y="375"
+                            data-hoffset="0"
+                            data-speed="500"
+                            data-start="1900"
+                            data-easing="easeOutBack">
+                        </div>
+                        <div class="caption skewfromright skewtoright"
+                            data-x="right"
+                            data-y="130"
+                            data-hoffset="176"
+                            data-speed="500"
+                            data-start="1900"
+                            data-easing="easeOutBack">
+                            <div class="tools" runat="server" id="rightPic5">
+                            </div>
+                        </div>
+                    </li>
+
+
                 </ul>
             </div>
         </div>

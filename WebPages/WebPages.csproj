@@ -865,10 +865,12 @@
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
+    <Content Include="Panels\Admin\EditSlider.aspx" />
     <Content Include="Panels\Admin\EditPost.aspx" />
     <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
     <Content Include="Panels\Admin\ListForMessage.aspx" />
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
+    <Content Include="Panels\Admin\ManageFirstPage.aspx" />
     <Content Include="Panels\Admin\ManageGroups.aspx" />
     <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
     <Content Include="Panels\Admin\MessagesAdmin.aspx" />
@@ -980,6 +982,7 @@
     <Content Include="_construction\images\pen_notebook.png" />
     <Content Include="_construction\images\Pin-location.png" />
     <Content Include="_construction\images\projects\penCover.jpg" />
+    <Content Include="_construction\images\slider\slide5.jpeg" />
     <Content Include="_construction\images\user.png" />
     <Content Include="_construction\images\user128px.png" />
     <Content Include="_construction\images\user64px.png" />
@@ -1117,6 +1120,7 @@
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
     <Content Include="_Scripts\PlaceHolderScripts.js" />
     <Content Include="_Scripts\ScrolToTop.js" />
+    <Content Include="_Styles\EditSlider.css" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\BlogPost.css" />
     <Content Include="_Styles\Blogs.css" />
@@ -1125,6 +1129,7 @@
     <Content Include="_Styles\GridView.css" />
     <Content Include="_Styles\ManageBlogs.css" />
     <Content Include="_Styles\LoginStyle.css" />
+    <Content Include="_Styles\ManageFirstPage.css" />
     <Content Include="_Styles\ManageGroups.css" />
     <Content Include="_Styles\ProfileStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
@@ -1150,6 +1155,13 @@
     </Compile>
     <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\EditSlider.aspx.cs">
+      <DependentUpon>EditSlider.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\EditSlider.aspx.designer.cs">
+      <DependentUpon>EditSlider.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\EditPost.aspx.cs">
       <DependentUpon>EditPost.aspx</DependentUpon>
@@ -1178,6 +1190,13 @@
     </Compile>
     <Compile Include="Panels\Admin\ManageBlogs.aspx.designer.cs">
       <DependentUpon>ManageBlogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageFirstPage.aspx.cs">
+      <DependentUpon>ManageFirstPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageFirstPage.aspx.designer.cs">
+      <DependentUpon>ManageFirstPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\ManageGroups.aspx.cs">
       <DependentUpon>ManageGroups.aspx</DependentUpon>

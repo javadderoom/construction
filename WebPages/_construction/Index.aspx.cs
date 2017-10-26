@@ -94,7 +94,7 @@ namespace WebPages._construction
             foreach (Group gp in groups1)
             {
                 AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                trigger.ControlID = btn.UniqueID;
+                trigger.ControlID = gp.GroupID.ToString();
                 trigger.EventName = "Click";
                 updatepanel2.Triggers.Add(trigger);
             }

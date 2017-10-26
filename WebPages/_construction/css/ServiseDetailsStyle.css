@@ -220,13 +220,14 @@
 }
 
 .subGroup {
+    padding: 0 20px;
     background-color: #F7B71E;
     float: right;
     direction: rtl;
     border: 1px solid white;
     margin-left: 15px;
     margin-right: 15px;
-    height: 40px;
+    height: auto;
     margin-bottom: 15px;
     text-align: center;
     line-height: 40px;

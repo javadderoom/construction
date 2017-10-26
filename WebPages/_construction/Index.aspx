@@ -209,23 +209,18 @@
     </section>
     <!--Slider-->
 
-    <div class="ServisDetails">
-        <i class="btnClose material-icons ">close</i>
-        <div class="detailContent col-md-11 col-sm-11 col-xs-11">
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 2</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 3</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 4</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 5</div>
-            <div class="subGroup col-md-2 col-xs-4">گروه 6</div>
-        </div>
+    <div class="ServisDetails" runat="server" id="servisDetails">
+        <i class="btnClose material-icons ">close</i><asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="updatepanel2" runat="server">
+            <ContentTemplate>
+                <div id="servisContent" runat="server" class="detailContent col-md-11 col-sm-11 col-xs-11">
+                </div>
+            </ContentTemplate>
+            <Triggers>
+            </Triggers>
+        </asp:UpdatePanel>
     </div>
+
     <section class="nr_services row ">
 
         <div class="container">
@@ -234,143 +229,33 @@
                 <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
             <div class="row m0 text-center">
-                <div class="owl-one owl-carousel ">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="owl-one owl-carousel " runat="server" id="ourServises"></div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
 
-                    <div class="item">
-                        <div class="row m0 service ">
-                            <div class="row m0 innerRow item">
-                                <div>
-                                    <i class="fa fa-laptop"></i>
-                                    <div class="serviceName">خدمات سازه ای</div>
-                                </div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" />
-                                        </li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
+                <%-- <div class="item">
+                                <div class="row m0 service ">
+                                    <div class="row m0 innerRow item">
+                                        <div>
+                                            <i class="fa fa-laptop"></i>
+                                            <div class="serviceName">خدمات سازه ای</div>
+                                        </div>
+                                        <div class="item-overlay left">
+                                            <ul>
+                                                <li class="liLeft">
+                                                    <input class="btnLeftService" runat="server" id="articles" onserverclick="articles_ServerClick" value="مقالات" type="button" /></li>
+                                                <li class="liRight">
 
-                        <div class="row m0 service">
-                            <div class="row m0 innerRow item">
-                                <i class="fa fa-clock-o"></i>
-                                <div class="serviceName">خدمات پنجره</div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
+                                                    <asp:Button class="btnRightService" ID="btnRightServiceid" runat="server" OnClick="subGroups_ServerClick" Text="زیر گروه ها" />
+                                                    <button class="btnRightService" id="Button1" runat="server" onserverclick="subGroups_ServerClick" value="زیر گروه ها" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row m0 service">
-                            <div class="row m0 innerRow item">
-                                <i class="fa fa-film"></i>
-                                <div class="serviceName">خدمات تاسیسات</div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row m0 service">
-                            <div class="row m0 innerRow item">
-                                <i class="fa fa-building-o"></i>
-                                <div class="serviceName">خدمات آهنگری</div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row m0 service ">
-                            <div class="row m0 innerRow item">
-                                <div>
-                                    <i class="fa fa-laptop"></i>
-                                    <div class="serviceName">خدمات برق کاری</div>
-                                </div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row m0 service">
-                            <div class="row m0 innerRow item">
-                                <i class="fa fa-clock-o"></i>
-                                <div class="serviceName">استادکاران اجرایی</div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row m0 service">
-                            <div class="row m0 innerRow item">
-                                <i class="fa fa-clock-o"></i>
-                                <div class="serviceName">پیمانکاری ساختمان</div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row m0 service">
-                            <div class="row m0 innerRow item">
-                                <i class="fa fa-clock-o"></i>
-                                <div class="serviceName">دکوراسیون</div>
-                                <div class="item-overlay left">
-                                    <ul>
-                                        <li class="liLeft">
-                                            <input class="btnLeftService" value="مقالات" type="button" /></li>
-                                        <li class="liRight">
-                                            <input class="btnRightService" value="زیر گروه ها" type="button" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            </div>--%>
             </div>
         </div>
     </section>
@@ -699,28 +584,52 @@
     <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
+        function owl() {
+            $('.owl-one').owlCarousel({
 
-        $('.owl-one').owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayHoverPause: true,
+                autoplayTimeout: 3000,
 
-            loop: true,
-            autoplay: true,
-            autoplayHoverPause: true,
-            autoplayTimeout: 3000,
+                responsive: {
+                    0: {
+                        items: 1
 
-            responsive: {
-                0: {
-                    items: 1
+                    },
+                    600: {
+                        items: 3
 
-                },
-                600: {
-                    items: 3
-
-                },
-                1200: {
-                    items: 4
+                    },
+                    1200: {
+                        items: 4
+                    }
                 }
-            }
-        })
+            })
+        }
+        $(document).ready(function () {
+            $('.owl-one').owlCarousel({
+
+                loop: true,
+                autoplay: true,
+                autoplayHoverPause: true,
+                autoplayTimeout: 3000,
+
+                responsive: {
+                    0: {
+                        items: 1
+
+                    },
+                    600: {
+                        items: 3
+
+                    },
+                    1200: {
+                        items: 4
+                    }
+                }
+            })
+        });
         $('.btnRightService').click(function () { $('.ServisDetails').addClass('Active') })
         $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
 

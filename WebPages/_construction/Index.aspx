@@ -196,7 +196,7 @@
         <asp:UpdateProgress ID="updateProgress" runat="server">
             <ProgressTemplate>
                 <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #000000; opacity: 0.8;">
-                    <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="images/Progress.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; position: ; top: 45%; left: 50%;" />
+                    <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; position: ; top: 45%; left: 50%;" />
                 </div>
             </ProgressTemplate>
         </asp:UpdateProgress>
@@ -619,15 +619,15 @@
                 }
             })
         });
-        $('.btnRightService').click(function () {
-            $('.ServisDetails').addClass('Active')
+        //$('.btnRightService').click(function () {
+        //    $('.ServisDetails').addClass('Active')
 
-        })
-        $('.btnClose').click(function () {
-            $('.ServisDetails').removeClass('Active')
-            $('#servisContent').innerHtml = "";
+        //})
+        //$('.btnClose').click(function () {
+        //    $('.ServisDetails').removeClass('Active')
+        //    $('#servisContent').innerHtml = "";
 
-        })
+        //})
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'

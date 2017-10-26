@@ -18,6 +18,12 @@ namespace WebPages.Panels.Admin
                 SliderRepository repSlider = new SliderRepository();
                 gvSlider.DataSource = repSlider.LoadSliders();
                 gvSlider.DataBind();
+                ContactUsRepository repContact = new ContactUsRepository();
+                ContactWay cnw = repContact.Findcwy(1);
+                tbxAbout.Text = cnw.AboutUs;
+                tbxAdress.Text = cnw.Adrees;
+                tbxMail.Text = cnw.Email;
+                tbxPhone.Text = cnw.PhoneNumber;
             }
         }
 
@@ -38,6 +44,26 @@ namespace WebPages.Panels.Admin
 
 
             }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            ContactUsRepository repContact = new ContactUsRepository();
+            ContactWay cnw = repContact.Findcwy(1);
+            cnw.AboutUs = tbxAbout.Text;
+            cnw.Adrees = tbxAdress.Text;
+            cnw.Email = tbxMail.Text;
+            cnw.PhoneNumber = tbxPhone.Text;
+            if (repContact.Savecwy(cnw))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' ثبت با موفقیت انجام شد  ');", true);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' ثبت با خطا مواجه شد ! ');", true);
+
+            }
+
         }
     }
 }

@@ -63,8 +63,8 @@
                 <div class="container">
                     <div class="row">
                         <ul class="list-inline c-info fleft">
-                            <li><a href="tel:123456789012"><i class="fa fa-phone"></i>1234-5678-9012</a></li>
-                            <li><a href="mailto:info@domain.com"><i class="fa fa-envelope-o"></i>info@domain.com</a></li>
+                            <li runat="server" id="phone" style="color: white"></li>
+                            <li runat="server" id="mail" style="color: white; margin-left: 10px"></li>
                         </ul>
                         <ul class="list-inline lang fright">
                         </ul>

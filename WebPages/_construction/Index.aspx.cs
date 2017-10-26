@@ -137,21 +137,27 @@ namespace WebPages._construction
                     {
                         if ((130 - (article.Title.Count() - 30)) < 1)
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                         else
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                     }
                     else
                     {
-                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+
                     }
                 }
                 else
                 {
-                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها/" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+
+
                 }
             }
             blogsContainer.InnerHtml = text;

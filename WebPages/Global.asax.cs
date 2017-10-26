@@ -65,7 +65,7 @@ namespace WebPages
 
 
 
-            //routes.MapPageRoute("R13", "", "");
+            routes.MapPageRoute("R13", "افزودن-وبلاگ-جدید", "~/Panels/Admin/AddBlog.aspx");
             //routes.MapPageRoute("R14", "", "");
             //routes.MapPageRoute("R15", "", "");
             //routes.MapPageRoute("R16", "", "");

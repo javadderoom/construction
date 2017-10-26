@@ -217,6 +217,10 @@ namespace WebPages.Panels.Admin
                                 {
                                     result = false;
                                 }
+                                else
+                                {
+                                    Response.Redirect("~/مدیریت-وبلاگ-ها");
+                                }
                             }
                         }
                         else
@@ -227,7 +231,7 @@ namespace WebPages.Panels.Admin
 
                         if (!result)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//not
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
                         }
                         else
                         {
@@ -237,7 +241,7 @@ namespace WebPages.Panels.Admin
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//not
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
                     }
                 }
                 else

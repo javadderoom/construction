@@ -20,7 +20,7 @@
         <link rel="icon" type="image/png" href="../../_construction/favicon/favicon-16x16.png" sizes="16x16" />
         <link rel="icon" type="image/png" href="../../_construction/favicon/favicon-32x32.png" sizes="32x32" />
         <meta name="msapplication-TileColor" content="#da532c" />
-
+        <link href="../../_Styles/GridView.css" rel="stylesheet" />
         <!--Bootstrap and Other Vendors-->
 
         <link rel="stylesheet" href="../../_construction/css/bootstrap.min.css" />

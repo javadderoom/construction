@@ -52,7 +52,8 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvChats.Rows[index];
                 int userid = row.Cells[0].Text.ToInt();
                 Session.Add("useridForNewMessage", userid);
-                Response.Redirect("http://localhost:6421/Panels/Admin/newMesaageAdmin.aspx");
+
+                Response.Redirect("~/ارسال__پیام__جدید");
 
             }
         }

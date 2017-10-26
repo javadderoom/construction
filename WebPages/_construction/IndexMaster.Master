@@ -13,26 +13,26 @@
     <asp:ContentPlaceHolder ID="StyleSheet" runat="server">
 
         <!--Favicons-->
-        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
-        <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+        <link rel="apple-touch-icon" sizes="57x57" href="<%= ResolveUrl("favicon/apple-touch-icon-57x57.png") %>" />
+        <link rel="apple-touch-icon" sizes="60x60" href="<%= ResolveUrl("favicon/apple-touch-icon-60x60.png") %>" />
+        <link rel="icon" type="image/png" href="<%= ResolveUrl("favicon/favicon-16x16.png") %>" sizes="16x16" />
+        <link rel="icon" type="image/png" href="<%= ResolveUrl("favicon/favicon-32x32.png") %>" sizes="32x32" />
         <meta name="msapplication-TileColor" content="#da532c" />
 
         <!--Bootstrap and Other Vendors-->
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
-        <link rel="stylesheet" href="vendors/owl.carousel/css/owl.carousel.css" />
-        <link rel="stylesheet" type="text/css" href="vendors/rs-plugin/css/settings.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="vendors/js-flickr-gallery/css/js-flickr-gallery.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="vendors/lightbox/css/lightbox.css" media="screen" />
-        <link href="css/animate.css" rel="stylesheet" />
+        <link rel="stylesheet" href="<%= ResolveUrl("css/bootstrap.min.css") %>" />
+        <link rel="stylesheet" href="<%= ResolveUrl("css/bootstrap-theme.min.css") %>" />
+        <link rel="stylesheet" href="<%= ResolveUrl("css/font-awesome.min.css") %>" />
+        <link rel="stylesheet" href="<%= ResolveUrl("vendors/owl.carousel/css/owl.carousel.css") %>" />
+        <link rel="stylesheet" type="text/css" href="<%= ResolveUrl("vendors/rs-plugin/css/settings.css") %>" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= ResolveUrl("vendors/js-flickr-gallery/css/js-flickr-gallery.css") %>" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<%= ResolveUrl("vendors/lightbox/css/lightbox.css") %>" media="screen" />
+        <link href="<%= ResolveUrl("css/animate.css") %>" rel="stylesheet" />
         <!--Fonts-->
-        <link href="../_Styles/AdminPanelStyles.css" rel="stylesheet" />
+        <link href="<%= ResolveUrl("../_Styles/AdminPanelStyles.css") %>" rel="stylesheet" />
         <!--Construction Styles-->
-        <link href="css/popoverStyle.css" rel="stylesheet" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link href="<%= ResolveUrl("css/popoverStyle.css") %>" rel="stylesheet" />
+        <link rel="stylesheet" href="<%= ResolveUrl("css/style.css") %>" />
 
         <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
@@ -53,7 +53,7 @@
 
             <div id="pageloader" class="row m0">
                 <div class="loader-item">
-                    <img src="images/loader.gif" alt="loading" />
+                    <img src="<%= ResolveUrl("images/loader.gif") %>" alt="loading" />
                 </div>
             </div>
             <section id="nr_topStrip" class="row">
@@ -88,7 +88,7 @@
                                     <div id="myPopoverContent" style="display: none">
                                         <div class="popoverProfile">
 
-                                            <img class="popupProfileImg" src="images/user128px.png" />
+                                            <img class="popupProfileImg" src="<%= ResolveUrl("images/user128px.png") %>" />
                                             <div class="personName">جواد شیخ اعظمی</div>
 
                                             <nav class="ij-effect-3">
@@ -135,7 +135,6 @@
                                     <div class="logoImg"></div>
                                     <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -216,7 +215,7 @@
                             <div class="col-sm-6 widget" id="widgetRight">
                                 <div class="getInTouch_widget row">
                                     <div class="widgetHeader row m0">
-                                        <img src="images/whiteSquare.png" alt="" />
+                                        <img src="<%= ResolveUrl("images/whiteSquare.png") %>" alt="" />
                                         با ما درارتباط باشید
                                     </div>
                                     <div class="row getInTouch_tab m0">
@@ -238,7 +237,7 @@
                                 <div class="row ">
                                     <div class="row">
                                         <div class="widgetHeader row m0">
-                                            <img src="images/whiteSquare.png" alt="" />
+                                            <img src="<%= ResolveUrl("images/whiteSquare.png") %>" alt="" />
                                             درباره ساخت و ساز ما
                                         </div>
                                         <div class="row m0 footer-white">
@@ -265,28 +264,25 @@
             </footer>
         </div>
         <!--jQuery, Bootstrap and other vendor JS-->
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <%--<script src="https://maps.googleapis.com/maps/api/js"></script>--%>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="<%= ResolveUrl("js/jquery-2.1.3.min.js") %>"></script>
+        <script src="<%= ResolveUrl("js/bootstrap.min.js") %>"></script>
 
-        <script src="vendors/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-        <script src="vendors/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
-        <script src="vendors/nicescroll/jquery.nicescroll.js"></script>
-        <script src="vendors/mixitup/jquery.mixitup.js"></script>
+        <script src="<%= ResolveUrl("vendors/rs-plugin/js/jquery.themepunch.tools.min.js") %>"></script>
+        <script src="<%= ResolveUrl("vendors/rs-plugin/js/jquery.themepunch.revolution.min.js") %>"></script>
+        <script src="<%= ResolveUrl("vendors/owl.carousel/js/owl.carousel.min.js") %>"></script>
+        <script src="<%= ResolveUrl("vendors/nicescroll/jquery.nicescroll.js") %>"></script>
+        <script src="<%= ResolveUrl("vendors/mixitup/jquery.mixitup.js") %>"></script>
 
-        <script src="vendors/js-flickr-gallery/js/js-flickr-gallery.min.js"></script>
-        <script src="vendors/lightbox/js/lightbox.min.js"></script>
+        <script src="<%= ResolveUrl("vendors/js-flickr-gallery/js/js-flickr-gallery.min.js") %>"></script>
+        <script src="<%= ResolveUrl("vendors/lightbox/js/lightbox.min.js") %>"></script>
 
         <!--Construction JS-->
 
-        <script src="../_Scripts/ScrolToTop.js"></script>
-        <script src="js/construction.js"></script>
+        <script src="<%= ResolveUrl("../_Scripts/ScrolToTop.js") %>"></script>
+        <script src="<%= ResolveUrl("js/construction.js") %>"></script>
 
         <asp:ContentPlaceHolder ID="Scripts" runat="server">
         </asp:ContentPlaceHolder>
-
-
     </form>
 </body>
 </html>

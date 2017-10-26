@@ -4,6 +4,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -55,7 +56,7 @@ namespace WebPages.Panels.Admin
                 }
                 else
                 {
-                    Response.Redirect("http://localhost:6421/Panels/Admin/ManageBlogs.aspx");
+                    Response.Redirect("مدیریت-وبلاگ-ها");
                 }
 
             }
@@ -128,7 +129,9 @@ namespace WebPages.Panels.Admin
                 if (SelectedSubGroups.Items.Count == 0)
                 {
                     btnSave.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ گروهی انتخاب نشده!')", true);
                     diverror.InnerText = "هیچ گروهی انتخاب نشده!";
+
                 }
             }
             else
@@ -144,10 +147,27 @@ namespace WebPages.Panels.Admin
                 String.IsNullOrEmpty(title.Text) ||
                 String.IsNullOrEmpty(Abstract.Text) ||
                 String.IsNullOrEmpty(Tags.Text) ||
-                String.IsNullOrEmpty(KeyWords.Text) || Abstract.Text.Count() < 130))
+                String.IsNullOrEmpty(KeyWords.Text) || SelectedSubGroups.Items.Count == 0 || Abstract.Text.Count() < 130))
             {
                 if (Session["newPostIDForEdit"] != null)
                 {
+                    if (FileUpload1.FileBytes.Length > 1024 * 1024)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!')", true);
+
+
+                        return;
+                    }
+                    string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
+                    if ((ext != ".jpg") && (ext != ".png"))
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!')", true);
+
+
+                        return;
+                    }
+
+
                     int id = Session["newPostIDForEdit"].ToString().ToInt();
                     Session.Remove("newPostIDForEdit");
                     ArticleRepository repArt = new ArticleRepository();
@@ -156,9 +176,24 @@ namespace WebPages.Panels.Admin
 
                     art.Title = title.Text;
                     art.Content = editor1.Text;
-                    //ART.Image = FileUpload1.................
+
+
+                    string filename = Path.GetFileName(FileUpload1.FileName);
+                    string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
+                    filename = rand + filename;
+                    string ps = Server.MapPath(@"~\img\") + filename;
+                    FileUpload1.SaveAs(ps);
+                    FileStream fStream = File.OpenRead(ps);
+                    byte[] contents = new byte[fStream.Length];
+                    fStream.Read(contents, 0, (int)fStream.Length);
+                    fStream.Close();
+                    FileInfo fi = new FileInfo(ps);
+                    fi.Delete();
+                    art.Image = contents;
+
+
+
                     art.Abstract = Abstract.Text;
-                    art.PostDateTime = OnlineTools.persianFormatedDate();
                     art.Visits = 0;
                     art.Tags = Tags.Text;
                     art.KeyWords = KeyWords.Text;
@@ -182,31 +217,36 @@ namespace WebPages.Panels.Admin
                                 {
                                     result = false;
                                 }
+                                else
+                                {
+                                    Response.Redirect("~/مدیریت-وبلاگ-ها");
+                                }
                             }
                         }
                         else
                         {
-                            diverror.InnerText = "هیچ زیر گروهی انتخاب نشده است!";
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ زیر گروهی انتخاب نشده است!')", true);
+
                         }
 
                         if (!result)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
                         }
                         else
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='http://localhost:6421/Panels/Admin/ManageBlogs.aspx'", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='مدیریت-وبلاگ-ها'", true);
 
                         }
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
                     }
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='http://localhost:6421/Panels/Admin/ManageBlogs.aspx'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
 
                 }
             }

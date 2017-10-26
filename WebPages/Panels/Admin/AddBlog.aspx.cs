@@ -15,6 +15,7 @@ namespace WebPages.Panels.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
             if (!IsPostBack)
             {
                 btnSave.Enabled = false;
@@ -25,6 +26,7 @@ namespace WebPages.Panels.Admin
                 DDLGroups.DataValueField = "GroupID";
                 DDLGroups.DataBind();
                 DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+
             }
         }
 
@@ -138,24 +140,28 @@ namespace WebPages.Panels.Admin
                     diverror.InnerHtml = "فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!";
                     return;
                 }
+
+
                 Article ART = new Article();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
+
+
                 string filename = Path.GetFileName(FileUpload1.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
                 string ps = Server.MapPath(@"~\img\") + filename;
                 FileUpload1.SaveAs(ps);
-
-
                 FileStream fStream = File.OpenRead(ps);
                 byte[] contents = new byte[fStream.Length];
                 fStream.Read(contents, 0, (int)fStream.Length);
                 fStream.Close();
                 FileInfo fi = new FileInfo(ps);
                 fi.Delete();
-
                 ART.Image = contents;
+
+
+
                 ART.Abstract = Abstract.Text;
                 ART.PostDateTime = OnlineTools.persianFormatedDate();
                 ART.Visits = 0;
@@ -181,6 +187,10 @@ namespace WebPages.Panels.Admin
                             {
                                 result = false;
                             }
+                            else
+                            {
+                                Response.Redirect("~/مدیریت-وبلاگ-ها");
+                            }
                         }
                     }
                     else
@@ -190,14 +200,14 @@ namespace WebPages.Panels.Admin
 
                     if (!result)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
 
                     }
 
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='-----'", true);//لینک بشه
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
 
                 }
             }

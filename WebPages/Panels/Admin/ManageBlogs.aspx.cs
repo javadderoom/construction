@@ -101,6 +101,7 @@ namespace WebPages.Panels.Admin
                 {
 
                     gvPosts.DataSource = null;
+                    gvPosts.DataBind();
                     gvPosts.DataSource = OnlineTools.ToDataTable(articles);
                     gvPosts.DataBind();
                 }
@@ -181,11 +182,10 @@ namespace WebPages.Panels.Admin
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
                 Session.Timeout = 1;
 
-                Session.Add("svsvdvdv", row.Cells[0].Text);
-                Session.Timeout = 2;
 
 
-                Response.Redirect("http://localhost:6421/Panels/Admin/EditPost.aspx");
+
+                Response.Redirect("~/ویرایش-وبلاگ");
             }
             if (e.CommandName == "Show")
             {
@@ -199,7 +199,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect("http://localhost:6421/_construction/BlogPost.aspx?ID=" + id);
+                Response.Redirect("~/وبلاگ-ها" + id);
             }
             if (e.CommandName == "Delet")
             {

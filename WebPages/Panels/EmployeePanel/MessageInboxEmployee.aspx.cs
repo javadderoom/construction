@@ -55,7 +55,8 @@ namespace WebPages.Panels.EmployeePanel
             {
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrue(Session["chatidForMessages"].ToString().ToInt(), "adm");
-                Response.Redirect("http://localhost:6421/Panels/EmployeePanel/MessagesEmployee.aspx");
+
+                Response.Redirect("~/همه_پیام_ها");
             }
         }
 

@@ -44,6 +44,16 @@
           <Property Name="CityName" Type="nvarchar" MaxLength="70" />
           <Property Name="StateID" Type="int" />
         </EntityType>
+        <EntityType Name="ContactWays">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adrees" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="AboutUs" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -320,6 +330,7 @@
           <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chats" EntityType="Self.Chats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactWays" EntityType="Self.ContactWays" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupConnections" EntityType="Self.GroupConnections" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
@@ -381,6 +392,7 @@
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
+          <EntitySet Name="ContactWays" EntityType="ConstructionCompanyModel.ContactWay" />
           <EntitySet Name="Employees" EntityType="ConstructionCompanyModel.Employee" />
           <EntitySet Name="GroupConnections" EntityType="ConstructionCompanyModel.GroupConnection" />
           <EntitySet Name="Groups" EntityType="ConstructionCompanyModel.Group" />
@@ -476,6 +488,16 @@
           <NavigationProperty Name="Employees" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="City" ToRole="Employee" />
           <NavigationProperty Name="Orders" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="City" ToRole="Order" />
           <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="City" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ContactWay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -807,6 +829,17 @@
                 <ScalarProperty Name="StateID" ColumnName="StateID" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactWays">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ContactWay">
+              <MappingFragment StoreEntitySet="ContactWays">
+                <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adrees" ColumnName="Adrees" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

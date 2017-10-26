@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </li>
-                    <%--  <!-- SLIDE 4 -->
+                    <!-- SLIDE 4 -->
                     <li data-transition="boxslide" data-slotamount="7">
                         <img src="" alt="slidebg1" runat="server" id="bImg4" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
@@ -180,7 +180,7 @@
                             <div class="tools" runat="server" id="rightPic5">
                             </div>
                         </div>
-                    </li>--%>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -195,8 +195,8 @@
         <i class="btnClose material-icons ">close</i><asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdateProgress ID="updateProgress" runat="server">
             <ProgressTemplate>
-                <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #000000; opacity: 0.8;">
-                    <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="images/Progress.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; position: ; top: 45%; left: 50%;" />
+                <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 99999999; background-color: #ffffff; opacity: 0.8;">
+                    <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="images/Progress.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; z-index: 999999999; top: 45%; left: 50%;" />
                 </div>
             </ProgressTemplate>
         </asp:UpdateProgress>

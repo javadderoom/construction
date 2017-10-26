@@ -27,7 +27,6 @@ namespace WebPages._construction
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -35,13 +34,11 @@ namespace WebPages._construction
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
             return ans;
         }
+
         private string setRightimgSrc(int SlideID)
         {
             string ans = "";
@@ -54,7 +51,6 @@ namespace WebPages._construction
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -62,13 +58,11 @@ namespace WebPages._construction
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
             return ans;
         }
+
         private void LoadSliders()
         {
             SliderRepository repSlider = new SliderRepository();
@@ -127,8 +121,8 @@ namespace WebPages._construction
             {
                 diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
             }
-
         }
+
         private void fillServises()
         {
             GroupsRepository gr = new GroupsRepository();
@@ -198,20 +192,12 @@ namespace WebPages._construction
 
         private void BtnRight_Click(object sender, EventArgs e)
         {
+            servisContent.InnerHtml = "<img style='text-align: center;' src='images/44frgm.gif'/>";
             Button btn = (Button)sender;
 
             string id = btn.ID;
             fillSungroups(id);
-            GroupsRepository gr1 = new GroupsRepository();
-            List<Group> groups1 = new List<Group>();
-            groups1 = gr1.LoadListAllGroups();
-            foreach (Group gp in groups1)
-            {
-                AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                trigger.ControlID = gp.GroupID.ToString();
-                trigger.EventName = "Click";
-                updatepanel2.Triggers.Add(trigger);
-            }
+            triggers();
             fillServises();
         }
 
@@ -260,18 +246,12 @@ namespace WebPages._construction
                     }
                     else
                     {
-
                         text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
-
-
                     }
                 }
                 else
                 {
-
                     text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
-
-
                 }
             }
             blogsContainer.InnerHtml = text;
@@ -279,7 +259,8 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            fillServises();
+            triggers();
             if (!IsPostBack)
             {
                 List<Article> articles = new List<Article>();
@@ -287,18 +268,22 @@ namespace WebPages._construction
                 articles = artRep.Top3tArticles();
 
                 fillArticles(articles);
-                GroupsRepository gr = new GroupsRepository();
-                List<Group> groups = new List<Group>();
-                groups = gr.LoadListAllGroups();
-                foreach (Group gp in groups)
-                {
-                    AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                    trigger.ControlID = gp.GroupID.ToString();
-                    trigger.EventName = "Click";
-                    updatepanel2.Triggers.Add(trigger);
-                }
+
                 LoadSliders();
-                fillServises();
+            }
+        }
+
+        private void triggers()
+        {
+            GroupsRepository gr = new GroupsRepository();
+            List<Group> groups = new List<Group>();
+            groups = gr.LoadListAllGroups();
+            foreach (Group gp in groups)
+            {
+                AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
+                trigger.ControlID = gp.GroupID.ToString();
+                trigger.EventName = "Click";
+                updatepanel2.Triggers.Add(trigger);
             }
         }
 

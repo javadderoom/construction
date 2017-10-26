@@ -9,6 +9,10 @@
         div.blogInner {
             max-height: 490px !important;
         }
+
+        .tp-bullets {
+            left: 48% !important;
+        }
     </style>
 
     <link href="<%= ResolveUrl("vendors/owl.carousel/css/owl.theme.default.min.css") %>" rel="stylesheet" />
@@ -33,7 +37,6 @@
                             data-easing="easeOutBack">
                             <div runat="server" id="divText1"></div>
                         </div>
-
 
                         <div runat="server" id="diva1" class="caption sfb stb"
                             data-x="-100"
@@ -66,7 +69,6 @@
                             <div runat="server" id="divText2"></div>
                         </div>
 
-
                         <div runat="server" id="diva2" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
@@ -97,7 +99,6 @@
                             data-easing="easeOutBack">
                             <div runat="server" id="divText3"></div>
                         </div>
-
 
                         <div runat="server" id="diva3" class="caption sfb stb"
                             data-x="-100"
@@ -130,7 +131,6 @@
                             <div runat="server" id="divText4"></div>
                         </div>
 
-
                         <div runat="server" id="diva4" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
@@ -162,7 +162,6 @@
                             <div runat="server" id="divText5"></div>
                         </div>
 
-
                         <div runat="server" id="diva5" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
@@ -182,8 +181,6 @@
                             </div>
                         </div>
                     </li>
-
-
                 </ul>
             </div>
         </div>
@@ -615,7 +612,10 @@
                 }
             })
         });
-        $('.btnRightService').click(function () { $('.ServisDetails').addClass('Active') })
+        $('.btnRightService').click(function () {
+            $('.ServisDetails').addClass('Active')
+
+        })
         $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);

@@ -18,7 +18,7 @@
 
             </div>
             <div class="form-group text-right input-group" style="margin-top: 20px;">
-                <label style="display: block" for="Abstract">عکس پس زمینه جدید : </label>
+                <label style="display: block" for="Abstract">عکس پس زمینه جدید : (برای زیباتر شدن از سایز 660  * 1920 استفاده کنید ) </label>
                 <label class="btn btn-info" style="width: 100px;">
                     <asp:Literal runat="server" Text="انتخاب عکس" />
 

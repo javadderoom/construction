@@ -1131,6 +1131,7 @@
     <Content Include="_Styles\Blogs.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
+    <Content Include="_Styles\FloatingLable.css" />
     <Content Include="_Styles\GridView.css" />
     <Content Include="_Styles\Input&amp;Lable.css" />
     <Content Include="_Styles\ManageBlogs.css" />

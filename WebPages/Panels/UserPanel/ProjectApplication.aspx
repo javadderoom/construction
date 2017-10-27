@@ -25,15 +25,16 @@
                 </div>
                 <div class="inputDiv">
 
-                    <input class="FloatingLabel" runat="server" id="maxTime" type="text" placeholder="تاریخ پیشنهای شروع پروژه" alt="تاریح شروع" />
+                    <input runat="server" id="maxTime" type="text" placeholder="تاریخ پیشنهای شروع پروژه"
+                        data-mddatetimepicker="true" data-trigger="click" data-targetselector="#ContentPlaceHolder1_maxTime" data-groupid="group1" data-disablebeforetoday="true" data-placement="left" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="maxTime" CssClass="myAlert"
                         runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" runat="server" id="deadline" type="text" placeholder="تاریخ پیشنهای اتمام پروژه" alt="تاریخ اتمام" />
+                    <input runat="server" id="deadline" type="text" placeholder="تاریخ پیشنهای اتمام پروژه"
+                        ata-mddatetimepicker="true" data-trigger="click" data-targetselector="#ContentPlaceHolder1_deadline" data-groupid="group1" data-disablebeforetoday="true" data-placement="left" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="deadline" CssClass="myAlert"
                         runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
-
                 </div>
                 <div class="inputDiv">
                     <input class="FloatingLabel" runat="server" id="budget" type="text" placeholder="بودجه" alt="بودجه" />
@@ -62,7 +63,6 @@
                             <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
                 <div class="inputDiv">
                     <textarea class="FloatingLabel" runat="server" id="address" placeholder="آدرس" alt="آدرس"></textarea>
@@ -80,6 +80,4 @@
     <script src="../../_Scripts/FlotingLables.js"></script>
     <script src="../../MdBootstrapPersianDateTimePicker/jalaali.js"></script>
     <script src="../../MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>
-
-
 </asp:Content>

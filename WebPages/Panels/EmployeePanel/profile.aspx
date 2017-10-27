@@ -21,7 +21,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <section class="mainSection">
         <div class="c_title col-md-3 col-sm-12 col-xs-12">
@@ -29,11 +29,14 @@
 
                 <asp:Literal runat="server" Text="پروفایل شخصی" />
             </h4>
-            <img class="ProfileImg" src="../../_construction/images/user128px.png" />
+            <img class="ProfileImg" id="Image1" runat="server" src="../../_construction/images/user128px.png" />
             <h3 runat="server" id="hFullName"></h3>
             <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
                                         <span class="fa fa-edit"></span>
             </a>
+            <br />
+
+
         </div>
         <div class="col-md-8 col-sm-12 col-xs-12 x_panel">
             <div class="infoContent">
@@ -59,6 +62,23 @@
                             <input id="lblpassword" class="dirToLeft" runat="server" disabled type="password" />
                         </div>
                     </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>بروز رسانی عکس </label>
+                            <asp:FileUpload ID="fileImage" runat="server" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>ارسال رزومه </label>
+                            <asp:FileUpload ID="fileResume" runat="server" />
+                        </div>
+                    </div>
+                    <div>
+                        <asp:Button ID="btnEdit" runat="server" Text="ویرایش" OnClick="btnEdit_Click" />
+                    </div>
+                    <asp:Label ID="lblWarning" runat="server" Text="Label"></asp:Label>
+
                 </div>
                 <div class="peronalInfo col-md-6">
                     <div class="infoTitle">

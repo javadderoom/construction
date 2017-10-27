@@ -79,7 +79,7 @@
         <div class="row">
             <div class="col-md-5 col-md-push-7 col-xs-6 col-xs-push-6">
                 <button type="button" id="btnViewAll" class="btn btn-auto-h btn-info goRight" runat="server" style="margin-right: 5px; display: block" onserverclick="btnViewAll_ServerClick">
-                    <asp:Literal runat="server" Text="مشاهده تمام گفتگوها" />
+                    <asp:Literal runat="server" Text="مشاهده تمام کاربران" />
                     <span class="fa fa-list"></span>
                 </button>
             </div>

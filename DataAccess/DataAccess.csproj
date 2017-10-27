@@ -54,18 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Article.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Chat.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="City.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
     <Compile Include="ConstructionEDM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,42 +68,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConstructionEDM.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ContactWay.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Employee.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Group.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GroupConnection.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Image.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Job.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JobEmployee.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JobGroup.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Link.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Message.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Project.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EmployeeJobRepository.cs" />
@@ -135,18 +87,6 @@
     <Compile Include="Repository\StatesRepository.cs" />
     <Compile Include="Repository\AdminsRepository.cs" />
     <Compile Include="Repository\UsersRepository.cs" />
-    <Compile Include="Satisfaction.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Slider.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="State.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

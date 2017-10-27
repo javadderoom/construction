@@ -1,23 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.profile" %>
 
-
 <asp:Content ID="content3" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.min.js"></script>
-    <link href="../../_Styles/simple-sidebar.css" rel="stylesheet" />
-    <link href="../../_Styles/bootstrap.css" rel="stylesheet" />
-    <link href="../../_Styles/StyleSheet.css" rel="stylesheet" />
-    <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -35,8 +22,6 @@
                                         <span class="fa fa-edit"></span>
             </a>
             <br />
-
-
         </div>
         <div class="col-md-8 col-sm-12 col-xs-12 x_panel">
             <div class="infoContent">
@@ -59,7 +44,7 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>رمز عبور </label>
-                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="password" />
+                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
@@ -78,7 +63,6 @@
                         <asp:Button ID="btnEdit" runat="server" Text="ویرایش" OnClick="btnEdit_Click" />
                     </div>
                     <asp:Label ID="lblWarning" runat="server" Text="Label"></asp:Label>
-
                 </div>
                 <div class="peronalInfo col-md-6">
                     <div class="infoTitle">
@@ -133,7 +117,6 @@
             </div>
         </div>
     </section>
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
 </asp:Content>

@@ -508,6 +508,7 @@
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="empImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RegSeen" Type="Boolean" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="Employee" ToRole="State" />
           <Property Name="RegSeen" Type="Boolean" />
@@ -665,6 +666,7 @@
           <Property Name="State" Type="Int32" />
           <Property Name="City" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegSeen" Type="Boolean" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="User" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Users_States" FromRole="User" ToRole="State" />
           <Property Name="RegSeen" Type="Boolean" />

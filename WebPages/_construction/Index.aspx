@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </li>
-                    <%--  <!-- SLIDE 4 -->
+                    <!-- SLIDE 4 -->
                     <li data-transition="boxslide" data-slotamount="7">
                         <img src="" alt="slidebg1" runat="server" id="bImg4" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                         <div class="caption sfr str"
@@ -180,7 +180,7 @@
                             <div class="tools" runat="server" id="rightPic5">
                             </div>
                         </div>
-                    </li>--%>
+                    </li>
                 </ul>
             </div>
         </div>

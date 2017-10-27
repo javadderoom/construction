@@ -25,6 +25,7 @@ namespace WebPages.Panels.EmployeePanel
             if (!IsPostBack)
             {
                 setLabels();
+                // UpdatePanel1.Update();
             }
         }
 
@@ -57,7 +58,7 @@ namespace WebPages.Panels.EmployeePanel
                         if (dr.Read())
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
-                            Image1.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            Image1.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
 
                         dr.Close();
@@ -73,15 +74,15 @@ namespace WebPages.Panels.EmployeePanel
             {
                 if (fileImage.FileBytes.Length > 1024 * 1024)
                 {
-                    lblWarningImage.Text = "سایز عکس آپلود شده بیشتر از 1 مگابایت است";
-                    lblWarningImage.ForeColor = System.Drawing.Color.Red;
+                    lblWarning.Text = "سایز عکس آپلود شده بیشتر از 1 مگابایت است";
+                    lblWarning.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
                 string ext = Path.GetExtension(fileImage.FileName).ToLower();
                 if (ext != ".jpg" && ext != ".png" && ext != "" && ext != null)
                 {
-                    lblWarningImage.Text = "عکس با فرمت " + " jpg. " + "یا " + " png. " + "آپلود کنید.";
-                    lblWarningImage.ForeColor = System.Drawing.Color.Red;
+                    lblWarning.Text = "عکس با فرمت " + " jpg. " + "یا " + " png. " + "آپلود کنید.";
+                    lblWarning.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
                 string filename = Path.GetFileName(fileImage.FileName);
@@ -99,31 +100,31 @@ namespace WebPages.Panels.EmployeePanel
 
                 EmployeesRepository er = new EmployeesRepository();
                 er.setEmployeeImage(empid, contents);
-                lblWarningImage.Text = "اطلاعات با موفقیت ویرایش شد";
-                lblWarningImage.ForeColor = System.Drawing.Color.Green;
+                lblWarning.Text = "اطلاعات با موفقیت ویرایش شد";
+                lblWarning.ForeColor = System.Drawing.Color.Green;
 
                 setLabels();
             }
             if (fileResume.HasFile)
             {
-                if (fileImage.FileBytes.Length > 5 * 1024 * 1024)
+                if (fileResume.FileBytes.Length > 5 * 1024 * 1024)
                 {
-                    lblWarningResume.Text = ".سایز فایل آپلود شده بیشتر از 5 مگابایت است";
-                    lblWarningResume.ForeColor = System.Drawing.Color.Red;
+                    lblWarning.Text = ".سایز فایل آپلود شده بیشتر از 5 مگابایت است";
+                    lblWarning.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
-                string ext = Path.GetExtension(fileImage.FileName).ToLower();
+                string ext = Path.GetExtension(fileResume.FileName).ToLower();
                 if (ext != ".zip" && ext != "" && ext != null)
                 {
-                    lblWarningResume.Text = "رزومه ی خود را بصورت فایل و با فرمت zip. ارسال کنید.";
-                    lblWarningResume.ForeColor = System.Drawing.Color.Red;
+                    lblWarning.Text = "رزومه ی خود را بصورت فایل و با فرمت zip. ارسال کنید.";
+                    lblWarning.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
-                string filename = Path.GetFileName(fileImage.FileName);
+                string filename = Path.GetFileName(fileResume.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
                 string ps = Server.MapPath(@"~\img\") + filename;
-                fileImage.SaveAs(ps);
+                fileResume.SaveAs(ps);
 
                 FileStream fStream = File.OpenRead(ps);
                 byte[] contents = new byte[fStream.Length];
@@ -134,8 +135,8 @@ namespace WebPages.Panels.EmployeePanel
 
                 EmployeesRepository er = new EmployeesRepository();
                 er.setEmployeeResume(empid, contents);
-                lblWarningResume.Text = "اطلاعات با موفقیت ویرایش شد.";
-                lblWarningResume.ForeColor = System.Drawing.Color.Green;
+                lblWarning.Text = "اطلاعات با موفقیت ویرایش شد.";
+                lblWarning.ForeColor = System.Drawing.Color.Green;
             }
         }
     }

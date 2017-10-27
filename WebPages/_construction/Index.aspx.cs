@@ -10,6 +10,7 @@ using System.Data;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
+using System.Threading;
 
 namespace WebPages._construction
 {
@@ -200,12 +201,12 @@ namespace WebPages._construction
             triggers();
             fillServises();
             ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "myFunc()", true);
-
         }
 
         //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         private void fillSungroups(string id)
         {
+            updateProgress.Visible = true;
             GroupsRepository gr = new GroupsRepository();
             List<Group> groups = new List<Group>();
             int ID = id.ToInt();

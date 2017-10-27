@@ -260,7 +260,7 @@
         </div>
         <div class="row filters m0">
             <button type="button" class="collapsed project_filderButton visible-xs" data-toggle="collapse" data-target="#filters">
-                <span class="btn-text"><i class="fa fa-filter"></i>Project Filter</span>
+                <span class="btn-text"><i class="fa fa-filter"></i>فیلتر پروژه ها</span>
             </button>
             <ul class="list-inline text-center collapse navbar-collapse" id="filters">
                 <li class="filter" data-filter="all"><i class="fa fa-th"></i>نمایش همه</li>

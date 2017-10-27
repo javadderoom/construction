@@ -28,7 +28,6 @@
         <link rel="stylesheet" href="../../_construction/css/font-awesome.min.css" />
         <link rel="stylesheet" href="../../_construction/vendors/owl.carousel/css/owl.carousel.css" />
 
-
         <link rel="stylesheet" type="text/css" href="../../_construction/vendors/rs-plugin/css/settings.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../../_construction/vendors/js-flickr-gallery/css/js-flickr-gallery.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../../_construction/vendors/lightbox/css/lightbox.css" media="screen" />
@@ -42,7 +41,6 @@
       <script src="../../_construction/js/html5shiv.min.js"></script>
       <script src="../../_construction/js/respond.min.js"></script>
     <![endif]-->
-
     </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="PageStyle" runat="server">
     </asp:ContentPlaceHolder>
@@ -92,9 +90,7 @@
                                 <a href="index.html">
 
                                     <div class="logoImg"></div>
-
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -112,7 +108,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </span>
-                                <span class="btn-text">Select Page</span>
+                                <span class="btn-text">منو</span>
                             </button>
                         </div>
 
@@ -173,28 +169,10 @@
 
                     <div class="row copyrightRow">
                         &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
-                                     
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
                     </div>
                 </div>
             </footer>
         </div>
-
 
         <!--jQuery, Bootstrap and other vendor JS-->
 
@@ -216,8 +194,6 @@
         <script src="../../_Scripts/ScrolToTop.js"></script>
         <asp:ContentPlaceHolder ID="Script" runat="server">
         </asp:ContentPlaceHolder>
-
-
     </form>
 </body>
 </html>

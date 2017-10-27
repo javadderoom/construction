@@ -26,13 +26,13 @@
                 <div class="inputDiv">
 
                     <input runat="server" id="maxTime" type="text" placeholder="تاریخ پیشنهای شروع پروژه"
-                        data-mddatetimepicker="true" data-trigger="click" data-targetselector="#ContentPlaceHolder1_maxTime" data-groupid="group1" data-disablebeforetoday="true" data-placement="left" />
+                        data-mddatetimepicker="true" data-trigger="click" data-targetselector="#ContentPlaceHolder1_maxTime" data-groupid="group1" data-disablebeforetoday="true" data-placement="bottom" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="maxTime" CssClass="myAlert"
                         runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </div>
                 <div class="inputDiv">
                     <input runat="server" id="deadline" type="text" placeholder="تاریخ پیشنهای اتمام پروژه"
-                        data-mddatetimepicker="true" data-trigger="click" data-targetselector="#ContentPlaceHolder1_deadline" data-groupid="group1" data-disablebeforetoday="true" data-placement="left" />
+                        data-mddatetimepicker="true" data-trigger="click" data-targetselector="#ContentPlaceHolder1_deadline" data-groupid="group1" data-disablebeforetoday="true" data-placement="bottom" />
 
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="deadline" CssClass="myAlert"
                         runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>

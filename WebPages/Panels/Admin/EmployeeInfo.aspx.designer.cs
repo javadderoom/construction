@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPages.Panels.EmployeePanel {
+namespace WebPages.Panels.Admin {
     
     
-    public partial class profile {
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+    public partial class EmployeeInfo {
         
         /// <summary>
         /// Image1 control.
@@ -58,49 +49,22 @@ namespace WebPages.Panels.EmployeePanel {
         protected global::System.Web.UI.HtmlControls.HtmlInputText lblusername;
         
         /// <summary>
-        /// lblpassword control.
+        /// lbxJobs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword lblpassword;
+        protected global::System.Web.UI.WebControls.ListBox lbxJobs;
         
         /// <summary>
-        /// fileImage control.
+        /// btnDownLoadResume control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileImage;
-        
-        /// <summary>
-        /// fileResume control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileResume;
-        
-        /// <summary>
-        /// btnEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
-        
-        /// <summary>
-        /// lblWarning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWarning;
+        protected global::System.Web.UI.WebControls.Button btnDownLoadResume;
         
         /// <summary>
         /// lblfullname control.

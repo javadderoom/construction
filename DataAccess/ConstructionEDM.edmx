@@ -71,6 +71,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="150" />
           <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
           <Property Name="empImage" Type="varbinary(max)" />
+          <Property Name="RegSeen" Type="bit" />
         </EntityType>
         <EntityType Name="GroupConnections">
           <Key>
@@ -216,6 +217,7 @@
           <Property Name="State" Type="int" />
           <Property Name="City" Type="int" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegSeen" Type="bit" />
         </EntityType>
         <Association Name="FK_Cities_States">
           <End Role="States" Type="Self.States" Multiplicity="0..1" />
@@ -516,6 +518,7 @@
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="empImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RegSeen" Type="Boolean" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="Employee" ToRole="State" />
         </EntityType>
@@ -672,6 +675,7 @@
           <Property Name="State" Type="Int32" />
           <Property Name="City" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegSeen" Type="Boolean" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="User" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Users_States" FromRole="User" ToRole="State" />
         </EntityType>
@@ -846,6 +850,7 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="RegSeen" ColumnName="RegSeen" />
                 <ScalarProperty Name="empImage" ColumnName="empImage" />
                 <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -1007,6 +1012,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="RegSeen" ColumnName="RegSeen" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="State" ColumnName="State" />

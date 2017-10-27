@@ -4,7 +4,6 @@
 
 .InnerContainer {
     min-height: 300px;
-    width: 100%;
     -webkit-box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
     -moz-box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
     box-shadow: 0px 0px 30px 7px rgba(133,133,133,1);
@@ -12,5 +11,4 @@
 }
 
 div#gvContainer {
-    min-width: 250px;
 }

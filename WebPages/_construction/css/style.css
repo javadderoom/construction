@@ -18,6 +18,10 @@ li {
     list-style: none;
 }
 
+.tp-bullets {
+    left: 49% !important;
+}
+
 .scrollToTop {
     z-index: 99999999999;
     width: 50px;

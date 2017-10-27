@@ -81,6 +81,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConstructionEDM.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ContactWay.cs">
+      <DependentUpon>ConstructionEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
@@ -119,6 +122,7 @@
     <Compile Include="Repository\JobRepository.cs" />
     <Compile Include="Repository\JobGroupsRepository.cs" />
     <Compile Include="Repository\Connection.cs" />
+    <Compile Include="Repository\ContactUsRepository.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Repository\ArticleRepository.cs" />
     <Compile Include="Repository\GroupsConRepository.cs" />

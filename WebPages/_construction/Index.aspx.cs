@@ -27,7 +27,6 @@ namespace WebPages._construction
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -35,13 +34,11 @@ namespace WebPages._construction
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
             return ans;
         }
+
         private string setRightimgSrc(int SlideID)
         {
             string ans = "";
@@ -54,7 +51,6 @@ namespace WebPages._construction
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -62,31 +58,29 @@ namespace WebPages._construction
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
             return ans;
         }
+
         private void LoadSliders()
         {
             SliderRepository repSlider = new SliderRepository();
             Slider slide1 = repSlider.FindSlider(1);
             Slider slide2 = repSlider.FindSlider(2);
             Slider slide3 = repSlider.FindSlider(3);
-            Slider slide4 = repSlider.FindSlider(4);
-            Slider slide5 = repSlider.FindSlider(5);
+            //Slider slide4 = repSlider.FindSlider(4);
+            //Slider slide5 = repSlider.FindSlider(5);
             bImg1.Src = setBKGSrc(1);
             bImg2.Src = setBKGSrc(2);
             bImg3.Src = setBKGSrc(3);
-            bImg4.Src = setBKGSrc(4);
-            bImg5.Src = setBKGSrc(5);
+            //bImg4.Src = setBKGSrc(4);
+            //bImg5.Src = setBKGSrc(5);
             divText1.InnerHtml = slide1.Text;
             divText2.InnerHtml = slide2.Text;
             divText3.InnerHtml = slide3.Text;
-            divText4.InnerHtml = slide4.Text;
-            divText5.InnerHtml = slide5.Text;
+            //divText4.InnerHtml = slide4.Text;
+            //divText5.InnerHtml = slide5.Text;
             if (slide1.thumbnail != null)
             {
                 rightPic.InnerHtml = "<img src='" + setRightimgSrc(1) + "' alt='عکس'/>";
@@ -99,14 +93,14 @@ namespace WebPages._construction
             {
                 rightPic3.InnerHtml = "<img src='" + setRightimgSrc(3) + "' alt='عکس'/>";
             }
-            if (slide4.thumbnail != null)
-            {
-                rightPic4.InnerHtml = "<img src='" + setRightimgSrc(4) + "' alt='عکس'/>";
-            }
-            if (slide5.thumbnail != null)
-            {
-                rightPic5.InnerHtml = "<img src='" + setRightimgSrc(5) + "' alt='عکس'/>";
-            }
+            //if (slide4.thumbnail != null)
+            //{
+            //    rightPic4.InnerHtml = "<img src='" + setRightimgSrc(4) + "' alt='عکس'/>";
+            //}
+            //if (slide5.thumbnail != null)
+            //{
+            //    rightPic5.InnerHtml = "<img src='" + setRightimgSrc(5) + "' alt='عکس'/>";
+            //}
             if (slide1.Link != null)
             {
                 diva1.InnerHtml = "<a type='button' href='" + slide1.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
@@ -119,16 +113,16 @@ namespace WebPages._construction
             {
                 diva3.InnerHtml = "<a type='button' href='" + slide3.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
             }
-            if (slide4.Link != null)
-            {
-                diva4.InnerHtml = "<a type='button' href='" + slide4.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
-            }
-            if (slide5.Link != null)
-            {
-                diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
-            }
-
+            //if (slide4.Link != null)
+            //{
+            //    diva4.InnerHtml = "<a type='button' href='" + slide4.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            //}
+            //if (slide5.Link != null)
+            //{
+            //    diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
+            //}
         }
+
         private void fillServises()
         {
             GroupsRepository gr = new GroupsRepository();
@@ -198,21 +192,15 @@ namespace WebPages._construction
 
         private void BtnRight_Click(object sender, EventArgs e)
         {
+            servisContent.InnerHtml = "";
             Button btn = (Button)sender;
 
             string id = btn.ID;
             fillSungroups(id);
-            GroupsRepository gr1 = new GroupsRepository();
-            List<Group> groups1 = new List<Group>();
-            groups1 = gr1.LoadListAllGroups();
-            foreach (Group gp in groups1)
-            {
-                AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                trigger.ControlID = gp.GroupID.ToString();
-                trigger.EventName = "Click";
-                updatepanel2.Triggers.Add(trigger);
-            }
+            triggers();
             fillServises();
+            ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "myFunc()", true);
+
         }
 
         //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
@@ -260,18 +248,12 @@ namespace WebPages._construction
                     }
                     else
                     {
-
                         text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
-
-
                     }
                 }
                 else
                 {
-
                     text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
-
-
                 }
             }
             blogsContainer.InnerHtml = text;
@@ -279,7 +261,8 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            fillServises();
+            triggers();
             if (!IsPostBack)
             {
                 List<Article> articles = new List<Article>();
@@ -287,18 +270,22 @@ namespace WebPages._construction
                 articles = artRep.Top3tArticles();
 
                 fillArticles(articles);
-                GroupsRepository gr = new GroupsRepository();
-                List<Group> groups = new List<Group>();
-                groups = gr.LoadListAllGroups();
-                foreach (Group gp in groups)
-                {
-                    AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                    trigger.ControlID = gp.GroupID.ToString();
-                    trigger.EventName = "Click";
-                    updatepanel2.Triggers.Add(trigger);
-                }
+
                 LoadSliders();
-                fillServises();
+            }
+        }
+
+        private void triggers()
+        {
+            GroupsRepository gr = new GroupsRepository();
+            List<Group> groups = new List<Group>();
+            groups = gr.LoadListAllGroups();
+            foreach (Group gp in groups)
+            {
+                AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
+                trigger.ControlID = gp.GroupID.ToString();
+                trigger.EventName = "Click";
+                updatepanel2.Triggers.Add(trigger);
             }
         }
 

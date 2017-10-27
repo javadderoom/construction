@@ -9,6 +9,10 @@
         div.blogInner {
             max-height: 490px !important;
         }
+
+        .tp-bullets {
+            left: 48% !important;
+        }
     </style>
 
     <link href="<%= ResolveUrl("vendors/owl.carousel/css/owl.theme.default.min.css") %>" rel="stylesheet" />
@@ -33,7 +37,6 @@
                             data-easing="easeOutBack">
                             <div runat="server" id="divText1"></div>
                         </div>
-
 
                         <div runat="server" id="diva1" class="caption sfb stb"
                             data-x="-100"
@@ -66,7 +69,6 @@
                             <div runat="server" id="divText2"></div>
                         </div>
 
-
                         <div runat="server" id="diva2" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
@@ -97,7 +99,6 @@
                             data-easing="easeOutBack">
                             <div runat="server" id="divText3"></div>
                         </div>
-
 
                         <div runat="server" id="diva3" class="caption sfb stb"
                             data-x="-100"
@@ -130,7 +131,6 @@
                             <div runat="server" id="divText4"></div>
                         </div>
 
-
                         <div runat="server" id="diva4" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
@@ -162,7 +162,6 @@
                             <div runat="server" id="divText5"></div>
                         </div>
 
-
                         <div runat="server" id="diva5" class="caption sfb stb"
                             data-x="-100"
                             data-y="375"
@@ -182,8 +181,6 @@
                             </div>
                         </div>
                     </li>
-
-
                 </ul>
             </div>
         </div>
@@ -196,6 +193,13 @@
 
     <div class="ServisDetails" runat="server" id="servisDetails">
         <i class="btnClose material-icons ">close</i><asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdateProgress ID="updateProgress" runat="server">
+            <ProgressTemplate>
+                <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
+                    <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
         <asp:UpdatePanel ID="updatepanel2" runat="server">
             <ContentTemplate>
                 <div id="servisContent" runat="server" class="detailContent col-md-11 col-sm-11 col-xs-11">
@@ -615,8 +619,15 @@
                 }
             })
         });
-        $('.btnRightService').click(function () { $('.ServisDetails').addClass('Active') })
-        $('.btnClose').click(function () { $('.ServisDetails').removeClass('Active') })
+        function myFunc() {
+            $('.ServisDetails').addClass('Active')
+        }
+        $('.btnClose').click(function () {
+            $('.ServisDetails').removeClass('Active')
+            $('#servisContent').innerHtml = "";
+
+        })
+
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'

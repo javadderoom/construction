@@ -134,6 +134,7 @@ namespace WebPages
                         u.City = ddlCity.SelectedValue.ToInt();
                         u.State = ddlState.SelectedValue.ToInt();
                         u.Email = txtEmail.Value;
+                        u.RegSeen = false;
 
                         UsersRepository ur = new UsersRepository();
                         ur.SaveUsers(u);
@@ -155,6 +156,7 @@ namespace WebPages
                         u.City = ddlCity.SelectedValue.ToInt();
                         u.State = ddlState.SelectedValue.ToInt();
                         u.Email = txtEmail.Value;
+                        u.RegSeen = false;
 
                         EmployeesRepository ur = new EmployeesRepository();
                         ur.SaveEmployees(u);

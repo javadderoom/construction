@@ -141,7 +141,7 @@ namespace DataAccess.Repository
 
         public DataTable getAllUsersAndEmployeesForMessage()
         {
-            string Command = string.Format("select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID");
+            string Command = string.Format("select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole,RegSeen,Mobile from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole,RegSeen,Mobile from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID");
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();
@@ -152,6 +152,24 @@ namespace DataAccess.Repository
         public DataTable SearchFor_getAllUsersAndEmployeesForMessage(string txt)
         {
             string Command = string.Format("select * from(select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID)tbl where UserName like N'%{0}%' or UserID like N'%{0}%' or FullAddress like N'%{0}%' or FullName like N'%{0}%' or urole like N'%{0}%'", txt);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
+        public void setRegSeenToTrue()
+        {
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("update Users set RegSeen = 1");
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
+        }
+        public DataTable searchUserUnionEmployee(string txt)
+        {
+            string Command = string.Format("select * from( select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole,RegSeen,Mobile from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole,RegSeen,Mobile from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID)tbl where UserName like N'%{0}%' or UserID like N'%{0}%' or FullAddress like N'%{0}%' or FullName like N'%{0}%' or urole like N'%{0}%' or Mobile like N'%{0}%' order by UserID desc", txt);
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();

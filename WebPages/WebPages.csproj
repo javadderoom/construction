@@ -864,6 +864,8 @@
     <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
+    <Content Include="Panels\Admin\AddProject.aspx" />
+    <Content Include="Panels\Admin\EdidProject.aspx" />
     <Content Include="Panels\Admin\EditSlider.aspx" />
     <Content Include="Panels\Admin\EditPost.aspx" />
     <Content Include="Panels\Admin\EmployeeInfo.aspx" />
@@ -872,6 +874,7 @@
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
     <Content Include="Panels\Admin\ManageFirstPage.aspx" />
     <Content Include="Panels\Admin\ManageGroups.aspx" />
+    <Content Include="Panels\Admin\ManageProjects.aspx" />
     <Content Include="Panels\Admin\ManageUsersAndEmployees.aspx" />
     <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
     <Content Include="Panels\Admin\MessagesAdmin.aspx" />
@@ -987,6 +990,7 @@
     <Content Include="_construction\images\pen_notebook.png" />
     <Content Include="_construction\images\Pin-location.png" />
     <Content Include="_construction\images\Progress.gif" />
+    <Content Include="_construction\images\projects\cover3.jpg" />
     <Content Include="_construction\images\projects\penCover.jpg" />
     <Content Include="_construction\images\user.png" />
     <Content Include="_construction\images\user128px.png" />
@@ -1170,6 +1174,20 @@
     <Compile Include="Panels\Admin\AddBlog.aspx.designer.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\AddProject.aspx.cs">
+      <DependentUpon>AddProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\AddProject.aspx.designer.cs">
+      <DependentUpon>AddProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\EdidProject.aspx.cs">
+      <DependentUpon>EdidProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\EdidProject.aspx.designer.cs">
+      <DependentUpon>EdidProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\EditSlider.aspx.cs">
       <DependentUpon>EditSlider.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1225,6 +1243,13 @@
     </Compile>
     <Compile Include="Panels\Admin\ManageGroups.aspx.designer.cs">
       <DependentUpon>ManageGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageProjects.aspx.cs">
+      <DependentUpon>ManageProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageProjects.aspx.designer.cs">
+      <DependentUpon>ManageProjects.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\ManageUsersAndEmployees.aspx.cs">
       <DependentUpon>ManageUsersAndEmployees.aspx</DependentUpon>

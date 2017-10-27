@@ -5,22 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WebPages.Panels.Admin
 {
-    public partial class AddNews1 : System.Web.UI.Page
+    public partial class AddProject : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             if (!IsPostBack)
             {
                 btnSave.Enabled = false;
                 diverror.InnerText = "هیچ گروهی انتخاب نشده!";
-                GroupsRepository repo = new GroupsRepository();
+                ProjectGroupsRepository repo = new ProjectGroupsRepository();
                 DDLGroups.DataSource = repo.LoadAllGroups();
                 DDLGroups.DataTextField = "Title";
                 DDLGroups.DataValueField = "GroupID";
@@ -28,13 +28,11 @@ namespace WebPages.Panels.Admin
                 DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
 
             }
+
         }
-
-
-
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GroupsRepository repo = new GroupsRepository();
+            ProjectGroupsRepository repo = new ProjectGroupsRepository();
             DataTable DT = new DataTable();
             DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
 
@@ -142,7 +140,7 @@ namespace WebPages.Panels.Admin
                 }
 
 
-                Article ART = new Article();
+                AdminsProject ART = new AdminsProject();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
 
@@ -164,26 +162,26 @@ namespace WebPages.Panels.Admin
 
                 ART.Abstract = Abstract.Text;
                 ART.PostDateTime = OnlineTools.persianFormatedDate();
-                ART.Visits = 0;
+
                 ART.Tags = Tags.Text;
                 ART.KeyWords = KeyWords.Text;
-                ArticleRepository ARTRep = new ArticleRepository();
-                if (ARTRep.SaveArticle(ART))
+                AdminsProjectsRepository ARTRep = new AdminsProjectsRepository();
+                if (ARTRep.SaveProject(ART))
                 {
                     bool result = true;
-                    GroupsConRepository GRConRepo = new GroupsConRepository();
+                    ProjectConRepository GRConRepo = new ProjectConRepository();
+                    List<int> SelectedSubGroupsList = new List<int>();
 
-
-                    int lastid = ARTRep.GetLastArticleID();
+                    int lastid = ARTRep.GetLastProjectID();
                     int count = SelectedSubGroups.Items.Count;
                     if (count > 0)
                     {
                         for (int i = 0; i < count; i++)
                         {
-                            GroupConnection GC = new GroupConnection();
-                            GC.ArticleID = lastid;
+                            ProjectConnection GC = new ProjectConnection();
+                            GC.ProjectID = lastid;
                             GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
-                            if (!GRConRepo.SaveGroupCon(GC))
+                            if (!GRConRepo.SaveProjectCon(GC))
                             {
                                 result = false;
                             }

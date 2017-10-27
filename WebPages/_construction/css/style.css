@@ -1980,6 +1980,7 @@ header .social_nav {
                     left: 58px;
                     transition: all 300ms ease-in-out;
                 }
+
 }
 
 .blog .blogInner .featureImg {
@@ -3151,6 +3152,10 @@ header .social_nav {
 
     #pageCover.servicePage {
         background-image: url("../images/serviceCover.png");
+    }
+
+    #pageCover.AddProjectHead {
+        background-image: url('../images/projects/cover3.jpg');
     }
 /*----------------------------------------------------------------*/
 /*Pagination */

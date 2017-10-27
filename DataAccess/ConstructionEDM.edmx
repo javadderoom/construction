@@ -13,19 +13,32 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="AdminsProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Abstract" Type="nvarchar(max)" />
+          <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="KeyWords" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Articles">
           <Key>
             <PropertyRef Name="ArticleID" />
           </Key>
           <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="Image" Type="varbinary(max)" />
           <Property Name="Abstract" Type="nvarchar(max)" />
           <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Visits" Type="int" />
           <Property Name="Tags" Type="nvarchar(max)" />
-          <Property Name="KeyWords" Type="nvarchar" MaxLength="150" />
+          <Property Name="KeyWords" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Chats">
           <Key>
@@ -155,6 +168,22 @@
           <Property Name="State" Type="int" />
           <Property Name="City" Type="int" />
           <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProjectConnection">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="ProjectID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectGroups">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherID" Type="int" />
         </EntityType>
         <EntityType Name="Projects">
           <Key>
@@ -329,6 +358,7 @@
         </Association>
         <EntityContainer Name="ConstructionCompanyModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminsProject" EntityType="Self.AdminsProject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chats" EntityType="Self.Chats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
@@ -343,6 +373,8 @@
           <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectConnection" EntityType="Self.ProjectConnection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectGroups" EntityType="Self.ProjectGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Satisfaction" EntityType="Self.Satisfaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
@@ -391,6 +423,7 @@
       <Schema Namespace="ConstructionCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ConstructionCompanyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="ConstructionCompanyModel.Admin" />
+          <EntitySet Name="AdminsProjects" EntityType="ConstructionCompanyModel.AdminsProject" />
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
@@ -405,6 +438,8 @@
           <EntitySet Name="Links" EntityType="ConstructionCompanyModel.Link" />
           <EntitySet Name="Messages" EntityType="ConstructionCompanyModel.Message" />
           <EntitySet Name="Orders" EntityType="ConstructionCompanyModel.Order" />
+          <EntitySet Name="ProjectConnections" EntityType="ConstructionCompanyModel.ProjectConnection" />
+          <EntitySet Name="ProjectGroups" EntityType="ConstructionCompanyModel.ProjectGroup" />
           <EntitySet Name="Projects" EntityType="ConstructionCompanyModel.Project" />
           <EntitySet Name="Satisfactions" EntityType="ConstructionCompanyModel.Satisfaction" />
           <EntitySet Name="Sliders" EntityType="ConstructionCompanyModel.Slider" />
@@ -455,19 +490,32 @@
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="AdminsProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="ArticleID" />
           </Key>
           <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Visits" Type="Int32" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KeyWords" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Chat">
           <Key>
@@ -609,6 +657,22 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="Order" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Orders_States1" FromRole="Order" ToRole="State" />
+        </EntityType>
+        <EntityType Name="ProjectConnection">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="ProjectID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProjectGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherID" Type="Int32" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -787,7 +851,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -799,6 +863,20 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminsProjects">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.AdminsProject">
+              <MappingFragment StoreEntitySet="AdminsProject">
+                <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="PostDateTime" ColumnName="PostDateTime" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -956,6 +1034,24 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectConnections">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ProjectConnection">
+              <MappingFragment StoreEntitySet="ProjectConnection">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ConnectionID" ColumnName="ConnectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectGroups">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ProjectGroup">
+              <MappingFragment StoreEntitySet="ProjectGroups">
+                <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="ConstructionCompanyModel.Article" Width="1.5" PointX="10.75" PointY="4.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Chat" Width="1.5" PointX="7.75" PointY="1.5" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.City" Width="1.5" PointX="3" PointY="6.5" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Employee" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Employee" Width="1.5" PointX="5.75" PointY="0.625" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.GroupConnection" Width="1.5" PointX="5.75" PointY="10.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Group" Width="1.5" PointX="7.75" PointY="10.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Image" Width="1.5" PointX="10.75" PointY="8.75" />

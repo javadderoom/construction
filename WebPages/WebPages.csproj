@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminLogin.aspx" />
     <Content Include="bin\Common.dll" />
     <Content Include="bin\DataAccess.dll" />
     <Content Include="bin\EntityFramework.dll" />
@@ -859,24 +860,32 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
+    <Content Include="MdBootstrapPersianDateTimePicker\jalaali.js" />
+    <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
+    <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\EditSlider.aspx" />
     <Content Include="Panels\Admin\EditPost.aspx" />
+    <Content Include="Panels\Admin\EmployeeInfo.aspx" />
     <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
     <Content Include="Panels\Admin\ListForMessage.aspx" />
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
     <Content Include="Panels\Admin\ManageFirstPage.aspx" />
     <Content Include="Panels\Admin\ManageGroups.aspx" />
+    <Content Include="Panels\Admin\ManageUsersAndEmployees.aspx" />
     <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
     <Content Include="Panels\Admin\MessagesAdmin.aspx" />
     <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
     <Content Include="Panels\Admin\NewMessageGroup.aspx" />
+    <Content Include="Panels\Admin\ordersList.aspx" />
     <Content Include="Panels\Admin\page.aspx" />
     <Content Include="Panels\Admin\ProjectDetail.aspx" />
+    <Content Include="Panels\Admin\UserInfo.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\newMessageEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\profile.aspx" />
+    <Content Include="Panels\EmployeePanel\SelectJob.aspx" />
     <Content Include="Panels\UserPanel\ChangeInfo.aspx" />
     <Content Include="Panels\UserPanel\MessageInbox.aspx" />
     <Content Include="Panels\UserPanel\Messages.aspx" />
@@ -1123,6 +1132,7 @@
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
     <Content Include="_Styles\GridView.css" />
+    <Content Include="_Styles\Input&amp;Lable.css" />
     <Content Include="_Styles\ManageBlogs.css" />
     <Content Include="_Styles\LoginStyle.css" />
     <Content Include="_Styles\ManageFirstPage.css" />
@@ -1134,6 +1144,13 @@
     <Content Include="_Styles\HomeStyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\DBManager.cs" />
     <Compile Include="Catchimage.aspx.cs">
       <DependentUpon>Catchimage.aspx</DependentUpon>
@@ -1165,6 +1182,13 @@
     </Compile>
     <Compile Include="Panels\Admin\EditPost.aspx.designer.cs">
       <DependentUpon>EditPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\EmployeeInfo.aspx.cs">
+      <DependentUpon>EmployeeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\EmployeeInfo.aspx.designer.cs">
+      <DependentUpon>EmployeeInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\ListForGroupMessage.aspx.cs">
       <DependentUpon>ListForGroupMessage.aspx</DependentUpon>
@@ -1201,6 +1225,13 @@
     <Compile Include="Panels\Admin\ManageGroups.aspx.designer.cs">
       <DependentUpon>ManageGroups.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\ManageUsersAndEmployees.aspx.cs">
+      <DependentUpon>ManageUsersAndEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageUsersAndEmployees.aspx.designer.cs">
+      <DependentUpon>ManageUsersAndEmployees.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\MessageInboxAdmin.aspx.cs">
       <DependentUpon>MessageInboxAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1236,6 +1267,13 @@
     <Compile Include="Panels\Admin\NewMessageGroup.aspx.designer.cs">
       <DependentUpon>NewMessageGroup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\ordersList.aspx.cs">
+      <DependentUpon>ordersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ordersList.aspx.designer.cs">
+      <DependentUpon>ordersList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\page.aspx.cs">
       <DependentUpon>page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1246,6 +1284,13 @@
     </Compile>
     <Compile Include="Panels\Admin\ProjectDetail.aspx.designer.cs">
       <DependentUpon>ProjectDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\EmployeePanel\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>
@@ -1281,6 +1326,13 @@
     </Compile>
     <Compile Include="Panels\EmployeePanel\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\SelectJob.aspx.cs">
+      <DependentUpon>SelectJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\EmployeePanel\SelectJob.aspx.designer.cs">
+      <DependentUpon>SelectJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\UserPanel\ChangeInfo.aspx.cs">
       <DependentUpon>ChangeInfo.aspx</DependentUpon>

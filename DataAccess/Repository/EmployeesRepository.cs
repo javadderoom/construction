@@ -130,5 +130,14 @@ namespace DataAccess.Repository
             }
 
         }
+        public void setRegSeenToTrue()
+        {
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("update Employees set RegSeen = 1");
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

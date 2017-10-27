@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="MessagesAdmin.aspx.cs" Inherits="WebPages.Panels.Admin.MessagesAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="MessagesAdmin.aspx.cs" Inherits="WebPages.Panels.Admin.MessagesAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8" />

@@ -1,11 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.profile" %>
-
-
-<asp:Content ID="content3" ContentPlaceHolderID="pageStyles" runat="server">
-    <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
-</asp:Content>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="UserInfo.aspx.cs" Inherits="WebPages.Panels.Admin.UserInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
+    <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,23 +17,14 @@
     <link href="../../_Styles/StyleSheet.css" rel="stylesheet" />
     <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
 </asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
+<asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
     <section class="mainSection">
         <div class="c_title col-md-3 col-sm-12 col-xs-12">
             <h4>
-
-                <asp:Literal runat="server" Text="پروفایل شخصی" />
+                <asp:Literal runat="server" Text="اطلاعات کاربران" />
             </h4>
-            <img class="ProfileImg" id="Image1" runat="server" src="../../_construction/images/user128px.png" />
+            <img class="ProfileImg" src="../../_construction/images/user128px.png" />
             <h3 runat="server" id="hFullName"></h3>
-            <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
-                                        <span class="fa fa-edit"></span>
-            </a>
-            <br />
-
 
         </div>
         <div class="col-md-8 col-sm-12 col-xs-12 x_panel">
@@ -56,28 +45,6 @@
                             <input id="lblusername" class="dirToLeft" runat="server" disabled type="text" />
                         </div>
                     </div>
-                    <div class="infoInnerContent">
-                        <div class="formGroup">
-                            <label>رمز عبور </label>
-                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="password" />
-                        </div>
-                    </div>
-                    <div class="infoInnerContent">
-                        <div class="formGroup">
-                            <label>بروز رسانی عکس </label>
-                            <asp:FileUpload ID="fileImage" runat="server" />
-                        </div>
-                    </div>
-                    <div class="infoInnerContent">
-                        <div class="formGroup">
-                            <label>ارسال رزومه </label>
-                            <asp:FileUpload ID="fileResume" runat="server" />
-                        </div>
-                    </div>
-                    <div>
-                        <asp:Button ID="btnEdit" runat="server" Text="ویرایش" OnClick="btnEdit_Click" />
-                    </div>
-                    <asp:Label ID="lblWarning" runat="server" Text="Label"></asp:Label>
 
                 </div>
                 <div class="peronalInfo col-md-6">
@@ -133,7 +100,6 @@
             </div>
         </div>
     </section>
-
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
 </asp:Content>

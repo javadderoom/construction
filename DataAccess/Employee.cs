@@ -27,6 +27,7 @@ namespace DataAccess
         public string Email { get; set; }
         public string PostalCode { get; set; }
         public byte[] empImage { get; set; }
+        public Nullable<bool> RegSeen { get; set; }
     
         public virtual City City1 { get; set; }
         public virtual State State1 { get; set; }

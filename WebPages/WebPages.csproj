@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminLogin.aspx" />
     <Content Include="bin\Common.dll" />
     <Content Include="bin\DataAccess.dll" />
     <Content Include="bin\EntityFramework.dll" />
@@ -859,6 +860,9 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\sidebar_menu.js" />
+    <Content Include="MdBootstrapPersianDateTimePicker\jalaali.js" />
+    <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
+    <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\EditSlider.aspx" />
     <Content Include="Panels\Admin\EditPost.aspx" />
@@ -1140,6 +1144,13 @@
     <Content Include="_Styles\HomeStyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\DBManager.cs" />
     <Compile Include="Catchimage.aspx.cs">
       <DependentUpon>Catchimage.aspx</DependentUpon>

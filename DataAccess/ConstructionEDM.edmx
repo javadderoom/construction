@@ -44,7 +44,7 @@
           <Property Name="CityName" Type="nvarchar" MaxLength="70" />
           <Property Name="StateID" Type="int" />
         </EntityType>
-        <EntityType Name="ContactWays">
+        <EntityType Name="ContactWay">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -332,7 +332,7 @@
           <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chats" EntityType="Self.Chats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ContactWays" EntityType="Self.ContactWays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactWay" EntityType="Self.ContactWay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupConnections" EntityType="Self.GroupConnections" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
@@ -394,7 +394,6 @@
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
-          <EntitySet Name="ContactWays" EntityType="ConstructionCompanyModel.ContactWay" />
           <EntitySet Name="Employees" EntityType="ConstructionCompanyModel.Employee" />
           <EntitySet Name="GroupConnections" EntityType="ConstructionCompanyModel.GroupConnection" />
           <EntitySet Name="Groups" EntityType="ConstructionCompanyModel.Group" />
@@ -446,6 +445,7 @@
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="ContactWays" EntityType="ConstructionCompanyModel.ContactWay" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -491,16 +491,6 @@
           <NavigationProperty Name="Orders" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="City" ToRole="Order" />
           <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="City" ToRole="User" />
         </EntityType>
-        <EntityType Name="ContactWay">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Adrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -521,6 +511,7 @@
           <Property Name="RegSeen" Type="Boolean" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Employees_States" FromRole="Employee" ToRole="State" />
+          <Property Name="RegSeen" Type="Boolean" />
         </EntityType>
         <EntityType Name="GroupConnection">
           <Key>
@@ -678,6 +669,7 @@
           <Property Name="RegSeen" Type="Boolean" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="User" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Users_States" FromRole="User" ToRole="State" />
+          <Property Name="RegSeen" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Messages_Chats">
           <End Type="ConstructionCompanyModel.Chat" Role="Chat" Multiplicity="0..1" />
@@ -787,6 +779,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ContactWay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -833,17 +835,6 @@
                 <ScalarProperty Name="StateID" ColumnName="StateID" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ContactWays">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.ContactWay">
-              <MappingFragment StoreEntitySet="ContactWays">
-                <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Adrees" ColumnName="Adrees" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1024,6 +1015,17 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactWays">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ContactWay">
+              <MappingFragment StoreEntitySet="ContactWay">
+                <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adrees" ColumnName="Adrees" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

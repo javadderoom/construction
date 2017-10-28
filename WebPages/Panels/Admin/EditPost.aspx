@@ -38,7 +38,6 @@
                 <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
             </label>
             <label style="padding: 18px" id="filename"></label>
-            <asp:RequiredFieldValidator Display="Dynamic" SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>

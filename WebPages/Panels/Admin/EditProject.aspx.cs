@@ -43,11 +43,11 @@ namespace WebPages.Panels.Admin
                         }
                     }
 
-                    DDLGroups.DataSource = repo.LoadAllGroups();
-                    DDLGroups.DataTextField = "Title";
-                    DDLGroups.DataValueField = "GroupID";
-                    DDLGroups.DataBind();
-                    DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                    DDLGroups2.DataSource = repo.LoadAllGroups();
+                    DDLGroups2.DataTextField = "Title";
+                    DDLGroups2.DataValueField = "GroupID";
+                    DDLGroups2.DataBind();
+                    DDLGroups2.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
                 }
                 else
                 {
@@ -56,82 +56,8 @@ namespace WebPages.Panels.Admin
             }
         }
 
-        protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ProjectGroupsRepository repo = new ProjectGroupsRepository();
-            DataTable DT = new DataTable();
-            DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
 
-            if ((DT.Rows.Count > 0))
-            {
-                SubGroups.DataSource = DT;
-                SubGroups.DataTextField = "Title";
-                SubGroups.DataValueField = "GroupID";
-                SubGroups.DataBind();
-                NoItemDiv.InnerText = "";
-            }
-            else
-            {
-                SubGroups.Items.Clear();
-                SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
-                NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
-                NoItemDiv.Attributes["class"] = "textok";
-            }
-        }
 
-        protected void AddToSub_Click(object sender, EventArgs e)
-        {
-            if (SubGroups.SelectedIndex != -1)
-            {
-                bool isadd = false;
-                string text = SubGroups.SelectedItem.Value;
-                for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
-                {
-                    if (SelectedSubGroups.Items[i].Value == text)
-                    {
-                        isadd = true;
-                    }
-                }
-                if (!isadd)
-                {
-                    SelectedSubGroups.Items.Add(text);
-                    SelectedSubGroups.Items[SelectedSubGroups.Items.Count - 1].Value = SubGroups.SelectedItem.Value;
-                    btnSave.Enabled = true;
-                    diverror.InnerText = "";
-                    NoItemDiv.InnerText = "";
-                }
-                else
-                {
-                    NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
-                    NoItemDiv.Attributes["class"] = "error";
-                }
-            }
-            else
-            {
-                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
-                NoItemDiv.Attributes["class"] = "error";
-            }
-        }
-
-        protected void RemoveFromSub_Click(object sender, EventArgs e)
-        {
-            if (SelectedSubGroups.SelectedIndex != -1)
-            {
-                SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
-                NoItemDiv.InnerText = "";
-                if (SelectedSubGroups.Items.Count == 0)
-                {
-                    btnSave.Enabled = false;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ گروهی انتخاب نشده!')", true);
-                    diverror.InnerText = "هیچ گروهی انتخاب نشده!";
-                }
-            }
-            else
-            {
-                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
-                NoItemDiv.Attributes["class"] = "error";
-            }
-        }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -143,19 +69,8 @@ namespace WebPages.Panels.Admin
             {
                 if (Session["newProjectIDForEdit"] != null)
                 {
-                    if (FileUpload1.FileBytes.Length > 1024 * 1024)
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!')", true);
 
-                        return;
-                    }
-                    string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
-                    if ((ext != ".jpg") && (ext != ".png"))
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!')", true);
 
-                        return;
-                    }
 
                     int id = Session["newProjectIDForEdit"].ToString().ToInt();
                     Session.Remove("newProjectIDForEdit");
@@ -166,18 +81,38 @@ namespace WebPages.Panels.Admin
                     art.Title = title.Text;
                     art.Content = editor1.Text;
 
-                    string filename = Path.GetFileName(FileUpload1.FileName);
-                    string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
-                    filename = rand + filename;
-                    string ps = Server.MapPath(@"~\img\") + filename;
-                    FileUpload1.SaveAs(ps);
-                    FileStream fStream = File.OpenRead(ps);
-                    byte[] contents = new byte[fStream.Length];
-                    fStream.Read(contents, 0, (int)fStream.Length);
-                    fStream.Close();
-                    FileInfo fi = new FileInfo(ps);
-                    fi.Delete();
-                    art.Image = contents;
+                    if (FileUpload1.HasFile)
+                    {
+                        if (FileUpload1.FileBytes.Length > 1024 * 1024)
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!')", true);
+
+                            return;
+                        }
+                        string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
+                        if ((ext != ".jpg") && (ext != ".png"))
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!')", true);
+
+                            return;
+                        }
+                        string filename = Path.GetFileName(FileUpload1.FileName);
+                        string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
+                        filename = rand + filename;
+                        string ps = Server.MapPath(@"~\img\") + filename;
+                        FileUpload1.SaveAs(ps);
+                        FileStream fStream = File.OpenRead(ps);
+                        byte[] contents = new byte[fStream.Length];
+                        fStream.Read(contents, 0, (int)fStream.Length);
+                        fStream.Close();
+                        FileInfo fi = new FileInfo(ps);
+                        fi.Delete();
+                        art.Image = contents;
+                    }
+
+
+
+
 
                     art.Abstract = Abstract.Text;
                     art.Tags = Tags.Text;
@@ -187,9 +122,10 @@ namespace WebPages.Panels.Admin
                     {
                         bool result = true;
                         ProjectConRepository GRConRepo = new ProjectConRepository();
+                        GRConRepo.DeletProjectConnections(id);
                         List<int> SelectedSubGroupsList = new List<int>();
 
-                        int lastid = ARTRep.GetLastProjectID();
+                        int lastid = id;
                         int count = SelectedSubGroups.Items.Count;
                         if (count > 0)
                         {
@@ -227,8 +163,95 @@ namespace WebPages.Panels.Admin
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
                 }
+
+            }
+
+        }
+
+        protected void DDLGroups2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProjectGroupsRepository repo = new ProjectGroupsRepository();
+            DataTable DT = new DataTable();
+            if (DDLGroups2.SelectedValue != "-2")
+            {
+                DT = repo.LoadSubGroup(DDLGroups2.SelectedValue.ToInt());
+
+                if ((DT.Rows.Count > 0))
+                {
+                    SubGroups2.DataSource = DT;
+                    SubGroups2.DataTextField = "Title";
+                    SubGroups2.DataValueField = "GroupID";
+                    SubGroups2.DataBind();
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    SubGroups2.Items.Clear();
+                    SubGroups2.Items.Insert(0, new ListItem(DDLGroups2.SelectedItem.ToString(), DDLGroups2.SelectedValue.ToString()));
+                    NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
+                    NoItemDiv.Attributes["class"] = "textok";
+                }
+            }
+            else
+            {
+                SubGroups2.Items.Clear();
+                NoItemDiv.InnerText = "";
+            }
+
+        }
+
+        protected void AddToSub2_Click(object sender, EventArgs e)
+        {
+            if (SubGroups2.SelectedIndex != -1)
+            {
+                bool isadd = false;
+                string text = SubGroups2.SelectedItem.Value;
+                for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                {
+                    if (SelectedSubGroups.Items[i].Value == text)
+                    {
+                        isadd = true;
+                    }
+                }
+                if (!isadd)
+                {
+                    SelectedSubGroups.Items.Add(SubGroups2.SelectedItem.Text);
+                    SelectedSubGroups.Items[SelectedSubGroups.Items.Count - 1].Value = SubGroups2.SelectedItem.Value;
+                    btnSave.Enabled = true;
+                    diverror.InnerText = "";
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
+                    NoItemDiv.Attributes["class"] = "error";
+                }
+            }
+            else
+            {
+                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
+                NoItemDiv.Attributes["class"] = "error";
             }
         }
 
+        protected void RemoveFromSub2_Click(object sender, EventArgs e)
+        {
+            if (SelectedSubGroups.SelectedIndex != -1)
+            {
+                SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
+                NoItemDiv.InnerText = "";
+                if (SelectedSubGroups.Items.Count == 0)
+                {
+                    btnSave.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ گروهی انتخاب نشده!')", true);
+                    diverror.InnerText = "هیچ گروهی انتخاب نشده!";
+                }
+            }
+            else
+            {
+                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
+                NoItemDiv.Attributes["class"] = "error";
+            }
+        }
     }
 }

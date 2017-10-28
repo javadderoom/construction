@@ -18,9 +18,17 @@
             </h4>
             <img class="ProfileImg" id="Image1" runat="server" src="../../_construction/images/user128px.png" />
             <h3 runat="server" id="hFullName"></h3>
-            <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
-                                        <span class="fa fa-edit"></span>
-            </a>
+            <%--<a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
+            <span class="fa fa-edit"></span>
+            </a>--%>
+            <div class="imgUpload">
+                <label class="btn btn-info" style="width: 133px;">
+                    <asp:Literal runat="server" Text="تغییر عکس پروفایل" />
+
+                    <asp:FileUpload ID="fileImage" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
+                </label>
+                <label style="padding: 18px" id="imageName"></label>
+            </div>
             <br />
         </div>
         <div class="col-md-8 col-sm-12 col-xs-12 x_panel">
@@ -47,22 +55,20 @@
                             <input id="lblpassword" class="dirToLeft" runat="server" disabled type="text" />
                         </div>
                     </div>
-                    <div class="infoInnerContent">
-                        <div class="formGroup">
-                            <label>بروز رسانی عکس </label>
-                            <asp:FileUpload ID="fileImage" runat="server" />
-                        </div>
-                    </div>
+
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>ارسال رزومه </label>
-                            <asp:FileUpload ID="fileResume" runat="server" />
+                            <label class="btn btn-info" style="width: 100px;">
+                                <asp:Literal runat="server" Text="انتخاب فایل" />
+
+                                <asp:FileUpload ID="fileResume" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
+                            </label>
+                            <label style="padding: 18px" id="filename"></label>
                         </div>
                     </div>
-                    <div>
-                        <asp:Button ID="btnEdit" runat="server" Text="ویرایش" OnClick="btnEdit_Click" />
-                    </div>
-                    <asp:Label ID="lblWarning" runat="server" Text="Label"></asp:Label>
+
+                    <asp:Label ID="lblWarning" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="peronalInfo col-md-6">
                     <div class="infoTitle">
@@ -103,6 +109,11 @@
                         <div class="formGroup">
                             <label>آدرس </label>
                             <input id="lbladdress" runat="server" disabled type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <asp:Button ID="btnEdit" CssClass="btnLogin" runat="server" Text="ثبت تغییرات" OnClick="btnEdit_Click" />
                         </div>
                     </div>
                 </div>

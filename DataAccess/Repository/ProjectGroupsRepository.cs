@@ -56,6 +56,28 @@ namespace DataAccess.Repository
             }
         }
 
+        public DataTable FindSubGroupsOfAProject(int artID)
+        {
+            List<ProjectGroup> ans = new List<ProjectGroup>();
+
+            List<int?> conIDes = (from r in DB.ProjectConnections
+                                  where r.ProjectID == artID
+                                  select r.GroupID).ToList();
+            foreach (int groupId in conIDes)
+            {
+                ProjectGroup temp = null;
+                temp = (from r in DB.ProjectGroups
+                        where r.GroupID == groupId
+                        select r).FirstOrDefault();
+                if (temp != null)
+                {
+                    ans.Add(temp);
+                }
+            }
+
+            return OnlineTools.ToDataTable(ans);
+        }
+
         public List<string> getListOfTitlesOfGroups()
         {
             List<string> result = new List<string>();
@@ -71,8 +93,6 @@ namespace DataAccess.Repository
             return result;
         }
 
-
-
         public DataTable LoadAllSubGroups()
         {
             return OnlineTools.ToDataTable((from r in DB.ProjectGroups
@@ -80,10 +100,12 @@ namespace DataAccess.Repository
                                             select r
                            ).ToList());
         }
+
         public ProjectGroup FindGroup(int id)
         {
             return DB.ProjectGroups.Where(p => p.GroupID == id).FirstOrDefault();
         }
+
         public bool Savegp(ProjectGroup group)
         {
             try
@@ -105,12 +127,10 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
-
                 return false;
             }
-
-
         }
+
         public bool DelGruop(int id)
         {
             bool ans = false;
@@ -119,7 +139,6 @@ namespace DataAccess.Repository
                 DB.ProjectGroups.Remove(DB.ProjectGroups.Where(p => p.GroupID == id).FirstOrDefault());
                 DB.SaveChanges();
                 ans = true;
-
             }
             catch (System.Exception e)
             {
@@ -128,6 +147,7 @@ namespace DataAccess.Repository
             }
             return ans;
         }
+
         public bool DelSubGruop(int id)
         {
             bool ans = false;
@@ -139,11 +159,11 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
-
                 ans = false;
             }
             return ans;
         }
+
         public bool DelSubGruop(List<int> ids)
         {
             bool ans = false;
@@ -162,11 +182,9 @@ namespace DataAccess.Repository
                 }
 
                 ans = true;
-
             }
             catch (System.Exception e)
             {
-
                 string t = e.Message;
                 ans = false;
             }

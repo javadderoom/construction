@@ -11,7 +11,7 @@
     <div id="container">
         <div class="InnerContainer">
             <div>
-                <h2>مدیریت پست ها : </h2>
+                <h2>مدیریت پروژه ها : </h2>
                 <div class="filters">
                     <label class="filtersLable" for="ddlGroups">فیلتر ها : </label>
                     <div id="divDDL" class="ddlContainer">
@@ -29,25 +29,19 @@
                                     <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>
-
-
                         </div>
                     </div>
                     <asp:UpdatePanel ID="updatepanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div runat="server" id="diverror">
                             </div>
-
-
                         </ContentTemplate>
                         <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
                             <asp:AsyncPostBackTrigger ControlID="ddlSubGroups" EventName="SelectedIndexChanged" />
                             <asp:AsyncPostBackTrigger ControlID="gvPosts" EventName="RowCommand" />
-
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
                 <asp:UpdatePanel ID="updatepanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                     <ContentTemplate>
@@ -75,8 +69,6 @@
                                                 CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                                 Text="ویرایش" />
 
-
-
                                             <asp:Button OnClientClick="if(!confirm('ایا برای حذف مطمئن هستید؟')) return false;" ID="Delet" runat="server"
                                                 CommandName="Delet"
                                                 CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
@@ -102,7 +94,6 @@
                         <asp:AsyncPostBackTrigger ControlID="gvPosts" EventName="RowCommand" />
                     </Triggers>
                 </asp:UpdatePanel>
-
             </div>
         </div>
     </div>

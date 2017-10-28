@@ -15,17 +15,15 @@ namespace WebPages.Panels.Admin
     {
         protected void group()
         {
-
             diverror.InnerHtml = "";
             if (ddlGroups.SelectedValue != "-2")
             {
-                GroupsRepository Groupsrepo = new GroupsRepository();
+                ProjectGroupsRepository Groupsrepo = new ProjectGroupsRepository();
                 DataTable DT = new DataTable();
                 DT = Groupsrepo.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
 
                 if ((DT.Rows.Count > 0))
                 {
-
                     ddlSubGroups.Enabled = true;
 
                     ddlSubGroups.DataSource = DT;
@@ -33,20 +31,17 @@ namespace WebPages.Panels.Admin
                     ddlSubGroups.DataValueField = "GroupID";
                     ddlSubGroups.DataBind();
                     ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-
                 }
                 else
                 {
-
                     ddlSubGroups.Enabled = false;
                     ddlSubGroups.Items.Clear();
                     ddlSubGroups.Items.Insert(0, new ListItem("گروه : " + ddlGroups.SelectedItem.ToString(), ddlGroups.SelectedValue.ToString()));
-
                 }
                 //load posts
                 List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                ArticleRepository artrep = new ArticleRepository();
-                List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
+                AdminsProjectsRepository artrep = new AdminsProjectsRepository();
+                List<AdminsProject> articles = artrep.ReturnProjectsByCategory(subgroupsid);
                 if (articles.Count != 0)
                 {
                     gvPosts.DataSource = null;
@@ -64,16 +59,15 @@ namespace WebPages.Panels.Admin
             }
             else
             {
-                ArticleRepository artRep = new ArticleRepository();
+                AdminsProjectsRepository artRep = new AdminsProjectsRepository();
                 DataTable DT = new DataTable();
-                DT = OnlineTools.ToDataTable(artRep.AllArticles());
+                DT = OnlineTools.ToDataTable(artRep.AllProjects());
                 if (DT.Rows.Count != 0)
                 {
                     gvPosts.DataSource = DT;
                     gvPosts.DataBind();
                     ddlSubGroups.SelectedIndex = 0;
                     ddlSubGroups.Enabled = false;
-
                 }
                 else
                 {
@@ -81,25 +75,18 @@ namespace WebPages.Panels.Admin
                     gvPosts.DataSource = null;
                     gvPosts.DataBind();
                 }
-
-
             }
         }
 
-
-
-
         protected void subgroup()
         {
-
             diverror.InnerHtml = "";
             if (ddlSubGroups.SelectedValue != "-2")
             {
-                ArticleRepository artrep = new ArticleRepository();
-                List<Article> articles = artrep.ReturnArticlesByCategory(ddlSubGroups.SelectedValue.ToInt());
+                AdminsProjectsRepository artrep = new AdminsProjectsRepository();
+                List<AdminsProject> articles = artrep.ReturnProjectsByCategory(ddlSubGroups.SelectedValue.ToInt());
                 if (articles.Count != 0)
                 {
-
                     gvPosts.DataSource = null;
                     gvPosts.DataBind();
                     gvPosts.DataSource = OnlineTools.ToDataTable(articles);
@@ -116,13 +103,12 @@ namespace WebPages.Panels.Admin
             {
                 if (ddlGroups.SelectedValue != "-2")
                 {
-                    GroupsRepository Groupsrepo = new GroupsRepository();
+                    ProjectGroupsRepository Groupsrepo = new ProjectGroupsRepository();
                     List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                    ArticleRepository artrep = new ArticleRepository();
-                    List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
+                    AdminsProjectsRepository artrep = new AdminsProjectsRepository();
+                    List<AdminsProject> articles = artrep.ReturnProjectsByCategory(subgroupsid);
                     if (articles.Count != 0)
                     {
-
                         gvPosts.DataSource = null;
                         gvPosts.DataSource = OnlineTools.ToDataTable(articles);
                         gvPosts.DataBind();
@@ -138,23 +124,20 @@ namespace WebPages.Panels.Admin
                 {
                     group();
                 }
-
             }
         }
-
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             { //load grid
-                ArticleRepository artRep = new ArticleRepository();
-                gvPosts.DataSource = artRep.AllArticles();
+                AdminsProjectsRepository artRep = new AdminsProjectsRepository();
+                gvPosts.DataSource = artRep.AllProjects();
                 gvPosts.DataBind();
                 //load ddls
                 ddlSubGroups.Enabled = false;
 
-                GroupsRepository repo = new GroupsRepository();
+                ProjectGroupsRepository repo = new ProjectGroupsRepository();
                 ddlGroups.DataSource = repo.LoadAllGroups();
                 ddlGroups.DataTextField = "Title";
                 ddlGroups.DataValueField = "GroupID";
@@ -162,8 +145,6 @@ namespace WebPages.Panels.Admin
                 ddlGroups.Items.Insert(0, new ListItem("همه گروه ها", "-2"));
                 ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
             }
-
-
         }
 
         protected void gvPosts_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -179,13 +160,10 @@ namespace WebPages.Panels.Admin
                 // Retrieve the row that contains the button
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
-                Session.Add("PostIDForEdit", row.Cells[0].Text);
+                Session.Add("ProjectIDForEdit", row.Cells[0].Text);
                 Session.Timeout = 1;
 
-
-
-
-                Response.Redirect("~/ویرایش-وبلاگ");
+                Response.Redirect("");//edit
             }
             if (e.CommandName == "Show")
             {
@@ -199,7 +177,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect("~/وبلاگ-ها" + id);
+                Response.Redirect("");//show
             }
             if (e.CommandName == "Delet")
             {
@@ -211,42 +189,28 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
                 int id = row.Cells[0].Text.ToInt();
-                ArticleRepository repart = new ArticleRepository();
-                GroupsConRepository repgpCon = new GroupsConRepository();
-                if (repgpCon.DeletArticleConnections(id) && repart.DeletArticleByID(id))
+                AdminsProjectsRepository repart = new AdminsProjectsRepository();
+                ProjectConRepository repgpCon = new ProjectConRepository();
+                if (repgpCon.DeletProjectConnections(id) && repart.DeletProjectByID(id))
                 {
                     subgroup();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
-
-
-
-
-
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-
                 }
-
-
-
-
-
             }
-
         }
 
         protected void ddlSubGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             subgroup();
-
         }
 
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             group();
-
         }
     }
 }

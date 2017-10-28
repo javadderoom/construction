@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="Blogs.aspx.cs" Inherits="WebPages._construction.Blogs" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="WebPages._construction.Projects" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,7 @@
     <link href="../_Styles/Blogs.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
     <section id="pageCover" class="row blogPage">
 
         <div class="row pageTitle">مقاله ها</div>
@@ -27,23 +27,22 @@
                 <div id="divDDL" class="ddlContainer">
                     <div>
                         <label for="ddlGroups">گروه اصلی : </label>
-                        <asp:DropDownList ID="ddlGroups" class="DDLClass" AutoPostBack="true" OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged" runat="server"></asp:DropDownList>
+                        <asp:dropdownlist id="ddlGroups" class="DDLClass" autopostback="true" onselectedindexchanged="ddlGroups_SelectedIndexChanged" runat="server"></asp:dropdownlist>
                     </div>
                     <div>
-                        <label>زیر گروه : </label>
-                        <asp:UpdatePanel ID="updatepanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+                        <asp:updatepanel id="updatepanel1" runat="server" childrenastriggers="true" updatemode="Conditional">
                             <ContentTemplate>
                                 <asp:DropDownList ID="ddlSubGroups" OnSelectedIndexChanged="ddlSubGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
                             </ContentTemplate>
                             <Triggers>
                                 <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
                             </Triggers>
-                        </asp:UpdatePanel>
+                        </asp:updatepanel>
                     </div>
                 </div>
             </div>
 
-            <asp:UpdatePanel ID="updatepanel5" ChildrenAsTriggers="false" UpdateMode="Conditional" runat="server">
+            <asp:updatepanel id="updatepanel5" childrenastriggers="false" updatemode="Conditional" runat="server">
                 <ContentTemplate>
                     <div class="row" id="easyPaginate">
                         <ul runat="server" id="UlArticles">
@@ -54,7 +53,7 @@
                     <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
                     <asp:AsyncPostBackTrigger ControlID="ddlSubGroups" EventName="SelectedIndexChanged" />
                 </Triggers>
-            </asp:UpdatePanel>
+            </asp:updatepanel>
         </div>
     </section>
 </asp:Content>

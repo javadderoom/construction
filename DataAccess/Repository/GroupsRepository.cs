@@ -69,7 +69,7 @@ namespace DataAccess.Repository
             return result;
         }
 
-        public DataTable FindTitelesOfaArticle(int artID)
+        public DataTable FindSubGroupsOfAnArticle(int artID)
         {
             List<Group> ans = new List<Group>();
 
@@ -98,10 +98,12 @@ namespace DataAccess.Repository
                                             select r
                            ).ToList());
         }
+
         public Group FindGroup(int id)
         {
             return DB.Groups.Where(p => p.GroupID == id).FirstOrDefault();
         }
+
         public bool Savegp(Group group)
         {
             try
@@ -123,12 +125,10 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
-
                 return false;
             }
-
-
         }
+
         public bool DelGruop(int id)
         {
             bool ans = false;
@@ -137,7 +137,6 @@ namespace DataAccess.Repository
                 DB.Groups.Remove(DB.Groups.Where(p => p.GroupID == id).FirstOrDefault());
                 DB.SaveChanges();
                 ans = true;
-
             }
             catch (System.Exception e)
             {
@@ -146,6 +145,7 @@ namespace DataAccess.Repository
             }
             return ans;
         }
+
         public bool DelSubGruop(int id)
         {
             bool ans = false;
@@ -157,11 +157,11 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
-
                 ans = false;
             }
             return ans;
         }
+
         public bool DelSubGruop(List<int> ids)
         {
             bool ans = false;
@@ -180,11 +180,9 @@ namespace DataAccess.Repository
                 }
 
                 ans = true;
-
             }
             catch (System.Exception e)
             {
-
                 string t = e.Message;
                 ans = false;
             }

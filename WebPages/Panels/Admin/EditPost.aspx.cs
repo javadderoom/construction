@@ -14,15 +14,12 @@ namespace WebPages.Panels.Admin
 {
     public partial class EditPost : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (Session["PostIDForEdit"] != null)
                 {
-
                     int id = Session["PostIDForEdit"].ToString().ToInt();
                     Session.Add("newPostIDForEdit", id);
                     Session.Remove("PostIDForEdit");
@@ -34,7 +31,7 @@ namespace WebPages.Panels.Admin
                     editor1.Text = art.Content;
                     KeyWords.Text = art.KeyWords;
                     Tags.Text = art.Tags;
-                    SelectedSubGroups.DataSource = repo.FindTitelesOfaArticle(id);
+                    SelectedSubGroups.DataSource = repo.FindSubGroupsOfAnArticle(id);
                     SelectedSubGroups.DataTextField = "Title";
                     SelectedSubGroups.DataValueField = "GroupID";
                     SelectedSubGroups.DataBind();
@@ -46,8 +43,6 @@ namespace WebPages.Panels.Admin
                         }
                     }
 
-
-
                     DDLGroups.DataSource = repo.LoadAllGroups();
                     DDLGroups.DataTextField = "Title";
                     DDLGroups.DataValueField = "GroupID";
@@ -58,9 +53,7 @@ namespace WebPages.Panels.Admin
                 {
                     Response.Redirect("مدیریت-وبلاگ-ها");
                 }
-
             }
-
         }
 
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,7 +124,6 @@ namespace WebPages.Panels.Admin
                     btnSave.Enabled = false;
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ گروهی انتخاب نشده!')", true);
                     diverror.InnerText = "هیچ گروهی انتخاب نشده!";
-
                 }
             }
             else
@@ -155,7 +147,6 @@ namespace WebPages.Panels.Admin
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!')", true);
 
-
                         return;
                     }
                     string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
@@ -163,10 +154,8 @@ namespace WebPages.Panels.Admin
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!')", true);
 
-
                         return;
                     }
-
 
                     int id = Session["newPostIDForEdit"].ToString().ToInt();
                     Session.Remove("newPostIDForEdit");
@@ -176,7 +165,6 @@ namespace WebPages.Panels.Admin
 
                     art.Title = title.Text;
                     art.Content = editor1.Text;
-
 
                     string filename = Path.GetFileName(FileUpload1.FileName);
                     string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
@@ -190,8 +178,6 @@ namespace WebPages.Panels.Admin
                     FileInfo fi = new FileInfo(ps);
                     fi.Delete();
                     art.Image = contents;
-
-
 
                     art.Abstract = Abstract.Text;
                     art.Visits = 0;
@@ -226,7 +212,6 @@ namespace WebPages.Panels.Admin
                         else
                         {
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ زیر گروهی انتخاب نشده است!')", true);
-
                         }
 
                         if (!result)
@@ -236,7 +221,6 @@ namespace WebPages.Panels.Admin
                         else
                         {
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='مدیریت-وبلاگ-ها'", true);
-
                         }
                     }
                     else
@@ -247,7 +231,6 @@ namespace WebPages.Panels.Admin
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
-
                 }
             }
         }

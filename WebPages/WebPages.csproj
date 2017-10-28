@@ -998,6 +998,8 @@
     <Content Include="_construction\images\user64pxHover.png" />
     <Content Include="_construction\images\userLogIn.png" />
     <Content Include="_construction\index.aspx" />
+    <Content Include="_construction\Projects.aspx" />
+    <Content Include="_construction\ShowProject.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
@@ -1458,6 +1460,20 @@
     </Compile>
     <Compile Include="_construction\IndexMaster.Master.designer.cs">
       <DependentUpon>IndexMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_construction\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\ShowProject.aspx.cs">
+      <DependentUpon>ShowProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_construction\ShowProject.aspx.designer.cs">
+      <DependentUpon>ShowProject.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

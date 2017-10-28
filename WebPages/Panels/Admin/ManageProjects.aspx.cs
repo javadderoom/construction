@@ -40,8 +40,8 @@ namespace WebPages.Panels.Admin
                 }
                 //load posts
                 List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                AdminsProjectsRepository artrep = new AdminsProjectsRepository();
-                List<AdminsProject> articles = artrep.ReturnProjectsByCategory(subgroupsid);
+                ProjectsRepository artrep = new ProjectsRepository();
+                List<Project> articles = artrep.ReturnProjectsByCategory(subgroupsid);
                 if (articles.Count != 0)
                 {
                     gvPosts.DataSource = null;
@@ -59,7 +59,7 @@ namespace WebPages.Panels.Admin
             }
             else
             {
-                AdminsProjectsRepository artRep = new AdminsProjectsRepository();
+                ProjectsRepository artRep = new ProjectsRepository();
                 DataTable DT = new DataTable();
                 DT = OnlineTools.ToDataTable(artRep.AllProjects());
                 if (DT.Rows.Count != 0)
@@ -83,8 +83,8 @@ namespace WebPages.Panels.Admin
             diverror.InnerHtml = "";
             if (ddlSubGroups.SelectedValue != "-2")
             {
-                AdminsProjectsRepository artrep = new AdminsProjectsRepository();
-                List<AdminsProject> articles = artrep.ReturnProjectsByCategory(ddlSubGroups.SelectedValue.ToInt());
+                ProjectsRepository artrep = new ProjectsRepository();
+                List<Project> articles = artrep.ReturnProjectsByCategory(ddlSubGroups.SelectedValue.ToInt());
                 if (articles.Count != 0)
                 {
                     gvPosts.DataSource = null;
@@ -105,8 +105,8 @@ namespace WebPages.Panels.Admin
                 {
                     ProjectGroupsRepository Groupsrepo = new ProjectGroupsRepository();
                     List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                    AdminsProjectsRepository artrep = new AdminsProjectsRepository();
-                    List<AdminsProject> articles = artrep.ReturnProjectsByCategory(subgroupsid);
+                    ProjectsRepository artrep = new ProjectsRepository();
+                    List<Project> articles = artrep.ReturnProjectsByCategory(subgroupsid);
                     if (articles.Count != 0)
                     {
                         gvPosts.DataSource = null;
@@ -131,7 +131,7 @@ namespace WebPages.Panels.Admin
         {
             if (!IsPostBack)
             { //load grid
-                AdminsProjectsRepository artRep = new AdminsProjectsRepository();
+                ProjectsRepository artRep = new ProjectsRepository();
                 gvPosts.DataSource = artRep.AllProjects();
                 gvPosts.DataBind();
                 //load ddls
@@ -163,7 +163,7 @@ namespace WebPages.Panels.Admin
                 Session.Add("ProjectIDForEdit", row.Cells[0].Text);
                 Session.Timeout = 1;
 
-                Response.Redirect("");//edit
+                Response.Redirect("http://localhost:6421/Panels/Admin/EditProject.aspx");//edit
             }
             if (e.CommandName == "Show")
             {
@@ -189,7 +189,7 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
                 int id = row.Cells[0].Text.ToInt();
-                AdminsProjectsRepository repart = new AdminsProjectsRepository();
+                ProjectsRepository repart = new ProjectsRepository();
                 ProjectConRepository repgpCon = new ProjectConRepository();
                 if (repgpCon.DeletProjectConnections(id) && repart.DeletProjectByID(id))
                 {

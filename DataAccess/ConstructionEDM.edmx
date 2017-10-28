@@ -13,19 +13,6 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="AdminsProject">
-          <Key>
-            <PropertyRef Name="ProjectID" />
-          </Key>
-          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar(max)" />
-          <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="Image" Type="varbinary(max)" />
-          <Property Name="Abstract" Type="nvarchar(max)" />
-          <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
-          <Property Name="Tags" Type="nvarchar(max)" />
-          <Property Name="KeyWords" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="Articles">
           <Key>
             <PropertyRef Name="ArticleID" />
@@ -190,20 +177,13 @@
             <PropertyRef Name="ProjectID" />
           </Key>
           <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="StartDate" Type="nvarchar" MaxLength="10" />
-          <Property Name="SuggestedDeadLine" Type="nvarchar" MaxLength="10" />
-          <Property Name="DeadLIne" Type="nvarchar" MaxLength="10" />
-          <Property Name="OrderID" Type="int" />
-          <Property Name="Abstract" Type="nvarchar" MaxLength="300" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
-          <Property Name="State" Type="nvarchar" MaxLength="50" />
-          <Property Name="City" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar(max)" />
-          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Abstract" Type="nvarchar(max)" />
+          <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Tags" Type="nvarchar(max)" />
-          <Property Name="KeyWords" Type="nvarchar" MaxLength="150" />
+          <Property Name="KeyWords" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -358,7 +338,6 @@
         </Association>
         <EntityContainer Name="ConstructionCompanyModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AdminsProject" EntityType="Self.AdminsProject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chats" EntityType="Self.Chats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
@@ -423,7 +402,6 @@
       <Schema Namespace="ConstructionCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ConstructionCompanyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="ConstructionCompanyModel.Admin" />
-          <EntitySet Name="AdminsProjects" EntityType="ConstructionCompanyModel.AdminsProject" />
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
@@ -489,19 +467,6 @@
           <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="AdminsProject">
-          <Key>
-            <PropertyRef Name="ProjectID" />
-          </Key>
-          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -679,20 +644,13 @@
             <PropertyRef Name="ProjectID" />
           </Key>
           <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StartDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SuggestedDeadLine" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="DeadLIne" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="OrderID" Type="Int32" />
-          <Property Name="Abstract" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KeyWords" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -863,20 +821,6 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AdminID" ColumnName="AdminID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AdminsProjects">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.AdminsProject">
-              <MappingFragment StoreEntitySet="AdminsProject">
-                <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
-                <ScalarProperty Name="Tags" ColumnName="Tags" />
-                <ScalarProperty Name="PostDateTime" ColumnName="PostDateTime" />
-                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1060,18 +1004,11 @@
               <MappingFragment StoreEntitySet="Projects">
                 <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
                 <ScalarProperty Name="Tags" ColumnName="Tags" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostDateTime" ColumnName="PostDateTime" />
                 <ScalarProperty Name="Abstract" ColumnName="Abstract" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="DeadLIne" ColumnName="DeadLIne" />
-                <ScalarProperty Name="SuggestedDeadLine" ColumnName="SuggestedDeadLine" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
               </MappingFragment>
             </EntityTypeMapping>

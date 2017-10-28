@@ -23,9 +23,9 @@ namespace WebPages.Panels.Admin
                     int id = Session["ProjectIDForEdit"].ToString().ToInt();
                     Session.Add("newProjectIDForEdit", id);
                     Session.Remove("ProjectIDForEdit");
-                    AdminsProjectsRepository repArt = new AdminsProjectsRepository();
+                    ProjectsRepository repArt = new ProjectsRepository();
                     ProjectGroupsRepository repo = new ProjectGroupsRepository();
-                    AdminsProject art = repArt.FindeProjectByID(id);
+                    Project art = repArt.FindeProjectByID(id);
                     title.Text = art.Title;
                     Abstract.Text = art.Abstract;
                     editor1.Text = art.Content;
@@ -159,9 +159,9 @@ namespace WebPages.Panels.Admin
 
                     int id = Session["newProjectIDForEdit"].ToString().ToInt();
                     Session.Remove("newProjectIDForEdit");
-                    AdminsProjectsRepository repArt = new AdminsProjectsRepository();
+                    ProjectsRepository repArt = new ProjectsRepository();
                     ProjectGroupsRepository repo = new ProjectGroupsRepository();
-                    AdminsProject art = repArt.FindeProjectByID(id);
+                    Project art = repArt.FindeProjectByID(id);
 
                     art.Title = title.Text;
                     art.Content = editor1.Text;
@@ -182,7 +182,7 @@ namespace WebPages.Panels.Admin
                     art.Abstract = Abstract.Text;
                     art.Tags = Tags.Text;
                     art.KeyWords = KeyWords.Text;
-                    AdminsProjectsRepository ARTRep = new AdminsProjectsRepository();
+                    ProjectsRepository ARTRep = new ProjectsRepository();
                     if (ARTRep.SaveProject(art))
                     {
                         bool result = true;

@@ -140,7 +140,7 @@ namespace WebPages.Panels.Admin
                 }
 
 
-                AdminsProject ART = new AdminsProject();
+                Project ART = new Project();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
 
@@ -165,7 +165,7 @@ namespace WebPages.Panels.Admin
 
                 ART.Tags = Tags.Text;
                 ART.KeyWords = KeyWords.Text;
-                AdminsProjectsRepository ARTRep = new AdminsProjectsRepository();
+                ProjectsRepository ARTRep = new ProjectsRepository();
                 if (ARTRep.SaveProject(ART))
                 {
                     bool result = true;

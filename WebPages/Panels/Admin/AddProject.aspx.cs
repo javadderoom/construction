@@ -33,26 +33,33 @@ namespace WebPages.Panels.Admin
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             ProjectGroupsRepository repo = new ProjectGroupsRepository();
-            DataTable DT = new DataTable();
-            DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
-
-            if ((DT.Rows.Count > 0))
+            if (DDLGroups.SelectedValue != "-2")
             {
-                SubGroups.DataSource = DT;
-                SubGroups.DataTextField = "Title";
-                SubGroups.DataValueField = "GroupID";
-                SubGroups.DataBind();
-                NoItemDiv.InnerText = "";
+                DataTable DT = new DataTable();
+                DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
+
+                if ((DT.Rows.Count > 0))
+                {
+                    SubGroups.DataSource = DT;
+                    SubGroups.DataTextField = "Title";
+                    SubGroups.DataValueField = "GroupID";
+                    SubGroups.DataBind();
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    SubGroups.Items.Clear();
+                    SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
+                    NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
+                    NoItemDiv.Attributes["class"] = "textok";
+                }
+
             }
             else
             {
                 SubGroups.Items.Clear();
-                SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
-                NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
-                NoItemDiv.Attributes["class"] = "textok";
+                NoItemDiv.InnerText = "";
             }
-
-
 
 
         }
@@ -140,7 +147,7 @@ namespace WebPages.Panels.Admin
                 }
 
 
-                AdminsProject ART = new AdminsProject();
+                Project ART = new Project();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
 
@@ -165,7 +172,7 @@ namespace WebPages.Panels.Admin
 
                 ART.Tags = Tags.Text;
                 ART.KeyWords = KeyWords.Text;
-                AdminsProjectsRepository ARTRep = new AdminsProjectsRepository();
+                ProjectsRepository ARTRep = new ProjectsRepository();
                 if (ARTRep.SaveProject(ART))
                 {
                     bool result = true;

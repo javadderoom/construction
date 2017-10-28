@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class AdminsProjectsRepository
+    public class ProjectsRepository
     {
         private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
-        public bool SaveProject(AdminsProject Project)
+        public bool SaveProject(Project Project)
         {
             try
             {
                 if (Project.ProjectID > 0)
                 {
                     //==== UPDATE ====
-                    DB.AdminsProjects.Attach(Project);
+                    DB.Projects.Attach(Project);
                     DB.Entry(Project).State = EntityState.Modified;
                 }
                 else
                 {
                     //==== INSERT ====
-                    DB.AdminsProjects.Add(Project);
+                    DB.Projects.Add(Project);
                 }
 
                 DB.SaveChanges();
@@ -43,41 +43,41 @@ namespace DataAccess.Repository
 
             int result = 0;
 
-            result = (from r in DB.AdminsProjects
+            result = (from r in DB.Projects
                       orderby r.ProjectID descending
                       select r.ProjectID).FirstOrDefault();
 
             return result;
 
         }
-        public AdminsProject FindeProjectByID(int id)
+        public Project FindeProjectByID(int id)
         {
-            return DB.AdminsProjects.Where(p => p.ProjectID == id).FirstOrDefault();
+            return DB.Projects.Where(p => p.ProjectID == id).FirstOrDefault();
         }
-        public List<AdminsProject> LatestProjects()
+        public List<Project> LatestProjects()
         {
-            List<AdminsProject> list = (from r in DB.AdminsProjects
-                                        orderby r.ProjectID descending
-                                        select r).Take(5).ToList();
+            List<Project> list = (from r in DB.Projects
+                                  orderby r.ProjectID descending
+                                  select r).Take(5).ToList();
             return list;
         }
-        public List<AdminsProject> Top3tProjects()
+        public List<Project> Top3tProjects()
         {
-            List<AdminsProject> list = (from r in DB.AdminsProjects
-                                        orderby r.ProjectID descending
-                                        select r).Take(3).ToList();
+            List<Project> list = (from r in DB.Projects
+                                  orderby r.ProjectID descending
+                                  select r).Take(3).ToList();
             return list;
         }
-        public List<AdminsProject> AllProjects()
+        public List<Project> AllProjects()
         {
-            List<AdminsProject> list = (from r in DB.AdminsProjects
-                                        orderby r.ProjectID descending
-                                        select r).ToList();
+            List<Project> list = (from r in DB.Projects
+                                  orderby r.ProjectID descending
+                                  select r).ToList();
             return list;
         }
-        public List<AdminsProject> ReturnProjectsByCategory(List<int> IDes)
+        public List<Project> ReturnProjectsByCategory(List<int> IDes)
         {
-            List<AdminsProject> list = new List<AdminsProject>();
+            List<Project> list = new List<Project>();
             List<int> artides = new List<int>();
             foreach (int Id in IDes)
             {
@@ -102,9 +102,9 @@ namespace DataAccess.Repository
 
             return list;
         }
-        public List<AdminsProject> ReturnProjectsByCategory(int Subgruopid)
+        public List<Project> ReturnProjectsByCategory(int Subgruopid)
         {
-            List<AdminsProject> list = new List<AdminsProject>();
+            List<Project> list = new List<Project>();
             List<int> artides = new List<int>();
 
             List<int?> temp = new List<int?>();
@@ -125,12 +125,12 @@ namespace DataAccess.Repository
             bool ans = true;
             try
             {
-                AdminsProject selectedArt = new AdminsProject();
-                selectedArt = DB.AdminsProjects.Where(p => p.ProjectID == id).Single();
+                Project selectedArt = new Project();
+                selectedArt = DB.Projects.Where(p => p.ProjectID == id).Single();
 
                 if (selectedArt != null)
                 {
-                    DB.AdminsProjects.Remove(selectedArt);
+                    DB.Projects.Remove(selectedArt);
                     DB.SaveChanges();
                 }
                 else { ans = false; }

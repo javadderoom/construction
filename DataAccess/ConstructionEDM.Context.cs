@@ -26,7 +26,6 @@ namespace DataAccess
         }
     
         public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<AdminsProject> AdminsProjects { get; set; }
         public virtual DbSet<Article> Articles { get; set; }
         public virtual DbSet<Chat> Chats { get; set; }
         public virtual DbSet<City> Cities { get; set; }

@@ -9,21 +9,22 @@
         <EntityTypeShape EntityType="ConstructionCompanyModel.Article" Width="1.5" PointX="10.75" PointY="4.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Chat" Width="1.5" PointX="7.75" PointY="1.5" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.City" Width="1.5" PointX="3" PointY="6.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Employee" Width="1.5" PointX="5.25" PointY="5.875" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.GroupConnection" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Group" Width="1.5" PointX="5.75" PointY="10.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Image" Width="1.5" PointX="7.75" PointY="10.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.JobEmployee" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.ContactWay" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Employee" Width="1.5" PointX="5.25" PointY="0.875" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.GroupConnection" Width="1.5" PointX="5.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Group" Width="1.5" PointX="7.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Image" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.JobEmployee" Width="1.5" PointX="9.75" PointY="11.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.JobGroup" Width="1.5" PointX="0.75" PointY="11" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Job" Width="1.5" PointX="3" PointY="10.875" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Link" Width="1.5" PointX="9.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Link" Width="1.5" PointX="11.75" PointY="11.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Message" Width="1.5" PointX="10" PointY="1" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Order" Width="1.5" PointX="5.25" PointY="1.125" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Project" Width="1.5" PointX="11.75" PointY="11.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Satisfaction" Width="1.5" PointX="12.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Slider" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Order" Width="1.5" PointX="8.25" PointY="6.125" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Project" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Satisfaction" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Slider" Width="1.5" PointX="12.75" PointY="8.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.State" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.User" Width="1.5" PointX="8.25" PointY="6" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.User" Width="1.5" PointX="5.25" PointY="6" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Messages_Chats" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Cities_States" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Employees_Cities" />

@@ -18,9 +18,7 @@
             </h4>
             <img class="ProfileImg" id="Image1" runat="server" src="../../_construction/images/user128px.png" />
             <h3 runat="server" id="hFullName"></h3>
-            <%--<a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
-            <span class="fa fa-edit"></span>
-            </a>--%>
+
             <div class="imgUpload">
                 <label class="btn btn-info" style="width: 133px;">
                     <asp:Literal runat="server" Text="تغییر عکس پروفایل" />
@@ -53,7 +51,7 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>رمز عبور </label>
-                            <input id="lblpassword" class="dirToLeft" runat="server" type="text" />
+                            <input id="lblpassword" class="dirToLeft" runat="server" type="password" />
                         </div>
                     </div>
 
@@ -107,15 +105,33 @@
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
-                            <label>استان و شهر </label>
-                            <input id="lblcitystate" runat="server" type="text" />
+                            <%-- <label>استان و شهر </label>--%>
+                            <div class="dropDiv">
+                                <div class="divState">
+                                    <label>استان</label>
+                                    <asp:DropDownList ID="ddlState" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                </div>
+                                <br />
+                                <div class="divState">
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <label>شهر</label>
+                                            <asp:DropDownList ID="ddlCity" CssClass="ddl" runat="server"></asp:DropDownList>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="infoInnerContent">
 
                         <div class="formGroup">
                             <label>آدرس </label>
-                            <input id="lbladdress" runat="server" type="text" />
+                            <textarea cols="2" id="lbladdress" runat="server"></textarea>
                         </div>
                     </div>
                     <div class="infoInnerContent">

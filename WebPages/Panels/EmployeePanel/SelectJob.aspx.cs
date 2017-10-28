@@ -12,16 +12,16 @@ namespace WebPages.Panels.EmployeePanel
 {
     public partial class SelectJob : System.Web.UI.Page
     {
-        int empid = 2;
+        private int empid = 2;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            empid = Session["employeeid"].ToString().ToInt();
+            //empid = Session["employeeid"].ToString().ToInt();
             if (!IsPostBack)
             {
                 fillDDL();
                 fillListBox();
             }
-
         }
 
         private void fillListBox()
@@ -81,8 +81,6 @@ namespace WebPages.Panels.EmployeePanel
                     NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
                     NoItemDiv.Attributes["class"] = "error";
                 }
-
-
             }
             else
             {
@@ -98,7 +96,6 @@ namespace WebPages.Panels.EmployeePanel
                 EmployeeJobRepository ej = new EmployeeJobRepository();
                 ej.DeleteByEmpid_Jobid(empid, SelectedSubGroups.SelectedItem.Value.ToInt());
                 SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
-
             }
         }
     }

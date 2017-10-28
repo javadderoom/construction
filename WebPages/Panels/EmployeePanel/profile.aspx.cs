@@ -25,6 +25,7 @@ namespace WebPages.Panels.EmployeePanel
             if (!IsPostBack)
             {
                 setLabels();
+                fillDDL();
                 // UpdatePanel1.Update();
             }
         }
@@ -34,13 +35,16 @@ namespace WebPages.Panels.EmployeePanel
             EmployeesRepository er = new EmployeesRepository();
             DataTable dt = er.getEmployeeProfileInfo(empid);
 
-            lblfirstName.Value = dt.Rows[0][2].ToString();
+            lblfirstName.Value = dt.Rows[0][1].ToString();
             lblLastName.Value = dt.Rows[0][2].ToString();
-
+            hFullName.InnerText = dt.Rows[0][19].ToString();
             lblid.Value = dt.Rows[0][0].ToString();
             lbladdress.Value = dt.Rows[0][8].ToString();
-            lblcitystate.Value = dt.Rows[0][19].ToString();
+            //lblcitystate.Value = dt.Rows[0][20].ToString();
             lblemail.Value = dt.Rows[0][10].ToString();
+            ddlState.SelectedIndex = (dt.Rows[0][6].ToString().ToInt() - 1);
+            ddlCity.SelectedIndex = dt.Rows[0][7].ToString().ToInt();
+
             lblmobile.Value = dt.Rows[0][9].ToString();
             lblusername.Value = dt.Rows[0][3].ToString();
             lblpassword.Value = dt.Rows[0][4].ToString();
@@ -48,6 +52,30 @@ namespace WebPages.Panels.EmployeePanel
 
             if (dt.Rows[0][12] != DBNull.Value)
                 setImage();
+        }
+
+        public void fillDDL()
+        {
+            StatesRepository r = new StatesRepository();
+            ddlState.DataSource = r.getStatesInfo();
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateID";
+            ddlState.DataBind();
+
+            CityRepository cr = new CityRepository();
+            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityID";
+            ddlCity.DataBind();
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CityRepository cr = new CityRepository();
+            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityID";
+            ddlCity.DataBind();
         }
 
         private void save()

@@ -40,11 +40,12 @@ namespace WebPages.Panels.EmployeePanel
             hFullName.InnerText = dt.Rows[0][19].ToString();
             lblid.Value = dt.Rows[0][0].ToString();
             lbladdress.Value = dt.Rows[0][8].ToString();
-            //lblcitystate.Value = dt.Rows[0][20].ToString();
+
             lblemail.Value = dt.Rows[0][10].ToString();
             ddlState.SelectedIndex = (dt.Rows[0][6].ToString().ToInt() - 1);
-            ddlCity.SelectedIndex = dt.Rows[0][7].ToString().ToInt();
 
+            string asd = dt.Rows[0][7].ToString();
+            ddlCity.SelectedValue = asd;
             lblmobile.Value = dt.Rows[0][9].ToString();
             lblusername.Value = dt.Rows[0][3].ToString();
             lblpassword.Value = dt.Rows[0][4].ToString();
@@ -80,18 +81,20 @@ namespace WebPages.Panels.EmployeePanel
 
         private void save()
         {
-            EmployeeJobRepository er = new EmployeeJobRepository();
+            EmployeesRepository er = new EmployeesRepository();
             Employee em = new Employee();
             em.Address = lbladdress.Value;
-            //em.City = lblcitystate.Value;
+            em.City = ddlCity.SelectedValue.ToInt();
+            em.State = ddlCity.SelectedValue.ToInt();
             em.Email = lblemail.Value;
             em.EmployeeID = lblid.Value.ToInt();
-            // em.FirstName = lblfullname.Value;
-            //em.LastName = lblfullname.Value;
+            em.FirstName = lblfirstName.Value;
+            em.LastName = lblLastName.Value;
             em.Mobile = lblmobile.Value;
             em.Password = lblpassword.Value;
             em.UserName = lblusername.Value;
             em.PostalCode = lblzip.Value;
+            er.SaveEmployees(em);
         }
 
         private void setImage()
@@ -118,6 +121,7 @@ namespace WebPages.Panels.EmployeePanel
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+            save();
             if (fileImage.HasFile)
             {
                 if (fileImage.FileBytes.Length > 1024 * 1024)

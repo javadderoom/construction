@@ -117,7 +117,6 @@ namespace DataAccess.Repository
 
             return list;
         }
-
         public bool DeletArticleByID(int id)
         {
             bool ans = true;

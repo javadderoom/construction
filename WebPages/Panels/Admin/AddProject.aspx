@@ -1,17 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="AddBlog.aspx.cs" Inherits="WebPages.Panels.Admin.AddNews1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" ValidateRequest="false" CodeBehind="AddProject.aspx.cs" Inherits="WebPages.Panels.Admin.AddProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="Content" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <section id="pageCover" class="row AddNewsHead">
-        <div class="row pageTitle">افزودن وبلاگ</div>
+    <section id="pageCover" class="row AddProjectHead">
+        <div class="row pageTitle">افزودن پروژه</div>
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
                 <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
                 <li><span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden="true"></span></li>
-                <li class="active" style="color: #F7B71E">افزودن وبلاگ</li>
+                <li class="active" style="color: #F7B71E">افزودن پروژه</li>
             </ol>
         </div>
     </section>
@@ -32,7 +35,7 @@
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
-            <label style="display: block" for="Abstract">عکس بالای مقاله : </label>
+            <label style="display: block" for="Abstract">عکس بالای |روژه : </label>
             <label class="btn btn-info" style="width: 100px;">
                 <asp:Literal runat="server" Text="انتخاب عکس" />
 
@@ -150,6 +153,6 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Script" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
     <script src="../../_Scripts/AddNews.js"></script>
 </asp:Content>

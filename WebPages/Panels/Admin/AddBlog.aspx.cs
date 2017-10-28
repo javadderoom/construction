@@ -35,25 +35,32 @@ namespace WebPages.Panels.Admin
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             GroupsRepository repo = new GroupsRepository();
-            DataTable DT = new DataTable();
-            DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
-
-            if ((DT.Rows.Count > 0))
+            if (DDLGroups.SelectedValue != "-2")
             {
-                SubGroups.DataSource = DT;
-                SubGroups.DataTextField = "Title";
-                SubGroups.DataValueField = "GroupID";
-                SubGroups.DataBind();
-                NoItemDiv.InnerText = "";
+                DataTable DT = new DataTable();
+                DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
+
+                if ((DT.Rows.Count > 0))
+                {
+                    SubGroups.DataSource = DT;
+                    SubGroups.DataTextField = "Title";
+                    SubGroups.DataValueField = "GroupID";
+                    SubGroups.DataBind();
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    SubGroups.Items.Clear();
+                    SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
+                    NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
+                    NoItemDiv.Attributes["class"] = "textok";
+                }
             }
             else
             {
                 SubGroups.Items.Clear();
-                SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
-                NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
-                NoItemDiv.Attributes["class"] = "textok";
+                NoItemDiv.InnerText = "";
             }
-
 
 
 

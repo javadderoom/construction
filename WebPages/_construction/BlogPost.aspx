@@ -27,9 +27,9 @@
                             <div class="row m0 contactWidget widgetS">
                                 <h4>تماس با ما</h4>
                                 <ul class="list-unstyled">
-                                    <li><i class="fa fa-phone" style="margin-left: 5px;"></i>9930 1234 5678</li>
-                                    <li><i class="fa fa-envelope" style="margin-left: 5px;"></i>contact@yourdomain.com</li>
-                                    <li><i class="fa fa-home" style="margin-left: 5px;"></i>آدرس</li>
+                                    <li><i class="fa fa-phone" style="margin-left: 5px;"></i><span runat="server" id="BlogPhone"></span></li>
+                                    <li><i class="fa fa-envelope" style="margin-left: 5px;"></i><span runat="server" id="BlogMail"></span></li>
+                                    <li><i class="fa fa-home" style="margin-left: 5px;"></i><span runat="server" id="BlogAddress"></span></li>
                                 </ul>
                             </div>
 
@@ -77,4 +77,7 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="Scripts" runat="server">
+    <script>
+        $("#ContentPlaceHolder1_DivBody").find("img").addClass("img-responsive");
+    </script>
 </asp:Content>

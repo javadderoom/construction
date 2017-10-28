@@ -67,22 +67,13 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// DDLGroups2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
-        /// <summary>
-        /// DDLGroups control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLGroups;
+        protected global::System.Web.UI.WebControls.DropDownList DDLGroups2;
         
         /// <summary>
         /// updatepanel4 control.
@@ -112,31 +103,31 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// SubGroups control.
+        /// SubGroups2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox SubGroups;
+        protected global::System.Web.UI.WebControls.ListBox SubGroups2;
         
         /// <summary>
-        /// AddToSub control.
+        /// AddToSub2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddToSub;
+        protected global::System.Web.UI.WebControls.Button AddToSub2;
         
         /// <summary>
-        /// RemoveFromSub control.
+        /// RemoveFromSub2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RemoveFromSub;
+        protected global::System.Web.UI.WebControls.Button RemoveFromSub2;
         
         /// <summary>
         /// UpdatePanel2 control.

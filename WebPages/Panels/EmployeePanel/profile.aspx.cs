@@ -33,17 +33,37 @@ namespace WebPages.Panels.EmployeePanel
         {
             EmployeesRepository er = new EmployeesRepository();
             DataTable dt = er.getEmployeeProfileInfo(empid);
-            lblfullname.Value = dt.Rows[0][18].ToString();
+
+            lblfirstName.Value = dt.Rows[0][2].ToString();
+            lblLastName.Value = dt.Rows[0][2].ToString();
+
             lblid.Value = dt.Rows[0][0].ToString();
             lbladdress.Value = dt.Rows[0][8].ToString();
             lblcitystate.Value = dt.Rows[0][19].ToString();
             lblemail.Value = dt.Rows[0][10].ToString();
             lblmobile.Value = dt.Rows[0][9].ToString();
             lblusername.Value = dt.Rows[0][3].ToString();
+            lblpassword.Value = dt.Rows[0][4].ToString();
             lblzip.Value = dt.Rows[0][11].ToString();
 
             if (dt.Rows[0][12] != DBNull.Value)
                 setImage();
+        }
+
+        private void save()
+        {
+            EmployeeJobRepository er = new EmployeeJobRepository();
+            Employee em = new Employee();
+            em.Address = lbladdress.Value;
+            //em.City = lblcitystate.Value;
+            em.Email = lblemail.Value;
+            em.EmployeeID = lblid.Value.ToInt();
+            // em.FirstName = lblfullname.Value;
+            //em.LastName = lblfullname.Value;
+            em.Mobile = lblmobile.Value;
+            em.Password = lblpassword.Value;
+            em.UserName = lblusername.Value;
+            em.PostalCode = lblzip.Value;
         }
 
         private void setImage()

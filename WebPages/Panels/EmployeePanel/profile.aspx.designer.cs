@@ -94,13 +94,22 @@ namespace WebPages.Panels.EmployeePanel {
         protected global::System.Web.UI.WebControls.Label lblWarning;
         
         /// <summary>
-        /// lblfullname control.
+        /// lblfirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText lblfullname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblfirstName;
+        
+        /// <summary>
+        /// lblLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblLastName;
         
         /// <summary>
         /// lblmobile control.

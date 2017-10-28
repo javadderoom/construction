@@ -27,6 +27,7 @@
 
                     <asp:FileUpload ID="fileImage" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
                 </label>
+                <br />
                 <label style="padding: 18px" id="imageName"></label>
             </div>
             <br />
@@ -46,13 +47,13 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>نام کاربری </label>
-                            <input id="lblusername" class="dirToLeft" runat="server" disabled type="text" />
+                            <input id="lblusername" class="dirToLeft" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>رمز عبور </label>
-                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="text" />
+                            <input id="lblpassword" class="dirToLeft" runat="server" type="text" />
                         </div>
                     </div>
 
@@ -62,7 +63,7 @@
                             <label class="btn btn-info" style="width: 100px;">
                                 <asp:Literal runat="server" Text="انتخاب فایل" />
 
-                                <asp:FileUpload ID="fileResume" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
+                                <asp:FileUpload ID="fileResume" runat="server" accept="zip/*" CssClass="displaynone" BackColor="#CCCCCC" />
                             </label>
                             <label style="padding: 18px" id="filename"></label>
                         </div>
@@ -76,39 +77,45 @@
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
-                            <label>نام و نام خانوادگی </label>
-                            <input id="lblfullname" runat="server" disabled type="text" />
+                            <label>نام  </label>
+                            <input id="lblfirstName" runat="server" type="text" />
+                        </div>
+                    </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <label>نام خانوادگی </label>
+                            <input id="lblLastName" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>موبایل </label>
-                            <input id="lblmobile" class="dirToLeft" runat="server" disabled type="text" />
+                            <input id="lblmobile" class="dirToLeft" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>کد پستی </label>
-                            <input id="lblzip" class="dirToLeft" runat="server" disabled type="text" />
+                            <input id="lblzip" class="dirToLeft" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>پست الکترونیک </label>
-                            <input id="lblemail" class="dirToLeft" runat="server" disabled type="text" />
+                            <input id="lblemail" class="dirToLeft" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>استان و شهر </label>
-                            <input id="lblcitystate" runat="server" disabled type="text" />
+                            <input id="lblcitystate" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
 
                         <div class="formGroup">
                             <label>آدرس </label>
-                            <input id="lbladdress" runat="server" disabled type="text" />
+                            <input id="lbladdress" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">

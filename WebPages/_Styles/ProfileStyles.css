@@ -25,10 +25,11 @@
     font-family: IranSans;
     border: 2px solid #F7B818 !important;
     background-color: transparent;
-    height: 50px;
-    width: 91% !important;
+    height: 50px !important;
+    width: 85% !important;
     margin: auto;
     position: absolute;
+    margin-right: 189px;
 }
 
     .btnLogin:hover {
@@ -115,7 +116,6 @@
     }
 
 .imgUpload {
-    padding: 0 60px;
     width: 100%;
 }
 
@@ -130,14 +130,16 @@ button[disabled], html input[disabled] {
 @media(max-width:991px) {
     .btnLogin {
         position: relative;
+        margin-right: 8%;
     }
 
     .x_panel {
+        min-height: 910px;
         margin-right: 0;
     }
 
     .mainSection {
-        min-height: 1100px;
+        min-height: 1170px;
         padding-left: 0px;
         padding-right: 0;
     }
@@ -145,30 +147,34 @@ button[disabled], html input[disabled] {
 
 @media(max-width:414px) {
     .x_panel {
+        min-height: 910px;
         margin-right: 0;
     }
 
     .mainSection {
-        min-height: 1100px;
+        min-height: 1170px;
         padding-left: 0px;
         padding-right: 0;
     }
 
     .btnLogin {
+        margin-right: 8%;
         position: relative;
     }
 }
 
 @media(max-width:767px) {
     .x_panel {
+        min-height: 910px;
         margin-right: 0;
     }
 
     .mainSection {
-        min-height: 1100px;
+        min-height: 1170px;
     }
 
     .btnLogin {
+        margin-right: 8%;
         position: relative;
     }
 }

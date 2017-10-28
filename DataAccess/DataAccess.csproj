@@ -117,7 +117,14 @@
     <Compile Include="Project.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProjectConnection.cs">
+      <DependentUpon>ConstructionEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectGroup.cs">
+      <DependentUpon>ConstructionEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ProjectsRepository.cs" />
     <Compile Include="Repository\EmployeeJobRepository.cs" />
     <Compile Include="Repository\JobRepository.cs" />
     <Compile Include="Repository\JobGroupsRepository.cs" />
@@ -131,6 +138,8 @@
     <Compile Include="Repository\ChatRepository.cs" />
     <Compile Include="Repository\EmployeesRepository.cs" />
     <Compile Include="Repository\CityRepository.cs" />
+    <Compile Include="Repository\ProjectConRepository.cs" />
+    <Compile Include="Repository\ProjectGroupsRepository.cs" />
     <Compile Include="Repository\SliderRepository.cs" />
     <Compile Include="Repository\StatesRepository.cs" />
     <Compile Include="Repository\AdminsRepository.cs" />
@@ -155,17 +164,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="ConstructionEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ConstructionEDM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ConstructionEDM.edmx.diagram">
       <DependentUpon>ConstructionEDM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConstructionEDM.Context.tt">
@@ -178,9 +188,6 @@
       <DependentUpon>ConstructionEDM.edmx</DependentUpon>
       <LastGenOutput>ConstructionEDM.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

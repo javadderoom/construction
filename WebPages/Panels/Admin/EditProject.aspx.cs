@@ -12,26 +12,26 @@ using System.Web.UI.WebControls;
 
 namespace WebPages.Panels.Admin
 {
-    public partial class EditPost : System.Web.UI.Page
+    public partial class EdidProject : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Session["PostIDForEdit"] != null)
+                if (Session["ProjectIDForEdit"] != null)
                 {
-                    int id = Session["PostIDForEdit"].ToString().ToInt();
-                    Session.Add("newPostIDForEdit", id);
-                    Session.Remove("PostIDForEdit");
-                    ArticleRepository repArt = new ArticleRepository();
-                    GroupsRepository repo = new GroupsRepository();
-                    Article art = repArt.FindeArticleByID(id);
+                    int id = Session["ProjectIDForEdit"].ToString().ToInt();
+                    Session.Add("newProjectIDForEdit", id);
+                    Session.Remove("ProjectIDForEdit");
+                    ProjectsRepository repArt = new ProjectsRepository();
+                    ProjectGroupsRepository repo = new ProjectGroupsRepository();
+                    Project art = repArt.FindeProjectByID(id);
                     title.Text = art.Title;
                     Abstract.Text = art.Abstract;
                     editor1.Text = art.Content;
                     KeyWords.Text = art.KeyWords;
                     Tags.Text = art.Tags;
-                    SelectedSubGroups.DataSource = repo.FindSubGroupsOfAnArticle(id);
+                    SelectedSubGroups.DataSource = repo.FindSubGroupsOfAProject(id);
                     SelectedSubGroups.DataTextField = "Title";
                     SelectedSubGroups.DataValueField = "GroupID";
                     SelectedSubGroups.DataBind();
@@ -51,14 +51,14 @@ namespace WebPages.Panels.Admin
                 }
                 else
                 {
-                    Response.Redirect("مدیریت-وبلاگ-ها");
+                    Response.Redirect("");//manage posts
                 }
             }
         }
 
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GroupsRepository repo = new GroupsRepository();
+            ProjectGroupsRepository repo = new ProjectGroupsRepository();
             DataTable DT = new DataTable();
             DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
 
@@ -141,7 +141,7 @@ namespace WebPages.Panels.Admin
                 String.IsNullOrEmpty(Tags.Text) ||
                 String.IsNullOrEmpty(KeyWords.Text) || SelectedSubGroups.Items.Count == 0 || Abstract.Text.Count() < 130))
             {
-                if (Session["newPostIDForEdit"] != null)
+                if (Session["newProjectIDForEdit"] != null)
                 {
                     if (FileUpload1.FileBytes.Length > 1024 * 1024)
                     {
@@ -157,11 +157,11 @@ namespace WebPages.Panels.Admin
                         return;
                     }
 
-                    int id = Session["newPostIDForEdit"].ToString().ToInt();
-                    Session.Remove("newPostIDForEdit");
-                    ArticleRepository repArt = new ArticleRepository();
-                    GroupsRepository repo = new GroupsRepository();
-                    Article art = repArt.FindeArticleByID(id);
+                    int id = Session["newProjectIDForEdit"].ToString().ToInt();
+                    Session.Remove("newProjectIDForEdit");
+                    ProjectsRepository repArt = new ProjectsRepository();
+                    ProjectGroupsRepository repo = new ProjectGroupsRepository();
+                    Project art = repArt.FindeProjectByID(id);
 
                     art.Title = title.Text;
                     art.Content = editor1.Text;
@@ -180,32 +180,27 @@ namespace WebPages.Panels.Admin
                     art.Image = contents;
 
                     art.Abstract = Abstract.Text;
-                    art.Visits = 0;
                     art.Tags = Tags.Text;
                     art.KeyWords = KeyWords.Text;
-                    ArticleRepository ARTRep = new ArticleRepository();
-                    if (ARTRep.SaveArticle(art))
+                    ProjectsRepository ARTRep = new ProjectsRepository();
+                    if (ARTRep.SaveProject(art))
                     {
                         bool result = true;
-                        GroupsConRepository GRConRepo = new GroupsConRepository();
+                        ProjectConRepository GRConRepo = new ProjectConRepository();
                         List<int> SelectedSubGroupsList = new List<int>();
 
-                        int lastid = ARTRep.GetLastArticleID();
+                        int lastid = ARTRep.GetLastProjectID();
                         int count = SelectedSubGroups.Items.Count;
                         if (count > 0)
                         {
                             for (int i = 0; i < count; i++)
                             {
-                                GroupConnection GC = new GroupConnection();
-                                GC.ArticleID = lastid;
+                                ProjectConnection GC = new ProjectConnection();
+                                GC.ProjectID = lastid;
                                 GC.GroupID = SelectedSubGroups.Items[i].Value.ToInt();
-                                if (!GRConRepo.SaveGroupCon(GC))
+                                if (!GRConRepo.SaveProjectCon(GC))
                                 {
                                     result = false;
-                                }
-                                else
-                                {
-                                    Response.Redirect("~/مدیریت-وبلاگ-ها");
                                 }
                             }
                         }

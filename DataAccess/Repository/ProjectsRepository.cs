@@ -1,26 +1,29 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace DataAccess.Repository
 {
-    public class ArticleRepository
+    public class ProjectsRepository
     {
         private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
-        public bool SaveArticle(Article article)
+        public bool SaveProject(Project Project)
         {
             try
             {
-                if (article.ArticleID > 0)
+                if (Project.ProjectID > 0)
                 {
                     //==== UPDATE ====
-                    DB.Articles.Attach(article);
-                    DB.Entry(article).State = EntityState.Modified;
+                    DB.Projects.Attach(Project);
+                    DB.Entry(Project).State = EntityState.Modified;
                 }
                 else
                 {
                     //==== INSERT ====
-                    DB.Articles.Add(article);
+                    DB.Projects.Add(Project);
                 }
 
                 DB.SaveChanges();
@@ -34,55 +37,55 @@ namespace DataAccess.Repository
 
 
         }
-        public int GetLastArticleID()
+        public int GetLastProjectID()
         {
 
 
             int result = 0;
 
-            result = (from r in DB.Articles
-                      orderby r.ArticleID descending
-                      select r.ArticleID).FirstOrDefault();
+            result = (from r in DB.Projects
+                      orderby r.ProjectID descending
+                      select r.ProjectID).FirstOrDefault();
 
             return result;
 
         }
-        public Article FindeArticleByID(int id)
+        public Project FindeProjectByID(int id)
         {
-            return DB.Articles.Where(p => p.ArticleID == id).FirstOrDefault();
+            return DB.Projects.Where(p => p.ProjectID == id).FirstOrDefault();
         }
-        public List<Article> LatestArticles()
+        public List<Project> LatestProjects()
         {
-            List<Article> list = (from r in DB.Articles
-                                  orderby r.ArticleID descending
+            List<Project> list = (from r in DB.Projects
+                                  orderby r.ProjectID descending
                                   select r).Take(5).ToList();
             return list;
         }
-        public List<Article> Top3tArticles()
+        public List<Project> Top3tProjects()
         {
-            List<Article> list = (from r in DB.Articles
-                                  orderby r.ArticleID descending
+            List<Project> list = (from r in DB.Projects
+                                  orderby r.ProjectID descending
                                   select r).Take(3).ToList();
             return list;
         }
-        public List<Article> AllArticles()
+        public List<Project> AllProjects()
         {
-            List<Article> list = (from r in DB.Articles
-                                  orderby r.ArticleID descending
+            List<Project> list = (from r in DB.Projects
+                                  orderby r.ProjectID descending
                                   select r).ToList();
             return list;
         }
-        public List<Article> ReturnArticlesByCategory(List<int> IDes)
+        public List<Project> ReturnProjectsByCategory(List<int> IDes)
         {
-            List<Article> list = new List<Article>();
+            List<Project> list = new List<Project>();
             List<int> artides = new List<int>();
             foreach (int Id in IDes)
             {
                 List<int?> temp = new List<int?>();
                 temp.Clear();
-                temp = (from r in DB.GroupConnections
+                temp = (from r in DB.ProjectConnections
                         where r.GroupID == Id
-                        select r.ArticleID).ToList();
+                        select r.ProjectID).ToList();
                 foreach (int artid in temp)
                 {
                     if (!artides.Contains(artid))
@@ -94,40 +97,40 @@ namespace DataAccess.Repository
             }
             foreach (int id in artides)
             {
-                list.Add(FindeArticleByID(id));
+                list.Add(FindeProjectByID(id));
             }
 
             return list;
         }
-        public List<Article> ReturnArticlesByCategory(int Subgruopid)
+        public List<Project> ReturnProjectsByCategory(int Subgruopid)
         {
-            List<Article> list = new List<Article>();
+            List<Project> list = new List<Project>();
             List<int> artides = new List<int>();
 
             List<int?> temp = new List<int?>();
 
-            temp = (from r in DB.GroupConnections
+            temp = (from r in DB.ProjectConnections
                     where r.GroupID == Subgruopid
-                    select r.ArticleID).ToList();
+                    select r.ProjectID).ToList();
             foreach (int id in temp)
             {
-                list.Add(FindeArticleByID(id));
+                list.Add(FindeProjectByID(id));
             }
 
 
             return list;
         }
-        public bool DeletArticleByID(int id)
+        public bool DeletProjectByID(int id)
         {
             bool ans = true;
             try
             {
-                Article selectedArt = new Article();
-                selectedArt = DB.Articles.Where(p => p.ArticleID == id).Single();
+                Project selectedArt = new Project();
+                selectedArt = DB.Projects.Where(p => p.ProjectID == id).Single();
 
                 if (selectedArt != null)
                 {
-                    DB.Articles.Remove(selectedArt);
+                    DB.Projects.Remove(selectedArt);
                     DB.SaveChanges();
                 }
                 else { ans = false; }
@@ -146,5 +149,4 @@ namespace DataAccess.Repository
             return ans;
         }
     }
-
 }

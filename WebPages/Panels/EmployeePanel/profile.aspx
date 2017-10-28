@@ -1,23 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.profile" %>
 
-
 <asp:Content ID="content3" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.min.js"></script>
-    <link href="../../_Styles/simple-sidebar.css" rel="stylesheet" />
-    <link href="../../_Styles/bootstrap.css" rel="stylesheet" />
-    <link href="../../_Styles/StyleSheet.css" rel="stylesheet" />
-    <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -31,12 +18,18 @@
             </h4>
             <img class="ProfileImg" id="Image1" runat="server" src="../../_construction/images/user128px.png" />
             <h3 runat="server" id="hFullName"></h3>
-            <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
-                                        <span class="fa fa-edit"></span>
-            </a>
+            <%--<a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات
+            <span class="fa fa-edit"></span>
+            </a>--%>
+            <div class="imgUpload">
+                <label class="btn btn-info" style="width: 133px;">
+                    <asp:Literal runat="server" Text="تغییر عکس پروفایل" />
+
+                    <asp:FileUpload ID="fileImage" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
+                </label>
+                <label style="padding: 18px" id="imageName"></label>
+            </div>
             <br />
-
-
         </div>
         <div class="col-md-8 col-sm-12 col-xs-12 x_panel">
             <div class="infoContent">
@@ -59,26 +52,23 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>رمز عبور </label>
-                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="password" />
+                            <input id="lblpassword" class="dirToLeft" runat="server" disabled type="text" />
                         </div>
                     </div>
-                    <div class="infoInnerContent">
-                        <div class="formGroup">
-                            <label>بروز رسانی عکس </label>
-                            <asp:FileUpload ID="fileImage" runat="server" />
-                        </div>
-                    </div>
+
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>ارسال رزومه </label>
-                            <asp:FileUpload ID="fileResume" runat="server" />
+                            <label class="btn btn-info" style="width: 100px;">
+                                <asp:Literal runat="server" Text="انتخاب فایل" />
+
+                                <asp:FileUpload ID="fileResume" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
+                            </label>
+                            <label style="padding: 18px" id="filename"></label>
                         </div>
                     </div>
-                    <div>
-                        <asp:Button ID="btnEdit" runat="server" Text="ویرایش" OnClick="btnEdit_Click" />
-                    </div>
-                    <asp:Label ID="lblWarning" runat="server" Text="Label"></asp:Label>
 
+                    <asp:Label ID="lblWarning" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="peronalInfo col-md-6">
                     <div class="infoTitle">
@@ -121,6 +111,11 @@
                             <input id="lbladdress" runat="server" disabled type="text" />
                         </div>
                     </div>
+                    <div class="infoInnerContent">
+                        <div class="formGroup">
+                            <asp:Button ID="btnEdit" CssClass="btnLogin" runat="server" Text="ثبت تغییرات" OnClick="btnEdit_Click" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="" style="display: none">
@@ -133,7 +128,6 @@
             </div>
         </div>
     </section>
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
 </asp:Content>

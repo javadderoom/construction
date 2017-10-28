@@ -10,7 +10,7 @@ input, select, textarea {
     outline: none;
     font-size: 14px;
     width: 95%;
-    margin: 10px;
+    margin: 10px 0;
 }
 
 select {

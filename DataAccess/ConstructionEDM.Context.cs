@@ -40,6 +40,8 @@ namespace DataAccess
         public virtual DbSet<Link> Links { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<ProjectConnection> ProjectConnections { get; set; }
+        public virtual DbSet<ProjectGroup> ProjectGroups { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Satisfaction> Satisfactions { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }

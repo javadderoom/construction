@@ -12,7 +12,7 @@
         <div class="InnerContainer">
             <h3>اسلایدر ها : </h3>
 
-            <div id="gvContainer">
+            <div id="gvContainer" style="overflow-x: auto">
                 <asp:GridView ID="gvSlider" runat="server"
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                     BorderWidth="1px" CellPadding="4" Width="250px" ForeColor="Black" GridLines="Horizontal"
@@ -41,7 +41,6 @@
                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                     <SortedDescendingHeaderStyle BackColor="#242121" />
                 </asp:GridView>
-
             </div>
 
             <hr style="margin-top: 20px; margin-bottom: 20px" />
@@ -77,7 +76,6 @@
 
                             <asp:TextBox ID="tbxAbout" Style="max-width: 500px;" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
-
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
@@ -88,11 +86,8 @@
                     <asp:Button ID="btnSave" OnClick="btnSave_Click" CssClass=" btn btn-success middle_yellow" runat="server" Text="ذخیره" />
                 </div>
             </div>
-
         </div>
     </div>
-
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
 </asp:Content>
-

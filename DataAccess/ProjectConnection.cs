@@ -12,15 +12,10 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class ProjectConnection
     {
-        public int ProjectID { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public byte[] Image { get; set; }
-        public string Abstract { get; set; }
-        public string PostDateTime { get; set; }
-        public string Tags { get; set; }
-        public string KeyWords { get; set; }
+        public int ConnectionID { get; set; }
+        public Nullable<int> GroupID { get; set; }
+        public Nullable<int> ProjectID { get; set; }
     }
 }

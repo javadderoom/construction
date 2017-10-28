@@ -58,8 +58,8 @@
                 <div class="container">
                     <div class="row">
                         <ul class="list-inline c-info fleft">
-                            <li><a href="tel:123456789012"><i class="fa fa-phone"></i>1234-5678-9012</a></li>
-                            <li><a href="mailto:info@domain.com"><i class="fa fa-envelope-o"></i>info@domain.com</a></li>
+                            <li runat="server" id="phone" style="color: white"></li>
+                            <li runat="server" id="mail" style="color: white; margin-left: 10px"></li>
                         </ul>
                         <ul class="list-inline lang fright">
                         </ul>
@@ -155,7 +155,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </span>
-                                <span class="btn-text">Select Page</span>
+                                <span class="btn-text">منو</span>
                             </button>
                         </div>
 
@@ -230,9 +230,9 @@
                                         </ul>
 
                                         <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="contactPhone"><i class="fa fa-phone"></i>09111234567</div>
-                                            <div role="tabpanel" class="tab-pane" id="contactEmail"><i class="fa fa-envelope"></i>info@demo.com</div>
-                                            <div role="tabpanel" class="tab-pane" id="contactHome"><i class="fa fa-home"></i>مازندارن ، بابل</div>
+                                            <div role="tabpanel" class="tab-pane active" runat="server" id="contactPhone"></div>
+                                            <div role="tabpanel" class="tab-pane" runat="server" id="contactEmail"></div>
+                                            <div role="tabpanel" class="tab-pane" runat="server" id="contactHome"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -244,8 +244,7 @@
                                             <img src="images/whiteSquare.png" alt="" />
                                             درباره ساخت و ساز ما
                                         </div>
-                                        <div class="row m0 footer-white">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
+                                        <div class="row m0 footer-white" runat="server" id="AboutUs">
                                         </div>
                                     </div>
                                 </div>

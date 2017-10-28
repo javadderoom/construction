@@ -7,117 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPages.Panels.UserPanel {
+namespace WebPages.Panels.Admin {
     
     
-    public partial class UsersMaster {
+    public partial class ManageProjects {
         
         /// <summary>
-        /// StyleSheet control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder StyleSheet;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// pageStyles control.
+        /// ddlGroups control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageStyles;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGroups;
         
         /// <summary>
-        /// head control.
+        /// updatepanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.UpdatePanel updatepanel1;
         
         /// <summary>
-        /// form1 control.
+        /// ddlSubGroups control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSubGroups;
         
         /// <summary>
-        /// phone control.
+        /// updatepanel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl phone;
+        protected global::System.Web.UI.UpdatePanel updatepanel3;
         
         /// <summary>
-        /// mail control.
+        /// diverror control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl diverror;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// updatepanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.UpdatePanel updatepanel2;
         
         /// <summary>
-        /// contactPhone control.
+        /// gvContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contactPhone;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gvContainer;
         
         /// <summary>
-        /// contactEmail control.
+        /// gvPosts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contactEmail;
-        
-        /// <summary>
-        /// contactHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contactHome;
-        
-        /// <summary>
-        /// AboutUs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AboutUs;
-        
-        /// <summary>
-        /// Scripts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Scripts;
+        protected global::System.Web.UI.WebControls.GridView gvPosts;
     }
 }

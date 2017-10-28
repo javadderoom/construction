@@ -1,17 +1,19 @@
 ﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Web.UI.WebControls;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class GroupsRepository
+    public class ProjectGroupsRepository
     {
         private Connection conn;
 
-        public GroupsRepository()
+        public ProjectGroupsRepository()
         {
             conn = new Connection();
         }
@@ -20,27 +22,27 @@ namespace DataAccess.Repository
 
         public DataTable LoadAllGroups()
         {
-            return OnlineTools.ToDataTable(DB.Groups.Where(p => p.FatherID == -1).ToList());
+            return OnlineTools.ToDataTable(DB.ProjectGroups.Where(p => p.FatherID == -1).ToList());
         }
 
-        public List<Group> LoadListAllGroups()
+        public List<ProjectGroup> LoadListAllGroups()
         {
-            return DB.Groups.Where(p => p.FatherID == -1).ToList();
+            return DB.ProjectGroups.Where(p => p.FatherID == -1).ToList();
         }
 
         public DataTable LoadSubGroup(int fatherID)
         {
-            return OnlineTools.ToDataTable(DB.Groups.Where(p => p.FatherID == fatherID).ToList());
+            return OnlineTools.ToDataTable(DB.ProjectGroups.Where(p => p.FatherID == fatherID).ToList());
         }
 
-        public List<Group> LoadListSubGroup(int fatherID)
+        public List<ProjectGroup> LoadListSubGroup(int fatherID)
         {
-            return DB.Groups.Where(p => p.FatherID == fatherID).ToList();
+            return DB.ProjectGroups.Where(p => p.FatherID == fatherID).ToList();
         }
 
         public List<int> getSubGroupsIDByFatherID(int FatherId)
         {
-            List<int> result = (from r in DB.Groups
+            List<int> result = (from r in DB.ProjectGroups
                                 where r.FatherID == FatherId
                                 select r.GroupID).ToList();
             if (result.Count != 0)
@@ -54,32 +56,17 @@ namespace DataAccess.Repository
             }
         }
 
-        public List<string> getListOfTitlesOfGroups()
+        public DataTable FindSubGroupsOfAProject(int artID)
         {
-            List<string> result = new List<string>();
-            ConstructionCompanyEntities pb = conn.GetContext();
+            List<ProjectGroup> ans = new List<ProjectGroup>();
 
-            IEnumerable<string> pl =
-                (from r in pb.Groups
-                 where r.GroupID == -1
-                 select r.Title);
-
-            result = pl.ToList();
-
-            return result;
-        }
-
-        public DataTable FindSubGroupsOfAnArticle(int artID)
-        {
-            List<Group> ans = new List<Group>();
-
-            List<int?> conIDes = (from r in DB.GroupConnections
-                                  where r.ArticleID == artID
+            List<int?> conIDes = (from r in DB.ProjectConnections
+                                  where r.ProjectID == artID
                                   select r.GroupID).ToList();
             foreach (int groupId in conIDes)
             {
-                Group temp = null;
-                temp = (from r in DB.Groups
+                ProjectGroup temp = null;
+                temp = (from r in DB.ProjectGroups
                         where r.GroupID == groupId
                         select r).FirstOrDefault();
                 if (temp != null)
@@ -91,33 +78,48 @@ namespace DataAccess.Repository
             return OnlineTools.ToDataTable(ans);
         }
 
+        public List<string> getListOfTitlesOfGroups()
+        {
+            List<string> result = new List<string>();
+            ConstructionCompanyEntities pb = conn.GetContext();
+
+            IEnumerable<string> pl =
+                (from r in pb.ProjectGroups
+                 where r.GroupID == -1
+                 select r.Title);
+
+            result = pl.ToList();
+
+            return result;
+        }
+
         public DataTable LoadAllSubGroups()
         {
-            return OnlineTools.ToDataTable((from r in DB.Groups
+            return OnlineTools.ToDataTable((from r in DB.ProjectGroups
                                             where r.FatherID != -1
                                             select r
                            ).ToList());
         }
 
-        public Group FindGroup(int id)
+        public ProjectGroup FindGroup(int id)
         {
-            return DB.Groups.Where(p => p.GroupID == id).FirstOrDefault();
+            return DB.ProjectGroups.Where(p => p.GroupID == id).FirstOrDefault();
         }
 
-        public bool Savegp(Group group)
+        public bool Savegp(ProjectGroup group)
         {
             try
             {
                 if (group.GroupID > 0)
                 {
                     //==== UPDATE ====
-                    DB.Groups.Attach(group);
+                    DB.ProjectGroups.Attach(group);
                     DB.Entry(group).State = EntityState.Modified;
                 }
                 else
                 {
                     //==== INSERT ====
-                    DB.Groups.Add(group);
+                    DB.ProjectGroups.Add(group);
                 }
 
                 DB.SaveChanges();
@@ -134,7 +136,7 @@ namespace DataAccess.Repository
             bool ans = false;
             try
             {
-                DB.Groups.Remove(DB.Groups.Where(p => p.GroupID == id).FirstOrDefault());
+                DB.ProjectGroups.Remove(DB.ProjectGroups.Where(p => p.GroupID == id).FirstOrDefault());
                 DB.SaveChanges();
                 ans = true;
             }
@@ -151,7 +153,7 @@ namespace DataAccess.Repository
             bool ans = false;
             try
             {
-                DB.Groups.Remove(DB.Groups.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault());
+                DB.ProjectGroups.Remove(DB.ProjectGroups.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault());
                 ans = true;
                 DB.SaveChanges();
             }
@@ -169,11 +171,11 @@ namespace DataAccess.Repository
             {
                 foreach (int id in ids)
                 {
-                    Group temp = null;
-                    temp = DB.Groups.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault();
+                    ProjectGroup temp = null;
+                    temp = DB.ProjectGroups.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault();
                     if (temp != null)
                     {
-                        DB.Groups.Remove(temp);
+                        DB.ProjectGroups.Remove(temp);
 
                         DB.SaveChanges();
                     }

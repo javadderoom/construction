@@ -40,6 +40,15 @@ namespace WebPages.Panels.EmployeePanel {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hFullName;
         
         /// <summary>
+        /// fileImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileImage;
+        
+        /// <summary>
         /// lblid control.
         /// </summary>
         /// <remarks>
@@ -64,16 +73,7 @@ namespace WebPages.Panels.EmployeePanel {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword lblpassword;
-        
-        /// <summary>
-        /// fileImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileImage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lblpassword;
         
         /// <summary>
         /// fileResume control.
@@ -83,15 +83,6 @@ namespace WebPages.Panels.EmployeePanel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fileResume;
-        
-        /// <summary>
-        /// btnEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
         
         /// <summary>
         /// lblWarning control.
@@ -155,5 +146,14 @@ namespace WebPages.Panels.EmployeePanel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText lbladdress;
+        
+        /// <summary>
+        /// btnEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEdit;
     }
 }

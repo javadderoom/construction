@@ -14,12 +14,22 @@ $(document).ready(function () {
             zindex: "999999",
             scrollspeed: 60
         });
-
-        //$('.btnRightService').mouseenter(function () {
-        //    $(".btnRightService").css("width", "206px");
-        //    $('.btnLeftService').css({ "width": "0px", "height": "0px" });
-        //});
-        // popover
+        $('#ContentPlaceHolder1_fileImage').change(function () {
+            var filename = $(this).val();
+            var lastIndex = filename.lastIndexOf("\\");
+            if (lastIndex >= 0) {
+                filename = filename.substring(lastIndex + 1);
+            }
+            $('#imageName').html(filename);
+        });
+        $('#ContentPlaceHolder1_fileResume').change(function () {
+            var filename = $(this).val();
+            var lastIndex = filename.lastIndexOf("\\");
+            if (lastIndex >= 0) {
+                filename = filename.substring(lastIndex + 1);
+            }
+            $('#filename').html(filename);
+        });
         var options = {
             trigger: 'focus'
         }

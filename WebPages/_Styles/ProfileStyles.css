@@ -7,7 +7,7 @@
 }
 
 .mainSection {
-    min-height: 600px;
+    min-height: 660px;
     margin-top: 50px;
     padding-left: 80px;
     margin-right: auto;
@@ -16,6 +16,24 @@
     padding-right: 80px;
     width: 96%;
 }
+
+.btnLogin {
+    text-align: center;
+    transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 30px;
+    float: right;
+    font-family: IranSans;
+    border: 2px solid #F7B818 !important;
+    background-color: transparent;
+    height: 50px;
+    width: 91% !important;
+    margin: auto;
+    position: absolute;
+}
+
+    .btnLogin:hover {
+        background-color: #f7b918;
+    }
 
 .c_title {
     background-color: #FFFFFF;
@@ -41,7 +59,7 @@
 
 .x_panel {
     float: right !important;
-    min-height: 550px;
+    min-height: 600px;
     margin-right: 15px;
     background-color: #FFFFFF;
     box-shadow: 5px 4px 10px #858585;
@@ -75,7 +93,7 @@
 }
     /*-----------------------------------------------------------------------------*/
 
-    .infoInnerContent label {
+    .infoInnerContent label:first-child {
         font-size: 11.5px !important;
         margin-right: 7px;
         background-color: white;
@@ -96,6 +114,11 @@
         letter-spacing: 1px;
     }
 
+.imgUpload {
+    padding: 0 60px;
+    width: 100%;
+}
+
 input {
     border-color: #F7B71E !important;
 }
@@ -105,12 +128,16 @@ button[disabled], html input[disabled] {
 }
 
 @media(max-width:991px) {
+    .btnLogin {
+        position: relative;
+    }
+
     .x_panel {
         margin-right: 0;
     }
 
     .mainSection {
-        min-height: 1024px;
+        min-height: 1100px;
         padding-left: 0px;
         padding-right: 0;
     }
@@ -122,9 +149,13 @@ button[disabled], html input[disabled] {
     }
 
     .mainSection {
-        min-height: 1024px;
+        min-height: 1100px;
         padding-left: 0px;
         padding-right: 0;
+    }
+
+    .btnLogin {
+        position: relative;
     }
 }
 
@@ -134,7 +165,11 @@ button[disabled], html input[disabled] {
     }
 
     .mainSection {
-        min-height: 1024px;
+        min-height: 1100px;
+    }
+
+    .btnLogin {
+        position: relative;
     }
 }
 

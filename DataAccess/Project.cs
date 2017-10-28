@@ -15,18 +15,11 @@ namespace DataAccess
     public partial class Project
     {
         public int ProjectID { get; set; }
-        public string UserName { get; set; }
-        public string Description { get; set; }
-        public string StartDate { get; set; }
-        public string SuggestedDeadLine { get; set; }
-        public string DeadLIne { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public string Abstract { get; set; }
         public string Title { get; set; }
-        public string State { get; set; }
-        public string City { get; set; }
-        public string Address { get; set; }
-        public string Link { get; set; }
+        public string Content { get; set; }
+        public byte[] Image { get; set; }
+        public string Abstract { get; set; }
+        public string PostDateTime { get; set; }
         public string Tags { get; set; }
         public string KeyWords { get; set; }
     }

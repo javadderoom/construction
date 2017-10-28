@@ -865,7 +865,7 @@
     <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\AddProject.aspx" />
-    <Content Include="Panels\Admin\EdidProject.aspx" />
+    <Content Include="Panels\Admin\EditProject.aspx" />
     <Content Include="Panels\Admin\EditSlider.aspx" />
     <Content Include="Panels\Admin\EditPost.aspx" />
     <Content Include="Panels\Admin\EmployeeInfo.aspx" />
@@ -1183,12 +1183,12 @@
     <Compile Include="Panels\Admin\AddProject.aspx.designer.cs">
       <DependentUpon>AddProject.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Admin\EdidProject.aspx.cs">
-      <DependentUpon>EdidProject.aspx</DependentUpon>
+    <Compile Include="Panels\Admin\EditProject.aspx.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Panels\Admin\EdidProject.aspx.designer.cs">
-      <DependentUpon>EdidProject.aspx</DependentUpon>
+    <Compile Include="Panels\Admin\EditProject.aspx.designer.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\EditSlider.aspx.cs">
       <DependentUpon>EditSlider.aspx</DependentUpon>

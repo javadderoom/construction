@@ -54,7 +54,7 @@
                                 AllowCustomPaging="True" AllowPaging="True"
                                 OnRowCommand="gvPosts_RowCommand">
                                 <Columns>
-                                    <asp:BoundField DataField="ArticleID" HeaderText="شناسه" />
+                                    <asp:BoundField DataField="ProjectID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
                                     <asp:BoundField DataField="PostDateTime" HeaderText="تاریخ و زمان" />
 

@@ -57,9 +57,6 @@
     <Compile Include="Admin.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdminsProject.cs">
-      <DependentUpon>ConstructionEDM.tt</DependentUpon>
-    </Compile>
     <Compile Include="Article.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
@@ -127,7 +124,7 @@
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\AdminsProjectsRepository.cs" />
+    <Compile Include="Repository\ProjectsRepository.cs" />
     <Compile Include="Repository\EmployeeJobRepository.cs" />
     <Compile Include="Repository\JobRepository.cs" />
     <Compile Include="Repository\JobGroupsRepository.cs" />

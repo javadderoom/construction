@@ -6,12 +6,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <section id="pageCover" class="row AddNewsHead">
-        <div class="row pageTitle">ویرایش وبلاگ</div>
+        <div class="row pageTitle">ویرایش پروژه</div>
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
                 <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
                 <li><span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden6="true"></span></li>
-                <li class="active" style="color: #F7B71E">افزودن خبر</li>
+                <li class="active" style="color: #F7B71E">ویرایش پروژه</li>
             </ol>
         </div>
     </section>

@@ -1007,6 +1007,7 @@
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
     <Content Include="_construction\fonts\IranSans.woff" />
+    <Content Include="_construction\IndexMaster.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
@@ -1462,6 +1463,10 @@
     </Compile>
     <Compile Include="_construction\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\IndexMaster.Master.cs">
+      <DependentUpon>IndexMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_construction\Projects.aspx.cs">
       <DependentUpon>Projects.aspx</DependentUpon>

@@ -4,6 +4,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -48,6 +49,7 @@ namespace WebPages.Panels.Admin
                     DDLGroups.DataValueField = "GroupID";
                     DDLGroups.DataBind();
                     DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                    oldPhoto.ImageUrl = setInlineImage(id);
                 }
                 else
                 {
@@ -60,25 +62,60 @@ namespace WebPages.Panels.Admin
         {
             GroupsRepository repo = new GroupsRepository();
             DataTable DT = new DataTable();
-            DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
-
-            if ((DT.Rows.Count > 0))
+            if (DDLGroups.SelectedValue != "-2")
             {
-                SubGroups.DataSource = DT;
-                SubGroups.DataTextField = "Title";
-                SubGroups.DataValueField = "GroupID";
-                SubGroups.DataBind();
-                NoItemDiv.InnerText = "";
+                DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
+
+                if ((DT.Rows.Count > 0))
+                {
+                    SubGroups.DataSource = DT;
+                    SubGroups.DataTextField = "Title";
+                    SubGroups.DataValueField = "GroupID";
+                    SubGroups.DataBind();
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    SubGroups.Items.Clear();
+                    SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
+                    NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
+                    NoItemDiv.Attributes["class"] = "textok";
+                }
             }
             else
             {
                 SubGroups.Items.Clear();
-                SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
-                NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
-                NoItemDiv.Attributes["class"] = "textok";
+                NoItemDiv.InnerText = "";
             }
-        }
 
+        }
+        private string setInlineImage(int arid)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+
+
+
+                }
+            }
+            return ans;
+        }
         protected void AddToSub_Click(object sender, EventArgs e)
         {
             if (SubGroups.SelectedIndex != -1)
@@ -94,7 +131,7 @@ namespace WebPages.Panels.Admin
                 }
                 if (!isadd)
                 {
-                    SelectedSubGroups.Items.Add(text);
+                    SelectedSubGroups.Items.Add(SubGroups.SelectedItem.Text);
                     SelectedSubGroups.Items[SelectedSubGroups.Items.Count - 1].Value = SubGroups.SelectedItem.Value;
                     btnSave.Enabled = true;
                     diverror.InnerText = "";
@@ -143,19 +180,7 @@ namespace WebPages.Panels.Admin
             {
                 if (Session["newPostIDForEdit"] != null)
                 {
-                    if (FileUpload1.FileBytes.Length > 1024 * 1024)
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!')", true);
 
-                        return;
-                    }
-                    string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
-                    if ((ext != ".jpg") && (ext != ".png"))
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!')", true);
-
-                        return;
-                    }
 
                     int id = Session["newPostIDForEdit"].ToString().ToInt();
                     Session.Remove("newPostIDForEdit");
@@ -166,18 +191,35 @@ namespace WebPages.Panels.Admin
                     art.Title = title.Text;
                     art.Content = editor1.Text;
 
-                    string filename = Path.GetFileName(FileUpload1.FileName);
-                    string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
-                    filename = rand + filename;
-                    string ps = Server.MapPath(@"~\img\") + filename;
-                    FileUpload1.SaveAs(ps);
-                    FileStream fStream = File.OpenRead(ps);
-                    byte[] contents = new byte[fStream.Length];
-                    fStream.Read(contents, 0, (int)fStream.Length);
-                    fStream.Close();
-                    FileInfo fi = new FileInfo(ps);
-                    fi.Delete();
-                    art.Image = contents;
+                    if (FileUpload1.HasFile)
+                    {
+                        if (FileUpload1.FileBytes.Length > 1024 * 1024)
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حجم فایل بارگذاری شده بیشتر از 1 مگابایت است!')", true);
+
+                            return;
+                        }
+                        string ext = Path.GetExtension(FileUpload1.FileName).ToLower();
+                        if ((ext != ".jpg") && (ext != ".png"))
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('فرمت فایل بارگذاری شده باید .jpg  یا .png  باشد!')", true);
+
+                            return;
+                        }
+                        string filename = Path.GetFileName(FileUpload1.FileName);
+                        string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
+                        filename = rand + filename;
+                        string ps = Server.MapPath(@"~\img\") + filename;
+                        FileUpload1.SaveAs(ps);
+                        FileStream fStream = File.OpenRead(ps);
+                        byte[] contents = new byte[fStream.Length];
+                        fStream.Read(contents, 0, (int)fStream.Length);
+                        fStream.Close();
+                        FileInfo fi = new FileInfo(ps);
+                        fi.Delete();
+                        art.Image = contents;
+                    }
+
 
                     art.Abstract = Abstract.Text;
                     art.Visits = 0;
@@ -188,9 +230,10 @@ namespace WebPages.Panels.Admin
                     {
                         bool result = true;
                         GroupsConRepository GRConRepo = new GroupsConRepository();
+                        GRConRepo.DeletArticleConnections(id);
                         List<int> SelectedSubGroupsList = new List<int>();
 
-                        int lastid = ARTRep.GetLastArticleID();
+                        int lastid = id;
                         int count = SelectedSubGroups.Items.Count;
                         if (count > 0)
                         {

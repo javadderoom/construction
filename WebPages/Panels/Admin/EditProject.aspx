@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="EditProject.aspx.cs" Inherits="WebPages.Panels.Admin.EdidProject" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="EditProject.aspx.cs" Inherits="WebPages.Panels.Admin.EdidProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,15 +6,16 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Content" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <section id="pageCover" class="row AddNewsHead">
-        <div class="row pageTitle">ویرایش وبلاگ</div>
+        <div class="row pageTitle">ویرایش پروژه</div>
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
                 <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
                 <li><span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden6="true"></span></li>
-                <li class="active" style="color: #F7B71E">افزودن خبر</li>
+                <li class="active" style="color: #F7B71E">ویرایش پروژه</li>
             </ol>
         </div>
     </section>
+
     <div id="container">
 
         <div class="form-group">
@@ -31,18 +32,21 @@
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
-            <label style="display: block" for="Abstract">عکس بالای مقاله : </label>
+            <label style="display: block" for="Abstract">عکس فعلی : </label>
+            <asp:Image ID="oldPhoto" CssClass="img-responsive" Width="200px" Height="200px" runat="server" />
+        </div>
+        <div class="form-group text-right input-group">
+            <label style="display: block" for="Abstract">انتخاب عکس جدید :  </label>
             <label class="btn btn-info" style="width: 100px;">
                 <asp:Literal runat="server" Text="انتخاب عکس" />
 
                 <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
             </label>
             <label style="padding: 18px" id="filename"></label>
-            <asp:RequiredFieldValidator Display="Dynamic" SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>
-            <asp:DropDownList ID="DDLGroups" OnSelectedIndexChanged="DDLGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DDLGroups2" OnSelectedIndexChanged="DDLGroups2_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
             <div class="Displayinline" id="upPan3">
                 <asp:UpdatePanel ID="updatepanel4" runat="server">
                     <ContentTemplate>
@@ -50,7 +54,7 @@
                         </div>
                     </ContentTemplate>
                     <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="DDLGroups2" EventName="SelectedIndexChanged" />
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
@@ -62,12 +66,12 @@
                 <div class="Displayinline" id="upPan1">
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <asp:ListBox ID="SubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
+                            <asp:ListBox ID="SubGroups2" CssClass="LBXClass" runat="server"></asp:ListBox>
                         </ContentTemplate>
                         <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
-                            <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
+                            <asp:AsyncPostBackTrigger ControlID="DDLGroups2" EventName="SelectedIndexChanged" />
+                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub2" EventName="Click" />
+                            <asp:AsyncPostBackTrigger ControlID="AddToSub2" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>
@@ -77,10 +81,11 @@
                         <tr>
 
                             <td style='width: 50px; text-align: center; vertical-align: middle;'>
-                                <asp:Button ID="AddToSub" Width="50px" OnClick="AddToSub_Click" CausesValidation="False" runat="server" Text=">>" />
+                                <asp:Button ID="AddToSub2" Width="50px" OnClick="AddToSub2_Click" CausesValidation="False" runat="server" Text=">>" />
                                 <br />
                                 <br />
-                                <asp:Button ID="RemoveFromSub" Width="50px" OnClick="RemoveFromSub_Click" CausesValidation="False" runat="server" Text="<<" />
+                                <asp:Button ID="RemoveFromSub2" Width="50px" OnClick="RemoveFromSub2_Click" CausesValidation="False" runat="server" Text="<<" />
+
                             </td>
                         </tr>
                     </table>
@@ -92,8 +97,8 @@
                             <asp:ListBox ID="SelectedSubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
                         </ContentTemplate>
                         <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
+                            <asp:AsyncPostBackTrigger ControlID="AddToSub2" EventName="Click" />
+                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub2" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>
@@ -129,8 +134,8 @@
                 </div>
             </ContentTemplate>
             <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="AddToSub2" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="RemoveFromSub2" EventName="Click" />
                 <asp:PostBackTrigger ControlID="btnSave" />
             </Triggers>
         </asp:UpdatePanel>

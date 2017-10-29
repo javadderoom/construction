@@ -19,7 +19,7 @@
                     <aside class="col-sm-3 sidebar  ">
                         <div class="pinned">
                             <div class="row m0 recentPostWidget widgetS ">
-                                <h4>پست های اخیر</h4>
+                                <h4>پروژه های اخیر</h4>
 
                                 <div id="DivRecenPosts" runat="server" class="row m0 recentblogs">
                                 </div>
@@ -70,4 +70,7 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="Scripts" runat="server">
+    <script>
+        $("#ContentPlaceHolder1_DivBody").find("img").addClass("img-responsive");
+    </script>
 </asp:Content>

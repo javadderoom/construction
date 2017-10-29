@@ -31,14 +31,17 @@
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
-            <label style="display: block" for="Abstract">عکس بالای مقاله : </label>
+            <label style="display: block" for="Abstract">عکس فعلی : </label>
+            <asp:Image ID="oldPhoto" CssClass="img-responsive" Width="200px" Height="200px" runat="server" />
+        </div>
+        <div class="form-group text-right input-group">
+            <label style="display: block" for="Abstract">انتخاب عکس جدید :  </label>
             <label class="btn btn-info" style="width: 100px;">
                 <asp:Literal runat="server" Text="انتخاب عکس" />
 
                 <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
             </label>
             <label style="padding: 18px" id="filename"></label>
-            <asp:RequiredFieldValidator Display="Dynamic" SetFocusOnError="true" ID="RequiredFieldValidator5" ControlToValidate="FileUpload1" runat="server" CssClass="error" ErrorMessage="هیچ عکسی انتخاب نشده است!"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>

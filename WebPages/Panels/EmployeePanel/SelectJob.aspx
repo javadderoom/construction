@@ -4,22 +4,10 @@
     <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.min.js"></script>
-    <link href="../../_Styles/simple-sidebar.css" rel="stylesheet" />
-    <link href="../../_Styles/bootstrap.css" rel="stylesheet" />
-    <link href="../../_Styles/StyleSheet.css" rel="stylesheet" />
-    <link href="../../_Styles/AdminPanelStyles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div style="direction: rtl; margin-right: 200px">
+    <div style="direction: rtl; margin-right: 200px; margin-top: 50px;">
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>
             <asp:DropDownList ID="DDLGroups" OnSelectedIndexChanged="DDLGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
@@ -31,7 +19,6 @@
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
@@ -51,7 +38,6 @@
                             <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
                 <div style="display: inline;">
 
@@ -66,7 +52,6 @@
                             </td>
                         </tr>
                     </table>
-
                 </div>
 
                 <div style="display: inline" id="upPan2">
@@ -79,10 +64,8 @@
                             <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
             </div>
-
         </div>
     </div>
 </asp:Content>

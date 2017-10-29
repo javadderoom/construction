@@ -556,6 +556,7 @@
     <Content Include="ckeditor\skins\moono-lisa\images\refresh.png" />
     <Content Include="ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
+    <Content Include="erorr404.aspx" />
     <Content Include="fileman\css\images\animated-overlay.gif" />
     <Content Include="fileman\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="fileman\css\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -844,9 +845,11 @@
     <Content Include="Images\1 %284%29.jpg" />
     <Content Include="Images\1 %285%29.jpg" />
     <Content Include="Images\BKTP.png" />
+    <Content Include="Images\dark-eye.png" />
     <Content Include="Images\loginBg.jpg" />
     <Content Include="Images\loginbg_1280x1024.jpg" />
     <Content Include="Images\Loginbg_1366x768.jpg" />
+    <Content Include="Images\ORFI0N0.png" />
     <Content Include="Images\passicon.png" />
     <Content Include="Images\profile.png" />
     <Content Include="Images\register64px.png" />
@@ -1004,8 +1007,8 @@
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
-    <Content Include="_construction\IndexMaster.Master" />
     <Content Include="_construction\fonts\IranSans.woff" />
+    <Content Include="_construction\IndexMaster.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
@@ -1166,6 +1169,13 @@
     </Compile>
     <Compile Include="Catchimage.aspx.designer.cs">
       <DependentUpon>Catchimage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="erorr404.aspx.cs">
+      <DependentUpon>erorr404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="erorr404.aspx.designer.cs">
+      <DependentUpon>erorr404.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1492,6 +1502,7 @@
     <Folder Include="fileman\Uploads\Documents\" />
     <Folder Include="fileman\Uploads\FLV\" />
     <Folder Include="Models\" />
+    <Folder Include="resume\" />
     <Folder Include="UserImages\" />
   </ItemGroup>
   <ItemGroup>

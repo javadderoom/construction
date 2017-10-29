@@ -48,7 +48,7 @@ namespace WebPages.Panels.EmployeePanel
             ddlCity.SelectedValue = asd;
             lblmobile.Value = dt.Rows[0][9].ToString();
             lblusername.Value = dt.Rows[0][3].ToString();
-            lblpassword.Value = dt.Rows[0][4].ToString();
+            password.Value = dt.Rows[0][4].ToString();
             lblzip.Value = dt.Rows[0][11].ToString();
 
             if (dt.Rows[0][12] != DBNull.Value)
@@ -85,13 +85,13 @@ namespace WebPages.Panels.EmployeePanel
             Employee em = new Employee();
             em.Address = lbladdress.Value;
             em.City = ddlCity.SelectedValue.ToInt();
-            em.State = ddlCity.SelectedValue.ToInt();
+            em.State = ddlState.SelectedValue.ToInt();
             em.Email = lblemail.Value;
             em.EmployeeID = lblid.Value.ToInt();
             em.FirstName = lblfirstName.Value;
             em.LastName = lblLastName.Value;
             em.Mobile = lblmobile.Value;
-            em.Password = lblpassword.Value;
+            em.Password = password.Value;
             em.UserName = lblusername.Value;
             em.PostalCode = lblzip.Value;
             er.SaveEmployees(em);
@@ -175,7 +175,7 @@ namespace WebPages.Panels.EmployeePanel
                 string filename = Path.GetFileName(fileResume.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
-                string ps = Server.MapPath(@"~\img\") + filename;
+                string ps = Server.MapPath(@"~\resume\") + filename;
                 fileResume.SaveAs(ps);
 
                 FileStream fStream = File.OpenRead(ps);

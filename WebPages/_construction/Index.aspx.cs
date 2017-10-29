@@ -16,6 +16,20 @@ namespace WebPages._construction
 {
     public partial class Index1 : System.Web.UI.Page
     {
+        private void SetProjects()
+        {
+            string txt = "";
+            ProjectsRepository rep = new ProjectsRepository();
+            List<Project> plist = rep.Top6tProjects();
+
+            foreach (Project pr in plist)
+            {
+                txt += "<div class='project mix catHouses'>  <img src='" + setProjectInlineImage(pr.ProjectID) + "' alt='Project1' class='projectImg img-responsive'/>  <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href='projectlink' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
+
+            }
+            projects.InnerHtml = txt + txt;
+
+        }
         private string setBKGSrc(int SlideID)
         {
             string ans = "";
@@ -262,10 +276,12 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             fillServises();
             triggers();
             if (!IsPostBack)
             {
+                SetProjects();
                 List<Article> articles = new List<Article>();
                 ArticleRepository artRep = new ArticleRepository();
                 articles = artRep.Top3tArticles();
@@ -297,6 +313,29 @@ namespace WebPages._construction
             {
                 cn.Open();
                 using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+                }
+            }
+            return ans;
+        }
+        private string setProjectInlineImage(int arid)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {

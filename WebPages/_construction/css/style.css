@@ -2,6 +2,10 @@
     text-align: left;
 }
 
+.dispnone {
+    display: none;
+}
+
 .breadcrumb > li + li:before {
     content: none !important;
 }
@@ -1981,6 +1985,16 @@ header .social_nav {
                     transition: all 300ms ease-in-out;
                 }
 
+@media(max-width:1024px) {
+    .blog .blogInner .blogDateTime i:after {
+        left: 50px;
+    }
+}
+
+@media(max-width:990px) {
+    .blog .blogInner .blogDateTime i:after {
+        left: 40px;
+    }
 }
 
 .blog .blogInner .featureImg {

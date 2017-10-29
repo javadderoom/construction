@@ -119,68 +119,7 @@
                             </div>
                         </div>
                     </li>
-                    <!-- SLIDE 4 -->
-                    <li data-transition="boxslide" data-slotamount="7">
-                        <img src="" alt="slidebg1" runat="server" id="bImg4" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-                        <div class="caption sfr str"
-                            data-x="-100"
-                            data-y="135"
-                            data-speed="700"
-                            data-start="1700"
-                            data-easing="easeOutBack">
-                            <div runat="server" id="divText4"></div>
-                        </div>
 
-                        <div runat="server" id="diva4" class="caption sfb stb"
-                            data-x="-100"
-                            data-y="375"
-                            data-hoffset="0"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                        </div>
-                        <div class="caption skewfromright skewtoright"
-                            data-x="right"
-                            data-y="130"
-                            data-hoffset="176"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <div class="tools" runat="server" id="rightPic4">
-                            </div>
-                        </div>
-                    </li>
-                    <!-- SLIDE 5 -->
-                    <li data-transition="boxslide" data-slotamount="7">
-                        <img src="" alt="slidebg1" runat="server" id="bImg5" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-                        <div class="caption sfr str"
-                            data-x="-100"
-                            data-y="135"
-                            data-speed="700"
-                            data-start="1700"
-                            data-easing="easeOutBack">
-                            <div runat="server" id="divText5"></div>
-                        </div>
-
-                        <div runat="server" id="diva5" class="caption sfb stb"
-                            data-x="-100"
-                            data-y="375"
-                            data-hoffset="0"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                        </div>
-                        <div class="caption skewfromright skewtoright"
-                            data-x="right"
-                            data-y="130"
-                            data-hoffset="176"
-                            data-speed="500"
-                            data-start="1900"
-                            data-easing="easeOutBack">
-                            <div class="tools" runat="server" id="rightPic5">
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>

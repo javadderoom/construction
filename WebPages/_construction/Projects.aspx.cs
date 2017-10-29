@@ -14,10 +14,10 @@ namespace WebPages._construction
 {
     public partial class Projects : System.Web.UI.Page
     {
-        private void fillUl(List<Article> artList)
+        private void fillUl(List<Project> artList)
         {
             string text = "";
-            foreach (Article article in artList)
+            foreach (Project article in artList)
             {
                 if (article.Abstract.Count() > 130)
                 {
@@ -25,21 +25,21 @@ namespace WebPages._construction
                     {
                         if ((130 - (article.Title.Count() - 30)) < 1)
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                         else
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                     }
                     else
                     {
-                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                     }
                 }
                 else
                 {
-                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها" + article.ArticleID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "وبلاگ-ها" + article.ProjectID + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                 }
             }
             UlArticles.InnerHtml = text;
@@ -51,8 +51,8 @@ namespace WebPages._construction
             {
                 //load posts
 
-                ArticleRepository ArtRep = new ArticleRepository();
-                List<Article> Articles = ArtRep.AllArticles();
+                ProjectsRepository ArtRep = new ProjectsRepository();
+                List<Project> Articles = ArtRep.AllProjects();
                 fillUl(Articles);
 
                 //load ddls
@@ -93,23 +93,23 @@ namespace WebPages._construction
                 }
                 //load posts
                 List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                ArticleRepository artrep = new ArticleRepository();
-                List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
+                ProjectsRepository artrep = new ProjectsRepository();
+                List<Project> articles = artrep.ReturnProjectsByCategory(subgroupsid);
                 if (articles.Count != 0)
                 {
                     fillUl(articles);
                 }
                 else
                 {
-                    UlArticles.InnerHtml = " <li class='danger'>در این بخش مقاله ای وجود ندارد!</li> ";
+                    UlArticles.InnerHtml = " <li class='danger'>در این بخش پروژه ای وجود ندارد!</li> ";
                     ddlSubGroups.SelectedIndex = 0;
                     ddlSubGroups.Enabled = false;
                 }
             }
             else
             {
-                ArticleRepository ArtRep = new ArticleRepository();
-                List<Article> Articles = ArtRep.AllArticles();
+                ProjectsRepository artrep = new ProjectsRepository();
+                List<Project> Articles = artrep.AllProjects();
                 fillUl(Articles);
                 ddlSubGroups.SelectedIndex = 0;
                 ddlSubGroups.Enabled = false;
@@ -123,30 +123,30 @@ namespace WebPages._construction
         {
             if (ddlSubGroups.SelectedValue != "-2")
             {
-                ArticleRepository artrep = new ArticleRepository();
-                List<Article> articles = artrep.ReturnArticlesByCategory(ddlSubGroups.SelectedValue.ToInt());
+                ProjectsRepository artrep = new ProjectsRepository();
+                List<Project> articles = artrep.ReturnProjectsByCategory(ddlSubGroups.SelectedValue.ToInt());
                 if (articles.Count != 0)
                 {
                     fillUl(articles);
                 }
                 else
                 {
-                    UlArticles.InnerHtml = " <li class='danger'>در این بخش مقاله ای وجود ندارد!</li> ";
+                    UlArticles.InnerHtml = " <li class='danger'>در این بخش پروژه ای وجود ندارد!</li> ";
                 }
             }
             else
             {
                 GroupsRepository Groupsrepo = new GroupsRepository();
                 List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                ArticleRepository artrep = new ArticleRepository();
-                List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
+                ProjectsRepository artrep = new ProjectsRepository();
+                List<Project> articles = artrep.ReturnProjectsByCategory(subgroupsid);
                 if (articles.Count != 0)
                 {
                     fillUl(articles);
                 }
                 else
                 {
-                    UlArticles.InnerHtml = " <li class='danger'>در این بخش مقاله ای وجود ندارد!</li> ";
+                    UlArticles.InnerHtml = " <li class='danger'>در این بخش پروژه ای وجود ندارد!</li> ";
                 }
             }
 
@@ -160,7 +160,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {

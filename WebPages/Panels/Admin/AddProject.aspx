@@ -35,7 +35,7 @@
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
-            <label style="display: block" for="Abstract">عکس بالای |روژه : </label>
+            <label style="display: block" for="Abstract">عکس بالای پروژه : </label>
             <label class="btn btn-info" style="width: 100px;">
                 <asp:Literal runat="server" Text="انتخاب عکس" />
 

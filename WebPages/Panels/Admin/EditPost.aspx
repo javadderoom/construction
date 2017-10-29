@@ -31,7 +31,11 @@
             <asp:TextBox ID="Abstract" Style="max-width: 500px; height: 85px;" placeholder="حداقل تعداد حروف 130 عدد میباشد" Rows="5" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="form-group text-right input-group">
-            <label style="display: block" for="Abstract">عکس بالای مقاله : </label>
+            <label style="display: block" for="Abstract">عکس فعلی : </label>
+            <asp:Image ID="oldPhoto" CssClass="img-responsive" Width="200px" Height="200px" runat="server" />
+        </div>
+        <div class="form-group text-right input-group">
+            <label style="display: block" for="Abstract">انتخاب عکس جدید :  </label>
             <label class="btn btn-info" style="width: 100px;">
                 <asp:Literal runat="server" Text="انتخاب عکس" />
 

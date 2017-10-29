@@ -4,6 +4,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,33 @@ namespace WebPages.Panels.Admin
 {
     public partial class EdidProject : System.Web.UI.Page
     {
+        private string setInlineImage(int arid)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+
+
+
+                }
+            }
+            return ans;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,6 +76,7 @@ namespace WebPages.Panels.Admin
                     DDLGroups2.DataValueField = "GroupID";
                     DDLGroups2.DataBind();
                     DDLGroups2.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                    oldPhoto.ImageUrl = setInlineImage(id);
                 }
                 else
                 {

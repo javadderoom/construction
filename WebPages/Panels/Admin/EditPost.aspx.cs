@@ -4,6 +4,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -48,6 +49,7 @@ namespace WebPages.Panels.Admin
                     DDLGroups.DataValueField = "GroupID";
                     DDLGroups.DataBind();
                     DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                    oldPhoto.ImageUrl = setInlineImage(id);
                 }
                 else
                 {
@@ -87,7 +89,33 @@ namespace WebPages.Panels.Admin
             }
 
         }
+        private string setInlineImage(int arid)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
 
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+
+
+
+                }
+            }
+            return ans;
+        }
         protected void AddToSub_Click(object sender, EventArgs e)
         {
             if (SubGroups.SelectedIndex != -1)

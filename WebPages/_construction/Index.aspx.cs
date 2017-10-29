@@ -24,7 +24,7 @@ namespace WebPages._construction
 
             foreach (Project pr in plist)
             {
-                txt += "<div class='project mix catHouses'> <a href='" + setProjectInlineImage(pr.ProjectID) + "' data-lightbox='project' data-title='" + pr.Title + "'> <img src='" + setProjectInlineImage(pr.ProjectID) + "' alt='Project1' class='projectImg'/> </a> <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href='projectlink' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
+                txt += "<div class='project mix catHouses'>  <img src='" + setProjectInlineImage(pr.ProjectID) + "' alt='Project1' class='projectImg img-responsive'/>  <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href='projectlink' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
 
             }
             projects.InnerHtml = txt + txt;

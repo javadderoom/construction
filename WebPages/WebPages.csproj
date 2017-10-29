@@ -844,8 +844,6 @@
     <Content Include="Images\1 %283%29.jpg" />
     <Content Include="Images\1 %284%29.jpg" />
     <Content Include="Images\1 %285%29.jpg" />
-    <Content Include="Images\404page.png" />
-    <Content Include="Images\404page1.png" />
     <Content Include="Images\BKTP.png" />
     <Content Include="Images\dark-eye.png" />
     <Content Include="Images\loginBg.jpg" />
@@ -1008,7 +1006,6 @@
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
-    <Content Include="_construction\IndexMaster.Master" />
     <Content Include="_construction\fonts\IranSans.woff" />
   </ItemGroup>
   <ItemGroup>
@@ -1465,13 +1462,6 @@
     </Compile>
     <Compile Include="_construction\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="_construction\IndexMaster.Master.cs">
-      <DependentUpon>IndexMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="_construction\IndexMaster.Master.designer.cs">
-      <DependentUpon>IndexMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="_construction\Projects.aspx.cs">
       <DependentUpon>Projects.aspx</DependentUpon>

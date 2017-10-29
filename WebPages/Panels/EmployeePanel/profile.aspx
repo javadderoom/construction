@@ -2,6 +2,18 @@
 
 <asp:Content ID="content3" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
+    <style>
+        .glyphicon {
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        /* Styles for CodePen Demo Only */
+        #wrapper {
+            max-width: 500px;
+            margin: auto;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -50,8 +62,12 @@
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
-                            <label>رمز عبور </label>
-                            <input id="lblpassword" class="dirToLeft" runat="server" type="password" />
+                            <div id="wrapper">
+                                <div class="form-group has-feedback">
+                                    <input type="password" runat="server" class="form-control dirToLeft" id="password" />
+                                    <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -153,4 +169,17 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+    <script>
+        // toggle password visibility
+        $(' .glyphicon').on('click', function () {
+            $(this).toggleClass('glyphicon-eye-close').toggleClass('glyphicon-eye-open'); // toggle our classes for the eye icon
+
+            var x = document.getElementById("ContentPlaceHolder1_password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        });
+    </script>
 </asp:Content>

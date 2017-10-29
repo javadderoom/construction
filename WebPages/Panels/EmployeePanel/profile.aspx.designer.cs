@@ -67,13 +67,13 @@ namespace WebPages.Panels.EmployeePanel {
         protected global::System.Web.UI.HtmlControls.HtmlInputText lblusername;
         
         /// <summary>
-        /// lblpassword control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword lblpassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
         
         /// <summary>
         /// fileResume control.

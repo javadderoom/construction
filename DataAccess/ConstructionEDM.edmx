@@ -401,6 +401,8 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ConstructionCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ConstructionCompanyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProjectConnections" EntityType="ConstructionCompanyModel.ProjectConnection" />
+          <EntitySet Name="ProjectGroups" EntityType="ConstructionCompanyModel.ProjectGroup" />
           <EntitySet Name="Admins" EntityType="ConstructionCompanyModel.Admin" />
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
@@ -416,8 +418,6 @@
           <EntitySet Name="Links" EntityType="ConstructionCompanyModel.Link" />
           <EntitySet Name="Messages" EntityType="ConstructionCompanyModel.Message" />
           <EntitySet Name="Orders" EntityType="ConstructionCompanyModel.Order" />
-          <EntitySet Name="ProjectConnections" EntityType="ConstructionCompanyModel.ProjectConnection" />
-          <EntitySet Name="ProjectGroups" EntityType="ConstructionCompanyModel.ProjectGroup" />
           <EntitySet Name="Projects" EntityType="ConstructionCompanyModel.Project" />
           <EntitySet Name="Satisfactions" EntityType="ConstructionCompanyModel.Satisfaction" />
           <EntitySet Name="Sliders" EntityType="ConstructionCompanyModel.Slider" />
@@ -459,7 +459,23 @@
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="ProjectConnection">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="ProjectID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProjectGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherID" Type="Int32" />
+        </EntityType>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="AdminID" />
@@ -622,22 +638,6 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="Order" ToRole="City" />
           <NavigationProperty Name="State1" Relationship="ConstructionCompanyModel.FK_Orders_States1" FromRole="Order" ToRole="State" />
-        </EntityType>
-        <EntityType Name="ProjectConnection">
-          <Key>
-            <PropertyRef Name="ConnectionID" />
-          </Key>
-          <Property Name="ConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GroupID" Type="Int32" />
-          <Property Name="ProjectID" Type="Int32" />
-        </EntityType>
-        <EntityType Name="ProjectGroup">
-          <Key>
-            <PropertyRef Name="GroupID" />
-          </Key>
-          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FatherID" Type="Int32" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -815,6 +815,24 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ConstructionCompanyModelStoreContainer" CdmEntityContainer="ConstructionCompanyEntities">
+          <EntitySetMapping Name="ProjectConnections">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ProjectConnection">
+              <MappingFragment StoreEntitySet="ProjectConnection">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ConnectionID" ColumnName="ConnectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectGroups">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ProjectGroup">
+              <MappingFragment StoreEntitySet="ProjectGroups">
+                <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -981,24 +999,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProjectConnections">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.ProjectConnection">
-              <MappingFragment StoreEntitySet="ProjectConnection">
-                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-                <ScalarProperty Name="ConnectionID" ColumnName="ConnectionID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProjectGroups">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.ProjectGroup">
-              <MappingFragment StoreEntitySet="ProjectGroups">
-                <ScalarProperty Name="FatherID" ColumnName="FatherID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Project">
               <MappingFragment StoreEntitySet="Projects">
@@ -1060,7 +1060,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

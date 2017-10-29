@@ -61,11 +61,11 @@ namespace DataAccess.Repository
                                   select r).Take(5).ToList();
             return list;
         }
-        public List<Project> Top3tProjects()
+        public List<Project> Top6tProjects()
         {
             List<Project> list = (from r in DB.Projects
                                   orderby r.ProjectID descending
-                                  select r).Take(3).ToList();
+                                  select r).Take(6).ToList();
             return list;
         }
         public List<Project> AllProjects()

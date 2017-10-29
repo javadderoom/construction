@@ -166,27 +166,7 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
 
-                <%-- <div class="item">
-                                <div class="row m0 service ">
-                                    <div class="row m0 innerRow item">
-                                        <div>
-                                            <i class="fa fa-laptop"></i>
-                                            <div class="serviceName">خدمات سازه ای</div>
-                                        </div>
-                                        <div class="item-overlay left">
-                                            <ul>
-                                                <li class="liLeft">
-                                                    <input class="btnLeftService" runat="server" id="articles" onserverclick="articles_ServerClick" value="مقالات" type="button" /></li>
-                                                <li class="liRight">
 
-                                                    <asp:Button class="btnRightService" ID="btnRightServiceid" runat="server" OnClick="subGroups_ServerClick" Text="زیر گروه ها" />
-                                                    <button class="btnRightService" id="Button1" runat="server" onserverclick="subGroups_ServerClick" value="زیر گروه ها" />
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>--%>
             </div>
         </div>
     </section>
@@ -197,7 +177,7 @@
             <h2 class="sectionTitle">پروژه های ما</h2>
             <div class="sectionSubTitle">آخرین کار ها</div>
         </div>
-        <div class="row filters m0">
+        <%--<div class="row filters m0">
             <button type="button" class="collapsed project_filderButton visible-xs" data-toggle="collapse" data-target="#filters">
                 <span class="btn-text"><i class="fa fa-filter"></i>فیلتر پروژه ها</span>
             </button>
@@ -210,99 +190,9 @@
                 <li class="filter" data-filter=".catOffices">دفتر کار</li>
                 <li class="filter" data-filter=".catUniversities">دانشگاه ها</li>
             </ul>
-        </div>
-        <div class="row projects m0">
-            <div class="project mix catHouses">
-                <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)">
-                    <img src="images/projects/project1.png" alt="Project 1" class="projectImg" />
-                </a>
-                <div class="projectDetails row m0">
+        </div>--%>
 
-                    <div class="fleft projectIcons btn-group" role="group">
-                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
-                        <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
-                    </div>
-                    <div class="fright nameType">
-                        <div class="row m0 projectName">بیمارستان مرکزی</div>
-                        <div class="row m0 projectType">ساخت و ساز</div>
-                    </div>
-                </div>
-            </div>
-            <div class="project mix catHospital">
-                <a href="images/projects/project2.png" data-lightbox="project" data-title="Construction CEO (ceo, architect)">
-                    <img src="images/projects/project2.png" alt="Project 1" class="projectImg" />
-                </a>
-                <div class="projectDetails row m0">
-                    <div class="fleft projectIcons btn-group" role="group">
-                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
-                        <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
-                    </div>
-                    <div class="fright nameType">
-                        <div class="row m0 projectName">بیمارستان مرکزی</div>
-                        <div class="row m0 projectType">ساخت و ساز</div>
-                    </div>
-                </div>
-            </div>
-            <div class="project mix catFlats">
-                <a href="images/projects/project3.png" data-lightbox="project" data-title="Workder Accessories (tools, accessories)">
-                    <img src="images/projects/project3.png" alt="Project 1" class="projectImg" />
-                </a>
-                <div class="projectDetails row m0">
-                    <div class="fleft projectIcons btn-group" role="group">
-                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
-                        <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
-                    </div>
-                    <div class="fright nameType">
-                        <div class="row m0 projectName">بیمارستان مرکزی</div>
-                        <div class="row m0 projectType">ساخت و ساز</div>
-                    </div>
-                </div>
-            </div>
-            <div class="project mix catSchools">
-                <a href="images/projects/project4.png" data-lightbox="project" data-title="Rebuilding an old University (university, building)">
-                    <img src="images/projects/project4.png" alt="Project 1" class="projectImg" />
-                </a>
-                <div class="projectDetails row m0">
-                    <div class="fleft projectIcons btn-group" role="group">
-                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
-                        <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
-                    </div>
-                    <div class="fright nameType">
-                        <div class="row m0 projectName">بیمارستان مرکزی</div>
-                        <div class="row m0 projectType">ساخت و ساز</div>
-                    </div>
-                </div>
-            </div>
-            <div class="project mix catUniversities">
-                <a href="images/projects/project5.png" data-lightbox="project" data-title="Construction Tools (tools, assets)">
-                    <img src="images/projects/project5.png" alt="Project 1" class="projectImg" />
-                </a>
-                <div class="projectDetails row m0">
-                    <div class="fleft projectIcons btn-group" role="group">
-                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
-                        <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
-                    </div>
-                    <div class="fright nameType">
-                        <div class="row m0 projectName">بیمارستان مرکزی</div>
-                        <div class="row m0 projectType">ساخت و ساز</div>
-                    </div>
-                </div>
-            </div>
-            <div class="project mix catOffices">
-                <a href="images/projects/project6.png" data-lightbox="project" data-title="Big Trucks on Action (cat, building)">
-                    <img src="images/projects/project6.png" alt="Project 1" class="projectImg" />
-                </a>
-                <div class="projectDetails row m0">
-                    <div class="fleft projectIcons btn-group" role="group">
-                        <a href="images/projects/project1.png" data-lightbox="project" data-title="Central Hospital (building)" class="btn btn-default"><i class="fa fa-search"></i></a>
-                        <a href="#" class="btn btn-default"><i class="fa fa-file-o"></i></a>
-                    </div>
-                    <div class="fright nameType">
-                        <div class="row m0 projectName">بیمارستان مرکزی</div>
-                        <div class="row m0 projectType">ساخت و ساز</div>
-                    </div>
-                </div>
-            </div>
+        <div class="row projects m0" runat="server" id="projects">
         </div>
     </section>
     <!--Projects-->
@@ -515,6 +405,15 @@
     <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
+
+
+        $(".project").mouseenter(function () {
+            $(this).find(".projectName").addClass("dispnone");
+        });
+        $(".project").mouseleave(function () {
+            $(this).find(".projectName").removeClass("dispnone");
+        });
+
         function owl() {
             $('.owl-one').owlCarousel({
 

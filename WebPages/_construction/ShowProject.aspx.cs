@@ -21,8 +21,8 @@ namespace WebPages._construction
                 string id = this.Page.RouteData.Values["id"].ToString();
                 if (!String.IsNullOrEmpty(id))
                 {
-                    ArticleRepository ART = new ArticleRepository();
-                    Article post = ART.FindeArticleByID(id.ToInt());
+                    ProjectsRepository ART = new ProjectsRepository();
+                    Project post = ART.FindeProjectByID(id.ToInt());
                     //META
                     HtmlMeta meta2 = new HtmlMeta();
                     meta2.Name = "KeyWords";
@@ -48,11 +48,11 @@ namespace WebPages._construction
                     }
                     DivTags.InnerHtml = text;
                     //Recent
-                    List<Article> ArticleList = ART.LatestArticles();
+                    List<Project> ArticleList = ART.LatestProjects();
                     text = "";
-                    foreach (Article article in ArticleList)
+                    foreach (Project article in ArticleList)
                     {
-                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "وبلاگ-ها" + article.ArticleID + "'><img src='" + setInlineImage(article.ArticleID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "وبلاگ-ها" + article.ArticleID + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
+                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "وبلاگ-ها" + article.ProjectID + "'><img src='" + setInlineImage(article.ProjectID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "وبلاگ-ها" + article.ProjectID + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
                     }
 
                     DivRecenPosts.InnerHtml = text;
@@ -69,7 +69,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {
@@ -92,7 +92,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {

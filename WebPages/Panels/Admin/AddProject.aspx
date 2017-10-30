@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" ValidateRequest="false" CodeBehind="AddProject.aspx.cs" Inherits="WebPages.Panels.Admin.AddProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>افزودن پروژه</title>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="WebPages._construction.Projects" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>پروژه ها</title>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="pageStyles" runat="server">

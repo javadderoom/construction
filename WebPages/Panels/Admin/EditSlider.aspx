@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="EditSlider.aspx.cs" Inherits="WebPages.Panels.Admin.AddSlider" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>ویرایش اسلایدر</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="../../_Styles/EditSlider.css" rel="stylesheet" />

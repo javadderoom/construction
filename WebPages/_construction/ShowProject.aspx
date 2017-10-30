@@ -2,7 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <asp:PlaceHolder ID="MetaPlaceHolder" runat="server" />
-    <%--<asp:PlaceHolder ID="MetaPlaceHolder2" runat="server" />--%>
+
+    <title runat="server" id="PageTitle"></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../_Styles/BlogPost.css" rel="stylesheet" />

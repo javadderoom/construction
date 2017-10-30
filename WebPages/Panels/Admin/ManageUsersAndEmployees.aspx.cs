@@ -73,5 +73,11 @@ namespace WebPages.Panels.Admin
             gvUsers.DataSource = ur.searchUserUnionEmployee(txt);
             gvUsers.DataBind();
         }
+
+        protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvUsers.PageIndex = e.NewPageIndex;
+            fillGV();
+        }
     }
 }

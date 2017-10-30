@@ -61,7 +61,13 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-
+                            <PagerSettings Mode="NumericFirstLast"
+                                NextPageText="بعدی"
+                                LastPageText="انتها"
+                                FirstPageText="ابتدا"
+                                PreviousPageText="قبلی"
+                                PageButtonCount="2"
+                                Position="Bottom" />
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
                             <PagerStyle HorizontalAlign="center" CssClass="GridPager" />

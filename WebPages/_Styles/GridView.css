@@ -13,11 +13,13 @@ th {
     display: block;
     height: 25px;
     line-height: 25px;
-    width: 25px;
+    min-width: 25px;
     margin: 0 2px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .GridPager {

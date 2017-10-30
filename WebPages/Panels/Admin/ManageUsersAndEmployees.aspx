@@ -39,7 +39,7 @@
                             BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
                             GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
                             HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" OnPageIndexChanging="gvUsers_PageIndexChanging" AllowCustomPaging="False"
-                            AllowPaging="True" OnRowCommand="gvUsers_RowCommand" PageSize="10">
+                            AllowPaging="True" OnRowCommand="gvUsers_RowCommand" PageSize="2">
                             <Columns>
 
                                 <asp:BoundField DataField="UserID" HeaderText="شناسه" />
@@ -64,7 +64,7 @@
 
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                            <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
+                            <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
                             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F7F7F7" />
                             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />

@@ -11,37 +11,40 @@
     <div id="container">
         <div class="InnerContainer">
             <h3>اسلایدر ها : </h3>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <div id="gvContainer" style="overflow-x: auto">
+                        <asp:GridView ID="gvSlider" runat="server"
+                            BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
+                            BorderWidth="1px" CellPadding="4" Width="250px" ForeColor="Black" GridLines="Horizontal"
+                            AutoGenerateColumns="False" CssClass="dirRight table " HorizontalAlign="Center"
+                            AllowCustomPaging="False" AllowPaging="True"
+                            OnRowCommand="gvSlider_RowCommand" OnPageIndexChanging="gvSlider_PageIndexChanging">
+                            <Columns>
+                                <asp:BoundField DataField="SlideID" HeaderText="شناسه" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
 
-            <div id="gvContainer" style="overflow-x: auto">
-                <asp:GridView ID="gvSlider" runat="server"
-                    BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
-                    BorderWidth="1px" CellPadding="4" Width="250px" ForeColor="Black" GridLines="Horizontal"
-                    AutoGenerateColumns="False" CssClass="dirRight table " HorizontalAlign="Center"
-                    AllowCustomPaging="False" AllowPaging="True"
-                    OnRowCommand="gvSlider_RowCommand" OnPageIndexChanging="gvSlider_PageIndexChanging">
-                    <Columns>
-                        <asp:BoundField DataField="SlideID" HeaderText="شناسه" />
-                        <asp:TemplateField>
-                            <ItemTemplate>
+                                        <asp:Button ID="Edid" runat="server"
+                                            CommandName="EditRow"
+                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                            Text="ویرایش" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
 
-                                <asp:Button ID="Edid" runat="server"
-                                    CommandName="EditRow"
-                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                    Text="ویرایش" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
-            </div>
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
             <hr style="margin-top: 20px; margin-bottom: 20px" />
             <h3>راه های ارتباطی : </h3>

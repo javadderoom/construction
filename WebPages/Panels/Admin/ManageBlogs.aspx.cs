@@ -180,7 +180,7 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
-                Session.Timeout = 1;
+
 
 
 

@@ -878,6 +878,7 @@
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
     <Content Include="Panels\Admin\ManageFirstPage.aspx" />
     <Content Include="Panels\Admin\ManageGroups.aspx" />
+    <Content Include="Panels\Admin\ManageProjectGroups.aspx" />
     <Content Include="Panels\Admin\ManageProjects.aspx" />
     <Content Include="Panels\Admin\ManageUsersAndEmployees.aspx" />
     <Content Include="Panels\Admin\MessageInboxAdmin.aspx" />
@@ -1263,6 +1264,13 @@
     </Compile>
     <Compile Include="Panels\Admin\ManageGroups.aspx.designer.cs">
       <DependentUpon>ManageGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageProjectGroups.aspx.cs">
+      <DependentUpon>ManageProjectGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\ManageProjectGroups.aspx.designer.cs">
+      <DependentUpon>ManageProjectGroups.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\ManageProjects.aspx.cs">
       <DependentUpon>ManageProjects.aspx</DependentUpon>

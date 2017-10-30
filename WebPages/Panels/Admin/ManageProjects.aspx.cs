@@ -161,7 +161,7 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("ProjectIDForEdit", row.Cells[0].Text);
-                Session.Timeout = 1;
+
 
                 Response.Redirect("http://localhost:6421/Panels/Admin/EditProject.aspx");//edit
             }

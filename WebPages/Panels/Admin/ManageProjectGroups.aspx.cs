@@ -1,23 +1,23 @@
-﻿using System;
+﻿using Common;
+using DataAccess;
+using DataAccess.Repository;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Common;
-using DataAccess;
-using DataAccess.Repository;
-using System.Data;
 
 namespace WebPages.Panels.Admin
 {
-    public partial class ManageGroups : System.Web.UI.Page
+    public partial class ManageJobGroups : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GroupsRepository repGP = new GroupsRepository();
+                ProjectGroupsRepository repGP = new ProjectGroupsRepository();
                 DataTable allGroups = new DataTable();
                 allGroups = repGP.LoadAllGroups();
                 gvGroups.DataSource = allGroups;
@@ -62,8 +62,8 @@ namespace WebPages.Panels.Admin
 
             if (e.CommandName == "Delet")
             {
-                GroupsConRepository repgpCon = new GroupsConRepository();
-                GroupsRepository repgp = new GroupsRepository();
+                ProjectConRepository repgpCon = new ProjectConRepository();
+                ProjectGroupsRepository repgp = new ProjectGroupsRepository();
 
 
 
@@ -132,10 +132,10 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveGroupChange_Click(object sender, EventArgs e)
         {
-            GroupsRepository repgp = new GroupsRepository();
+            ProjectGroupsRepository repgp = new ProjectGroupsRepository();
             if (!String.IsNullOrEmpty(tbxNewName.Text))
             {
-                Group ngr = new Group();
+                ProjectGroup ngr = new ProjectGroup();
                 ngr.GroupID = IDholder.Text.ToInt();
                 ngr.FatherID = -1;
                 ngr.Title = tbxNewName.Text;
@@ -203,7 +203,7 @@ namespace WebPages.Panels.Admin
                 // Retrieve the row that contains the button
                 // from the Rows collection.
                 GridViewRow row = gvSubGroups.Rows[index];
-                GroupsRepository repgp = new GroupsRepository();
+                ProjectGroupsRepository repgp = new ProjectGroupsRepository();
 
                 if (repgp.DelSubGruop(row.Cells[0].Text.ToInt()))
                 {
@@ -231,10 +231,10 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveSubGroupChane_Click(object sender, EventArgs e)
         {
-            GroupsRepository repgp = new GroupsRepository();
+            ProjectGroupsRepository repgp = new ProjectGroupsRepository();
             if (!String.IsNullOrEmpty(SubNewName.Text))
             {
-                Group ngr = new Group();
+                ProjectGroup ngr = new ProjectGroup();
                 ngr = repgp.FindGroup(SubIDHolder.Text.ToInt());
                 ngr.Title = SubNewName.Text;
 
@@ -250,7 +250,6 @@ namespace WebPages.Panels.Admin
                     {
                         gvSubGroups.DataSource = repgp.LoadAllSubGroups();
                     }
-
                     gvSubGroups.DataBind();
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
@@ -282,7 +281,7 @@ namespace WebPages.Panels.Admin
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            GroupsRepository Groupsrepo = new GroupsRepository();
+            ProjectGroupsRepository Groupsrepo = new ProjectGroupsRepository();
 
             if (ddlGroups.SelectedValue != "-2")
             {
@@ -326,8 +325,8 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveNewGroup_Click(object sender, EventArgs e)
         {
-            GroupsRepository repgp = new GroupsRepository();
-            Group ngp = new Group();
+            ProjectGroupsRepository repgp = new ProjectGroupsRepository();
+            ProjectGroup ngp = new ProjectGroup();
 
             ngp.FatherID = -1;
             ngp.Title = tbxNewGroup.Text;
@@ -351,7 +350,6 @@ namespace WebPages.Panels.Admin
             gvSubGroups.DataSource = repgp.LoadAllSubGroups();
             gvSubGroups.DataBind();
             tbxNewGroup.Text = "";
-
         }
 
         protected void btnAddNewSub_Click(object sender, EventArgs e)
@@ -390,11 +388,11 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveNewSub_Click(object sender, EventArgs e)
         {
-            GroupsRepository repGP = new GroupsRepository();
+            ProjectGroupsRepository repGP = new ProjectGroupsRepository();
 
             for (int i = 0; i < lbxSubs.Items.Count; i++)
             {
-                Group gp = new Group();
+                ProjectGroup gp = new ProjectGroup();
 
                 gp.Title = lbxSubs.Items[i].Text;
                 gp.FatherID = lbxSubs.Items[i].Value.ToInt();
@@ -405,8 +403,6 @@ namespace WebPages.Panels.Admin
             lbxSubs.DataBind();
             gvSubGroups.DataSource = null;
             gvSubGroups.DataBind();
-            gvSubGroups.DataSource = null;
-            gvSubGroups.DataBind();
             if (ddlGroups.SelectedValue != "-2")
             {
                 gvSubGroups.DataSource = repGP.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
@@ -415,7 +411,6 @@ namespace WebPages.Panels.Admin
             {
                 gvSubGroups.DataSource = repGP.LoadAllSubGroups();
             }
-            gvSubGroups.DataBind();
             gvSubGroups.DataBind();
             ddlGroups.SelectedIndex = 0;
             System.Text.StringBuilder sb = new System.Text.StringBuilder();

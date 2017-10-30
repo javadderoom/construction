@@ -25,6 +25,7 @@ namespace WebPages.Panels.EmployeePanel
             if (!IsPostBack)
             {
                 setLabels();
+                fillDDL();
                 // UpdatePanel1.Update();
             }
         }
@@ -33,17 +34,67 @@ namespace WebPages.Panels.EmployeePanel
         {
             EmployeesRepository er = new EmployeesRepository();
             DataTable dt = er.getEmployeeProfileInfo(empid);
-            lblfullname.Value = dt.Rows[0][18].ToString();
+
+            lblfirstName.Value = dt.Rows[0][1].ToString();
+            lblLastName.Value = dt.Rows[0][2].ToString();
+            hFullName.InnerText = dt.Rows[0][19].ToString();
             lblid.Value = dt.Rows[0][0].ToString();
             lbladdress.Value = dt.Rows[0][8].ToString();
-            lblcitystate.Value = dt.Rows[0][19].ToString();
+
             lblemail.Value = dt.Rows[0][10].ToString();
+            ddlState.SelectedIndex = (dt.Rows[0][6].ToString().ToInt() - 1);
+
+            string asd = dt.Rows[0][7].ToString();
+            ddlCity.SelectedValue = asd;
             lblmobile.Value = dt.Rows[0][9].ToString();
             lblusername.Value = dt.Rows[0][3].ToString();
+            password.Value = dt.Rows[0][4].ToString();
             lblzip.Value = dt.Rows[0][11].ToString();
 
             if (dt.Rows[0][12] != DBNull.Value)
                 setImage();
+        }
+
+        public void fillDDL()
+        {
+            StatesRepository r = new StatesRepository();
+            ddlState.DataSource = r.getStatesInfo();
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateID";
+            ddlState.DataBind();
+
+            CityRepository cr = new CityRepository();
+            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityID";
+            ddlCity.DataBind();
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CityRepository cr = new CityRepository();
+            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityID";
+            ddlCity.DataBind();
+        }
+
+        private void save()
+        {
+            EmployeesRepository er = new EmployeesRepository();
+            Employee em = new Employee();
+            em.Address = lbladdress.Value;
+            em.City = ddlCity.SelectedValue.ToInt();
+            em.State = ddlState.SelectedValue.ToInt();
+            em.Email = lblemail.Value;
+            em.EmployeeID = lblid.Value.ToInt();
+            em.FirstName = lblfirstName.Value;
+            em.LastName = lblLastName.Value;
+            em.Mobile = lblmobile.Value;
+            em.Password = password.Value;
+            em.UserName = lblusername.Value;
+            em.PostalCode = lblzip.Value;
+            er.SaveEmployees(em);
         }
 
         private void setImage()
@@ -70,6 +121,7 @@ namespace WebPages.Panels.EmployeePanel
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+            save();
             if (fileImage.HasFile)
             {
                 if (fileImage.FileBytes.Length > 1024 * 1024)
@@ -123,7 +175,7 @@ namespace WebPages.Panels.EmployeePanel
                 string filename = Path.GetFileName(fileResume.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
-                string ps = Server.MapPath(@"~\img\") + filename;
+                string ps = Server.MapPath(@"~\resume\") + filename;
                 fileResume.SaveAs(ps);
 
                 FileStream fStream = File.OpenRead(ps);

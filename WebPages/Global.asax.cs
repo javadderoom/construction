@@ -46,32 +46,54 @@ namespace WebPages
         }
         void RegisterRoutes(System.Web.Routing.RouteCollection routes)
         {
-            routes.MapPageRoute("R1", "ناحیه_کاربری", "~/Panels/EmployeePanel/profile.aspx");
-            routes.MapPageRoute("R2", "ناحیه-کاربری", "~/Panels/UserPanel/profile.aspx");
-            routes.MapPageRoute("R3", "مدیریت-وبلاگ-ها", "~/Panels/Admin/ManageBlogs.aspx");
-            routes.MapPageRoute("R4", "ارسال-پیام-دسته-جمعی", "~/Panels/Admin/NewMessageGroup.aspx");
-            routes.MapPageRoute("R5", "ارسال__پیام__جدید", "~/Panels/Admin/newMesaageAdmin.aspx");
-            routes.MapPageRoute("R6", "ویرایش-وبلاگ", "~/Panels/Admin/EditPost.aspx");
-            routes.MapPageRoute("R7", "همه__پیام__ها", "~/Panels/Admin/MessagesAdmin.aspx");
-            routes.MapPageRoute("R8", "همه_پیام_ها", "~/Panels/EmployeePanel/MessagesEmployee.aspx");
-            routes.MapPageRoute("R9", "پیام-ها", "~/Panels/UserPanel/Messages.aspx");
-            routes.MapPageRoute("R10", "ورود", "~/Login.aspx");
-            routes.MapPageRoute("R11", "", "~/_construction/Index.aspx");
-            routes.MapPageRoute("R11.5", "وبلاگ-ها", "~/_construction/Blogs.aspx");
-
-            //routes.MapPageRoute("R12", "وبلاگ-ها/{id}", "~/_construction/BlogPost.aspx");
-            routes.MapPageRoute("R12", "وبلاگ-ها{id}/", "~/_construction/BlogPost.aspx");
+            ////matual
+            //routes.MapPageRoute("R1", "Blogs/{id}/{text}", "~/_construction/BlogPost.aspx");
+            //routes.MapPageRoute("R2", "Blogs", "~/_construction/Blogs.aspx");
+            //routes.MapPageRoute("R3", "", "~/_construction/Index.aspx");
+            //routes.MapPageRoute("R4", "Projects", "~/_construction/Projects.aspx");
+            //routes.MapPageRoute("R5", "Projects/{id}/{text}", "~/_construction/ShowProject.aspx");
+            //routes.MapPageRoute("R10", "Login", "~/Login.aspx");
 
 
+            ////admin
+            //routes.MapPageRoute("R6", "Admin/AddBlog", "~/Panels/Admin/AddBlog.aspx");
+            //routes.MapPageRoute("R7", "Admin/AddProject", "~/Panels/Admin/AddProject.aspx");
+            //routes.MapPageRoute("R8", "Admin/EditBlog", "~/Panels/Admin/EditPost.aspx");
+            //routes.MapPageRoute("R9", "Admin/EditProject", "~/Panels/Admin/EditProject.aspx");
+            //routes.MapPageRoute("R10", "Admin/EditSlider", "~/Panels/Admin/EditSlider.aspx");
+            //routes.MapPageRoute("R11", "Admin/EmployeeInfo", "~/Panels/Admin/EmployeeInfo.aspx");
 
 
-            routes.MapPageRoute("R13", "افزودن-وبلاگ-جدید", "~/Panels/Admin/AddBlog.aspx");
-            routes.MapPageRoute("R14", "اطلاعات_مشتری", "~/Panels/Admin/UserInfo.aspx");
-            routes.MapPageRoute("R15", "اطلاعات_همکاران", "~/Panels/Admin/EmployeeInfo.aspx");
-            //routes.MapPageRoute("R16", "", "");
-            //routes.MapPageRoute("R17", "", "");
-            //routes.MapPageRoute("R18", "", "");
-            //routes.MapPageRoute("R19", "", "");
+            //routes.MapPageRoute("R14", "Admin/ManageBlogs", "~/Panels/Admin/ManageBlogs.aspx");
+            //routes.MapPageRoute("R14", "Admin/ManageFirstPage", "~/Panels/Admin/ManageFirstPage.aspx");
+            //routes.MapPageRoute("R14", "Admin/ManageBlogGroups", "~/Panels/Admin/ManageGroups.aspx");
+            //routes.MapPageRoute("R14", "Admin/ManageProjectGroups", "~/Panels/Admin/ManageProjectGroups.aspx");
+            //routes.MapPageRoute("R14", "Admin/ManageProjects", "~/Panels/Admin/ManageProjects.aspx");
+            //routes.MapPageRoute("R14", "Admin/ManageUsersAndEmployees", "~/Panels/Admin/ManageUsersAndEmployees.aspx");
+
+
+
+
+
+            //routes.MapPageRoute("R1", "EmployeePanel", "~/Panels/EmployeePanel/profile.aspx");
+            //routes.MapPageRoute("R2", "UserPanel", "~/Panels/UserPanel/profile.aspx");
+
+            //routes.MapPageRoute("R4", "GroupMessage", "~/Panels/Admin/NewMessageGroup.aspx");
+            //routes.MapPageRoute("R5", "AdminNewMessage", "~/Panels/Admin/newMesaageAdmin.aspx");
+
+            //routes.MapPageRoute("R7", "AdminAllMessages", "~/Panels/Admin/MessagesAdmin.aspx");
+            //routes.MapPageRoute("R8", "EmployeeInbox", "~/Panels/EmployeePanel/MessagesEmployee.aspx");
+            //routes.MapPageRoute("R9", "UserInbox", "~/Panels/UserPanel/Messages.aspx");
+
+
+
+
+            //routes.MapPageRoute("R14", "UserInfo", "~/Panels/Admin/UserInfo.aspx");
+
+
+
+            //routes.MapPageRoute("R18", "", "ListForGroupMessage");
+            //routes.MapPageRoute("R19", "", "ListForMessage");
             //routes.MapPageRoute("R20", "", "");
             //routes.MapPageRoute("R21", "", "");
             //routes.MapPageRoute("R22", "", "");

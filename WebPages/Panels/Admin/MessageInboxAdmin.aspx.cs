@@ -11,17 +11,15 @@ namespace WebPages.Panels.Admin
 {
     public partial class MessageInboxAdmin : System.Web.UI.Page
     {
+        private int adminid = 0;
 
-        int adminid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             adminid = Session["adminid"].ToString().ToInt();
             if (!IsPostBack)
             {
-
                 fillGrid();
             }
-
         }
 
         private void fillGrid()
@@ -41,7 +39,6 @@ namespace WebPages.Panels.Admin
         {
             if (e.CommandName == "view")
             {
-
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = gvChats.Rows[index];
                 int chatid = row.Cells[0].Text.ToInt();
@@ -64,6 +61,12 @@ namespace WebPages.Panels.Admin
 
         protected void btnViewAll_ServerClick(object sender, EventArgs e)
         {
+            fillGrid();
+        }
+
+        protected void gvChats_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvChats.PageIndex = e.NewPageIndex;
             fillGrid();
         }
     }

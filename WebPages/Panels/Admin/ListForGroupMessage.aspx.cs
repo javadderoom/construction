@@ -41,12 +41,10 @@ namespace WebPages.Panels.Admin
 
         protected void gvChats_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
         }
 
         protected void gvChats_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
         }
 
         protected void btnSend_ServerClick(object sender, EventArgs e)
@@ -65,7 +63,12 @@ namespace WebPages.Panels.Admin
 
         protected void checkAll_CheckedChanged(object sender, EventArgs e)
         {
+        }
 
+        protected void gvChats_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvChats.PageIndex = e.NewPageIndex;
+            fillGrid();
         }
     }
 }

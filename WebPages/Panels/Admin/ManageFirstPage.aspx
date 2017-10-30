@@ -17,8 +17,8 @@
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                     BorderWidth="1px" CellPadding="4" Width="250px" ForeColor="Black" GridLines="Horizontal"
                     AutoGenerateColumns="False" CssClass="dirRight table " HorizontalAlign="Center"
-                    AllowCustomPaging="True" AllowPaging="True"
-                    OnRowCommand="gvSlider_RowCommand">
+                    AllowCustomPaging="False" AllowPaging="True"
+                    OnRowCommand="gvSlider_RowCommand" OnPageIndexChanging="gvSlider_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="SlideID" HeaderText="شناسه" />
                         <asp:TemplateField>
@@ -34,7 +34,7 @@
 
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                    <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
                     <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                     <SortedAscendingCellStyle BackColor="#F7F7F7" />
                     <SortedAscendingHeaderStyle BackColor="#4B4B4B" />

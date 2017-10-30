@@ -59,5 +59,11 @@ namespace WebPages.Panels.UserPanel
                 Response.Redirect("~/پیام-ها");
             }
         }
+
+        protected void gvChats_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvChats.PageIndex = e.NewPageIndex;
+            fillGV();
+        }
     }
 }

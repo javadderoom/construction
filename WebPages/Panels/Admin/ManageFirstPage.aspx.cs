@@ -40,9 +40,6 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvSlider.Rows[index];
 
                 Response.Redirect("~/Panels/Admin/EditSlider.aspx?id=" + row.Cells[0].Text);
-
-
-
             }
         }
 
@@ -61,9 +58,15 @@ namespace WebPages.Panels.Admin
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' ثبت با خطا مواجه شد ! ');", true);
-
             }
+        }
 
+        protected void gvSlider_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvSlider.PageIndex = e.NewPageIndex;
+            SliderRepository repSlider = new SliderRepository();
+            gvSlider.DataSource = repSlider.LoadSliders();
+            gvSlider.DataBind();
         }
     }
 }

@@ -47,8 +47,8 @@
                     <asp:GridView ID="gvChats" runat="server" BackColor="White" BorderColor="#CCCCCC"
                         BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
                         GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
-                        HorizontalAlign="Center" OnRowDataBound="gvChats_RowDataBound" AllowCustomPaging="True"
-                        AllowPaging="True" OnRowCommand="gvChats_RowCommand">
+                        HorizontalAlign="Center" OnRowDataBound="gvChats_RowDataBound" AllowCustomPaging="False"
+                        AllowPaging="True" OnPageIndexChanging="gvChats_PageIndexChanging" OnRowCommand="gvChats_RowCommand">
                         <Columns>
                             <asp:BoundField DataField="UserID" HeaderText="شناسه" />
                             <asp:BoundField DataField="UserName" ItemStyle-Width="30%" HeaderText="نام کاربری" />
@@ -63,14 +63,13 @@
                                         CommandName="sendpm"
                                         CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                         Text="ارسال پیام" Width="100" />
-
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
 
                         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                        <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
                         <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                         <SortedAscendingCellStyle BackColor="#F7F7F7" />
                         <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -91,5 +90,4 @@
         </div>
     </div>
     <div class="extra"></div>
-
 </asp:Content>

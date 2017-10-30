@@ -29,25 +29,19 @@
                                     <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>
-
-
                         </div>
                     </div>
                     <asp:UpdatePanel ID="updatepanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div runat="server" id="diverror">
                             </div>
-
-
                         </ContentTemplate>
                         <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="ddlGroups" EventName="SelectedIndexChanged" />
                             <asp:AsyncPostBackTrigger ControlID="ddlSubGroups" EventName="SelectedIndexChanged" />
                             <asp:AsyncPostBackTrigger ControlID="gvPosts" EventName="RowCommand" />
-
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
                 <asp:UpdatePanel ID="updatepanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                     <ContentTemplate>
@@ -57,8 +51,8 @@
                                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                                 BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"
                                 AutoGenerateColumns="False" CssClass="dirRight table " HorizontalAlign="Center"
-                                AllowCustomPaging="True" AllowPaging="True"
-                                OnRowCommand="gvPosts_RowCommand">
+                                AllowCustomPaging="False" AllowPaging="True"
+                                OnRowCommand="gvPosts_RowCommand" OnPageIndexChanging="gvPosts_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="ArticleID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
@@ -75,8 +69,6 @@
                                                 CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                                 Text="ویرایش" />
 
-
-
                                             <asp:Button OnClientClick="if(!confirm('ایا برای حذف مطمئن هستید؟')) return false;" ID="Delet" runat="server"
                                                 CommandName="Delet"
                                                 CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
@@ -87,7 +79,7 @@
 
                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
                                 <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                 <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -102,7 +94,6 @@
                         <asp:AsyncPostBackTrigger ControlID="gvPosts" EventName="RowCommand" />
                     </Triggers>
                 </asp:UpdatePanel>
-
             </div>
         </div>
     </div>

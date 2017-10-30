@@ -11,7 +11,7 @@ namespace WebPages.Panels.Admin
 {
     public partial class EmployeesFilterByJob : System.Web.UI.Page
     {
-        const string cChalMemNameConst = "ChalMem_cnst";
+        private const string cChalMemNameConst = "ChalMem_cnst";
 
         public List<int> loi
         {
@@ -26,6 +26,7 @@ namespace WebPages.Panels.Admin
                 return (List<int>)ViewState[cChalMemNameConst];
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -66,19 +67,16 @@ namespace WebPages.Panels.Admin
                 gvSelected.DataBind();
             }
 
-
             gvUsers.DataSource = er.getEmployeesExceptList(loi, jobid);
             gvUsers.DataBind();
         }
 
         protected void btnSearch_ServerClick(object sender, EventArgs e)
         {
-
         }
 
         protected void btnViewAll_ServerClick(object sender, EventArgs e)
         {
-
         }
 
         protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -95,7 +93,6 @@ namespace WebPages.Panels.Admin
 
         protected void gvUsers_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
         }
 
         protected void DDLJobGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,7 +130,18 @@ namespace WebPages.Panels.Admin
 
         protected void gvSelected_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+        }
 
+        protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvUsers.PageIndex = e.NewPageIndex;
+            fillGrids();
+        }
+
+        protected void gvSelected_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvSelected.PageIndex = e.NewPageIndex;
+            fillGrids();
         }
     }
 }

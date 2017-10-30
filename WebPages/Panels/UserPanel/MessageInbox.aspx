@@ -10,7 +10,7 @@
         <div class="c-title" style="margin-bottom: 20px; font-size: 16px; font-weight: bold">
             <h3>
 
-                <asp:literal runat="server" text="لیست گفتگو ها" />
+                <asp:Literal runat="server" Text="لیست گفتگو ها" />
             </h3>
         </div>
 
@@ -29,17 +29,17 @@
             </div>
         </div>
 
-        <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div id="ContentPlaceHolder1_upGrid">
             <div style="overflow-x: auto; width: 100%;">
-                <asp:updatepanel id="UpdatePanel1" runat="server">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
 
                         <asp:GridView ID="gvChats" runat="server" BackColor="White" BorderColor="#CCCCCC"
                             BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
                             GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
-                            HorizontalAlign="Center" OnRowDataBound="gvChats_RowDataBound" AllowCustomPaging="True"
-                            AllowPaging="True" OnRowCommand="gvChats_RowCommand">
+                            HorizontalAlign="Center" OnRowDataBound="gvChats_RowDataBound" AllowCustomPaging="False"
+                            AllowPaging="True" OnRowCommand="gvChats_RowCommand" OnPageIndexChanging="gvChats_PageIndexChanging">
                             <Columns>
                                 <asp:BoundField DataField="ChatID" HeaderText="شناسه" />
                                 <asp:BoundField DataField="ChatTitle" ItemStyle-Width="30%" HeaderText="عنوان صندوق پیام" />
@@ -61,7 +61,7 @@
 
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
                             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F7F7F7" />
                             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -69,14 +69,14 @@
                             <SortedDescendingHeaderStyle BackColor="#242121" />
                         </asp:GridView>
                     </ContentTemplate>
-                </asp:updatepanel>
+                </asp:UpdatePanel>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-5 col-md-push-7 col-xs-6 col-xs-push-6">
                 <button type="button" id="btnViewAll" class="btn btn-auto-h btn-info goRight" runat="server" style="margin-right: 5px; display: block" onserverclick="btnViewAll_ServerClick">
-                    <asp:literal runat="server" text="مشاهده تمام گفتگوها" />
+                    <asp:Literal runat="server" Text="مشاهده تمام گفتگوها" />
                     <span class="fa fa-list"></span>
                 </button>
             </div>

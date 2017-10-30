@@ -15,7 +15,6 @@ namespace WebPages.Panels.Admin
     {
         protected void group()
         {
-
             diverror.InnerHtml = "";
             if (ddlGroups.SelectedValue != "-2")
             {
@@ -25,7 +24,6 @@ namespace WebPages.Panels.Admin
 
                 if ((DT.Rows.Count > 0))
                 {
-
                     ddlSubGroups.Enabled = true;
 
                     ddlSubGroups.DataSource = DT;
@@ -33,15 +31,12 @@ namespace WebPages.Panels.Admin
                     ddlSubGroups.DataValueField = "GroupID";
                     ddlSubGroups.DataBind();
                     ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-
                 }
                 else
                 {
-
                     ddlSubGroups.Enabled = false;
                     ddlSubGroups.Items.Clear();
                     ddlSubGroups.Items.Insert(0, new ListItem("گروه : " + ddlGroups.SelectedItem.ToString(), ddlGroups.SelectedValue.ToString()));
-
                 }
                 //load posts
                 List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
@@ -73,7 +68,6 @@ namespace WebPages.Panels.Admin
                     gvPosts.DataBind();
                     ddlSubGroups.SelectedIndex = 0;
                     ddlSubGroups.Enabled = false;
-
                 }
                 else
                 {
@@ -81,17 +75,11 @@ namespace WebPages.Panels.Admin
                     gvPosts.DataSource = null;
                     gvPosts.DataBind();
                 }
-
-
             }
         }
 
-
-
-
         protected void subgroup()
         {
-
             diverror.InnerHtml = "";
             if (ddlSubGroups.SelectedValue != "-2")
             {
@@ -99,7 +87,6 @@ namespace WebPages.Panels.Admin
                 List<Article> articles = artrep.ReturnArticlesByCategory(ddlSubGroups.SelectedValue.ToInt());
                 if (articles.Count != 0)
                 {
-
                     gvPosts.DataSource = null;
                     gvPosts.DataBind();
                     gvPosts.DataSource = OnlineTools.ToDataTable(articles);
@@ -122,7 +109,6 @@ namespace WebPages.Panels.Admin
                     List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
                     if (articles.Count != 0)
                     {
-
                         gvPosts.DataSource = null;
                         gvPosts.DataSource = OnlineTools.ToDataTable(articles);
                         gvPosts.DataBind();
@@ -138,19 +124,21 @@ namespace WebPages.Panels.Admin
                 {
                     group();
                 }
-
             }
         }
 
-
+        private void fillGrid()
+        {
+            ArticleRepository artRep = new ArticleRepository();
+            gvPosts.DataSource = artRep.AllArticles();
+            gvPosts.DataBind();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             { //load grid
-                ArticleRepository artRep = new ArticleRepository();
-                gvPosts.DataSource = artRep.AllArticles();
-                gvPosts.DataBind();
+                fillGrid();
                 //load ddls
                 ddlSubGroups.Enabled = false;
 
@@ -162,8 +150,6 @@ namespace WebPages.Panels.Admin
                 ddlGroups.Items.Insert(0, new ListItem("همه گروه ها", "-2"));
                 ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
             }
-
-
         }
 
         protected void gvPosts_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -180,10 +166,6 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
-
-
-
-
 
                 Response.Redirect("~/ویرایش-وبلاگ");
             }
@@ -217,36 +199,27 @@ namespace WebPages.Panels.Admin
                 {
                     subgroup();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
-
-
-
-
-
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-
                 }
-
-
-
-
-
             }
-
         }
 
         protected void ddlSubGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             subgroup();
-
         }
 
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             group();
+        }
 
+        protected void gvPosts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPosts.PageIndex = e.NewPageIndex;
         }
     }
 }

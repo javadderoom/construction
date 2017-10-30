@@ -13,7 +13,6 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 fillGrid();
@@ -41,7 +40,6 @@ namespace WebPages.Panels.Admin
 
         protected void gvChats_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
         }
 
         protected void gvChats_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -54,8 +52,13 @@ namespace WebPages.Panels.Admin
                 Session.Add("useridForNewMessage", userid);
 
                 Response.Redirect("~/ارسال__پیام__جدید");
-
             }
+        }
+
+        protected void gvChats_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvChats.PageIndex = e.NewPageIndex;
+            fillGrid();
         }
     }
 }

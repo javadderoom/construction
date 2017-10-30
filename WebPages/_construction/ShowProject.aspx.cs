@@ -23,6 +23,7 @@ namespace WebPages._construction
                 {
                     ProjectsRepository ART = new ProjectsRepository();
                     Project post = ART.FindeProjectByID(id.ToInt());
+                    PageTitle.InnerText = post.Title;
                     //META
                     HtmlMeta meta2 = new HtmlMeta();
                     meta2.Name = "KeyWords";

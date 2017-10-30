@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="EditPost.aspx.cs" Inherits="WebPages.Panels.Admin.EditPost" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>ویرایش وبلاگ</title>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Content" runat="server">

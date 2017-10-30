@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebPages._construction.Index1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>صفحه اصلی
+    </title>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
     <%--    <link href="../_Styles/slick.css" rel="stylesheet" />

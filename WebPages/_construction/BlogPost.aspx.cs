@@ -16,7 +16,8 @@ namespace WebPages._construction
             {
                 string id = this.Page.RouteData.Values["id"].ToString();
                 if (!String.IsNullOrEmpty(id))
-                {///address
+                {
+                    ///address
                     ContactUsRepository repo = new ContactUsRepository();
                     ContactWay cnw = repo.Findcwy(1);
                     BlogAddress.InnerText = cnw.Adrees;
@@ -25,6 +26,7 @@ namespace WebPages._construction
                     /////////////
                     ArticleRepository ART = new ArticleRepository();
                     Article post = ART.FindeArticleByID(id.ToInt());
+                    PageTitle.InnerText = post.Title;
                     //META
                     HtmlMeta meta2 = new HtmlMeta();
                     meta2.Name = "KeyWords";

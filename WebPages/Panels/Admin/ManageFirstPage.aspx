@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="ManageFirstPage.aspx.cs" Inherits="WebPages.Panels.Admin.ManageFirstPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>مدیریت صفحه اول</title>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">

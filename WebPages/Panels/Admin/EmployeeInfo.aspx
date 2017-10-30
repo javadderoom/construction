@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="EmployeeInfo.aspx.cs" Inherits="WebPages.Panels.Admin.EmployeeInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>جزئیات همکار</title>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">

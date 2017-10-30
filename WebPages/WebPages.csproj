@@ -872,6 +872,7 @@
     <Content Include="Panels\Admin\EditSlider.aspx" />
     <Content Include="Panels\Admin\EditPost.aspx" />
     <Content Include="Panels\Admin\EmployeeInfo.aspx" />
+    <Content Include="Panels\Admin\EmployeesFilterByJob.aspx" />
     <Content Include="Panels\Admin\ListForGroupMessage.aspx" />
     <Content Include="Panels\Admin\ListForMessage.aspx" />
     <Content Include="Panels\Admin\ManageBlogs.aspx" />
@@ -1221,6 +1222,13 @@
     </Compile>
     <Compile Include="Panels\Admin\EmployeeInfo.aspx.designer.cs">
       <DependentUpon>EmployeeInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\EmployeesFilterByJob.aspx.cs">
+      <DependentUpon>EmployeesFilterByJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\EmployeesFilterByJob.aspx.designer.cs">
+      <DependentUpon>EmployeesFilterByJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\ListForGroupMessage.aspx.cs">
       <DependentUpon>ListForGroupMessage.aspx</DependentUpon>

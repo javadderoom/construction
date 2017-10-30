@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="ManageUsersAndEmployees.aspx.cs" Inherits="WebPages.Panels.Admin.ManageUsersAndEmployees" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="ManageUsersAndEmployees.aspx.cs" Inherits="WebPages.Panels.Admin.ManageUsersAndEmployees" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -8,7 +8,6 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
     <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
-
 
         <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 100px">
             <div class="input-group">
@@ -30,6 +29,7 @@
                 <asp:Literal runat="server" Text="لیست گفتگو ها" /></h3>
         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
         <div id="ContentPlaceHolder1_upGrid">
             <div style="float: right; overflow-x: auto; width: 100%; }">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -38,8 +38,8 @@
                         <asp:GridView ID="gvUsers" runat="server" BackColor="White" BorderColor="#CCCCCC"
                             BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
                             GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
-                            HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" AllowCustomPaging="True"
-                            AllowPaging="True" OnRowCommand="gvUsers_RowCommand">
+                            HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" OnPageIndexChanging="gvUsers_PageIndexChanging" AllowCustomPaging="False"
+                            AllowPaging="True" OnRowCommand="gvUsers_RowCommand" PageSize="10">
                             <Columns>
 
                                 <asp:BoundField DataField="UserID" HeaderText="شناسه" />
@@ -64,7 +64,7 @@
 
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <PagerStyle HorizontalAlign="left" CssClass="GridPager" />
                             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F7F7F7" />
                             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />

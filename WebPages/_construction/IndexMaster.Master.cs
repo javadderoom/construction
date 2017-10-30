@@ -13,8 +13,42 @@ namespace WebPages._construction
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool Admin = false;
+            bool User = false;
+            bool Employee = false;
+            if (false)//for Admin
+            {
+                Admin = true;
+            }
+            if (false)//for User
+            {
+                User = true;
+
+            }
+            if (false)//for Emplyoee
+            {
+                Employee = true;
+
+            }
+
             if (!IsPostBack)
             {
+                if (Admin)
+                {
+
+                }
+                else if (User)
+                {
+
+                }
+                else if (Employee)
+                {
+
+                }
+                else
+                {
+
+                }
                 ContactUsRepository repo = new ContactUsRepository();
                 ContactWay cnw = repo.Findcwy(1);
                 phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";

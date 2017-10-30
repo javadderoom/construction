@@ -47,7 +47,7 @@ namespace WebPages._construction
                 }
                 else
                 {
-
+                    profileContainer.InnerHtml = " <a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='Login'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
                 }
                 ContactUsRepository repo = new ContactUsRepository();
                 ContactWay cnw = repo.Findcwy(1);

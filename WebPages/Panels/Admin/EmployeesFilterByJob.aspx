@@ -10,7 +10,6 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
 
-
         <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 100px">
             <div class="input-group">
                 <span class="input-group-btn">
@@ -36,7 +35,6 @@
             <asp:DropDownList ID="DDLJob" OnSelectedIndexChanged="DDLJob_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
         </div>
 
-
         <div class="c-title" style="display: block; clear: right">
             <h3>
 
@@ -45,85 +43,89 @@
 
         <div id="ContentPlaceHolder1_upGrid">
             <div style="float: right; overflow-x: auto; width: 100%;">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvUsers" runat="server" BackColor="White" BorderColor="#CCCCCC"
+                            BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
+                            GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
+                            HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" AllowCustomPaging="False"
+                            AllowPaging="True" OnPageIndexChanging="gvUsers_PageIndexChanging" OnRowCommand="gvUsers_RowCommand">
+                            <Columns>
 
-                <asp:GridView ID="gvUsers" runat="server" BackColor="White" BorderColor="#CCCCCC"
-                    BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
-                    GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
-                    HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" AllowCustomPaging="True"
-                    AllowPaging="True" OnRowCommand="gvUsers_RowCommand">
-                    <Columns>
+                                <asp:BoundField DataField="EmployeeID" HeaderText="شناسه" />
+                                <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
+                                <asp:BoundField DataField="fullName" HeaderText="نام" />
+                                <asp:BoundField DataField="Mobile" HeaderText="شماره تلفن" />
+                                <asp:BoundField DataField="addr" HeaderText="آدرس" />
+                                <asp:BoundField DataField="Email" HeaderText="ایمیل" />
 
-                        <asp:BoundField DataField="EmployeeID" HeaderText="شناسه" />
-                        <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
-                        <asp:BoundField DataField="fullName" HeaderText="نام" />
-                        <asp:BoundField DataField="Mobile" HeaderText="شماره تلفن" />
-                        <asp:BoundField DataField="addr" HeaderText="آدرس" />
-                        <asp:BoundField DataField="Email" HeaderText="ایمیل" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
 
+                                        <asp:Button ID="Details" runat="server"
+                                            CommandName="view"
+                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                            Text="افزودن" Width="100" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
 
-
-                                <asp:Button ID="Details" runat="server"
-                                    CommandName="view"
-                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                    Text="افزودن" Width="100" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
                 <br />
                 <div class="c-title dirToRight" style="display: block; clear: right">
                     <h3>
 
                         <asp:Literal runat="server" Text="لیست کارمندان انتخاب شده" /></h3>
                 </div>
-                <asp:GridView ID="gvSelected" runat="server" BackColor="White" BorderColor="#CCCCCC"
-                    BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
-                    GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
-                    HorizontalAlign="Center" OnRowDataBound="gvSelected_RowDataBound" AllowCustomPaging="True"
-                    AllowPaging="True" OnRowCommand="gvSelected_RowCommand">
-                    <Columns>
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvSelected" runat="server" BackColor="White" BorderColor="#CCCCCC"
+                            BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
+                            GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
+                            HorizontalAlign="Center" OnRowDataBound="gvSelected_RowDataBound" AllowCustomPaging="False"
+                            AllowPaging="True" OnPageIndexChanging="gvSelected_PageIndexChanging" OnRowCommand="gvSelected_RowCommand">
+                            <Columns>
 
-                        <asp:BoundField DataField="EmployeeID" HeaderText="شناسه" />
-                        <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
-                        <asp:BoundField DataField="fullName" HeaderText="نام" />
-                        <asp:BoundField DataField="Mobile" HeaderText="شماره تلفن" />
-                        <asp:BoundField DataField="addr" HeaderText="آدرس" />
-                        <asp:BoundField DataField="Email" HeaderText="ایمیل" />
+                                <asp:BoundField DataField="EmployeeID" HeaderText="شناسه" />
+                                <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
+                                <asp:BoundField DataField="fullName" HeaderText="نام" />
+                                <asp:BoundField DataField="Mobile" HeaderText="شماره تلفن" />
+                                <asp:BoundField DataField="addr" HeaderText="آدرس" />
+                                <asp:BoundField DataField="Email" HeaderText="ایمیل" />
 
+                                <asp:TemplateField>
+                                    <ItemTemplate>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
+                                        <asp:Button ID="Details" runat="server"
+                                            CommandName="view"
+                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                            Text="حذف" Width="100" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
 
-
-                                <asp:Button ID="Details" runat="server"
-                                    CommandName="view"
-                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                    Text="حذف" Width="100" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
         <br />

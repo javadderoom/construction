@@ -30,8 +30,8 @@
                                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                                 BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"
                                 AutoGenerateColumns="False" CssClass="dirRight table " Width="400"
-                                AllowCustomPaging="True" AllowPaging="True"
-                                OnRowCommand="gvGroups_RowCommand">
+                                AllowCustomPaging="False" AllowPaging="True"
+                                OnRowCommand="gvGroups_RowCommand" OnPageIndexChanging="gvGroups_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="GroupID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
@@ -54,7 +54,7 @@
 
                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
                                 <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                 <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -80,8 +80,8 @@
                                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                                 BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"
                                 AutoGenerateColumns="False" CssClass="dirRight table " Width="400"
-                                AllowCustomPaging="True" AllowPaging="True"
-                                OnRowCommand="gvSubGroups_RowCommand">
+                                AllowCustomPaging="False" AllowPaging="True"
+                                OnRowCommand="gvSubGroups_RowCommand" OnPageIndexChanging="gvSubGroups_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="GroupID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
@@ -104,7 +104,7 @@
 
                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
                                 <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                 <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -122,9 +122,7 @@
                     </asp:UpdatePanel>
                 </td>
             </tr>
-
         </table>
-
     </div>
 
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
@@ -151,8 +149,6 @@
                                             <asp:Literal runat="server" ID="IDholder" Text="" />
                                         </span>
                                     </div>
-
-
                                 </div>
                             </div>
 
@@ -188,7 +184,6 @@
                             <div class="row">
                                 <div class="col-xs-12 text-center">
                                     <asp:Button ID="btnSaveGroupChange" onkeydown="return (event.keyCode!=13);" runat="server" OnClick="btnSaveGroupChange_Click" class="btn btn-success" Text="ذخیره" />
-
                                 </div>
                             </div>
                         </div>
@@ -224,8 +219,6 @@
                                             <asp:Literal runat="server" ID="SubIDHolder" Text="" />
                                         </span>
                                     </div>
-
-
                                 </div>
                             </div>
 
@@ -261,7 +254,6 @@
                             <div class="row">
                                 <div class="col-xs-12 text-center">
                                     <asp:Button ID="btnSaveSubGroupChane" runat="server" OnClick="btnSaveSubGroupChane_Click" class="btn btn-success" Text="ذخیره" />
-
                                 </div>
                             </div>
                         </div>
@@ -284,12 +276,10 @@
                             <h4 class="modal-title">
 
                                 <span class="glyphicon glyphicon-warning-sign"></span>
-                                گروه جدید 
+                                گروه جدید
                             </h4>
                         </div>
                         <div class="modal-body">
-
-
 
                             <div class="form-group">
                                 <div class="row">
@@ -309,7 +299,6 @@
                             <div class="row">
                                 <div class="col-xs-12 text-center">
                                     <asp:Button ID="btnSaveNewGroup" runat="server" OnClick="btnSaveNewGroup_Click" class="btn btn-success" Text="ذخیره" />
-
                                 </div>
                             </div>
                         </div>
@@ -345,8 +334,6 @@
                                             <asp:DropDownList ID="ddlgroupsForModal" runat="server"></asp:DropDownList>
                                         </span>
                                     </div>
-
-
                                 </div>
                             </div>
                             <div class="form-group">
@@ -367,10 +354,8 @@
                                     <div class="col-xs-12 " style="direction: rtl!important;">
                                         <div style="font-size: 100%; text-align: center; font-weight: bold;">
                                             <asp:Button ID="btnAddNewSub" OnClick="btnAddNewSub_Click" CssClass="btn btn-primary" runat="server" Text="افزودن" />
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="form-group">
@@ -383,19 +368,15 @@
 
                                     <div class="col-xs-12  " style="direction: rtl">
                                         <asp:ListBox ID="lbxSubs" Width="200px" runat="server"></asp:ListBox>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-
                         <div class="modal-footer">
                             <div class="row">
                                 <div class="col-xs-12 text-center">
                                     <asp:Button ID="btnSaveNewSub" runat="server" OnClick="btnSaveNewSub_Click" class="btn btn-success" Text="ذخیره" />
-
                                 </div>
                             </div>
                         </div>

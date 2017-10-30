@@ -60,5 +60,10 @@ namespace WebPages.Panels.EmployeePanel
             }
         }
 
+        protected void gvChats_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvChats.PageIndex = e.NewPageIndex;
+            fillGV();
+        }
     }
 }

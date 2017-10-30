@@ -162,7 +162,6 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("ProjectIDForEdit", row.Cells[0].Text);
 
-
                 Response.Redirect("http://localhost:6421/Panels/Admin/EditProject.aspx");//edit
             }
             if (e.CommandName == "Show")
@@ -211,6 +210,14 @@ namespace WebPages.Panels.Admin
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             group();
+        }
+
+        protected void gvPosts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPosts.PageIndex = e.NewPageIndex;
+            ProjectsRepository artRep = new ProjectsRepository();
+            gvPosts.DataSource = artRep.AllProjects();
+            gvPosts.DataBind();
         }
     }
 }

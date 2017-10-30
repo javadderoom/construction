@@ -51,8 +51,8 @@
                                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                                 BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"
                                 AutoGenerateColumns="False" CssClass="dirRight table " HorizontalAlign="Center"
-                                AllowCustomPaging="True" AllowPaging="True"
-                                OnRowCommand="gvPosts_RowCommand">
+                                AllowCustomPaging="False" AllowPaging="True"
+                                OnRowCommand="gvPosts_RowCommand" OnPageIndexChanging="gvPosts_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="ProjectID" HeaderText="شناسه" />
                                     <asp:BoundField DataField="Title" HeaderText="عنوان" />
@@ -79,7 +79,7 @@
 
                                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
                                 <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                 <SortedAscendingHeaderStyle BackColor="#4B4B4B" />

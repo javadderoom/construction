@@ -65,8 +65,6 @@ namespace WebPages.Panels.Admin
                 GroupsConRepository repgpCon = new GroupsConRepository();
                 GroupsRepository repgp = new GroupsRepository();
 
-
-
                 // Retrieve the row index stored in the
                 // CommandArgument property.
                 int index = Convert.ToInt32(e.CommandArgument);
@@ -105,28 +103,21 @@ namespace WebPages.Panels.Admin
                             gvSubGroups.DataSource = repgp.LoadAllSubGroups();
                             gvSubGroups.DataBind();
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد');", true);
-
                         }
                         else
                         {
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-
                         }
                     }
                     else
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-
                     }
-
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-
                 }
-
-
             }
         }
 
@@ -166,9 +157,6 @@ namespace WebPages.Panels.Admin
                     "ModalScript", sb.ToString(), false);
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با خطا مواجه شد !');", true);
                 }
-
-
-
             }
         }
 
@@ -219,12 +207,10 @@ namespace WebPages.Panels.Admin
                     }
                     gvSubGroups.DataBind();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد');", true);
-
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-
                 }
             }
         }
@@ -271,49 +257,32 @@ namespace WebPages.Panels.Admin
                     ScriptManager.RegisterStartupScript(this, this.GetType(),
                     "ModalScript", sb.ToString(), false);
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با خطا مواجه شد !');", true);
-
                 }
-
-
-
             }
         }
 
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             GroupsRepository Groupsrepo = new GroupsRepository();
 
             if (ddlGroups.SelectedValue != "-2")
             {
-
                 DataTable DT = new DataTable();
                 DT = Groupsrepo.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
 
                 if ((DT.Rows.Count > 0))
                 {
-
-
-
                     gvSubGroups.DataSource = DT;
 
-
                     gvSubGroups.DataBind();
-
-
                 }
                 else
                 {
-
                     gvSubGroups.DataSource = null;
-
 
                     gvSubGroups.DataBind();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('این گروه هیچ زیرگروهی ندارد!');", true);
-
-
                 }
-
             }
             else
             {
@@ -351,7 +320,6 @@ namespace WebPages.Panels.Admin
             gvSubGroups.DataSource = repgp.LoadAllSubGroups();
             gvSubGroups.DataBind();
             tbxNewGroup.Text = "";
-
         }
 
         protected void btnAddNewSub_Click(object sender, EventArgs e)
@@ -368,15 +336,10 @@ namespace WebPages.Panels.Admin
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('لطفا یکی از گروه ها را انتخاب کنید');", true);
                 }
-
-
-
-
             }
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ متنی وارد نشده است');", true);
-
             }
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");
@@ -385,8 +348,6 @@ namespace WebPages.Panels.Admin
             ScriptManager.RegisterStartupScript(this, this.GetType(),
             "ModalScript", sb.ToString(), false);
         }
-
-
 
         protected void btnSaveNewSub_Click(object sender, EventArgs e)
         {
@@ -424,6 +385,24 @@ namespace WebPages.Panels.Admin
             sb.Append(@"</script>");
             ScriptManager.RegisterStartupScript(this, this.GetType(),
             "ModalScript", sb.ToString(), false);
+        }
+
+        protected void gvGroups_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvGroups.PageIndex = e.NewPageIndex;
+            GroupsRepository repGP = new GroupsRepository();
+            DataTable allGroups = new DataTable();
+
+            gvGroups.DataSource = allGroups;
+            gvGroups.DataBind();
+        }
+
+        protected void gvSubGroups_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvSubGroups.PageIndex = e.NewPageIndex;
+            GroupsRepository repGP = new GroupsRepository();
+            gvSubGroups.DataSource = repGP.LoadAllSubGroups();
+            gvSubGroups.DataBind();
         }
     }
 }

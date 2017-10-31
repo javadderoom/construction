@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="Scores.aspx.cs" Inherits="WebPages.Panels.Admin.Scores" %>
 
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
+    <link href="../../_Styles/GridView.css" rel="stylesheet" />
     <style>
         .myContainer {
             padding: 30px 100px;
@@ -32,7 +35,7 @@
                 <h3>لیست کارمندان</h3>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 100px">
+        <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 50px">
             <div class="input-group">
                 <span class="input-group-btn">
                     <button type="button" id="btnSearch" class="btn btn-primary" runat="server">
@@ -46,43 +49,47 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-2 col-xs-12 text-right ">
+            <asp:Button ID="btnSabt" CssClass="btn btn-success" OnClick="btnSabt_ServerClick" runat="server" Text="ثبت" />
+        </div>
         <div class="row">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <asp:GridView ID="gvEmployees" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4"
-                        ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
-                        <Columns>
+            <div class="col-md-12 col-xs-12">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvEmployees" runat="server" BackColor="White" BorderColor="#CCCCCC"
+                            BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
+                            GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
+                            HorizontalAlign="Center" AllowPaging="True" PageSize="20" OnRowDataBound="gvEmployees_RowDataBound">
+                            <Columns>
 
-                            <asp:BoundField DataField="UserID" HeaderText="شناسه" />
-                            <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
+                                <asp:BoundField DataField="EmployeeID" HeaderText="شناسه" />
+                                <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
 
-                            <asp:BoundField DataField="FullName" HeaderText="نام" />
-                            <asp:BoundField DataField="Mobile" HeaderText="شماره تلفن" />
-                            <asp:BoundField DataField="fullAddress" HeaderText="آدرس" />
+                                <asp:BoundField DataField="FullName" HeaderText="نام" />
+                                <asp:BoundField DataField="StateCity" HeaderText="استان و شهر" />
 
-                            <asp:TemplateField>
-                                <ItemTemplate>
-
-                                    <asp:Label ID="Label1" ForeColor="Green" Width="150" runat="server" Text='<%# ((Eval("RegSeen").ToString() == "False") ? "کاربر جدید" :"") %>'></asp:Label>
-                                    <asp:Button ID="Details" runat="server"
-                                        CommandName="view"
-                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                        Text="مشاهده جزئیات" Width="100" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
-                        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                        <SortedDescendingHeaderStyle BackColor="#242121" />
-                    </asp:GridView>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <input type="number" id="Score" name="quantity" runat="server" min="0" max="100" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnSabt" EventName="click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
         </div>
     </div>
 </asp:Content>

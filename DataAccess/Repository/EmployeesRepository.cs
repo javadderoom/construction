@@ -21,19 +21,29 @@ namespace DataAccess.Repository
             database = new ConstructionCompanyEntities();
         }
 
-        //public DataTable getEmployeeForScore()
-        //{
-        //    List<DataTable> result = new List<DataTable>();
+        public Employee getEmployeeByID(int id)
+        {
+            Employee result = new Employee();
+            result =
+                (from r in database.Employees
+                 where r.EmployeeID == id
+                 select r).FirstOrDefault();
 
-        //    var pl = (
-        //        from r in database.Employees
-        //        let fullName = r.FirstName + " " + r.LastName
+            return result;
+        }
 
-        //        orderby r.Score
-        //        select new { r, fullName = fullName });
-        //    result = pl.ToList();
-        //    return OnlineTools.ToDataTable(result.ToList());
-        //}
+        public DataTable getEmployeeForScore()
+        {
+            List<EmployeeScore> result = new List<EmployeeScore>();
+
+            var pl = (
+                from r in database.EmployeeScores
+
+                orderby r.Score
+                select r);
+            result = pl.ToList();
+            return OnlineTools.ToDataTable(result.ToList());
+        }
 
         public int getEmployeeIDByUsername_Password(string username, string password)
         {

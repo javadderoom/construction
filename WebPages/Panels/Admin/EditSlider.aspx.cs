@@ -18,7 +18,7 @@ namespace WebPages.Panels.Admin
         {
             if (!IsPostBack)
             {
-                string id = Request.QueryString["id"];
+                string id = this.Page.RouteData.Values["id"].ToString();
                 if (!String.IsNullOrEmpty(id))
                 {
                     SliderRepository repSr = new SliderRepository();
@@ -38,7 +38,7 @@ namespace WebPages.Panels.Admin
                 }
                 else
                 {
-                    Response.Redirect("~/Panels/Admin/ManageFirstPage.aspx");
+                    Response.Redirect("/Admin/ManageFirstPage");
                 }
 
             }
@@ -47,7 +47,7 @@ namespace WebPages.Panels.Admin
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
-            string id = Request.QueryString["id"];
+            string id = this.Page.RouteData.Values["id"].ToString();
 
 
             if (!String.IsNullOrEmpty(id))
@@ -141,7 +141,7 @@ namespace WebPages.Panels.Admin
 
 
                 if (repSlider.SaveSlider(slider))
-                { Response.Redirect("~/Panels/Admin/ManageFirstPage.aspx"); }
+                { Response.Redirect("/Admin/ManageFirstPage"); }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert' ثبت تغییرات با خطا مواجه شد !  ');", true);

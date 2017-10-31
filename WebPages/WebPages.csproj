@@ -977,6 +977,7 @@
     <Content Include="test\testpage.aspx" />
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />
+    <Content Include="_construction\AboutUs.aspx" />
     <Content Include="_construction\BlogPost.aspx" />
     <Content Include="_construction\Blogs.aspx" />
     <Content Include="_construction\css\animate.css" />
@@ -1450,6 +1451,13 @@
     </Compile>
     <Compile Include="test\testpage.aspx.designer.cs">
       <DependentUpon>testpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_construction\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="_construction\BlogPost.aspx.cs">
       <DependentUpon>BlogPost.aspx</DependentUpon>

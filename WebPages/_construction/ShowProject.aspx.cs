@@ -58,11 +58,12 @@ namespace WebPages._construction
 
                     DivRecenPosts.InnerHtml = text;
                 }
+                else
+                {
+                    Response.Redirect("/Projects");
+                }
             }
-            else
-            {
-                Response.Redirect("وبلاگ-ها");
-            }
+
         }
 
         private void setImage(HtmlImage hi, int arid)

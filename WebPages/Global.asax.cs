@@ -46,26 +46,27 @@ namespace WebPages
         }
         void RegisterRoutes(System.Web.Routing.RouteCollection routes)
         {
-            ////matual
-            //routes.MapPageRoute("R1", "Blogs/{id}/{text}", "~/_construction/BlogPost.aspx");
-            //routes.MapPageRoute("R2", "Blogs", "~/_construction/Blogs.aspx");
-            //routes.MapPageRoute("R3", "", "~/_construction/Index.aspx");
-            //routes.MapPageRoute("R4", "Projects", "~/_construction/Projects.aspx");
-            //routes.MapPageRoute("R5", "Projects/{id}/{text}", "~/_construction/ShowProject.aspx");
-            //routes.MapPageRoute("R10", "Login", "~/Login.aspx");
+            //matual
+            routes.MapPageRoute("R1", "Blogs/{id}/{text}", "~/_construction/BlogPost.aspx");
+            routes.MapPageRoute("R2", "Blogs", "~/_construction/Blogs.aspx");
+            routes.MapPageRoute("R3", "", "~/_construction/Index.aspx");
+            routes.MapPageRoute("R4", "Projects", "~/_construction/Projects.aspx");
+            routes.MapPageRoute("R5", "Projects/{id}/{text}", "~/_construction/ShowProject.aspx");
+            routes.MapPageRoute("R6", "Login", "~/Login.aspx");
+            routes.MapPageRoute("R7", "AboutUs", "~/_construction/AboutUs.aspx");
+            routes.MapPageRoute("R8", "Services", "~/_construction/Services.aspx");
 
-
-            ////admin
-            //routes.MapPageRoute("R6", "Admin/AddBlog", "~/Panels/Admin/AddBlog.aspx");
+            //admin
+            routes.MapPageRoute("R16", "Admin/AddBlog", "~/Panels/Admin/AddBlog.aspx");
             //routes.MapPageRoute("R7", "Admin/AddProject", "~/Panels/Admin/AddProject.aspx");
-            //routes.MapPageRoute("R8", "Admin/EditBlog", "~/Panels/Admin/EditPost.aspx");
-            //routes.MapPageRoute("R9", "Admin/EditProject", "~/Panels/Admin/EditProject.aspx");
-            //routes.MapPageRoute("R10", "Admin/EditSlider", "~/Panels/Admin/EditSlider.aspx");
+            routes.MapPageRoute("R8", "Admin/EditBlog", "~/Panels/Admin/EditPost.aspx");
+            routes.MapPageRoute("R9", "Admin/EditProject", "~/Panels/Admin/EditProject.aspx");
+            routes.MapPageRoute("R10", "Admin/EditSlider/{id}", "~/Panels/Admin/EditSlider.aspx");
             //routes.MapPageRoute("R11", "Admin/EmployeeInfo", "~/Panels/Admin/EmployeeInfo.aspx");
 
 
-            //routes.MapPageRoute("R14", "Admin/ManageBlogs", "~/Panels/Admin/ManageBlogs.aspx");
-            //routes.MapPageRoute("R14", "Admin/ManageFirstPage", "~/Panels/Admin/ManageFirstPage.aspx");
+            routes.MapPageRoute("R14", "Admin/ManageBlogs", "~/Panels/Admin/ManageBlogs.aspx");
+            routes.MapPageRoute("R14", "Admin/ManageFirstPage", "~/Panels/Admin/ManageFirstPage.aspx");
             //routes.MapPageRoute("R14", "Admin/ManageBlogGroups", "~/Panels/Admin/ManageGroups.aspx");
             //routes.MapPageRoute("R14", "Admin/ManageProjectGroups", "~/Panels/Admin/ManageProjectGroups.aspx");
             //routes.MapPageRoute("R14", "Admin/ManageProjects", "~/Panels/Admin/ManageProjects.aspx");

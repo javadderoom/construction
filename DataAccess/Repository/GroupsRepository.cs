@@ -90,6 +90,27 @@ namespace DataAccess.Repository
 
             return OnlineTools.ToDataTable(ans);
         }
+        public DataTable FindSubGroupsOfAProject(int artID)
+        {
+            List<Group> ans = new List<Group>();
+
+            List<int?> conIDes = (from r in DB.ProjectConnections
+                                  where r.ProjectID == artID
+                                  select r.GroupID).ToList();
+            foreach (int groupId in conIDes)
+            {
+                Group temp = null;
+                temp = (from r in DB.Groups
+                        where r.GroupID == groupId
+                        select r).FirstOrDefault();
+                if (temp != null)
+                {
+                    ans.Add(temp);
+                }
+            }
+
+            return OnlineTools.ToDataTable(ans);
+        }
 
         public DataTable LoadAllSubGroups()
         {

@@ -20,7 +20,7 @@ namespace WebPages.Panels.Admin
             {
                 btnSave.Enabled = false;
                 diverror.InnerText = "هیچ گروهی انتخاب نشده!";
-                ProjectGroupsRepository repo = new ProjectGroupsRepository();
+                GroupsRepository repo = new GroupsRepository();
                 DDLGroups.DataSource = repo.LoadAllGroups();
                 DDLGroups.DataTextField = "Title";
                 DDLGroups.DataValueField = "GroupID";
@@ -32,7 +32,7 @@ namespace WebPages.Panels.Admin
         }
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ProjectGroupsRepository repo = new ProjectGroupsRepository();
+            GroupsRepository repo = new GroupsRepository();
             if (DDLGroups.SelectedValue != "-2")
             {
                 DataTable DT = new DataTable();

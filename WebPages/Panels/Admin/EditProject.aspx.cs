@@ -52,7 +52,7 @@ namespace WebPages.Panels.Admin
                     Session.Add("newProjectIDForEdit", id);
                     Session.Remove("ProjectIDForEdit");
                     ProjectsRepository repArt = new ProjectsRepository();
-                    ProjectGroupsRepository repo = new ProjectGroupsRepository();
+                    GroupsRepository repo = new GroupsRepository();
                     Project art = repArt.FindeProjectByID(id);
                     title.Text = art.Title;
                     Abstract.Text = art.Abstract;
@@ -104,7 +104,7 @@ namespace WebPages.Panels.Admin
                     int id = Session["newProjectIDForEdit"].ToString().ToInt();
                     Session.Remove("newProjectIDForEdit");
                     ProjectsRepository repArt = new ProjectsRepository();
-                    ProjectGroupsRepository repo = new ProjectGroupsRepository();
+                    GroupsRepository repo = new GroupsRepository();
                     Project art = repArt.FindeProjectByID(id);
 
                     art.Title = title.Text;
@@ -199,7 +199,7 @@ namespace WebPages.Panels.Admin
 
         protected void DDLGroups2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ProjectGroupsRepository repo = new ProjectGroupsRepository();
+            GroupsRepository repo = new GroupsRepository();
             DataTable DT = new DataTable();
             if (DDLGroups2.SelectedValue != "-2")
             {

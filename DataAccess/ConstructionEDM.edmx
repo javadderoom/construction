@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ConstructionCompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ConstructionCompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="AdminID" />
@@ -221,6 +221,20 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="RegSeen" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmployeeScore">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="101" />
+          <Property Name="StateCity" Type="nvarchar" MaxLength="121" />
+          <Property Name="Score" Type="int" />
+        </EntityType>
         <Association Name="FK_Cities_States">
           <End Role="States" Type="Self.States" Multiplicity="0..1" />
           <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
@@ -351,6 +365,17 @@
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeScore" EntityType="Self.EmployeeScore" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmployeeScore].[EmployeeID] AS [EmployeeID], 
+    [EmployeeScore].[UserName] AS [UserName], 
+    [EmployeeScore].[FirstName] AS [FirstName], 
+    [EmployeeScore].[LastName] AS [LastName], 
+    [EmployeeScore].[FullName] AS [FullName], 
+    [EmployeeScore].[StateCity] AS [StateCity], 
+    [EmployeeScore].[Score] AS [Score]
+    FROM [dbo].[EmployeeScore] AS [EmployeeScore]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
             <End Role="States" EntitySet="States" />
             <End Role="Cities" EntitySet="Cities" />
@@ -388,8 +413,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ConstructionCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -793,7 +817,20 @@
             <End Role="States" EntitySet="States" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="EmployeeScores" EntityType="ConstructionCompanyModel.EmployeeScore" />
         </EntityContainer>
+        <EntityType Name="EmployeeScore">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="StateCity" Type="String" MaxLength="121" FixedLength="false" Unicode="true" />
+          <Property Name="Score" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1034,6 +1071,19 @@
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="RegSeen" ColumnName="RegSeen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeScores">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.EmployeeScore">
+              <MappingFragment StoreEntitySet="EmployeeScore">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="StateCity" ColumnName="StateCity" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

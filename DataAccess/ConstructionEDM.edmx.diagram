@@ -35,6 +35,7 @@
         <AssociationConnector Association="ConstructionCompanyModel.FK_Jobs_JobGroups" ManuallyRouted="false" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Orders_States1" ManuallyRouted="false" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Users_States" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.EmployeeScore" Width="1.5" PointX="9.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

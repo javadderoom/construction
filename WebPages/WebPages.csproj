@@ -887,6 +887,7 @@
     <Content Include="Panels\Admin\ordersList.aspx" />
     <Content Include="Panels\Admin\page.aspx" />
     <Content Include="Panels\Admin\ProjectDetail.aspx" />
+    <Content Include="Panels\Admin\Scores.aspx" />
     <Content Include="Panels\Admin\UserInfo.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
@@ -1330,6 +1331,13 @@
     </Compile>
     <Compile Include="Panels\Admin\ProjectDetail.aspx.designer.cs">
       <DependentUpon>ProjectDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Admin\Scores.aspx.cs">
+      <DependentUpon>Scores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\Scores.aspx.designer.cs">
+      <DependentUpon>Scores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>

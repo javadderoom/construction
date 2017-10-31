@@ -28,7 +28,7 @@
         <div class="c-title" style="display: block; clear: right">
             <h3>
 
-                <asp:Literal runat="server" Text="لیست گفتگو ها" /></h3>
+                <asp:Literal runat="server" Text="لیست کاربران و کامندان" /></h3>
         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
@@ -41,7 +41,7 @@
                             BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
                             GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
                             HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" OnPageIndexChanging="gvUsers_PageIndexChanging" AllowCustomPaging="False"
-                            AllowPaging="True" OnRowCommand="gvUsers_RowCommand" PageSize="2">
+                            AllowPaging="True" OnRowCommand="gvUsers_RowCommand" PageSize="20">
                             <Columns>
 
                                 <asp:BoundField DataField="UserID" HeaderText="شناسه" />

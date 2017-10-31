@@ -25,9 +25,9 @@ namespace WebPages
             {
                 FillImageText();
                 fillDDL();
-
             }
         }
+
         public void fillDDL()
         {
             StatesRepository r = new StatesRepository();
@@ -43,7 +43,8 @@ namespace WebPages
             ddlCity.DataValueField = "CityID";
             ddlCity.DataBind();
         }
-        void FillImageText()
+
+        private void FillImageText()
         {
             try
             {
@@ -62,8 +63,6 @@ namespace WebPages
                 throw;
             }
         }
-
-
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
@@ -152,6 +151,7 @@ namespace WebPages
                         u.Mobile = txtmobile.Value;
                         u.PostalCode = txtzip.Value;
                         u.Password = txtPassword.Value;
+                        u.Score = 0;
                         u.UserName = txtusername.Value;
                         u.City = ddlCity.SelectedValue.ToInt();
                         u.State = ddlState.SelectedValue.ToInt();
@@ -164,13 +164,11 @@ namespace WebPages
                         int id = ur.getLastEmployeeID();
                         Session.Add("employeeid", id);
                         //Response.Redirect();/not
-
                     }
                     ts.Complete();
                 }
                 catch
                 {
-
                 }
             }
         }

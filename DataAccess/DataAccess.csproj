@@ -87,6 +87,9 @@
     <Compile Include="Employee.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeScore.cs">
+      <DependentUpon>ConstructionEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Group.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>

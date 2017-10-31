@@ -21,6 +21,20 @@ namespace DataAccess.Repository
             database = new ConstructionCompanyEntities();
         }
 
+        //public DataTable getEmployeeForScore()
+        //{
+        //    List<DataTable> result = new List<DataTable>();
+
+        //    var pl = (
+        //        from r in database.Employees
+        //        let fullName = r.FirstName + " " + r.LastName
+
+        //        orderby r.Score
+        //        select new { r, fullName = fullName });
+        //    result = pl.ToList();
+        //    return OnlineTools.ToDataTable(result.ToList());
+        //}
+
         public int getEmployeeIDByUsername_Password(string username, string password)
         {
             int query =
@@ -30,6 +44,7 @@ namespace DataAccess.Repository
 
             return query;
         }
+
         public int getLastEmployeeID()
         {
             int query =
@@ -38,9 +53,9 @@ namespace DataAccess.Repository
                 select r.EmployeeID).FirstOrDefault();
             return query;
         }
+
         public void SaveEmployees(Employee kramand)
         {
-
             if (kramand.EmployeeID > 0)
             {
                 //==== UPDATE ====
@@ -54,8 +69,8 @@ namespace DataAccess.Repository
             }
 
             database.SaveChanges();
-
         }
+
         public void setEmployeeImage(int empid, byte[] cnts)
         {
             Employee e =
@@ -67,8 +82,8 @@ namespace DataAccess.Repository
 
             e.empImage = cnts;
             database.SaveChanges();
-
         }
+
         public void setEmployeeResume(int empid, byte[] cnts)
         {
             Employee e =
@@ -80,7 +95,6 @@ namespace DataAccess.Repository
 
             e.CV = cnts;
             database.SaveChanges();
-
         }
 
         public bool isThereUsername(string uname)
@@ -91,6 +105,7 @@ namespace DataAccess.Repository
             if (cnt == 0) return false;
             return true;
         }
+
         public DataTable getEmployeeProfileInfo(int id)
         {
             string Command = string.Format("select *,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Employees left outer join States on Employees.State = States.StateID left outer join Cities on Employees.City = Cities.CityID where EmployeeID = {0}", id);
@@ -101,10 +116,8 @@ namespace DataAccess.Repository
             return dtResult;
         }
 
-
         public void DeleteEmployee(int EID)
         {
-
             Employee selectedEmployee = database.Employees.Where(p => p.EmployeeID == EID).Single();
 
             if (selectedEmployee != null)
@@ -114,11 +127,8 @@ namespace DataAccess.Repository
             }
         }
 
-
-
         public void DeleteAll()
         {
-
             System.Configuration.ConnectionStringSettingsCollection connectionStrings =
                 WebConfigurationManager.ConnectionStrings as ConnectionStringSettingsCollection;
 
@@ -128,8 +138,8 @@ namespace DataAccess.Repository
 
                 db.ExecuteCommand("TRUNCATE TABLE Employees");
             }
-
         }
+
         public void setRegSeenToTrue()
         {
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
@@ -143,7 +153,6 @@ namespace DataAccess.Repository
         public DataTable getEmployeesExceptList(List<int> l, int jobid)
         {
             List<int> result1 = new List<int>();
-
 
             IEnumerable<int> pl =
                 from r in database.Employees

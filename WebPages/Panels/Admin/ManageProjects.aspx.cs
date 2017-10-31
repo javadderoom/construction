@@ -18,7 +18,7 @@ namespace WebPages.Panels.Admin
             diverror.InnerHtml = "";
             if (ddlGroups.SelectedValue != "-2")
             {
-                ProjectGroupsRepository Groupsrepo = new ProjectGroupsRepository();
+                GroupsRepository Groupsrepo = new GroupsRepository();
                 DataTable DT = new DataTable();
                 DT = Groupsrepo.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
 
@@ -103,7 +103,7 @@ namespace WebPages.Panels.Admin
             {
                 if (ddlGroups.SelectedValue != "-2")
                 {
-                    ProjectGroupsRepository Groupsrepo = new ProjectGroupsRepository();
+                    GroupsRepository Groupsrepo = new GroupsRepository();
                     List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
                     ProjectsRepository artrep = new ProjectsRepository();
                     List<Project> articles = artrep.ReturnProjectsByCategory(subgroupsid);
@@ -137,7 +137,7 @@ namespace WebPages.Panels.Admin
                 //load ddls
                 ddlSubGroups.Enabled = false;
 
-                ProjectGroupsRepository repo = new ProjectGroupsRepository();
+                GroupsRepository repo = new GroupsRepository();
                 ddlGroups.DataSource = repo.LoadAllGroups();
                 ddlGroups.DataTextField = "Title";
                 ddlGroups.DataValueField = "GroupID";

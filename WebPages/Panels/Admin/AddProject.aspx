@@ -138,7 +138,7 @@
                 <div class="row">
                     <div class="col-md-5"></div>
                     <div class="col-md-2" style="text-align: center;">
-                        <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-success" Text="ذخیره" />
+                        <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-success" Text="ادامه" />
 
                     </div>
                     <div class="col-md-5"></div>

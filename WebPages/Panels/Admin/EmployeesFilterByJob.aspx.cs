@@ -1,4 +1,5 @@
 ﻿using Common;
+using DataAccess;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
@@ -27,10 +28,35 @@ namespace WebPages.Panels.Admin
             }
         }
 
+        public string viewAll
+        {
+            get
+            {
+                return (string)ViewState["fn"];
+            }
+            set
+            {
+                ViewState["fn"] = value;
+            }
+        }
+
+        public string txt
+        {
+            get
+            {
+                return (string)ViewState["fn2"];
+            }
+            set
+            {
+                ViewState["fn2"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                viewAll = "false";
                 fillDDLs();
                 fillGrids();
             }
@@ -43,40 +69,81 @@ namespace WebPages.Panels.Admin
             DDLJobGroup.DataTextField = "JobGroupTitle";
             DDLJobGroup.DataValueField = "JobGroupID";
             DDLJobGroup.DataBind();
+            DDLJobGroup.Items.Insert(0, new ListItem("-", "-1"));
 
             JobRepository jr = new JobRepository();
             DDLJob.DataSource = jr.getJobsByGroupID(DDLJobGroup.SelectedValue.ToString().ToInt());
             DDLJob.DataTextField = "JobTitle";
             DDLJob.DataValueField = "JobID";
             DDLJob.DataBind();
+            DDLJob.Items.Insert(0, new ListItem("-", "-1"));
         }
 
         public void fillGrids()
         {
+            EmployeesRepository er = new EmployeesRepository();
             //List<int> ids = new List<int>();
             //foreach (GridViewRow row in gvSelected.Rows)
             //{
             //    ids.Add(row.Cells[0].Text.ToString().ToInt());
             //}
-
-            int jobid = DDLJob.SelectedValue.ToString().ToInt();
-            EmployeesRepository er = new EmployeesRepository();
-            if (loi.Count > 0)
+            if (viewAll == "true")
             {
-                gvSelected.DataSource = er.getEmployeesInfoInList(loi);
-                gvSelected.DataBind();
+                if (loi.Count > 0)
+                {
+                    gvSelected.DataSource = er.getEmployeesInfoInList(loi);
+                    gvSelected.DataBind();
+                }
+                gvUsers.DataSource = er.getEmployeesExceptList_All(loi);
+                gvUsers.DataBind();
+            }
+            else if (viewAll == "search")
+            {
+                if (loi.Count > 0)
+                {
+                    gvSelected.DataSource = er.getEmployeesInfoInList(loi);
+                    gvSelected.DataBind();
+                }
+                gvUsers.DataSource = er.getEmployeesExceptList_Search(loi, txt);
+                gvUsers.DataBind();
+            }
+            else
+            {
+                int jobid = DDLJob.SelectedValue.ToString().ToInt();
+
+                if (loi.Count > 0)
+                {
+                    gvSelected.DataSource = er.getEmployeesInfoInList(loi);
+                    gvSelected.DataBind();
+                }
+                gvUsers.DataSource = er.getEmployeesExceptList(loi, jobid);
+                gvUsers.DataBind();
             }
 
-            gvUsers.DataSource = er.getEmployeesExceptList(loi, jobid);
-            gvUsers.DataBind();
         }
 
         protected void btnSearch_ServerClick(object sender, EventArgs e)
         {
+            txt = tbxSearch.Value;
+
+            EmployeesRepository er = new EmployeesRepository();
+            gvUsers.DataSource = er.getEmployeesExceptList_Search(loi, txt);
+            gvUsers.DataBind();
+            viewAll = "search";
+            DDLJobGroup.SelectedIndex = 0;
+            DDLJob.Items.Clear();
         }
 
         protected void btnViewAll_ServerClick(object sender, EventArgs e)
         {
+            EmployeesRepository er = new EmployeesRepository();
+            gvUsers.DataSource = er.getEmployeesExceptList_All(loi);
+            gvUsers.DataBind();
+            viewAll = "true";
+            DDLJobGroup.SelectedIndex = 0;
+            DDLJob.Items.Clear();
+
+            tbxSearch.Value = "";
         }
 
         protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -102,12 +169,18 @@ namespace WebPages.Panels.Admin
             DDLJob.DataTextField = "JobTitle";
             DDLJob.DataValueField = "JobID";
             DDLJob.DataBind();
+            DDLJob.Items.Insert(0, new ListItem("-", "-1"));
 
+            viewAll = "false";
             fillGrids();
+
+            tbxSearch.Value = "";
         }
 
         protected void DDLJob_SelectedIndexChanged(object sender, EventArgs e)
         {
+            viewAll = "false";
+            tbxSearch.Value = "";
             fillGrids();
         }
 
@@ -142,6 +215,21 @@ namespace WebPages.Panels.Admin
         {
             gvSelected.PageIndex = e.NewPageIndex;
             fillGrids();
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            EmployeeProjectRepository ep = new EmployeeProjectRepository();
+            int projid = Session["ProjectLastIDForEmployeeFilter"].ToString().ToInt();
+            EmployeeProject em;
+
+            foreach (int i in loi)
+            {
+                em = new EmployeeProject();
+                em.EmployeeID = i;
+                em.ProjectID = projid;
+                ep.SaveEmployeeProject(em);
+            }
         }
     }
 }

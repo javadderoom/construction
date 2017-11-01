@@ -117,14 +117,14 @@
           <Key>
             <PropertyRef Name="JobGroupID" />
           </Key>
-          <Property Name="JobGroupID" Type="int" Nullable="false" />
-          <Property Name="JobGroupTitle" Type="nchar" MaxLength="10" />
+          <Property Name="JobGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobGroupTitle" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Jobs">
           <Key>
             <PropertyRef Name="JobID" />
           </Key>
-          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="JobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="80" />
           <Property Name="JobGroupID" Type="int" />
         </EntityType>
@@ -607,7 +607,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
             <PropertyRef Name="JobGroupID" />
           </Key>
           <Property Name="JobGroupID" Type="Int32" Nullable="false" />
-          <Property Name="JobGroupTitle" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="JobGroupTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Jobs" Relationship="ConstructionCompanyModel.FK_Jobs_JobGroups" FromRole="JobGroup" ToRole="Job" />
         </EntityType>
         <EntityType Name="Job">

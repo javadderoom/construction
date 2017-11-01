@@ -21,6 +21,12 @@ namespace WebPages.Panels.Admin
             if (!IsPostBack)
             {
                 fillGv();
+                GroupsRepository repo = new GroupsRepository();
+                DDLGroups.DataSource = repo.LoadAllGroups();
+                DDLGroups.DataTextField = "Title";
+                DDLGroups.DataValueField = "GroupID";
+                DDLGroups.DataBind();
+                DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
             }
         }
 
@@ -69,6 +75,105 @@ namespace WebPages.Panels.Admin
         protected void gvEmployees_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             //this.gvEmployees.Columns[4].Visible = false;
+        }
+
+        protected void btnSearch_ServerClick(object sender, EventArgs e)
+        {
+            gvEmployees.DataSource = er.searchEmployeeForScores(tbxSearch.Value);
+            gvEmployees.DataBind();
+            for (int i = 0; i < gvEmployees.Rows.Count; i++)
+            {
+                GridViewRow row = gvEmployees.Rows[i];
+                var input = new HtmlInputGenericControl("number");
+                input = (HtmlInputGenericControl)row.FindControl("Score");
+                input.Value = er.searchEmployeeForScores(tbxSearch.Value).Rows[i][6].ToString();
+            }
+        }
+
+        protected void btnViewAll_Click(object sender, EventArgs e)
+        {
+            fillGv();
+        }
+
+        protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupsRepository repo = new GroupsRepository();
+            if (DDLGroups.SelectedValue != "-2")
+            {
+                DataTable DT = new DataTable();
+                DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
+
+                if ((DT.Rows.Count > 0))
+                {
+                    SubGroups.DataSource = DT;
+                    SubGroups.DataTextField = "Title";
+                    SubGroups.DataValueField = "GroupID";
+                    SubGroups.DataBind();
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    SubGroups.Items.Clear();
+                    SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
+                    NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
+                    NoItemDiv.Attributes["class"] = "textok";
+                }
+            }
+            else
+            {
+                SubGroups.Items.Clear();
+                NoItemDiv.InnerText = "";
+            }
+        }
+
+        protected void AddToSub_Click(object sender, EventArgs e)
+        {
+            if (SubGroups.SelectedIndex != -1)
+            {
+                bool isadd = false;
+                string text = SubGroups.SelectedItem.Text;
+                for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                {
+                    if (SelectedSubGroups.Items[i].Text == text)
+                    {
+                        isadd = true;
+                    }
+                }
+                if (!isadd)
+                {
+                    SelectedSubGroups.Items.Add(text);
+                    SelectedSubGroups.Items[SelectedSubGroups.Items.Count - 1].Value = SubGroups.SelectedItem.Value;
+
+                    NoItemDiv.InnerText = "";
+                }
+                else
+                {
+                    NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
+                    NoItemDiv.Attributes["class"] = "error";
+                }
+            }
+            else
+            {
+                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
+                NoItemDiv.Attributes["class"] = "error";
+            }
+        }
+
+        protected void RemoveFromSub_Click(object sender, EventArgs e)
+        {
+            if (SelectedSubGroups.SelectedIndex != -1)
+            {
+                SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
+                NoItemDiv.InnerText = "";
+                if (SelectedSubGroups.Items.Count == 0)
+                {
+                }
+            }
+            else
+            {
+                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
+                NoItemDiv.Attributes["class"] = "error";
+            }
         }
     }
 }

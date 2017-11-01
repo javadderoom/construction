@@ -21,6 +21,26 @@ namespace DataAccess.Repository
             database = new ConstructionCompanyEntities();
         }
 
+        public DataTable searchEmployeeForScores(string s)
+        {
+            int a = -1;
+            try
+            {
+                a = s.ToInt();
+            }
+            catch
+            {
+            }
+            List<EmployeeScore> result = new List<EmployeeScore>();
+            var pl = (
+              from r in database.EmployeeScores
+              where r.FullName.Contains(s) || r.StateCity.Contains(s) || r.UserName.Contains(s)
+              orderby r.Score
+              select r);
+            result = pl.ToList();
+            return OnlineTools.ToDataTable(result.ToList());
+        }
+
         public Employee getEmployeeByID(int id)
         {
             Employee result = new Employee();

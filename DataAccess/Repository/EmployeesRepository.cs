@@ -181,6 +181,70 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+        public DataTable getEmployeesExceptList_All(List<int> l)
+        {
+            List<int> result1 = new List<int>();
+
+            IEnumerable<int> pl =
+                from r in database.Employees
+                select r.EmployeeID;
+
+            result1 = pl.ToList().Except(l).ToList();
+
+            if (result1.Count == 0)
+                return null;
+            string str = "(";
+            str += result1[0].ToString();
+            str += ",";
+
+            for (int i = 1; i < result1.Count - 1; i++)
+            {
+                str += result1[i].ToString();
+                str += ",";
+            }
+            str += result1[result1.Count - 1].ToString();
+            str += ")";
+
+            string Command = string.Format("select *,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Employees left outer join States on Employees.State = States.StateID left outer join Cities on Employees.City = Cities.CityID where EmployeeID IN {0}", str);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+
+        }
+        public DataTable getEmployeesExceptList_Search(List<int> l, string txt)
+        {
+            List<int> result1 = new List<int>();
+
+            IEnumerable<int> pl =
+                from r in database.Employees
+                select r.EmployeeID;
+
+            result1 = pl.ToList().Except(l).ToList();
+
+            if (result1.Count == 0)
+                return null;
+            string str = "(";
+            str += result1[0].ToString();
+            str += ",";
+
+            for (int i = 1; i < result1.Count - 1; i++)
+            {
+                str += result1[i].ToString();
+                str += ",";
+            }
+            str += result1[result1.Count - 1].ToString();
+            str += ")";
+
+            string Command = string.Format("select*,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Employees left outer join States on Employees.State = States.StateID left outer join Cities on Employees.City = Cities.CityID where EmployeeID IN {0} and(FirstName+' '+LastName like N'%{1}%' or StateName+' - '+CityName like N'%{1}%' or convert(nvarchar(50),EmployeeID) like N'%{1}%' or UserName like N'%{1}%' or Mobile like N'%{1}%' or Email like N'%{1}%')", str, txt);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+
+        }
 
         public DataTable getEmployeesInfoInList(List<int> loid)
         {

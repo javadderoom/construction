@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="newMessageEmployee.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.newMessageEmployee" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>پیام جدید</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">

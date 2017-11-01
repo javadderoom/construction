@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="EmployeesFilterByJob.aspx.cs" Inherits="WebPages.Panels.Admin.EmployeesFilterByJob" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>افزودن همکاران به پروژه</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="../../_Styles/ManageGroups.css" rel="stylesheet" />

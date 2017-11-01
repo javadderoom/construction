@@ -58,7 +58,7 @@ namespace WebPages.Panels.Admin
                     list.Add(i);
             }
             NewMessageGroup.list = list;
-            Response.Redirect("~/ارسال-پیام-دسته-جمعی");
+            Response.Redirect("/Admin/GroupMessage/NewGroupMessage");
         }
 
         protected void checkAll_CheckedChanged(object sender, EventArgs e)

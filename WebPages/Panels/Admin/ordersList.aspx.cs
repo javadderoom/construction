@@ -36,7 +36,7 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvChats.Rows[index];
                 int orderid = row.Cells[0].Text.ToInt();
                 Session.Add("orderidForDetails", orderid);
-                Response.Redirect("http://localhost:6421/Panels/Admin/ProjectDetail.aspx");
+                Response.Redirect("/Admin/Orders/OrderDetail");
             }
         }
 

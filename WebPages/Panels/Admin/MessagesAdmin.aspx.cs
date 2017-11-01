@@ -19,33 +19,42 @@ namespace WebPages.Panels.Admin
         int userid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            chatid = Session["chatidforMessages"].ToString().ToInt();
-            userid = Session["useridforMessages"].ToString().ToInt();
-
-            if (!IsPostBack)
+            if (!(String.IsNullOrEmpty(Session["chatidforMessages"].ToString())) || !(String.IsNullOrEmpty(Session["useridforMessages"].ToString())))
             {
-                setLabels();
+                chatid = Session["chatidforMessages"].ToString().ToInt();
+                userid = Session["useridforMessages"].ToString().ToInt();
+
+
+                if (!IsPostBack)
+                {
+                    setLabels();
+                }
+                else
+                {
+                    string elemid = Request.Form["__EVENTTARGET"].ToString();
+                    if (elemid.Substring(0, 7) == "btnmsgx")
+                    {
+
+                        int elid = Int32.Parse(elemid.Substring(7));
+                        try
+                        {
+                            download(elid);
+                        }
+                        catch
+                        {
+
+                        }
+
+
+                    }
+
+                }
             }
             else
             {
-                string elemid = Request.Form["__EVENTTARGET"].ToString();
-                if (elemid.Substring(0, 7) == "btnmsgx")
-                {
-
-                    int elid = Int32.Parse(elemid.Substring(7));
-                    try
-                    {
-                        download(elid);
-                    }
-                    catch
-                    {
-
-                    }
-
-
-                }
-
+                Response.Redirect("/Admin/Inbox");
             }
+
         }
 
         private void setLabels()
@@ -179,7 +188,7 @@ namespace WebPages.Panels.Admin
         protected void btnDownload_ServerClick(object sender, EventArgs e)
         {
             string controlName = Request.Params["__EVENTTARGET"];
-            //Response.Redirect(controlName);
+
             Response.Write("<script>window.open('" + controlName + "');</script>");
         }
         public void download(int idname)

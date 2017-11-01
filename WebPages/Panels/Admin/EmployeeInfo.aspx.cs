@@ -16,11 +16,20 @@ namespace WebPages.Panels.Admin
         int empid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            empid = Session["useridForAdminDetails"].ToString().ToInt();
-            if (!IsPostBack)
+            if (!String.IsNullOrEmpty(Session["useridForAdminDetails"].ToString()))
             {
-                setLabels();
+                empid = Session["useridForAdminDetails"].ToString().ToInt();
+                if (!IsPostBack)
+                {
+                    setLabels();
+                }
             }
+            else
+            {
+                Response.Redirect("/Admin/ManageUsers");
+            }
+
+
         }
 
         private void setLabels()
@@ -97,8 +106,12 @@ namespace WebPages.Panels.Admin
                     {
                         if (dr.Read())
                         {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            Image1.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            if (dr.GetValue(0) != DBNull.Value)
+                            {
+                                byte[] fileData = (byte[])dr.GetValue(0);
+                                Image1.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            }
+
                         }
 
                         dr.Close();

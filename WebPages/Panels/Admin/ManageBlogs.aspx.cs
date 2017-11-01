@@ -167,7 +167,7 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("PostIDForEdit", row.Cells[0].Text);
 
-                Response.Redirect("//Admin/EditBlog");
+                Response.Redirect("/Admin/EditBlog");
             }
             if (e.CommandName == "Show")
             {
@@ -181,7 +181,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect(" / Blogs / " + id + " / " + row.Cells[1].Text.Replace(' ', '-'));
+                Response.Redirect("/Blogs/" + id + "/" + row.Cells[1].Text.Replace(' ', '-'));
             }
             if (e.CommandName == "Delet")
             {

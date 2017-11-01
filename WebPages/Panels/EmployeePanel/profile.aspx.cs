@@ -20,8 +20,8 @@ namespace WebPages.Panels.EmployeePanel
         //DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("employeeid", 2);
-            empid = Session["employeeid"].ToString().ToInt();
+
+            //empid = Session["employeeid"].ToString().ToInt();
             if (!IsPostBack)
             {
                 setLabels();

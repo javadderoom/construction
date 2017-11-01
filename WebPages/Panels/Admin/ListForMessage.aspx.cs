@@ -51,7 +51,7 @@ namespace WebPages.Panels.Admin
                 int userid = row.Cells[0].Text.ToInt();
                 Session.Add("useridForNewMessage", userid);
 
-                Response.Redirect("~/ارسال__پیام__جدید");
+                Response.Redirect("/Admin/Message/NewMessage");
             }
         }
 

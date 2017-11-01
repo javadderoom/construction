@@ -46,11 +46,11 @@ namespace WebPages.Panels.Admin
                 if (userid % 2 == 0)
                 {
                     //karmand
-                    Response.Redirect("~/اطلاعات_همکاران");
+                    Response.Redirect("Admin/ManageUsers/EmployeeInfo");
                 }
                 else
                 {
-                    Response.Redirect("~/اطلاعات_مشتری");
+                    Response.Redirect("/Admin/ManageUsers/UserInfo");
                 }
             }
         }

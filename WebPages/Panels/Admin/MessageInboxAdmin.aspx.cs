@@ -15,7 +15,7 @@ namespace WebPages.Panels.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            adminid = Session["adminid"].ToString().ToInt();
+            adminid = 1;
             if (!IsPostBack)
             {
                 fillGrid();
@@ -48,7 +48,7 @@ namespace WebPages.Panels.Admin
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrueForAdmin(chatid);
 
-                Response.Redirect("~/همه__پیام__ها");
+                Response.Redirect("/Admin/Inbox/SelectedMessage");
             }
         }
 

@@ -70,6 +70,7 @@ namespace WebPages
             //routes.MapPageRoute("R14", "Admin/ManageProjectGroups", "~/Panels/Admin/ManageProjectGroups.aspx");
             //routes.MapPageRoute("R14", "Admin/ManageProjects", "~/Panels/Admin/ManageProjects.aspx");
             //routes.MapPageRoute("R14", "Admin/ManageUsersAndEmployees", "~/Panels/Admin/ManageUsersAndEmployees.aspx");
+            routes.MapPageRoute("R14", "Admin/EmployeesFilterByJob", "~/Panels/Admin/EmployeesFilterByJob.aspx");
 
 
 

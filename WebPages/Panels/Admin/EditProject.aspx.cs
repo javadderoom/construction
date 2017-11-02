@@ -44,10 +44,11 @@ namespace WebPages.Panels.Admin
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["ProjectIDForEdit"] != null)
             {
-                if (Session["ProjectIDForEdit"] != null)
+                if (!IsPostBack)
                 {
+
                     int id = Session["ProjectIDForEdit"].ToString().ToInt();
                     Session.Add("newProjectIDForEdit", id);
                     Session.Remove("ProjectIDForEdit");
@@ -78,10 +79,11 @@ namespace WebPages.Panels.Admin
                     DDLGroups2.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
                     oldPhoto.ImageUrl = setInlineImage(id);
                 }
-                else
-                {
-                    Response.Redirect("");//manage posts
-                }
+
+            }
+            else
+            {
+                Response.Redirect("/Admin/ManageProjects");
             }
         }
 
@@ -176,21 +178,21 @@ namespace WebPages.Panels.Admin
 
                         if (!result)
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageProjects'", true);
                         }
                         else
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='مدیریت-وبلاگ-ها'", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('ثبت با موفقیت انجام شد!');window.location ='/Admin/ManageBlogs'", true);
                         }
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageProjects'", true);
                     }
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='مدیریت-وبلاگ-ها'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' مشکلی در زمان لود کردن به وجود آمد دوباره سعی کنید ! ');window.location ='/Admin/ManageProjects'", true);
                 }
 
             }

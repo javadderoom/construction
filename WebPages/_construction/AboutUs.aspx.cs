@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebPages.Panels.Admin
+namespace WebPages._construction
 {
-    public partial class page : System.Web.UI.Page
+    public partial class AboutUs : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("adminid", 1);
+
         }
     }
 }

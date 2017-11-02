@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="ordersList.aspx.cs" Inherits="WebPages.Panels.Admin.ordersList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>لیست سفارشات</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="../../_Styles/ProjectDetailStyles.css" rel="stylesheet" />

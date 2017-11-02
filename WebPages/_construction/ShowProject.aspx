@@ -6,7 +6,7 @@
     <title runat="server" id="PageTitle"></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pageStyles" runat="server">
-    <link href="../_Styles/BlogPost.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("../_Styles/BlogPost.css")%>" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="direction: rtl;">

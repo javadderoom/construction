@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="UserInfo.aspx.cs" Inherits="WebPages.Panels.Admin.UserInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>اطلاعات کاربر</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
 </asp:Content>
@@ -8,7 +9,7 @@
     <section class="mainSection">
         <div class="c_title col-md-3 col-sm-12 col-xs-12">
             <h4>
-                <asp:Literal runat="server" Text="اطلاعات کاربران" />
+                <asp:Literal runat="server" Text="اطلاعات کاربر" />
             </h4>
             <img class="ProfileImg" src="../../_construction/images/user128px.png" />
             <h3 runat="server" id="hFullName"></h3>

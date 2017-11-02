@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="ManageUsersAndEmployees.aspx.cs" Inherits="WebPages.Panels.Admin.ManageUsersAndEmployees" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>مدیریت کاربر ها و کارمند ها
-    </title>
+
+    <title>مدیریت کاربران</title>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="../../_Styles/ManageGroups.css" rel="stylesheet" />

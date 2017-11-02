@@ -25,7 +25,7 @@ namespace WebPages.Panels.Admin
             }
             else
             {
-                Response.Redirect("~/Login");
+                Response.Redirect("/Login");
             }
         }
     }

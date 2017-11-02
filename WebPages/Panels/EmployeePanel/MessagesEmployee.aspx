@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/EmployeePanel/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="MessagesEmployee.aspx.cs" Inherits="WebPages.Panels.EmployeePanel.MessagesEmployee" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>پیام انتخاب شده</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../../_Styles/GridView.css" rel="stylesheet" />
@@ -30,7 +31,7 @@
         <input id="hiddenControl" type="hidden" runat="server" />
         <div class="c-title">
             <h4>
-                <asp:Literal runat="server" Text="نمایش پیام ها" /></h4>
+                <asp:Literal runat="server" Text="پیام انتخاب شده" /></h4>
         </div>
 
         <div class="row">
@@ -38,7 +39,7 @@
                 <div class="x_panel">
 
                     <div class="alert alert-info alert-dismissable dirRight text-right" style="color: white; background-color: #18bc9c">
-                        <span id="lblid" runat="server" style="color: White;"><span class="fa fa-arrow-left"></span><b></b><span class="fa fa-arrow-left"></span>کارشناس آموزش مهندسی شیمی- خانم صداقت</span>
+                        <span id="lblid" runat="server" style="color: White;"><span class="fa fa-arrow-left"></span><b></b><span class="fa fa-arrow-left"></span></span>
                     </div>
 
                     <div class="x_content">

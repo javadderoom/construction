@@ -889,7 +889,6 @@
     <Content Include="Panels\Admin\newMesaageAdmin.aspx" />
     <Content Include="Panels\Admin\NewMessageGroup.aspx" />
     <Content Include="Panels\Admin\ordersList.aspx" />
-    <Content Include="Panels\Admin\page.aspx" />
     <Content Include="Panels\Admin\ProjectDetail.aspx" />
     <Content Include="Panels\Admin\Scores.aspx" />
     <Content Include="Panels\Admin\UserInfo.aspx" />
@@ -982,6 +981,7 @@
     <Content Include="test\testpage.aspx" />
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />
+    <Content Include="_construction\AboutUs.aspx" />
     <Content Include="_construction\BlogPost.aspx" />
     <Content Include="_construction\Blogs.aspx" />
     <Content Include="_construction\css\animate.css" />
@@ -1325,10 +1325,6 @@
     <Compile Include="Panels\Admin\ordersList.aspx.designer.cs">
       <DependentUpon>ordersList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Admin\page.aspx.cs">
-      <DependentUpon>page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Panels\Admin\ProjectDetail.aspx.cs">
       <DependentUpon>ProjectDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1462,6 +1458,13 @@
     </Compile>
     <Compile Include="test\testpage.aspx.designer.cs">
       <DependentUpon>testpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_construction\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_construction\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="_construction\BlogPost.aspx.cs">
       <DependentUpon>BlogPost.aspx</DependentUpon>

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+
     <asp:ContentPlaceHolder ID="StyleSheet" runat="server">
         <!--Favicons-->
         <link rel="apple-touch-icon" sizes="57x57" href="../../_construction/favicon/apple-touch-icon-57x57.png" />
@@ -162,39 +162,11 @@
 
                             <ul class="nav navbar-nav">
 
-                                <li class="active "><a href="index.html">خانه</a></li>
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">راه های ارتباطی</a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="contact.html">راه ارتباطی 1</a></li>
-                                        <li><a href="contact2.html">راه ارتباطی 2</a></li>
-                                    </ul>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">اخبار</a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="blog.html">وبلاگ</a></li>
-                                        <li><a href="blog2.html">وبلاگ 2 سطونه</a></li>
-                                        <li><a href="blog3.html">وبلاگ 3 سطونه</a></li>
-                                        <li><a href="single-post.html">تک پست</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="services.html">سرویس ها</a></li>
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">پروژه های ما</a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="projects_full.html">عرض کامل</a></li>
-                                        <li><a href="projects2.html">2 سطونه</a></li>
-                                        <li><a href="projects3.html">3 سطونه</a></li>
-                                    </ul>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">درباره ما</a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="about-us.html">درباره ما</a></li>
-                                        <li><a href="about-us2.html">درباره ما2</a></li>
-                                    </ul>
-                                </li>
+                                <li class="active "><a href="/">خانه</a></li>
+                                <li><a href="/Services">سرویس ها</a></li>
+                                <li><a href="/Projects">پروژه های ما</a></li>
+                                <li><a href="/Blogs">وبلاگ ها</a></li>
+                                <li><a href="/AboutUs">درباره ما</a></li>
                             </ul>
                         </div>
                     </div>

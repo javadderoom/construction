@@ -162,7 +162,7 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvPosts.Rows[index];
                 Session.Add("ProjectIDForEdit", row.Cells[0].Text);
 
-                Response.Redirect("http://localhost:6421/Panels/Admin/EditProject.aspx");//edit
+                Response.Redirect("/Admin/EditProject");//edit
             }
             if (e.CommandName == "Show")
             {
@@ -176,7 +176,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect("");//show
+                Response.Redirect(" /Projects/ " + id + "/" + row.Cells[1].Text.Replace(' ', '-'));//show
             }
             if (e.CommandName == "Delet")
             {

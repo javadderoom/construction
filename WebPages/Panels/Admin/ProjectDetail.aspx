@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" CodeBehind="ProjectDetail.aspx.cs" Inherits="WebPages.Panels.Admin.ProjectDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>جزییات سفارش</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="../../_Styles/ProjectDetailStyles.css" rel="stylesheet" />
@@ -10,7 +11,7 @@
 
     <div class="content col-md-9 col-sm-12 col-xs-12">
         <div class="Title">
-            جزییات پروژه
+            جزییات سفارش
         </div>
         <div class="innerContent col-md-12 col-sm-12 col-xs-12">
             <div class="userInfo col-md-4 col-sm-4 col-xs-12">

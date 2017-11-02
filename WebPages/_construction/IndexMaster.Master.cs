@@ -16,19 +16,18 @@ namespace WebPages._construction
             bool Admin = false;
             bool User = false;
             bool Employee = false;
-            if (false)//for Admin
+            if (string.IsNullOrEmpty(Session["adminid"].ToString()) == false)//for Admin
             {
                 Admin = true;
             }
-            if (false)//for User
+            else if (string.IsNullOrEmpty(Session["userid"].ToString()) == false)//for User
             {
                 User = true;
 
             }
-            if (false)//for Emplyoee
+            else if (string.IsNullOrEmpty(Session["employeeid"].ToString()) == false)//for Emplyoee
             {
                 Employee = true;
-
             }
 
             if (!IsPostBack)

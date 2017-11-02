@@ -37,9 +37,7 @@
             <label class="btn btn-info" style="width: 100px;">
                 <asp:Literal runat="server" Text="انتخاب عکس" />
 
-
                 <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" CssClass="displaynone" BackColor="#CCCCCC" />
-
             </label>
             <label style="padding: 18px" id="filename"></label>
 
@@ -56,7 +54,6 @@
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
@@ -76,7 +73,6 @@
                             <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
                 <div style="display: inline;">
 
@@ -91,7 +87,6 @@
                             </td>
                         </tr>
                     </table>
-
                 </div>
 
                 <div style="display: inline" id="upPan2">
@@ -104,15 +99,12 @@
                             <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
             </div>
-
         </div>
         <div style="max-height: 870px">
 
             <asp:TextBox runat="server" ID="editor1" TextMode="MultiLine"></asp:TextBox>
-
         </div>
         <div class="form-group" style="margin-top: 20px">
             <label for="KeyWords">کلمات کلیدی:</label>
@@ -127,7 +119,6 @@
             <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" data-role="tagsinput" onkeydown="return (event.keyCode!=13);" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
 
-
         <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" ChildrenAsTriggers="true" runat="server">
             <ContentTemplate>
                 <div runat="server" class="error" id="diverror">
@@ -136,7 +127,6 @@
                     <div class="col-md-5"></div>
                     <div class="col-md-2" style="text-align: center;">
                         <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-success" Text="ذخیره" />
-
                     </div>
                     <div class="col-md-5"></div>
                 </div>
@@ -147,9 +137,7 @@
                 <asp:PostBackTrigger ControlID="btnSave" />
             </Triggers>
         </asp:UpdatePanel>
-
     </div>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Script" runat="server">
     <script src="../../_Scripts/AddNews.js"></script>

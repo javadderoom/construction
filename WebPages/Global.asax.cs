@@ -46,6 +46,7 @@ namespace WebPages
         }
         void RegisterRoutes(System.Web.Routing.RouteCollection routes)
         {
+
             //matual
             routes.MapPageRoute("R1", "Blogs/{id}/{text}", "~/_construction/BlogPost.aspx");
             routes.MapPageRoute("R2", "Blogs", "~/_construction/Blogs.aspx");
@@ -95,6 +96,7 @@ namespace WebPages
             routes.MapPageRoute("R40", "Employee/Inbox", "~/Panels/UserPanel/MessageInbox.aspx");
             routes.MapPageRoute("R41", "Employee/SelectedMessage", "~/Panels/UserPanel/Messages.aspx");
             routes.MapPageRoute("R42", "Employee/NewMessage", "~/Panels/UserPanel/newMessage.aspx");
+
 
         }
     }

@@ -139,6 +139,7 @@
             </div>
         </div>
         <div class="extra"></div>
+        <asp:Button ID="btnSave" runat="server" Text="ذخیره" OnClick="btnSave_Click" />
     </div>
     <hr />
     <br />

@@ -606,7 +606,9 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <Key>
             <PropertyRef Name="JobGroupID" />
           </Key>
+
           <Property Name="JobGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+
           <Property Name="JobGroupTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Jobs" Relationship="ConstructionCompanyModel.FK_Jobs_JobGroups" FromRole="JobGroup" ToRole="Job" />
         </EntityType>

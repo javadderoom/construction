@@ -119,6 +119,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI, Version=2017.2.711.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET AJAX R2 2017\Bin45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
     <Reference Include="WebCalendar, Version=1.0.2509.30447, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\HAMOON\Desktop\New folder\WebCalendar.dll</HintPath>
@@ -886,6 +890,7 @@
     <Content Include="Panels\Admin\NewMessageGroup.aspx" />
     <Content Include="Panels\Admin\ordersList.aspx" />
     <Content Include="Panels\Admin\ProjectDetail.aspx" />
+    <Content Include="Panels\Admin\Scores.aspx" />
     <Content Include="Panels\Admin\UserInfo.aspx" />
     <Content Include="Panels\EmployeePanel\MessageInboxEmployee.aspx" />
     <Content Include="Panels\EmployeePanel\MessagesEmployee.aspx" />
@@ -1327,6 +1332,13 @@
     <Compile Include="Panels\Admin\ProjectDetail.aspx.designer.cs">
       <DependentUpon>ProjectDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Admin\Scores.aspx.cs">
+      <DependentUpon>Scores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panels\Admin\Scores.aspx.designer.cs">
+      <DependentUpon>Scores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Admin\UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1517,6 +1529,9 @@
       <Project>{f6c66c68-377c-4a90-98fd-2d4dff047040}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

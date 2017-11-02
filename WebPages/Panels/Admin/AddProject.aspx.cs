@@ -180,6 +180,7 @@ namespace WebPages.Panels.Admin
                     List<int> SelectedSubGroupsList = new List<int>();
 
                     int lastid = ARTRep.GetLastProjectID();
+                    Session.Add("ProjectLastIDForEmployeeFilter", lastid);
                     int count = SelectedSubGroups.Items.Count;
                     if (count > 0)
                     {
@@ -195,6 +196,7 @@ namespace WebPages.Panels.Admin
 
                         }
                     }
+
                     else
                     {
                         diverror.InnerText = "هیچ زیر گروهی انتخاب نشده است!";
@@ -207,8 +209,9 @@ namespace WebPages.Panels.Admin
                     }
                     else
                     {
+
                         Response.Redirect("/Admin/ManageProjects");
-                    }
+
 
                 }
                 else
@@ -216,6 +219,7 @@ namespace WebPages.Panels.Admin
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageProjects'", true);
 
                 }
+
             }
 
 

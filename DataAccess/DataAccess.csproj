@@ -127,6 +127,7 @@
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EmployeeProjectRepository.cs" />
     <Compile Include="Repository\ProjectsRepository.cs" />
     <Compile Include="Repository\EmployeeJobRepository.cs" />
     <Compile Include="Repository\JobRepository.cs" />

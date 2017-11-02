@@ -76,7 +76,8 @@
                         <div class="logo col-xs-2 col-md-6">
                             <div class="fRight" runat="server" id="profileContainer">
                                 <div class="popover-container">
-                                    <button type="button" id="btnProfilePopover" class="logInProfile">
+                                    <button type="button" id="btnProfilePopover" class="logInProfile2">
+                                        <asp:Image ID="pimg2" CssClass="popupProfileImg" Width="55px" Height="55px" runat="server" />
                                     </button>
                                     <div id="myPopoverContent" style="display: none">
                                         <div class="popoverProfile">

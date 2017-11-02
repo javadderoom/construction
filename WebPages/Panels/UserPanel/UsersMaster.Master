@@ -66,6 +66,7 @@
                     </div>
                 </div>
             </section>
+
             <!--Top Strip-->
             <!--wdadawd-->
             <header class="row">
@@ -74,6 +75,7 @@
 
                         <div class="logo col-xs-2 col-md-6">
                             <div class="fRight" runat="server" id="profileContainer">
+
                                 <div class="popover-container">
                                     <button type="button" id="btnProfilePopover" class="logInProfile">
                                     </button>
@@ -81,18 +83,19 @@
                                         <div class="popoverProfile">
 
                                             <img class="popupProfileImg" src="<%= ResolveUrl("../../_construction/images/user128px.png") %>" />
-                                            <div class="personName">مدیر سایت</div>
+                                            <div class="personName" runat="server" id="Name"></div>
                                             <nav class="ij-effect-3">
 
-                                                <a href="#">پروفایل</a>
+                                                <a href="/Employee/Profile">پروفایل</a>
                                             </nav>
 
                                         </div>
                                         <div class="popoverLinks">
                                             <ul>
                                                 <li class="message">
-                                                    <a href="/Admin/Inbox">
+                                                    <a href="/Employee/Inbox">
                                                         <div class="mssageBox">
+
                                                             <span class="messageBox">صندوق پیام ها
                                                             </span>
                                                             <span class="messageCount" runat="server" id="messageCount"></span>
@@ -100,40 +103,30 @@
                                                     </a>
                                                 </li>
                                                 <li class="projects">
-                                                    <a href="/Admin/Orders" class="progectReq">
-                                                        <div class="projectDiv">سفارشات</div>
+                                                    <a href="/Employee/NewMessage" class="progectReq">
+                                                        <div class="projectDiv">ارسال پیام</div>
                                                     </a>
                                                 </li>
+
                                                 <li class="projects">
-                                                    <a href="/Admin/ManageUsers" class="progectReq">
-                                                        <div class="projectDiv">مدیریت کاربران</div>
+                                                    <a href="/Employee/SelectJob" class="progectReq">
+                                                        <div class="projectDiv">انتخاب شغل</div>
                                                     </a>
                                                 </li>
-                                                <li class="projects">
-                                                    <a href="/Admin/AddProject" class="progectReq">
-                                                        <div class="projectDiv">افزودن پروژه</div>
-                                                    </a>
-                                                </li>
-                                                <li class="projects">
-                                                    <a href="/Admin/Message" class="progectReq">
-                                                        <div class="projectDiv">ارسال پیام تکی</div>
-                                                    </a>
-                                                </li>
-                                                <li class="projects">
-                                                    <a href="/Admin/GroupMessage" class="progectReq">
-                                                        <div class="projectDiv">ارسال پیام گروهی</div>
-                                                    </a>
-                                                </li>
+
+
+
 
                                             </ul>
                                         </div>
                                         <div class="logOutDiv">
-                                            <a href="#" runat="server" class="LogOut">
-                                                <div class="logOutContent">
-                                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">خروج </asp:LinkButton>
-                                                    <span class="glyphicon glyphicon-off iconLeft"></span>
-                                                </div>
-                                            </a>
+
+                                            <div class="logOutContent">
+
+                                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">خروج </</asp:LinkButton>
+
+                                                <div class="glyphicon glyphicon-off iconLeft pull-left" style="float: left"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +135,7 @@
                         <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
 
-                                <a href="index.html">
+                                <a href="#">
 
                                     <div class="logoImg"></div>
                                     <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>

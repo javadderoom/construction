@@ -27,7 +27,7 @@ namespace WebPages
             try
             {
                 Random rdm = new Random();
-                string combination = "0123456789abcdefghijklmnopqrstuvwxyz";
+                string combination = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 StringBuilder ImgValue = new StringBuilder();
                 for (int i = 0; i < 5; i++)
                 {
@@ -49,7 +49,7 @@ namespace WebPages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز عبور را وارد نکردید ! ');", true);
                 return;
             }
-            if (Session["ImgValue"].ToString() == txtImage.Value)
+            if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
             {
                 //lblWarning.Text = "کد وارد شده صحیح می باشد";
                 //FillImageText();
@@ -93,7 +93,7 @@ namespace WebPages
                 else
                 {
                     Session.Add("userid", uid);
-                    Response.Redirect("/Employee/Profile");
+                    Response.Redirect("/User/Profile");
                 }
             }
         }

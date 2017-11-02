@@ -44,7 +44,7 @@ namespace WebPages.Panels.EmployeePanel
 
             lblfirstName.Value = dt.Rows[0][1].ToString();
             lblLastName.Value = dt.Rows[0][2].ToString();
-            hFullName.InnerText = dt.Rows[0][19].ToString();
+            hFullName.InnerText = dt.Rows[0][1].ToString() + " " + dt.Rows[0][2].ToString();
             lblid.Value = dt.Rows[0][0].ToString();
             lbladdress.Value = dt.Rows[0][8].ToString();
 
@@ -70,11 +70,11 @@ namespace WebPages.Panels.EmployeePanel
             ddlState.DataValueField = "StateID";
             ddlState.DataBind();
 
-            //CityRepository cr = new CityRepository();
-            //ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
-            //ddlCity.DataTextField = "CityName";
-            //ddlCity.DataValueField = "CityID";
-            //ddlCity.DataBind();
+            CityRepository cr = new CityRepository();
+            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityID";
+            ddlCity.DataBind();
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)

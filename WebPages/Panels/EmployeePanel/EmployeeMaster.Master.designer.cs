@@ -76,6 +76,15 @@ namespace WebPages.Panels.EmployeePanel {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl profileContainer;
         
         /// <summary>
+        /// pimg2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image pimg2;
+        
+        /// <summary>
         /// pImg control.
         /// </summary>
         /// <remarks>

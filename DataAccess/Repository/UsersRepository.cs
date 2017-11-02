@@ -14,6 +14,7 @@ namespace DataAccess.Repository
 {
     public class UsersRepository
     {
+        ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
         private ConstructionCompanyEntities database;
 
         public UsersRepository()
@@ -86,6 +87,10 @@ namespace DataAccess.Repository
                 db.ExecuteCommand("TRUNCATE TABLE Users");
             }
 
+        }
+        public User getUserById(int id)
+        {
+            return DB.Users.Where(p => p.UserID == id).FirstOrDefault();
         }
 
         public DataTable getUserProfileInfo(int id)

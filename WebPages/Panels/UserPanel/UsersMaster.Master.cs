@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using Common;
+using DataAccess;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace WebPages.Panels.UserPanel
 {
     public partial class UsersMaster : System.Web.UI.MasterPage
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Timeout = 30;
@@ -18,7 +20,14 @@ namespace WebPages.Panels.UserPanel
 
             if (!IsPostBack)
             {
+                UsersRepository repemplo = new UsersRepository();
+                User user = repemplo.getUserById(Session["userid"].ToString().ToInt());
+
+                Name.InnerText = user.FirstName + " " + user.LastName;
+                MessageRepository repmsg = new MessageRepository();
+                messageCount.InnerText = repmsg.CountUserNewMessages(Session["userid"].ToString().ToInt());
                 ContactUsRepository repo = new ContactUsRepository();
+
                 ContactWay cnw = repo.Findcwy(1);
                 phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";
                 mail.InnerHtml = "<span><i class='fa fa-envelope-o' style='margin-right: 7px'></i>" + cnw.Email + "</span>";

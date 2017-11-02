@@ -13,7 +13,8 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (true)
+            Session.Timeout = 30;
+            if (Session["adminid"] != null)
             {
                 if (!IsPostBack)
                 {
@@ -25,7 +26,7 @@ namespace WebPages.Panels.Admin
             }
             else
             {
-                Response.Redirect("/Login");
+                Response.Redirect("/AdminLogin");
             }
         }
     }

@@ -13,7 +13,8 @@ namespace WebPages.Panels.EmployeePanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (true)
+            Session.Timeout = 30;
+            if (Session["employeeid"] != null)
             {
                 if (!IsPostBack)
                 {

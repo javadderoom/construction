@@ -19,7 +19,7 @@ namespace WebPages.Panels.Admin
         int userid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(String.IsNullOrEmpty(Session["chatidforMessages"].ToString())) || !(String.IsNullOrEmpty(Session["useridforMessages"].ToString())))
+            if (Session["chatidforMessages"] != null && Session["useridforMessages"] != null)
             {
                 chatid = Session["chatidforMessages"].ToString().ToInt();
                 userid = Session["useridforMessages"].ToString().ToInt();

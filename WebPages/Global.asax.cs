@@ -90,12 +90,12 @@ namespace WebPages
             routes.MapPageRoute("R36", "Employee/NewMessage", "~/Panels/EmployeePanel/newMessageEmployee.aspx");
 
             //User
-            routes.MapPageRoute("R37", "Employee/Profile", "~/Panels/UserPanel/profile.aspx");
-            routes.MapPageRoute("R38", "Employee/ChangeInfo", "~/Panels/UserPanel/ChangeInfo.aspx");
-            routes.MapPageRoute("R39", "Employee/OrderNewProject", "~/Panels/UserPanel/ProjectApplication.aspx");
-            routes.MapPageRoute("R40", "Employee/Inbox", "~/Panels/UserPanel/MessageInbox.aspx");
-            routes.MapPageRoute("R41", "Employee/SelectedMessage", "~/Panels/UserPanel/Messages.aspx");
-            routes.MapPageRoute("R42", "Employee/NewMessage", "~/Panels/UserPanel/newMessage.aspx");
+            routes.MapPageRoute("R37", "User/Profile", "~/Panels/UserPanel/profile.aspx");
+            routes.MapPageRoute("R38", "User/ChangeInfo", "~/Panels/UserPanel/ChangeInfo.aspx");
+            routes.MapPageRoute("R39", "User/OrderNewProject", "~/Panels/UserPanel/ProjectApplication.aspx");
+            routes.MapPageRoute("R40", "User/Inbox", "~/Panels/UserPanel/MessageInbox.aspx");
+            routes.MapPageRoute("R41", "User/SelectedMessage", "~/Panels/UserPanel/Messages.aspx");
+            routes.MapPageRoute("R42", "User/NewMessage", "~/Panels/UserPanel/newMessage.aspx");
 
 
         }

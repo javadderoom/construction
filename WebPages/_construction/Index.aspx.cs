@@ -356,7 +356,7 @@ namespace WebPages._construction
         //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         protected void subGroups_ServerClick(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='ورود'", true);
+
         }
 
         protected void articles_ServerClick(object sender, EventArgs e)

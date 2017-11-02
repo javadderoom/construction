@@ -213,6 +213,7 @@ namespace WebPages.Panels.Admin
                         Response.Redirect("/Admin/ManageProjects");
 
 
+                    }
                 }
                 else
                 {

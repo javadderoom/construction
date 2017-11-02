@@ -20,7 +20,7 @@ namespace WebPages.Panels.EmployeePanel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Session["chatidForMessages"].ToString()) || !String.IsNullOrEmpty(Session["employeeid"].ToString()))
+            if (Session["chatidForMessages"] != null && Session["employeeid"] != null)
             {
                 chatid = Session["chatidForMessages"].ToString().ToInt();
                 empid = Session["employeeid"].ToString().ToInt();

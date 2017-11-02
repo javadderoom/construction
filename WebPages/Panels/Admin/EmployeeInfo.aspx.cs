@@ -16,7 +16,7 @@ namespace WebPages.Panels.Admin
         int empid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Session["useridForAdminDetails"].ToString()))
+            if (Session["useridForAdminDetails"] != null)
             {
                 empid = Session["useridForAdminDetails"].ToString().ToInt();
                 if (!IsPostBack)

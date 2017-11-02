@@ -128,7 +128,7 @@
                         <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
 
-                                <a href="index.html">
+                                <a href="#">
 
                                     <div class="logoImg"></div>
                                     <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>

@@ -35,15 +35,15 @@ namespace WebPages._construction
             {
                 if (Admin)
                 {
-
+                    profileContainer.InnerHtml = "Admin";
                 }
                 else if (User)
                 {
-
+                    profileContainer.InnerHtml = "User";
                 }
                 else if (Employee)
                 {
-
+                    profileContainer.InnerHtml = "Employee";
                 }
                 else
                 {

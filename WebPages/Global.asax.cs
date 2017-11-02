@@ -83,7 +83,7 @@ namespace WebPages
 
             //Employee
             routes.MapPageRoute("R31", "Employee/Profile", "~/Panels/EmployeePanel/profile.aspx");
-            routes.MapPageRoute("R32", "Employee/ChangeInfo", "~/Panels/EmployeePanel/ChangeInfo.aspx");
+            //routes.MapPageRoute("R32", "Employee/ChangeInfo", "~/Panels/EmployeePanel/ChangeInfo.aspx");
             routes.MapPageRoute("R33", "Employee/SelectJob", "~/Panels/EmployeePanel/SelectJob.aspx");
             routes.MapPageRoute("R34", "Employee/Inbox", "~/Panels/EmployeePanel/MessageInboxEmployee.aspx");
             routes.MapPageRoute("R35", "Employee/SelectedMessage", "~/Panels/EmployeePanel/MessagesEmployee.aspx");
@@ -91,7 +91,7 @@ namespace WebPages
 
             //User
             routes.MapPageRoute("R37", "User/Profile", "~/Panels/UserPanel/profile.aspx");
-            routes.MapPageRoute("R38", "User/ChangeInfo", "~/Panels/UserPanel/ChangeInfo.aspx");
+            //routes.MapPageRoute("R38", "User/ChangeInfo", "~/Panels/UserPanel/ChangeInfo.aspx");
             routes.MapPageRoute("R39", "User/OrderNewProject", "~/Panels/UserPanel/ProjectApplication.aspx");
             routes.MapPageRoute("R40", "User/Inbox", "~/Panels/UserPanel/MessageInbox.aspx");
             routes.MapPageRoute("R41", "User/SelectedMessage", "~/Panels/UserPanel/Messages.aspx");

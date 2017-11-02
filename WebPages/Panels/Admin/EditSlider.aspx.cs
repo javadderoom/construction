@@ -16,29 +16,36 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                string id = this.Page.RouteData.Values["id"].ToString();
-                if (!String.IsNullOrEmpty(id))
+                if (!IsPostBack)
                 {
-                    SliderRepository repSr = new SliderRepository();
-
-                    Slider oldSlider = repSr.FindSlider(id.ToInt());
-                    oldBimg.Src = setBKGSrc(id.ToInt());
-                    if (oldSlider.thumbnail != null)
+                    string id = this.Page.RouteData.Values["id"].ToString();
+                    if (!String.IsNullOrEmpty(id))
                     {
-                        Rimg.InnerHtml = "<img src='" + setRightimgSrc(id.ToInt()) + "' class='img-responsive'/>";
+                        SliderRepository repSr = new SliderRepository();
+
+                        Slider oldSlider = repSr.FindSlider(id.ToInt());
+                        oldBimg.Src = setBKGSrc(id.ToInt());
+                        if (oldSlider.thumbnail != null)
+                        {
+                            Rimg.InnerHtml = "<img src='" + setRightimgSrc(id.ToInt()) + "' class='img-responsive'/>";
+                        }
+                        else
+                        {
+                            Rimg.InnerHtml = "عکسی وجود نداشته !";
+                        }
+                        text.Text = oldSlider.Text;
+                        tbxLink.Text = oldSlider.Link;
                     }
                     else
                     {
-                        Rimg.InnerHtml = "عکسی وجود نداشته !";
+                        Response.Redirect("/Admin/ManageFirstPage");
                     }
-                    text.Text = oldSlider.Text;
-                    tbxLink.Text = oldSlider.Link;
                 }
                 else
                 {
-                    Response.Redirect("/Admin/ManageFirstPage");
+                    Response.Redirect("/AdminLogin");
                 }
 
             }

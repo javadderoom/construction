@@ -136,19 +136,26 @@ namespace WebPages.Panels.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            { //load grid
-                fillGrid();
-                //load ddls
-                ddlSubGroups.Enabled = false;
+            if (Session["adminid"] != null)
+            {
+                if (!IsPostBack)
+                { //load grid
+                    fillGrid();
+                    //load ddls
+                    ddlSubGroups.Enabled = false;
 
-                GroupsRepository repo = new GroupsRepository();
-                ddlGroups.DataSource = repo.LoadAllGroups();
-                ddlGroups.DataTextField = "Title";
-                ddlGroups.DataValueField = "GroupID";
-                ddlGroups.DataBind();
-                ddlGroups.Items.Insert(0, new ListItem("همه گروه ها", "-2"));
-                ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                    GroupsRepository repo = new GroupsRepository();
+                    ddlGroups.DataSource = repo.LoadAllGroups();
+                    ddlGroups.DataTextField = "Title";
+                    ddlGroups.DataValueField = "GroupID";
+                    ddlGroups.DataBind();
+                    ddlGroups.Items.Insert(0, new ListItem("همه گروه ها", "-2"));
+                    ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

@@ -16,17 +16,24 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                btnSave.Enabled = false;
-                diverror.InnerText = "هیچ گروهی انتخاب نشده!";
-                GroupsRepository repo = new GroupsRepository();
-                DDLGroups.DataSource = repo.LoadAllGroups();
-                DDLGroups.DataTextField = "Title";
-                DDLGroups.DataValueField = "GroupID";
-                DDLGroups.DataBind();
-                DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                if (!IsPostBack)
+                {
+                    btnSave.Enabled = false;
+                    diverror.InnerText = "هیچ گروهی انتخاب نشده!";
+                    GroupsRepository repo = new GroupsRepository();
+                    DDLGroups.DataSource = repo.LoadAllGroups();
+                    DDLGroups.DataTextField = "Title";
+                    DDLGroups.DataValueField = "GroupID";
+                    DDLGroups.DataBind();
+                    DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
 
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
 
         }

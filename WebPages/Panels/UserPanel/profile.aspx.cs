@@ -16,10 +16,17 @@ namespace WebPages.Panels.UserPanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["userid"] != null)
             {
-                setLabels();
-                fillDDL();
+                if (!IsPostBack)
+                {
+                    setLabels();
+                    fillDDL();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login");
             }
         }
 

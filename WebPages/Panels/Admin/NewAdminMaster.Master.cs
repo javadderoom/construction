@@ -14,20 +14,23 @@ namespace WebPages.Panels.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Timeout = 30;
-            if (Session["adminid"] != null)
+
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
-                {
-                    ContactUsRepository repo = new ContactUsRepository();
-                    ContactWay cnw = repo.Findcwy(1);
-                    phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";
-                    mail.InnerHtml = "<span><i class='fa fa-envelope-o' style='margin-right: 7px'></i>" + cnw.Email + "</span>";
-                }
+                MessageRepository repms = new MessageRepository();
+                messageCount.InnerText = repms.AdminNewMessageCount();
+                ContactUsRepository repo = new ContactUsRepository();
+                ContactWay cnw = repo.Findcwy(1);
+                phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";
+                mail.InnerHtml = "<span><i class='fa fa-envelope-o' style='margin-right: 7px'></i>" + cnw.Email + "</span>";
             }
-            else
-            {
-                Response.Redirect("/AdminLogin");
-            }
+
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Remove("adminid");
+            Response.Redirect("/");
         }
     }
 }

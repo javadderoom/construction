@@ -76,6 +76,24 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl profileContainer;
         
         /// <summary>
+        /// messageCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl messageCount;
+        
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
         /// Content control.
         /// </summary>
         /// <remarks>

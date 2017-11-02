@@ -13,10 +13,17 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                fillGV();
-                setRegSeenTrue();
+                if (!IsPostBack)
+                {
+                    fillGV();
+                    setRegSeenTrue();
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

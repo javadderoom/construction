@@ -195,11 +195,7 @@ namespace WebPages._construction
                 div1.Controls.Add(div2);
                 div.Controls.Add(div1);
                 ourServises.Controls.Add(div1);
-                //ScriptManager1.RegisterAsyncPostBackControl(div1);
-                //< div class="owl-one owl-carousel " runat="server" id="ourServises">
-                //var cons = Form.FindControl("ContentPlaceHolder1_ourServises");
-                //cons.Controls.Add(div1);
-                ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
             }
 
             //ourServises.InnerHtml = content;

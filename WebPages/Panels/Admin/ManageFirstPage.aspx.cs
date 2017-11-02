@@ -13,17 +13,24 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                SliderRepository repSlider = new SliderRepository();
-                gvSlider.DataSource = repSlider.LoadSliders();
-                gvSlider.DataBind();
-                ContactUsRepository repContact = new ContactUsRepository();
-                ContactWay cnw = repContact.Findcwy(1);
-                tbxAbout.Text = cnw.AboutUs;
-                tbxAdress.Text = cnw.Adrees;
-                tbxMail.Text = cnw.Email;
-                tbxPhone.Text = cnw.PhoneNumber;
+                if (!IsPostBack)
+                {
+                    SliderRepository repSlider = new SliderRepository();
+                    gvSlider.DataSource = repSlider.LoadSliders();
+                    gvSlider.DataBind();
+                    ContactUsRepository repContact = new ContactUsRepository();
+                    ContactWay cnw = repContact.Findcwy(1);
+                    tbxAbout.Text = cnw.AboutUs;
+                    tbxAdress.Text = cnw.Adrees;
+                    tbxMail.Text = cnw.Email;
+                    tbxPhone.Text = cnw.PhoneNumber;
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

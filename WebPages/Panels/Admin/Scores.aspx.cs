@@ -24,20 +24,15 @@ namespace WebPages.Panels.Admin
                 if (!IsPostBack)
                 {
                     fillGv();
-                    GroupsRepository repo = new GroupsRepository();
-                    DDLGroups.DataSource = repo.LoadAllGroups();
-                    DDLGroups.DataTextField = "Title";
-                    DDLGroups.DataValueField = "GroupID";
-                    DDLGroups.DataBind();
-                    DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                    fillDDLs();
                 }
             }
             else
             {
                 Response.Redirect("/AdminLogin");
 
-                fillGv();
-                fillDDLs();
+
+
 
             }
         }

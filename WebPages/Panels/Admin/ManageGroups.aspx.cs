@@ -15,25 +15,32 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                GroupsRepository repGP = new GroupsRepository();
-                DataTable allGroups = new DataTable();
-                allGroups = repGP.LoadAllGroups();
-                gvGroups.DataSource = allGroups;
-                gvGroups.DataBind();
-                ddlGroups.DataSource = allGroups;
-                ddlGroups.DataTextField = "Title";
-                ddlGroups.DataValueField = "GroupID";
-                ddlGroups.DataBind();
-                ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-                gvSubGroups.DataSource = repGP.LoadAllSubGroups();
-                gvSubGroups.DataBind();
-                ddlgroupsForModal.DataSource = allGroups;
-                ddlgroupsForModal.DataTextField = "Title";
-                ddlgroupsForModal.DataValueField = "GroupID";
-                ddlgroupsForModal.DataBind();
-                ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
+                if (!IsPostBack)
+                {
+                    GroupsRepository repGP = new GroupsRepository();
+                    DataTable allGroups = new DataTable();
+                    allGroups = repGP.LoadAllGroups();
+                    gvGroups.DataSource = allGroups;
+                    gvGroups.DataBind();
+                    ddlGroups.DataSource = allGroups;
+                    ddlGroups.DataTextField = "Title";
+                    ddlGroups.DataValueField = "GroupID";
+                    ddlGroups.DataBind();
+                    ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                    gvSubGroups.DataSource = repGP.LoadAllSubGroups();
+                    gvSubGroups.DataBind();
+                    ddlgroupsForModal.DataSource = allGroups;
+                    ddlgroupsForModal.DataTextField = "Title";
+                    ddlgroupsForModal.DataValueField = "GroupID";
+                    ddlgroupsForModal.DataBind();
+                    ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

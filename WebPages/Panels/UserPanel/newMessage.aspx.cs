@@ -17,7 +17,21 @@ namespace WebPages.Panels.UserPanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userid"] != null)
+            {
 
+
+
+
+
+
+
+
+            }
+            else
+            {
+                Response.Redirect("~/Login");
+            }
         }
 
         protected void btnViewAll_ServerClick(object sender, EventArgs e)

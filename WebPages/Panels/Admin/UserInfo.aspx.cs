@@ -15,10 +15,17 @@ namespace WebPages.Panels.Admin
         int userid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            userid = Session["useridForAdminDetails"].ToString().ToInt();
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                setLabels();
+                userid = Session["useridForAdminDetails"].ToString().ToInt();
+                if (!IsPostBack)
+                {
+                    setLabels();
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

@@ -53,7 +53,7 @@ namespace WebPages._construction
                     text = "";
                     foreach (Project article in ArticleList)
                     {
-                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "وبلاگ-ها" + article.ProjectID + "'><img src='" + setInlineImage(article.ProjectID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "وبلاگ-ها" + article.ProjectID + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
+                        text += "<div class='media recentblog'><div class='media-left'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "'><img src='" + setInlineImage(article.ProjectID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
                     }
 
                     DivRecenPosts.InnerHtml = text;

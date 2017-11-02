@@ -54,11 +54,18 @@ namespace WebPages.Panels.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                viewAll = "false";
-                fillDDLs();
-                fillGrids();
+                if (!IsPostBack)
+                {
+                    viewAll = "false";
+                    fillDDLs();
+                    fillGrids();
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

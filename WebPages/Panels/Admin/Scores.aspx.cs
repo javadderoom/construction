@@ -18,10 +18,22 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                fillGv();
-                fillDDLs();
+
+                if (!IsPostBack)
+                {
+                    fillGv();
+                    fillDDLs();
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
+
+
+
+
             }
         }
 

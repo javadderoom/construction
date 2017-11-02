@@ -12,15 +12,22 @@ namespace WebPages.Panels.EmployeePanel
 {
     public partial class SelectJob : System.Web.UI.Page
     {
-        private int empid = 2;
+        private int empid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //empid = Session["employeeid"].ToString().ToInt();
-            if (!IsPostBack)
+            if (Session["employeeid"] != null)
             {
-                fillDDL();
-                fillListBox();
+                empid = Session["employeeid"].ToString().ToInt();
+                if (!IsPostBack)
+                {
+                    fillDDL();
+                    fillListBox();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login");
             }
         }
 

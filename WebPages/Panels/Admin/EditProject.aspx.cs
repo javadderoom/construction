@@ -44,46 +44,53 @@ namespace WebPages.Panels.Admin
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ProjectIDForEdit"] != null)
+            if (Session["adminid"] != null)
             {
-                if (!IsPostBack)
+                if (Session["ProjectIDForEdit"] != null)
                 {
-
-                    int id = Session["ProjectIDForEdit"].ToString().ToInt();
-                    Session.Add("newProjectIDForEdit", id);
-                    Session.Remove("ProjectIDForEdit");
-                    ProjectsRepository repArt = new ProjectsRepository();
-                    GroupsRepository repo = new GroupsRepository();
-                    Project art = repArt.FindeProjectByID(id);
-                    title.Text = art.Title;
-                    Abstract.Text = art.Abstract;
-                    editor1.Text = art.Content;
-                    KeyWords.Text = art.KeyWords;
-                    Tags.Text = art.Tags;
-                    SelectedSubGroups.DataSource = repo.FindSubGroupsOfAProject(id);
-                    SelectedSubGroups.DataTextField = "Title";
-                    SelectedSubGroups.DataValueField = "GroupID";
-                    SelectedSubGroups.DataBind();
-                    for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                    if (!IsPostBack)
                     {
-                        if (SelectedSubGroups.Items[i].Value == "-1")
+
+                        int id = Session["ProjectIDForEdit"].ToString().ToInt();
+                        Session.Add("newProjectIDForEdit", id);
+                        Session.Remove("ProjectIDForEdit");
+                        ProjectsRepository repArt = new ProjectsRepository();
+                        GroupsRepository repo = new GroupsRepository();
+                        Project art = repArt.FindeProjectByID(id);
+                        title.Text = art.Title;
+                        Abstract.Text = art.Abstract;
+                        editor1.Text = art.Content;
+                        KeyWords.Text = art.KeyWords;
+                        Tags.Text = art.Tags;
+                        SelectedSubGroups.DataSource = repo.FindSubGroupsOfAProject(id);
+                        SelectedSubGroups.DataTextField = "Title";
+                        SelectedSubGroups.DataValueField = "GroupID";
+                        SelectedSubGroups.DataBind();
+                        for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
                         {
-                            SelectedSubGroups.Items[i].Text = "گروه : " + SelectedSubGroups.Items[i].Text;
+                            if (SelectedSubGroups.Items[i].Value == "-1")
+                            {
+                                SelectedSubGroups.Items[i].Text = "گروه : " + SelectedSubGroups.Items[i].Text;
+                            }
                         }
+
+                        DDLGroups2.DataSource = repo.LoadAllGroups();
+                        DDLGroups2.DataTextField = "Title";
+                        DDLGroups2.DataValueField = "GroupID";
+                        DDLGroups2.DataBind();
+                        DDLGroups2.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                        oldPhoto.ImageUrl = setInlineImage(id);
                     }
 
-                    DDLGroups2.DataSource = repo.LoadAllGroups();
-                    DDLGroups2.DataTextField = "Title";
-                    DDLGroups2.DataValueField = "GroupID";
-                    DDLGroups2.DataBind();
-                    DDLGroups2.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-                    oldPhoto.ImageUrl = setInlineImage(id);
                 }
-
+                else
+                {
+                    Response.Redirect("/Admin/ManageProjects");
+                }
             }
             else
             {
-                Response.Redirect("/Admin/ManageProjects");
+                Response.Redirect("/AdminLogin");
             }
         }
 

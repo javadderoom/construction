@@ -20,38 +20,44 @@ namespace WebPages.Panels.EmployeePanel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Session["chatidForMessages"].ToString()) || !String.IsNullOrEmpty(Session["employeeid"].ToString()))
+            if (Session["employeeid"] != null)
             {
-                chatid = Session["chatidForMessages"].ToString().ToInt();
-                empid = Session["employeeid"].ToString().ToInt();
-
-                if (!IsPostBack)
+                if (Session["chatidForMessages"] != null && Session["employeeid"] != null)
                 {
-                    setLabels();
+                    chatid = Session["chatidForMessages"].ToString().ToInt();
+                    empid = Session["employeeid"].ToString().ToInt();
+
+                    if (!IsPostBack)
+                    {
+                        setLabels();
+                    }
+                    else
+                    {
+                        string elemid = Request.Form["__EVENTTARGET"].ToString();
+                        if (elemid.Substring(0, 7) == "btnmsgx")
+                        {
+                            int elid = Int32.Parse(elemid.Substring(7));
+
+                            try
+                            {
+                                download(elid);
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    string elemid = Request.Form["__EVENTTARGET"].ToString();
-                    if (elemid.Substring(0, 7) == "btnmsgx")
-                    {
-                        int elid = Int32.Parse(elemid.Substring(7));
-
-                        try
-                        {
-                            download(elid);
-                        }
-                        catch
-                        {
-
-                        }
-                    }
+                    Response.Redirect("/Employee/Inbox");
                 }
             }
             else
             {
-                Response.Redirect("/Employee/Inbox");
+                Response.Redirect("~/Login");
             }
-
         }
 
         private void setLabels()

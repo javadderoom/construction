@@ -17,7 +17,12 @@ namespace WebPages.Panels.Admin
         public static List<int> list;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["adminid"] != null)
+            { }
+            else
+            {
+                Response.Redirect("/AdminLogin");
+            }
         }
 
         protected void btnViewAll_ServerClick(object sender, EventArgs e)

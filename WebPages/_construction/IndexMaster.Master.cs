@@ -13,19 +13,20 @@ namespace WebPages._construction
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Timeout = 30;
             bool Admin = false;
             bool User = false;
             bool Employee = false;
-            if (string.IsNullOrEmpty(Session["adminid"].ToString()) == false)//for Admin
+            if (Session["adminid"] != null)//for Admin
             {
                 Admin = true;
             }
-            else if (string.IsNullOrEmpty(Session["userid"].ToString()) == false)//for User
+            else if (Session["userid"] != null)//for User
             {
                 User = true;
 
             }
-            else if (string.IsNullOrEmpty(Session["employeeid"].ToString()) == false)//for Emplyoee
+            else if (Session["employeeid"] != null)//for Emplyoee
             {
                 Employee = true;
             }
@@ -34,15 +35,15 @@ namespace WebPages._construction
             {
                 if (Admin)
                 {
-
+                    profileContainer.InnerHtml = "Admin";
                 }
                 else if (User)
                 {
-
+                    profileContainer.InnerHtml = "User";
                 }
                 else if (Employee)
                 {
-
+                    profileContainer.InnerHtml = "Employee";
                 }
                 else
                 {

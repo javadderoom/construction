@@ -195,11 +195,7 @@ namespace WebPages._construction
                 div1.Controls.Add(div2);
                 div.Controls.Add(div1);
                 ourServises.Controls.Add(div1);
-                //ScriptManager1.RegisterAsyncPostBackControl(div1);
-                //< div class="owl-one owl-carousel " runat="server" id="ourServises">
-                //var cons = Form.FindControl("ContentPlaceHolder1_ourServises");
-                //cons.Controls.Add(div1);
-                ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
             }
 
             //ourServises.InnerHtml = content;
@@ -356,7 +352,7 @@ namespace WebPages._construction
         //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         protected void subGroups_ServerClick(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='ورود'", true);
+
         }
 
         protected void articles_ServerClick(object sender, EventArgs e)

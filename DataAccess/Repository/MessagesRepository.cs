@@ -14,8 +14,14 @@ namespace DataAccess.Repository
 {
     public class MessageRepository
     {
+        private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
         private ConstructionCompanyEntities database;
+        public string AdminNewMessageCount()
+        {
+            return DB.Messages.Where(p => (p.SenderTable != "adm" && p.hasSeen == false)).ToList().Count().ToString();
 
+
+        }
         public MessageRepository()
         {
             database = new ConstructionCompanyEntities();

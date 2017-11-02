@@ -140,7 +140,7 @@ namespace WebPages
 
                         int id = ur.getLastUserID();
                         Session.Add("userid", id);
-                        //Response.Redirect();//not
+                        Response.Redirect("/Employee/Profile");
                     }
                     else
                     {
@@ -163,7 +163,7 @@ namespace WebPages
 
                         int id = ur.getLastEmployeeID();
                         Session.Add("employeeid", id);
-                        //Response.Redirect();/not
+                        Response.Redirect("/Employee/Profile");
                     }
                     ts.Complete();
                 }

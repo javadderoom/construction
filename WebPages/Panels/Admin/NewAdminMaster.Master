@@ -132,7 +132,7 @@
                                         <div class="logOutDiv">
 
                                             <div class="logOutContent">
-                                                <asp:LinkButton ID="LinkButton1" CssClass="ij-effect-3" runat="server" OnClick="LinkButton1_Click">خروج</asp:LinkButton>
+                                                <asp:LinkButton ID="LinkButton1" CssClass="ij-effect-3" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">خروج </asp:LinkButton>
                                                 <span class="glyphicon glyphicon-off iconLeft"></span>
                                             </div>
 

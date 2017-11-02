@@ -130,7 +130,7 @@
                                         <div class="logOutDiv">
                                             <a href="#" runat="server" class="LogOut">
                                                 <div class="logOutContent">
-                                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">خروج</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">خروج </asp:LinkButton>
                                                     <span class="glyphicon glyphicon-off iconLeft"></span>
                                                 </div>
                                             </a>

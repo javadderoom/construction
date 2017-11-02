@@ -81,7 +81,8 @@
                                     <div id="myPopoverContent" style="display: none">
                                         <div class="popoverProfile">
 
-                                            <img class="popupProfileImg" src="<%= ResolveUrl("../../_construction/images/user128px.png") %>" />
+
+                                            <asp:Image ID="pImg" CssClass="popupProfileImg" runat="server" />
                                             <div class="personName" runat="server" id="Name"></div>
                                             <nav class="ij-effect-3">
 
@@ -121,120 +122,120 @@
                                         <div class="logOutDiv">
 
                                             <div class="logOutContent">
-                                                <nav class="ij-effect-3" style="display: inline-block">
-                                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><div class="pull-right">خروج</div></</asp:LinkButton>
-                                                </nav>
+
+                                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">خروج </</asp:LinkButton>
+
                                                 <div class="glyphicon glyphicon-off iconLeft pull-left" style="float: left"></div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="social_nav col-xs-10 col-md-6">
-                        <div class="row">
+                        <div class="social_nav col-xs-10 col-md-6">
+                            <div class="row">
 
-                            <a href="#">
+                                <a href="#">
 
-                                <div class="logoImg"></div>
-                                <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
-                            </a>
-                            <%-- <ul class="list-inline">
+                                    <div class="logoImg"></div>
+                                    <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
+                                </a>
+                                <%-- <ul class="list-inline">
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 </ul>--%>
+                            </div>
                         </div>
                     </div>
                 </div>
-        </div>
-        </header>
+            </header>
             <!--Header-->
 
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container-fluid container">
-                <div class="row m04m">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav">
-                            <span class="bars">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </span>
-                            <span class="btn-text">منو</span>
-                        </button>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="main_nav">
-
-                        <ul class="nav navbar-nav">
-
-                            <li class="active "><a href="/">خانه</a></li>
-                            <li><a href="/Services">سرویس ها</a></li>
-                            <li><a href="/Projects">پروژه های ما</a></li>
-                            <li><a href="/Blogs">وبلاگ ها</a></li>
-                            <li><a href="/AboutUs">درباره ما</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!--Main Nav-->
-        <%--///////////////////////////////////////////// CONTENT //////////////////////////////////////////--%>
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-
-        <%--//////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
-
-        <footer id="nr_footer" class="row" style="margin-top: 35px;">
-            <div class="container">
-                <div class="row goTop">
-                    <a href="#top"><i class="fa fa-angle-up"></i></a>
-                </div>
-                <div class="row " id="footerBox">
-                    <div class="footerWidget row">
-                        <div class="col-sm-6 widget" id="widgetRight">
-                            <div class="getInTouch_widget row">
-                                <div class="widgetHeader row m0">
-                                    <img src="images/whiteSquare.png" alt="" />
-                                    با ما درارتباط باشید
-                                </div>
-                                <div class="row getInTouch_tab m0">
-                                    <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
-                                        <li role="presentation" class="active"><a href="#contactPhone" aria-controls="contactPhone" role="tab" data-toggle="tab"><i class="fa fa-phone"></i></a></li>
-                                        <li role="presentation"><a href="#contactEmail" aria-controls="contactEmail" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i></a></li>
-                                        <li role="presentation"><a href="#contactHome" aria-controls="contactHome" role="tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                                    </ul>
-
-                                    <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" runat="server" id="contactPhone"></div>
-                                        <div role="tabpanel" class="tab-pane" runat="server" id="contactEmail"></div>
-                                        <div role="tabpanel" class="tab-pane" runat="server" id="contactHome"></div>
-                                    </div>
-                                </div>
-                            </div>
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid container">
+                    <div class="row m04m">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav">
+                                <span class="bars">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </span>
+                                <span class="btn-text">منو</span>
+                            </button>
                         </div>
-                        <div class="col-sm-6 widget" id="widgetLeft">
-                            <div class="row ">
-                                <div class="row">
+
+                        <div class="collapse navbar-collapse" id="main_nav">
+
+                            <ul class="nav navbar-nav">
+
+                                <li class="active "><a href="/">خانه</a></li>
+                                <li><a href="/Services">سرویس ها</a></li>
+                                <li><a href="/Projects">پروژه های ما</a></li>
+                                <li><a href="/Blogs">وبلاگ ها</a></li>
+                                <li><a href="/AboutUs">درباره ما</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Nav-->
+            <%--///////////////////////////////////////////// CONTENT //////////////////////////////////////////--%>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <%--//////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
+
+            <footer id="nr_footer" class="row" style="margin-top: 35px;">
+                <div class="container">
+                    <div class="row goTop">
+                        <a href="#top"><i class="fa fa-angle-up"></i></a>
+                    </div>
+                    <div class="row " id="footerBox">
+                        <div class="footerWidget row">
+                            <div class="col-sm-6 widget" id="widgetRight">
+                                <div class="getInTouch_widget row">
                                     <div class="widgetHeader row m0">
                                         <img src="images/whiteSquare.png" alt="" />
-                                        درباره ساخت و ساز ما
+                                        با ما درارتباط باشید
                                     </div>
-                                    <div class="row m0 footer-white" runat="server" id="AboutUs">
+                                    <div class="row getInTouch_tab m0">
+                                        <ul class="nav nav-tabs nav-justified" role="tablist" id="getInTouch_tab">
+                                            <li role="presentation" class="active"><a href="#contactPhone" aria-controls="contactPhone" role="tab" data-toggle="tab"><i class="fa fa-phone"></i></a></li>
+                                            <li role="presentation"><a href="#contactEmail" aria-controls="contactEmail" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i></a></li>
+                                            <li role="presentation"><a href="#contactHome" aria-controls="contactHome" role="tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" runat="server" id="contactPhone"></div>
+                                            <div role="tabpanel" class="tab-pane" runat="server" id="contactEmail"></div>
+                                            <div role="tabpanel" class="tab-pane" runat="server" id="contactHome"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 widget" id="widgetLeft">
+                                <div class="row ">
+                                    <div class="row">
+                                        <div class="widgetHeader row m0">
+                                            <img src="images/whiteSquare.png" alt="" />
+                                            درباره ساخت و ساز ما
+                                        </div>
+                                        <div class="row m0 footer-white" runat="server" id="AboutUs">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row copyrightRow">
-                    &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
+                    <div class="row copyrightRow">
+                        &copy; 2014 <a href="#">Construction</a>, All Rights Reserved
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         </div>
 
         <!--jQuery, Bootstrap and other vendor JS-->

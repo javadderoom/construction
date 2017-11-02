@@ -27,7 +27,8 @@
 
                     <asp:Literal runat="server" Text="پروفایل شخصی" />
                 </h4>
-                <img class="ProfileImg" src="../../_construction/images/user128px.png" />
+
+                <asp:Image ID="pImg" CssClass="ProfileImg" runat="server" />
                 <h3 runat="server" id="hFullName"></h3>
 
                 <%-- <a class="btn btn-auto-v btn-auto-h btn-primary goRight" href="/Panels/UserPanel/ChangeInfo.aspx">ویرایش اطلاعات

@@ -18,9 +18,29 @@ namespace DataAccess.Repository
         private ConstructionCompanyEntities database;
         public string AdminNewMessageCount()
         {
-            return DB.Messages.Where(p => (p.SenderTable != "adm" && p.hasSeen == false)).ToList().Count().ToString();
+            return DB.Messages.Where(p => (p.SenderTable != "adm" && p.hasSeen == true)).ToList().Count().ToString();
 
 
+        }
+        public string CountUserNewMessages(int id)
+        {
+            int count = 0;
+            List<int> chatIdList = (from r in DB.Chats
+                                    where r.User_Employee_ID == id
+                                    select r.ChatID).ToList();
+            foreach (int chatid in chatIdList)
+            {
+                bool? hasSeen = (from r in DB.Messages
+                                 where r.SenderTable == "adm" && r.ChatID == chatid
+                                 select r.hasSeen).FirstOrDefault();
+                if (hasSeen == true)
+                {
+                    count++;
+
+                }
+            }
+
+            return count.ToString();
         }
         public MessageRepository()
         {

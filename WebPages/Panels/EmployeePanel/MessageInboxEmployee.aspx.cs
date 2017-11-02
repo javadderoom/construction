@@ -63,7 +63,7 @@ namespace WebPages.Panels.EmployeePanel
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrue(Session["chatidForMessages"].ToString().ToInt(), "adm");
 
-                Response.Redirect("/Employee/SelectedMessage");
+                Response.Redirect("/Employee/Inbox/SelectedMessage");
             }
         }
 

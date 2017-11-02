@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+
 namespace DataAccess.Repository
 {
     public class EmployeeJobRepository
@@ -12,7 +13,6 @@ namespace DataAccess.Repository
 
         public void SaveJobEmployee(JobEmployee je)
         {
-
             if (je.JobEmployeeID > 0)
             {
                 //==== UPDATE ====
@@ -26,8 +26,8 @@ namespace DataAccess.Repository
             }
 
             DB.SaveChanges();
-
         }
+
         public void DeleteByEmpid_Jobid(int empid, int jobid)
         {
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
@@ -37,6 +37,7 @@ namespace DataAccess.Repository
             myCommand.ExecuteNonQuery();
             conn.Close();
         }
+
         public DataTable getEmployeeJobs(int empid)
         {
             string Command = string.Format("select * from JobEmployee left outer join Jobs on JobEmployee.JobID = Jobs.JobID where EmployeeID = {0}", empid);
@@ -46,6 +47,15 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
-    }
 
+        public DataTable findEmployeeByJob(int id)
+        {
+            string Command = string.Format("select * from JobEmployee left outer join Jobs on JobEmployee.JobID = Jobs.JobID where Jobs.JobID = {0}", id);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
+    }
 }

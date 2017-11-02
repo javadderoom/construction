@@ -36,64 +36,22 @@
                 <h3>لیست کارمندان</h3>
             </div>
         </div>
-        <div class="form-group dirToRight">
-            <label style="display: block" for="DDLGroups">گروه کاری : </label>
-            <asp:DropDownList ID="DDLGroups" OnSelectedIndexChanged="DDLGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
-            <div class="Displayinline" id="upPan3">
-                <asp:UpdatePanel ID="updatepanel4" runat="server">
-                    <ContentTemplate>
-                        <div runat="server" id="NoItemDiv" style="display: inline; padding: 25px;">
-                        </div>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-                    </Triggers>
-                </asp:UpdatePanel>
+        <div style="direction: rtl">
+            <div class="form-group" style="clear: right;">
+                <label style="display: block" for="DDLJobGroup">گروه کاری : </label>
+                <asp:DropDownList ID="DDLJobGroup" OnSelectedIndexChanged="DDLJobGroup_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
             </div>
-        </div>
-        <div class="form-group dirToRight">
-            <label>زیر گروه : </label>
-            <div>
-
-                <div class="Displayinline" id="upPan1">
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <asp:ListBox ID="SubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
-                        </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
-                            <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
-                </div>
-                <div style="display: inline;">
-
-                    <table style='width: 70px; display: inline'>
-                        <tr>
-
-                            <td style='width: 50px; text-align: center; vertical-align: middle;'>
-                                <asp:Button ID="AddToSub" OnClick="AddToSub_Click" Width="50px" CausesValidation="False" runat="server" Text=">>" />
-                                <br />
-                                <br />
-                                <asp:Button ID="RemoveFromSub" OnClick="RemoveFromSub_Click" Width="50px" CausesValidation="False" runat="server" Text="<<" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div style="display: inline" id="upPan2">
-                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                        <ContentTemplate>
-                            <asp:ListBox ID="SelectedSubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
-                        </ContentTemplate>
-                        <%-- <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
-                        </Triggers>--%>
-                    </asp:UpdatePanel>
-                </div>
-            </div>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <div class="form-group" style="">
+                        <label style="display: block" for="DDLJob">کار : </label>
+                        <asp:DropDownList ID="DDLJob" OnSelectedIndexChanged="DDLJob_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+                    </div>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="DDLJobGroup" EventName="SelectedIndexChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
         </div>
         <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 50px">
             <div class="input-group">
@@ -130,6 +88,9 @@
                                 <asp:BoundField DataField="StateCity" HeaderText="استان و شهر" />
 
                                 <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        امتیاز
+                                    </HeaderTemplate>
                                     <ItemTemplate>
                                         <input type="number" id="Score" name="quantity" runat="server" min="0" max="100" />
                                     </ItemTemplate>
@@ -149,6 +110,7 @@
                         <asp:AsyncPostBackTrigger ControlID="btnSabt" EventName="click" />
                         <asp:AsyncPostBackTrigger ControlID="btnSearch" EventName="click" />
                         <asp:AsyncPostBackTrigger ControlID="btnViewAll" EventName="click" />
+                        <asp:AsyncPostBackTrigger ControlID="DDLJob" EventName="SelectedIndexChanged" />
                     </Triggers>
                 </asp:UpdatePanel>
             </div>

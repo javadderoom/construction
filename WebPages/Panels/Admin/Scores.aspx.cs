@@ -20,6 +20,7 @@ namespace WebPages.Panels.Admin
         {
             if (Session["adminid"] != null)
             {
+
                 if (!IsPostBack)
                 {
                     fillGv();
@@ -34,6 +35,10 @@ namespace WebPages.Panels.Admin
             else
             {
                 Response.Redirect("/AdminLogin");
+
+                fillGv();
+                fillDDLs();
+
             }
         }
 
@@ -102,85 +107,66 @@ namespace WebPages.Panels.Admin
             fillGv();
         }
 
-        protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
+        private void fillDDLs()
         {
-            GroupsRepository repo = new GroupsRepository();
-            if (DDLGroups.SelectedValue != "-2")
-            {
-                DataTable DT = new DataTable();
-                DT = repo.LoadSubGroup(DDLGroups.SelectedValue.ToInt());
+            JobGroupsRepository r = new JobGroupsRepository();
+            DDLJobGroup.DataSource = r.getJobGroups();
+            DDLJobGroup.DataTextField = "JobGroupTitle";
+            DDLJobGroup.DataValueField = "JobGroupID";
+            DDLJobGroup.DataBind();
+            DDLJobGroup.Items.Insert(0, new ListItem("-", "-1"));
 
-                if ((DT.Rows.Count > 0))
-                {
-                    SubGroups.DataSource = DT;
-                    SubGroups.DataTextField = "Title";
-                    SubGroups.DataValueField = "GroupID";
-                    SubGroups.DataBind();
-                    NoItemDiv.InnerText = "";
-                }
-                else
-                {
-                    SubGroups.Items.Clear();
-                    SubGroups.Items.Insert(0, new ListItem(DDLGroups.SelectedItem.ToString(), DDLGroups.SelectedValue.ToString()));
-                    NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
-                    NoItemDiv.Attributes["class"] = "textok";
-                }
-            }
-            else
+            JobRepository jr = new JobRepository();
+            DDLJob.DataSource = jr.getJobsByGroupID(DDLJobGroup.SelectedValue.ToString().ToInt());
+            DDLJob.DataTextField = "JobTitle";
+            DDLJob.DataValueField = "JobID";
+            DDLJob.DataBind();
+            DDLJob.Items.Insert(0, new ListItem("-", "-1"));
+        }
+
+        protected void DDLJob_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbxSearch.Value = "";
+            int job = DDLJob.SelectedValue.ToString().ToInt();
+            filterGv(job);
+        }
+
+        private void filterGv(int job)
+        {
+            List<int> emID = new List<int>();
+            List<EmployeeScore> s = new List<EmployeeScore>();
+            EmployeeJobRepository ej = new EmployeeJobRepository();
+            DataTable dt = ej.findEmployeeByJob(job);
+            EmployeeScore ss = new EmployeeScore();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SubGroups.Items.Clear();
-                NoItemDiv.InnerText = "";
+                emID.Add(dt.Rows[i][1].ToString().ToInt());
+                ss = er.getEmployeeScore(emID[i]);
+                s.Add(ss);
+            }
+            DataTable data = new DataTable();
+            data = OnlineTools.ToDataTable(s);
+            gvEmployees.DataSource = data;
+            gvEmployees.DataBind();
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                GridViewRow row = gvEmployees.Rows[i];
+                var input = new HtmlInputGenericControl("number");
+                input = (HtmlInputGenericControl)row.FindControl("Score");
+                input.Value = er.getEmployeeScore(emID[i]).Score.ToString();
             }
         }
 
-        protected void AddToSub_Click(object sender, EventArgs e)
+        protected void DDLJobGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (SubGroups.SelectedIndex != -1)
-            {
-                bool isadd = false;
-                string text = SubGroups.SelectedItem.Text;
-                for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
-                {
-                    if (SelectedSubGroups.Items[i].Text == text)
-                    {
-                        isadd = true;
-                    }
-                }
-                if (!isadd)
-                {
-                    SelectedSubGroups.Items.Add(text);
-                    SelectedSubGroups.Items[SelectedSubGroups.Items.Count - 1].Value = SubGroups.SelectedItem.Value;
+            JobRepository jr = new JobRepository();
+            DDLJob.DataSource = jr.getJobsByGroupID(DDLJobGroup.SelectedValue.ToString().ToInt());
+            DDLJob.DataTextField = "JobTitle";
+            DDLJob.DataValueField = "JobID";
+            DDLJob.DataBind();
+            DDLJob.Items.Insert(0, new ListItem("-", "-1"));
 
-                    NoItemDiv.InnerText = "";
-                }
-                else
-                {
-                    NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
-                    NoItemDiv.Attributes["class"] = "error";
-                }
-            }
-            else
-            {
-                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
-                NoItemDiv.Attributes["class"] = "error";
-            }
-        }
-
-        protected void RemoveFromSub_Click(object sender, EventArgs e)
-        {
-            if (SelectedSubGroups.SelectedIndex != -1)
-            {
-                SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
-                NoItemDiv.InnerText = "";
-                if (SelectedSubGroups.Items.Count == 0)
-                {
-                }
-            }
-            else
-            {
-                NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
-                NoItemDiv.Attributes["class"] = "error";
-            }
+            tbxSearch.Value = "";
         }
     }
 }

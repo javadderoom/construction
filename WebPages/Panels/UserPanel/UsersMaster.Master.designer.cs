@@ -76,6 +76,15 @@ namespace WebPages.Panels.UserPanel {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl profileContainer;
         
         /// <summary>
+        /// Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Name;
+        
+        /// <summary>
         /// messageCount control.
         /// </summary>
         /// <remarks>

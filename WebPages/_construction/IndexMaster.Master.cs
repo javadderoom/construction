@@ -20,6 +20,7 @@ namespace WebPages._construction
             bool Employee = false;
             if (Session["adminid"] != null)//for Admin
             {
+                string txt = Session["adminid"].ToString();
                 Admin = true;
             }
             else if (Session["userid"] != null)//for User
@@ -78,7 +79,8 @@ namespace WebPages._construction
             div2.Attributes["class"] = "popoverProfile";
             var img = new HtmlGenericControl("img"); ;
             img.Attributes["class"] = "popupProfileImg";
-            img.Attributes["src"] = "<%= ResolveUrl( '../../ _construction / images / user128px.png') %>";
+            string url = ResolveUrl("~/_construction/images/user128px.png");
+            img.Attributes["src"] = url;
             var div3 = new HtmlGenericControl("div");
             div3.Attributes["class"] = "personName";
             div3.InnerText = "مدیر سایت";
@@ -223,7 +225,7 @@ namespace WebPages._construction
         private void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Remove("adminid");
-            Response.Redirect("/");
+            Response.Redirect("/Blogs");
         }
     }
 }

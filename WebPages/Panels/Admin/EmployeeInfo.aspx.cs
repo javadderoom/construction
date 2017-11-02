@@ -16,17 +16,24 @@ namespace WebPages.Panels.Admin
         int empid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Session["useridForAdminDetails"].ToString()))
+            if (Session["adminid"] != null)
             {
-                empid = Session["useridForAdminDetails"].ToString().ToInt();
-                if (!IsPostBack)
+                if (Session["useridForAdminDetails"] != null)
                 {
-                    setLabels();
+                    empid = Session["useridForAdminDetails"].ToString().ToInt();
+                    if (!IsPostBack)
+                    {
+                        setLabels();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("/Admin/ManageUsers");
                 }
             }
             else
             {
-                Response.Redirect("/Admin/ManageUsers");
+                Response.Redirect("/AdminLogin");
             }
 
 

@@ -16,10 +16,17 @@ namespace WebPages.Panels.Admin
         int orderid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            orderid = Session["orderidForDetails"].ToString().ToInt();
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                setLabels();
+                orderid = Session["orderidForDetails"].ToString().ToInt();
+                if (!IsPostBack)
+                {
+                    setLabels();
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

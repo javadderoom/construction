@@ -50,7 +50,7 @@ namespace WebPages
         {
             if (string.IsNullOrEmpty(txtName.Value) || string.IsNullOrEmpty(txtPassword.Value))
             {
-                //lblWarning.Text = "نام کاربری یا رمز عبور را وارد نکردید";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز عبور را وارد نکردید ! ');", true);
                 return;
             }
             if (Session["ImgValue"].ToString() == txtImage.Value)
@@ -79,15 +79,14 @@ namespace WebPages
             else
             {
                 Session.Add("adminid", 1);
-                Response.Redirect("http://localhost:6421/Panels/Admin/MessageInboxAdmin.aspx");
+                Response.Redirect("/Admin/Inbox");
             }
 
-
-
-
-
-
-
         }
+
+
+
+
+
     }
 }

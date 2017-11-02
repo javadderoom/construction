@@ -46,7 +46,7 @@ namespace WebPages
         {
             if (string.IsNullOrEmpty(txtName.Value) || string.IsNullOrEmpty(txtPassword.Value))
             {
-                //lblWarning.Text = "نام کاربری یا رمز عبور را وارد نکردید";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز عبور را وارد نکردید ! ');", true);
                 return;
             }
             if (Session["ImgValue"].ToString() == txtImage.Value)
@@ -56,9 +56,7 @@ namespace WebPages
             }
             else
             {
-                //System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Hello this is an Alert;)</SCRIPT>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');", true);
-                // lblWarning.Text = "کد وارد شده صحیح نمی باشد";
                 txtImage.Value = "";
                 FillImageText();
                 return;
@@ -71,7 +69,6 @@ namespace WebPages
                 if (eid == 0)
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');", true);
-                    //lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
                     txtImage.Value = "";
                     FillImageText();
                     return;
@@ -79,7 +76,7 @@ namespace WebPages
                 else
                 {
                     Session.Add("employeeid", eid);
-                    Response.Redirect("ناحیه_کاربری");
+                    Response.Redirect("/Employee/Profile");
                 }
             }
             else
@@ -88,8 +85,7 @@ namespace WebPages
                 int uid = r.getUserIDByUsername_Password(txtName.Value, txtPassword.Value);
                 if (uid == 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');window.location ='ورود'", true);
-                    // lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ! ');", true);
                     txtImage.Value = "";
                     FillImageText();
                     return;
@@ -97,7 +93,7 @@ namespace WebPages
                 else
                 {
                     Session.Add("userid", uid);
-                    Response.Redirect("ناحیه-کاربری");
+                    Response.Redirect("/Employee/Profile");
                 }
             }
         }

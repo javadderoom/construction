@@ -16,6 +16,12 @@ namespace WebPages.Panels.EmployeePanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["employeeid"] != null)
+            { }
+            else
+            {
+                Response.Redirect("~/Login");
+            }
 
         }
 

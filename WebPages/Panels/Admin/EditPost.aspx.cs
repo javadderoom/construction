@@ -17,44 +17,51 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                if (Session["PostIDForEdit"] != null)
+                if (!IsPostBack)
                 {
-                    int id = Session["PostIDForEdit"].ToString().ToInt();
-                    Session.Add("newPostIDForEdit", id);
-                    Session.Remove("PostIDForEdit");
-                    ArticleRepository repArt = new ArticleRepository();
-                    GroupsRepository repo = new GroupsRepository();
-                    Article art = repArt.FindeArticleByID(id);
-                    title.Text = art.Title;
-                    Abstract.Text = art.Abstract;
-                    editor1.Text = art.Content;
-                    KeyWords.Text = art.KeyWords;
-                    Tags.Text = art.Tags;
-                    SelectedSubGroups.DataSource = repo.FindSubGroupsOfAnArticle(id);
-                    SelectedSubGroups.DataTextField = "Title";
-                    SelectedSubGroups.DataValueField = "GroupID";
-                    SelectedSubGroups.DataBind();
-                    for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
+                    if (Session["PostIDForEdit"] != null)
                     {
-                        if (SelectedSubGroups.Items[i].Value == "-1")
+                        int id = Session["PostIDForEdit"].ToString().ToInt();
+                        Session.Add("newPostIDForEdit", id);
+                        Session.Remove("PostIDForEdit");
+                        ArticleRepository repArt = new ArticleRepository();
+                        GroupsRepository repo = new GroupsRepository();
+                        Article art = repArt.FindeArticleByID(id);
+                        title.Text = art.Title;
+                        Abstract.Text = art.Abstract;
+                        editor1.Text = art.Content;
+                        KeyWords.Text = art.KeyWords;
+                        Tags.Text = art.Tags;
+                        SelectedSubGroups.DataSource = repo.FindSubGroupsOfAnArticle(id);
+                        SelectedSubGroups.DataTextField = "Title";
+                        SelectedSubGroups.DataValueField = "GroupID";
+                        SelectedSubGroups.DataBind();
+                        for (int i = 0; i < SelectedSubGroups.Items.Count; i++)
                         {
-                            SelectedSubGroups.Items[i].Text = "گروه : " + SelectedSubGroups.Items[i].Text;
+                            if (SelectedSubGroups.Items[i].Value == "-1")
+                            {
+                                SelectedSubGroups.Items[i].Text = "گروه : " + SelectedSubGroups.Items[i].Text;
+                            }
                         }
-                    }
 
-                    DDLGroups.DataSource = repo.LoadAllGroups();
-                    DDLGroups.DataTextField = "Title";
-                    DDLGroups.DataValueField = "GroupID";
-                    DDLGroups.DataBind();
-                    DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-                    oldPhoto.ImageUrl = setInlineImage(id);
+                        DDLGroups.DataSource = repo.LoadAllGroups();
+                        DDLGroups.DataTextField = "Title";
+                        DDLGroups.DataValueField = "GroupID";
+                        DDLGroups.DataBind();
+                        DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
+                        oldPhoto.ImageUrl = setInlineImage(id);
+                    }
+                    else
+                    {
+                        Response.Redirect("/Admin/ManageBlogs");
+                    }
                 }
-                else
-                {
-                    Response.Redirect("/Admin/ManageBlogs");
-                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

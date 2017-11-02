@@ -15,18 +15,25 @@ namespace WebPages.Panels.EmployeePanel
 {
     public partial class profile : System.Web.UI.Page
     {
-        private int empid = 0;
+        private int empid;
 
-        //DataTable dt;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //empid = Session["employeeid"].ToString().ToInt();
-            if (!IsPostBack)
+            if (Session["employeeid"] != null)
             {
-                setLabels();
-                fillDDL();
-                // UpdatePanel1.Update();
+
+                empid = Session["employeeid"].ToString().ToInt();
+                if (!IsPostBack)
+                {
+                    setLabels();
+                    fillDDL();
+                    // UpdatePanel1.Update();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login");
             }
         }
 
@@ -63,11 +70,11 @@ namespace WebPages.Panels.EmployeePanel
             ddlState.DataValueField = "StateID";
             ddlState.DataBind();
 
-            CityRepository cr = new CityRepository();
-            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
-            ddlCity.DataTextField = "CityName";
-            ddlCity.DataValueField = "CityID";
-            ddlCity.DataBind();
+            //CityRepository cr = new CityRepository();
+            //ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            //ddlCity.DataTextField = "CityName";
+            //ddlCity.DataValueField = "CityID";
+            //ddlCity.DataBind();
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)

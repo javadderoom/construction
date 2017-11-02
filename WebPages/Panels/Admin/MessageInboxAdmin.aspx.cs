@@ -15,10 +15,17 @@ namespace WebPages.Panels.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            adminid = 1;
-            if (!IsPostBack)
+            if (Session["adminid"] != null)
             {
-                fillGrid();
+                adminid = Session["adminid"].ToString().ToInt();
+                if (!IsPostBack)
+                {
+                    fillGrid();
+                }
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 

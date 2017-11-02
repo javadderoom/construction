@@ -76,59 +76,12 @@
 
                         <div class="logo col-xs-2 col-md-6">
                             <div class="fRight" runat="server" id="profileContainer">
-
-
-
-                                <%--   inaro pak nakonin   --%>
-                                <%--<div class="popover-container">
-                                    <button type="button" id="btnProfilePopover" class="logInProfile">
-                                    </button>
-                                    <div id="myPopoverContent" style="display: none">
-                                        <div class="popoverProfile">
-
-                                            <img class="popupProfileImg" src="<%= ResolveUrl("images/user128px.png") %>" />
-                                            <div class="personName">جواد شیخ اعظمی</div>
-
-                                            <nav class="ij-effect-3">
-
-                                                <a href="#">پروفایل</a>
-                                            </nav>
-                                        </div>
-                                        <div class="popoverLinks">
-                                            <ul>
-                                                <li class="message">
-                                                    <a href="#">
-                                                        <div class="mssageBox">
-                                                            <span class="messageBox">صندوق پیام ها
-                                                            </span>
-                                                            <span class="messageCount">1
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="projects">
-                                                    <a href="#" class="progectReq">
-                                                        <div class="projectDiv">درخواست پروژه</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="logOutDiv">
-                                            <a href="#" runat="server" class="LogOut">
-                                                <div class="logOutContent">
-                                                    <span>خروج</span>
-                                                    <span class="glyphicon glyphicon-off iconLeft"></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>--%>
                             </div>
                         </div>
                         <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
 
-                                <a href="index.html">
+                                <a href="#">
 
                                     <div class="logoImg"></div>
                                     <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>

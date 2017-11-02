@@ -21,33 +21,40 @@ namespace WebPages.Panels.UserPanel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            chatid = Session["chatidForMessages"].ToString().ToInt();
-            userid = Session["userid"].ToString().ToInt();
-
-            if (!IsPostBack)
+            if (Session["userid"] != null)
             {
-                setLabels();
+                chatid = Session["chatidForMessages"].ToString().ToInt();
+                userid = Session["userid"].ToString().ToInt();
+
+                if (!IsPostBack)
+                {
+                    setLabels();
+                }
+                else
+                {
+                    string elemid = Request.Form["__EVENTTARGET"].ToString();
+                    if (elemid.Substring(0, 7) == "btnmsgx")
+                    {
+                        int elid = Int32.Parse(elemid.Substring(7));
+
+                        try
+                        {
+                            download(elid);
+                        }
+                        catch
+                        {
+
+                        }
+
+
+
+
+                    }
+                }
             }
             else
             {
-                string elemid = Request.Form["__EVENTTARGET"].ToString();
-                if (elemid.Substring(0, 7) == "btnmsgx")
-                {
-                    int elid = Int32.Parse(elemid.Substring(7));
-
-                    try
-                    {
-                        download(elid);
-                    }
-                    catch
-                    {
-
-                    }
-
-
-
-
-                }
+                Response.Redirect("~/Login");
             }
         }
 

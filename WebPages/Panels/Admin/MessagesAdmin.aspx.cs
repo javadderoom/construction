@@ -19,40 +19,47 @@ namespace WebPages.Panels.Admin
         int userid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(String.IsNullOrEmpty(Session["chatidforMessages"].ToString())) || !(String.IsNullOrEmpty(Session["useridforMessages"].ToString())))
+            if (Session["adminid"] != null)
             {
-                chatid = Session["chatidforMessages"].ToString().ToInt();
-                userid = Session["useridforMessages"].ToString().ToInt();
-
-
-                if (!IsPostBack)
+                if (Session["chatidforMessages"] != null && Session["useridforMessages"] != null)
                 {
-                    setLabels();
+                    chatid = Session["chatidforMessages"].ToString().ToInt();
+                    userid = Session["useridforMessages"].ToString().ToInt();
+
+
+                    if (!IsPostBack)
+                    {
+                        setLabels();
+                    }
+                    else
+                    {
+                        string elemid = Request.Form["__EVENTTARGET"].ToString();
+                        if (elemid.Substring(0, 7) == "btnmsgx")
+                        {
+
+                            int elid = Int32.Parse(elemid.Substring(7));
+                            try
+                            {
+                                download(elid);
+                            }
+                            catch
+                            {
+
+                            }
+
+
+                        }
+
+                    }
                 }
                 else
                 {
-                    string elemid = Request.Form["__EVENTTARGET"].ToString();
-                    if (elemid.Substring(0, 7) == "btnmsgx")
-                    {
-
-                        int elid = Int32.Parse(elemid.Substring(7));
-                        try
-                        {
-                            download(elid);
-                        }
-                        catch
-                        {
-
-                        }
-
-
-                    }
-
+                    Response.Redirect("/Admin/Inbox");
                 }
             }
             else
             {
-                Response.Redirect("/Admin/Inbox");
+                Response.Redirect("/AdminLogin");
             }
 
         }

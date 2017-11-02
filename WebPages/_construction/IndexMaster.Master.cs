@@ -62,26 +62,32 @@ namespace WebPages._construction
 
         private void adminProfile()
         {
+            var divv = new HtmlGenericControl("div");
+            divv.Attributes["class"] = "popover-container";
+            /////////////////////////////////////////////////////
             var btnProfile = new HtmlGenericControl("button");
             btnProfile.ID = "btnProfilePopover";
             btnProfile.Attributes["class"] = "logInProfile";
-            ;
-
+            btnProfile.Attributes["type"] = "button";
+            //////////////////////////////////////////////////
             var div = new HtmlGenericControl("div");
             div.Attributes.Add("style", "display: none");
             div.ID = "myPopoverContent";
+            ////////////////////////////////////////
             var div2 = new HtmlGenericControl("div");
             div2.Attributes["class"] = "popoverProfile";
             var img = new HtmlGenericControl("img"); ;
             img.Attributes["class"] = "popupProfileImg";
-            img.Attributes["src"] = "<%= ResolveUrl(\"../../ _construction / images / user128px.png\") %>";
+            img.Attributes["src"] = "<%= ResolveUrl( '../../ _construction / images / user128px.png') %>";
             var div3 = new HtmlGenericControl("div");
-            div.Attributes["class"] = "personName";
-            div.InnerText = "مدیر سایت";
+            div3.Attributes["class"] = "personName";
+            div3.InnerText = "مدیر سایت";
             div2.Controls.Add(img);
             div2.Controls.Add(div3);
+            div.Controls.Add(div2);
+            /////////////////////////////////////////////////////////////////
             var div4 = new HtmlGenericControl("div");
-            div.Attributes["class"] = "popoverLinks";
+            div4.Attributes["class"] = "popoverLinks";
             var ul = new HtmlGenericControl("ul");
 
             #region messageBox
@@ -187,31 +193,37 @@ namespace WebPages._construction
             ul.Controls.Add(li4);
             ul.Controls.Add(li5);
             ul.Controls.Add(li6);
-
-            var div10 = new HtmlGenericControl("div");
-            div10.Attributes["class"] = "logOutDiv";
+            div4.Controls.Add(ul);
+            div.Controls.Add(div4);
+            //////////////////////////////////////
+            var divLogOut = new HtmlGenericControl("div");
+            divLogOut.Attributes["class"] = "logOutDiv";
             var div101 = new HtmlGenericControl("div");
             div101.Attributes["class"] = "logOutContent";
+            div101.InnerText = "خروج";
             LinkButton link = new LinkButton();
             link.ID = "LinkButton1";
-            link.CssClass = "ij-effect-3";
+            //link.CssClass = "ij-effect-3";
             link.Attributes["runat"] = "server";
             link.Click += LinkButton1_Click;
             link.Text = "خروج";
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
-            div101.Controls.Add(link);
             div101.Controls.Add(span101);
-            div10.Controls.Add(div101);
+            link.Controls.Add(div101);
+            divLogOut.Controls.Add(link);
+            ////////////////////////////////////////////////
+            div.Controls.Add(divLogOut);
+            divv.Controls.Add(btnProfile);
+            divv.Controls.Add(div);
 
-            profileContainer.Controls.Add(btnProfile);
-            profileContainer.Controls.Add(div);
-            profileContainer.Controls.Add(div10);
+            profileContainer.Controls.Add(divv);
         }
 
         private void LinkButton1_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Session.Remove("adminid");
+            Response.Redirect("/");
         }
     }
 }

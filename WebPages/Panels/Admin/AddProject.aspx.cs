@@ -26,10 +26,9 @@ namespace WebPages.Panels.Admin
                 DDLGroups.DataValueField = "GroupID";
                 DDLGroups.DataBind();
                 DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-
             }
-
         }
+
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             GroupsRepository repo = new GroupsRepository();
@@ -53,15 +52,12 @@ namespace WebPages.Panels.Admin
                     NoItemDiv.InnerText = "این گروه هیچ زیر گروهی ندارد،میتوانید نام گروه را اضافه کنید";
                     NoItemDiv.Attributes["class"] = "textok";
                 }
-
             }
             else
             {
                 SubGroups.Items.Clear();
                 NoItemDiv.InnerText = "";
             }
-
-
         }
 
         protected void AddToSub_Click(object sender, EventArgs e)
@@ -90,22 +86,18 @@ namespace WebPages.Panels.Admin
                     NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
                     NoItemDiv.Attributes["class"] = "error";
                 }
-
-
             }
             else
             {
                 NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
                 NoItemDiv.Attributes["class"] = "error";
             }
-
         }
 
         protected void RemoveFromSub_Click(object sender, EventArgs e)
         {
             if (SelectedSubGroups.SelectedIndex != -1)
             {
-
                 SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
                 NoItemDiv.InnerText = "";
                 if (SelectedSubGroups.Items.Count == 0)
@@ -119,13 +111,10 @@ namespace WebPages.Panels.Admin
                 NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
                 NoItemDiv.Attributes["class"] = "error";
             }
-
-
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
             if ((String.IsNullOrEmpty(editor1.Text) == false) &&
                 (Abstract.Text.Length >= 130) &&
                 (FileUpload1.HasFile) &&
@@ -146,11 +135,9 @@ namespace WebPages.Panels.Admin
                     return;
                 }
 
-
                 Project ART = new Project();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
-
 
                 string filename = Path.GetFileName(FileUpload1.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
@@ -164,8 +151,6 @@ namespace WebPages.Panels.Admin
                 FileInfo fi = new FileInfo(ps);
                 fi.Delete();
                 ART.Image = contents;
-
-
 
                 ART.Abstract = Abstract.Text;
                 ART.PostDateTime = OnlineTools.persianFormatedDate();
@@ -193,10 +178,8 @@ namespace WebPages.Panels.Admin
                             {
                                 result = false;
                             }
-
                         }
                     }
-
                     else
                     {
                         diverror.InnerText = "هیچ زیر گروهی انتخاب نشده است!";
@@ -205,24 +188,17 @@ namespace WebPages.Panels.Admin
                     if (!result)
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageProjects'", true);
-
                     }
                     else
                     {
-
                         Response.Redirect("/Admin/ManageProjects");
-
-
+                    }
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageProjects'", true);
-
                 }
-
             }
-
-
         }
     }
 }

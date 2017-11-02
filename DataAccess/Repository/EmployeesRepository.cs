@@ -41,6 +41,17 @@ namespace DataAccess.Repository
             return OnlineTools.ToDataTable(result.ToList());
         }
 
+        public EmployeeScore getEmployeeScore(int id)
+        {
+            EmployeeScore em = new EmployeeScore();
+            em = (
+             from r in database.EmployeeScores
+             where r.EmployeeID == id
+             orderby r.Score
+             select r).FirstOrDefault();
+            return em;
+        }
+
         public Employee getEmployeeByID(int id)
         {
             Employee result = new Employee();
@@ -211,6 +222,7 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+
         public DataTable getEmployeesExceptList_All(List<int> l)
         {
             List<int> result1 = new List<int>();
@@ -241,8 +253,8 @@ namespace DataAccess.Repository
             DataTable dtResult = new DataTable();
             myDataAdapter.Fill(dtResult);
             return dtResult;
-
         }
+
         public DataTable getEmployeesExceptList_Search(List<int> l, string txt)
         {
             List<int> result1 = new List<int>();
@@ -273,7 +285,6 @@ namespace DataAccess.Repository
             DataTable dtResult = new DataTable();
             myDataAdapter.Fill(dtResult);
             return dtResult;
-
         }
 
         public DataTable getEmployeesInfoInList(List<int> loid)

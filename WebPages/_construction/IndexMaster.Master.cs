@@ -64,6 +64,30 @@ namespace WebPages._construction
             }
         }
 
+        private string setInlineImage(int arid)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+                }
+            }
+            return ans;
+        }
+
         private void userProfile()
         {
             var divv = new HtmlGenericControl("div");
@@ -183,9 +207,10 @@ namespace WebPages._construction
 
             //link.Click += LinkButton1_Click;
             var link = new HtmlGenericControl("a");
-            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton1','')";
+
             link.Attributes["class"] = "ij-effect-3";
-            link.ID = "LinkButton1";
+            link.ID = "LinkButton2";
+            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton2','')";
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
             div101.Controls.Add(span101);
@@ -199,30 +224,6 @@ namespace WebPages._construction
             divv.Controls.Add(div);
 
             profileContainer.Controls.Add(divv);
-        }
-
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
         }
 
         private void employeeProfile()
@@ -346,9 +347,9 @@ namespace WebPages._construction
 
             //link.Click += LinkButton1_Click;
             var link = new HtmlGenericControl("a");
-            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton1','')";
+            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton3','')";
             link.Attributes["class"] = "ij-effect-3";
-            link.ID = "LinkButton1";
+            link.ID = "LinkButton3";
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
             div101.Controls.Add(span101);
@@ -661,9 +662,21 @@ namespace WebPages._construction
             profileContainer.Controls.Add(divv);
         }
 
-        protected void LinkButton1_Click1(object sender, EventArgs e)
+        protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Remove("adminid");
+            Response.Redirect("/Blogs");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Session.Remove("userid");
+            Response.Redirect("/Blogs");
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Session.Remove("employeeid");
             Response.Redirect("/Blogs");
         }
     }

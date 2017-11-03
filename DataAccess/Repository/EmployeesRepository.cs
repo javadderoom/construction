@@ -15,10 +15,16 @@ namespace DataAccess.Repository
     public class EmployeesRepository
     {
         private ConstructionCompanyEntities database;
+        ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
 
         public EmployeesRepository()
         {
             database = new ConstructionCompanyEntities();
+        }
+        public Employee ChekEmployee(string txt)
+        {
+            return DB.Employees.Where(p => p.Email == txt || p.UserName == txt).FirstOrDefault();
+
         }
 
         public DataTable searchEmployeeForScores(string s)

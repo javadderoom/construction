@@ -986,7 +986,7 @@
     <Content Include="_construction\css\animate.css" />
     <Content Include="_construction\css\popoverStyle.css" />
     <Content Include="_construction\css\ServiseDetailsStyle.css" />
-    <Content Include="_construction\FoegotPass.aspx" />
+    <Content Include="FoegotPass.aspx" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.ttf" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.woff" />
@@ -1480,11 +1480,11 @@
     <Compile Include="_construction\Blogs.aspx.designer.cs">
       <DependentUpon>Blogs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="_construction\FoegotPass.aspx.cs">
+    <Compile Include="FoegotPass.aspx.cs">
       <DependentUpon>FoegotPass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="_construction\FoegotPass.aspx.designer.cs">
+    <Compile Include="FoegotPass.aspx.designer.cs">
       <DependentUpon>FoegotPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="_construction\index.aspx.cs">

@@ -16,7 +16,11 @@ namespace DataAccess.Repository
     {
         ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
         private ConstructionCompanyEntities database;
+        public User ChekUser(string txt)
+        {
+            return DB.Users.Where(p => p.Email == txt || p.UserName == txt).FirstOrDefault();
 
+        }
         public UsersRepository()
         {
             database = new ConstructionCompanyEntities();

@@ -36,7 +36,7 @@ namespace WebPages._construction
             {
                 if (Admin)
                 {
-                    adminProfile();
+                    // adminProfile();
                 }
                 else if (User)
                 {
@@ -203,12 +203,16 @@ namespace WebPages._construction
             var div101 = new HtmlGenericControl("div");
             div101.Attributes["class"] = "logOutContent";
             div101.InnerText = "خروج";
-            LinkButton link = new LinkButton();
+            //LinkButton link = new LinkButton();
+
+            //link.ID = "LinkButton1";
+            ////link.CssClass = "ij-effect-3";
+
+            //link.Click += LinkButton1_Click;
+            var link = new HtmlGenericControl("a");
+            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton1','')";
+            link.Attributes["class"] = "ij-effect-3";
             link.ID = "LinkButton1";
-            //link.CssClass = "ij-effect-3";
-            link.Attributes["runat"] = "server";
-            link.Click += LinkButton1_Click;
-            link.Text = "خروج";
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
             div101.Controls.Add(span101);
@@ -222,7 +226,7 @@ namespace WebPages._construction
             profileContainer.Controls.Add(divv);
         }
 
-        private void LinkButton1_Click(object sender, EventArgs e)
+        protected void LinkButton1_Click1(object sender, EventArgs e)
         {
             Session.Remove("adminid");
             Response.Redirect("/Blogs");

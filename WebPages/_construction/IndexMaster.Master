@@ -117,13 +117,10 @@
                                 <li><a href="/Blogs">وبلاگ ها</a></li>
                                 <li><a href="/AboutUs">درباره ما</a></li>
 
-
-
                                 <%--<li class=" dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">وبلاگ ها</a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="contact.html">وبلاگ ها</a></li>
-
                                     </ul>
                                 </li>
 
@@ -138,7 +135,6 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">درباره ما</a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="about-us.html">درباره ما</a></li>
-
                                     </ul>
                                 </li>--%>
                             </ul>

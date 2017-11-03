@@ -26,7 +26,7 @@ namespace WebPages._construction
             {
                 txt += "<div class='project mix catHouses'>  <img src='" + setProjectInlineImage(pr.ProjectID) + "' alt='Project1' class='projectImg img-responsive'/>  <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href= '" + "/Projects/" + pr.ProjectID + "/" + pr.Title.Replace(' ', '-') + "' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
             }
-            projects.InnerHtml = txt + txt;
+            projectss.InnerHtml = txt + txt;
         }
 
         private string setBKGSrc(int SlideID)
@@ -216,24 +216,42 @@ namespace WebPages._construction
                 servisContent.InnerHtml = "";
                 foreach (Group gp in groups)
                 {
-                    Button btn = new Button();
-                    btn.CssClass = "subGroup";
-                    btn.Text = gp.Title;
-                    btn.ID = gp.GroupID.ToString();
-                    btn.Click += (s, e) =>
+                    LinkButton link = new LinkButton();
+                    link.CssClass = "subGroup";
+                    link.Text = gp.Title;
+                    link.OnClientClick = "FireEvent();";
+                    link.ID = gp.GroupID.ToString();
+
+                    ScriptManager.GetCurrent(this).RegisterPostBackControl(link);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "function", "function FireEvent(){$('#'" + link.ClientID + ").trigger('click');}", true);
+                    link.Click += Link_Click;
+                    link.Click += (s, e) =>
                     {
-                        Button btn2 = (Button)s;
+                        LinkButton btn2 = (LinkButton)s;
 
                         string idTosend = btn2.ID;
                         Session.Add("SubGroupidForOpenBlog", idTosend);
                         Response.Redirect("/Blogs");
                     };
+
+                    //Button btn = new Button();
+                    //btn.CssClass = "subGroup";
+                    //btn.Text = gp.Title;
+                    //btn.ID = gp.GroupID.ToString();
+                    //btn.Click += (s, e) =>
+                    //{
+                    //    Button btn2 = (Button)s;
+
+                    //    string idTosend = btn2.ID;
+                    //    Session.Add("SubGroupidForOpenBlog", idTosend);
+                    //    Response.Redirect("/Blogs");
+                    //};
                     //var div = new HtmlGenericControl("div");
                     //div.Attributes["class"] = "subGroup ";
                     //div.InnerText = gp.Title;
                     //div.Attributes["runat"] = "server";
 
-                    servisContent.Controls.Add(btn);
+                    servisContent.Controls.Add(link);
                     //ScriptManager1.RegisterAsyncPostBackControl(div);
                 }
             }
@@ -241,6 +259,11 @@ namespace WebPages._construction
             {
                 servisContent.InnerHtml = "<h3 style='float: right;'>برای این گروه زیر گروهی وجود ندارد</h3>";
             }
+        }
+
+        private void Link_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز عبور را وارد نکردید ! ');", true);
         }
 
         private void fillArticles(List<Article> artList)
@@ -288,6 +311,8 @@ namespace WebPages._construction
                 fillArticles(articles);
 
                 LoadSliders();
+                //string s = "1";
+                //fillSungroups(s);
             }
         }
 

@@ -121,7 +121,6 @@
                             </div>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -167,8 +166,6 @@
                         <div class="owl-one owl-carousel " runat="server" id="ourServises"></div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-
-
             </div>
         </div>
     </section>
@@ -194,7 +191,7 @@
             </ul>
         </div>--%>
 
-        <div class="row projects m0" runat="server" id="projects">
+        <div class="row projects m0" runat="server" id="projectss">
         </div>
     </section>
     <!--Projects-->
@@ -407,7 +404,6 @@
     <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
-
 
         $(".project").mouseenter(function () {
             $(this).find(".projectName").addClass("dispnone");

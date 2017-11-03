@@ -92,6 +92,11 @@
                                         </div>
                                         <div class="popoverLinks">
                                             <ul>
+                                                <li class="projects" style="text-align: center">
+
+                                                    <h4 class="projectDiv">پیام ها</h4>
+
+                                                </li>
                                                 <li class="message">
                                                     <a href="/Admin/Inbox">
                                                         <div class="mssageBox">
@@ -99,21 +104,6 @@
                                                             </span>
                                                             <span class="messageCount" runat="server" id="messageCount"></span>
                                                         </div>
-                                                    </a>
-                                                </li>
-                                                <li class="projects">
-                                                    <a href="/Admin/Orders" class="progectReq">
-                                                        <div class="projectDiv">سفارشات</div>
-                                                    </a>
-                                                </li>
-                                                <li class="projects">
-                                                    <a href="/Admin/ManageUsers" class="progectReq">
-                                                        <div class="projectDiv">مدیریت کاربران</div>
-                                                    </a>
-                                                </li>
-                                                <li class="projects">
-                                                    <a href="/Admin/AddProject" class="progectReq">
-                                                        <div class="projectDiv">افزودن پروژه</div>
                                                     </a>
                                                 </li>
                                                 <li class="projects">
@@ -127,6 +117,64 @@
                                                     </a>
                                                 </li>
 
+
+                                            </ul>
+                                        </div>
+                                        <div class="popoverLinks">
+                                            <ul>
+                                                <li class="projects" style="text-align: center">
+
+                                                    <h4 class="projectDiv">بخش مدیریتی</h4>
+
+                                                </li>
+
+
+                                                <li class="projects">
+                                                    <a href="/Admin/AddProject" class="progectReq">
+                                                        <div class="projectDiv">افزودن پروژه</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/AddBlog" class="progectReq">
+                                                        <div class="projectDiv">افزودن مقاله</div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="projects">
+                                                    <a href="/Admin/ManageUsers" class="progectReq">
+                                                        <div class="projectDiv">مدیریت کاربران</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/ManageBlogs" class="progectReq">
+                                                        <div class="projectDiv">مدیریت وبلاگ ها</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/ManageProjects" class="progectReq">
+                                                        <div class="projectDiv">مدیریت پروژه ها</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/ManageFirstPage" class="progectReq">
+                                                        <div class="projectDiv">مدیریت صفحه اول</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/ManageGroups" class="progectReq">
+                                                        <div class="projectDiv">مدیریت خدمات</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/Orders" class="progectReq">
+                                                        <div class="projectDiv">سفارشات</div>
+                                                    </a>
+                                                </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/Scores" class="progectReq">
+                                                        <div class="projectDiv">امتیازات</div>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="logOutDiv">

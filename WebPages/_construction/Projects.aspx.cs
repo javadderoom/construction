@@ -64,6 +64,7 @@ namespace WebPages._construction
                 ddlGroups.DataValueField = "GroupID";
                 ddlGroups.DataBind();
                 ddlGroups.Items.Insert(0, new ListItem("همه گروه ها", "-2"));
+                ddlSubGroups.Items.Insert(0, new ListItem("همه زیرگروه ها", "-2"));
             }
         }
 
@@ -104,6 +105,7 @@ namespace WebPages._construction
                     UlArticles.InnerHtml = " <li class='danger'>در این بخش پروژه ای وجود ندارد!</li> ";
                     ddlSubGroups.SelectedIndex = 0;
                     ddlSubGroups.Enabled = false;
+                    ddlSubGroups.Items.Insert(0, new ListItem("همه زیرگروه ها", "-2"));
                 }
             }
             else

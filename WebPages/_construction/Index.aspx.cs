@@ -25,11 +25,10 @@ namespace WebPages._construction
             foreach (Project pr in plist)
             {
                 txt += "<div class='project mix catHouses'>  <img src='" + setProjectInlineImage(pr.ProjectID) + "' alt='Project1' class='projectImg img-responsive'/>  <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href= '" + "/Projects/" + pr.ProjectID + "/" + pr.Title.Replace(' ', '-') + "' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
-
             }
             projects.InnerHtml = txt + txt;
-
         }
+
         private string setBKGSrc(int SlideID)
         {
             string ans = "";
@@ -84,18 +83,15 @@ namespace WebPages._construction
             Slider slide1 = repSlider.FindSlider(1);
             Slider slide2 = repSlider.FindSlider(2);
             Slider slide3 = repSlider.FindSlider(3);
-            //Slider slide4 = repSlider.FindSlider(4);
-            //Slider slide5 = repSlider.FindSlider(5);
+
             bImg1.Src = setBKGSrc(1);
             bImg2.Src = setBKGSrc(2);
             bImg3.Src = setBKGSrc(3);
-            //bImg4.Src = setBKGSrc(4);
-            //bImg5.Src = setBKGSrc(5);
+
             divText1.InnerHtml = slide1.Text;
             divText2.InnerHtml = slide2.Text;
             divText3.InnerHtml = slide3.Text;
-            //divText4.InnerHtml = slide4.Text;
-            //divText5.InnerHtml = slide5.Text;
+
             if (slide1.thumbnail != null)
             {
                 rightPic.InnerHtml = "<img src='" + setRightimgSrc(1) + "' alt='عکس'/>";
@@ -108,14 +104,7 @@ namespace WebPages._construction
             {
                 rightPic3.InnerHtml = "<img src='" + setRightimgSrc(3) + "' alt='عکس'/>";
             }
-            //if (slide4.thumbnail != null)
-            //{
-            //    rightPic4.InnerHtml = "<img src='" + setRightimgSrc(4) + "' alt='عکس'/>";
-            //}
-            //if (slide5.thumbnail != null)
-            //{
-            //    rightPic5.InnerHtml = "<img src='" + setRightimgSrc(5) + "' alt='عکس'/>";
-            //}
+
             if (slide1.Link != null)
             {
                 diva1.InnerHtml = "<a type='button' href='" + slide1.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
@@ -128,14 +117,6 @@ namespace WebPages._construction
             {
                 diva3.InnerHtml = "<a type='button' href='" + slide3.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
             }
-            //if (slide4.Link != null)
-            //{
-            //    diva4.InnerHtml = "<a type='button' href='" + slide4.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
-            //}
-            //if (slide5.Link != null)
-            //{
-            //    diva5.InnerHtml = "<a type='button' href='" + slide5.Link + "' class='btn btn-default'>بیشتر بدانید</a>";
-            //}
         }
 
         private void fillServises()
@@ -149,6 +130,15 @@ namespace WebPages._construction
                 Button btnLeft = new Button();
                 btnLeft.CssClass = "btnLeftService";
                 btnLeft.Text = "مقالات";
+                btnLeft.ID = "l" + gp.GroupID.ToString();
+                btnLeft.Click += (s, e) =>
+                {
+                    Button btn = (Button)s;
+
+                    string id = btn.ID.Replace("l", "");
+                    Session.Add("GroupidForOpenBlog", id);
+                    Response.Redirect("/Blogs");
+                };
 
                 Button btnRight = new Button();
                 btnRight.CssClass = "btnRightService";
@@ -159,6 +149,7 @@ namespace WebPages._construction
 
                 var li1 = new HtmlGenericControl("li");
                 li1.Attributes["class"] = "liLeft";
+
                 var li2 = new HtmlGenericControl("li");
                 li2.Attributes["class"] = "liRight";
                 var ul = new HtmlGenericControl("ul");
@@ -195,7 +186,6 @@ namespace WebPages._construction
                 div1.Controls.Add(div2);
                 div.Controls.Add(div1);
                 ourServises.Controls.Add(div1);
-
             }
 
             //ourServises.InnerHtml = content;
@@ -226,10 +216,24 @@ namespace WebPages._construction
                 servisContent.InnerHtml = "";
                 foreach (Group gp in groups)
                 {
-                    var div = new HtmlGenericControl("div");
-                    div.Attributes["class"] = "subGroup ";
-                    div.InnerText = gp.Title;
-                    servisContent.Controls.Add(div);
+                    Button btn = new Button();
+                    btn.CssClass = "subGroup";
+                    btn.Text = gp.Title;
+                    btn.ID = gp.GroupID.ToString();
+                    btn.Click += (s, e) =>
+                    {
+                        Button btn2 = (Button)s;
+
+                        string idTosend = btn2.ID;
+                        Session.Add("SubGroupidForOpenBlog", idTosend);
+                        Response.Redirect("/Blogs");
+                    };
+                    //var div = new HtmlGenericControl("div");
+                    //div.Attributes["class"] = "subGroup ";
+                    //div.InnerText = gp.Title;
+                    //div.Attributes["runat"] = "server";
+
+                    servisContent.Controls.Add(btn);
                     //ScriptManager1.RegisterAsyncPostBackControl(div);
                 }
             }
@@ -272,7 +276,6 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             fillServises();
             triggers();
             if (!IsPostBack)
@@ -325,6 +328,7 @@ namespace WebPages._construction
             }
             return ans;
         }
+
         private string setProjectInlineImage(int arid)
         {
             string ans = "";
@@ -352,7 +356,6 @@ namespace WebPages._construction
         //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         protected void subGroups_ServerClick(object sender, EventArgs e)
         {
-
         }
 
         protected void articles_ServerClick(object sender, EventArgs e)

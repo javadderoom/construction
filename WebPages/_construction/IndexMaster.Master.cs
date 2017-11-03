@@ -33,25 +33,24 @@ namespace WebPages._construction
             {
                 Employee = true;
             }
-
+            if (Admin)
+            {
+                adminProfile();
+            }
+            else if (User)
+            {
+                userProfile();
+            }
+            else if (Employee)
+            {
+                employeeProfile();
+            }
+            else
+            {
+                profileContainer.InnerHtml = " <a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='Login'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
+            }
             if (!IsPostBack)
             {
-                if (Admin)
-                {
-                    adminProfile();
-                }
-                else if (User)
-                {
-                    userProfile();
-                }
-                else if (Employee)
-                {
-                    employeeProfile();
-                }
-                else
-                {
-                    profileContainer.InnerHtml = " <a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='Login'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
-                }
                 ContactUsRepository repo = new ContactUsRepository();
                 ContactWay cnw = repo.Findcwy(1);
 
@@ -206,16 +205,20 @@ namespace WebPages._construction
             ////link.CssClass = "ij-effect-3";
 
             //link.Click += LinkButton1_Click;
-            var link = new HtmlGenericControl("a");
+            LinkButton linkLogOut = new LinkButton();
+            linkLogOut.ID = "lgOut";
+            linkLogOut.Click += (s, e) =>
+            {
+                Session.Remove("userid");
+                profileContainer.InnerHtml = " <a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='Login'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
 
-            link.Attributes["class"] = "ij-effect-3";
-            link.ID = "LinkButton2";
-            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton2','')";
+                Response.Redirect("/");
+            };
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
             div101.Controls.Add(span101);
-            link.Controls.Add(div101);
-            divLogOut.Controls.Add(link);
+            linkLogOut.Controls.Add(div101);
+            divLogOut.Controls.Add(linkLogOut);
             ////////////////////////////////////////////////
             div.Controls.Add(div4);
             div.Controls.Add(divLogOut);
@@ -346,15 +349,20 @@ namespace WebPages._construction
             ////link.CssClass = "ij-effect-3";
 
             //link.Click += LinkButton1_Click;
-            var link = new HtmlGenericControl("a");
-            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton3','')";
-            link.Attributes["class"] = "ij-effect-3";
-            link.ID = "LinkButton3";
+            LinkButton linkLogOut = new LinkButton();
+            linkLogOut.ID = "lgOut";
+            linkLogOut.Click += (s, e) =>
+            {
+                Session.Remove("employeeid");
+                profileContainer.InnerHtml = " <a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='Login'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
+
+                Response.Redirect("/");
+            };
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
             div101.Controls.Add(span101);
-            link.Controls.Add(div101);
-            divLogOut.Controls.Add(link);
+            linkLogOut.Controls.Add(div101);
+            divLogOut.Controls.Add(linkLogOut);
             ////////////////////////////////////////////////
             div.Controls.Add(div4);
             div.Controls.Add(divLogOut);
@@ -397,7 +405,8 @@ namespace WebPages._construction
             var ul = new HtmlGenericControl("ul");
             var ul2 = new HtmlGenericControl("ul");
             var divp2 = new HtmlGenericControl("div");
-            divp2.Attributes["class"] = "popoverLinks";
+            divp2.Attributes["class"] = "popoverLinks collapse";
+            divp2.ID = "colap";
 
             #region messageSection
 
@@ -474,13 +483,16 @@ namespace WebPages._construction
 
             #region managementSection
 
-            var liManageS = new HtmlGenericControl("li");
-            liManageS.Attributes["class"] = "projects";
-            liManageS.Attributes.Add("style", "text-align: center");
+            //data - toggle = "collapse" data - target = "#demo"
+            var divManageS = new HtmlGenericControl("div");
+
+            divManageS.Attributes.Add("style", "text-align: center");
             var hManage = new HtmlGenericControl("h4");
-            liManageS.Attributes["class"] = "projectDiv";
+            divManageS.Attributes["class"] = "manageTitle";
             hManage.InnerText = "بخش مدیریتی";
-            liManageS.Controls.Add(hManage);
+            divManageS.Controls.Add(hManage);
+            divManageS.Attributes["data-toggle"] = "collapse";
+            divManageS.Attributes["data-target"] = "#colap";
 
             #endregion managementSection
 
@@ -619,7 +631,7 @@ namespace WebPages._construction
 
             #endregion Scores
 
-            ul2.Controls.Add(liManageS);
+            //ul2.Controls.Add(liManageS);
             ul2.Controls.Add(li4);
             ul2.Controls.Add(liMaghale);
             ul2.Controls.Add(li3);
@@ -632,6 +644,7 @@ namespace WebPages._construction
 
             divp2.Controls.Add(ul2);
             div.Controls.Add(div4);
+            div.Controls.Add(divManageS);
             div.Controls.Add(divp2);
             //////////////////////////////////////
             var divLogOut = new HtmlGenericControl("div");
@@ -645,39 +658,32 @@ namespace WebPages._construction
             ////link.CssClass = "ij-effect-3";
 
             //link.Click += LinkButton1_Click;
-            var link = new HtmlGenericControl("a");
-            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton1','')";
-            link.Attributes["class"] = "ij-effect-3";
-            link.ID = "LinkButton1";
+
+            LinkButton linkLogOut = new LinkButton();
+            linkLogOut.ID = "lgOut";
+            linkLogOut.Click += (s, e) =>
+            {
+                Session.Remove("adminid");
+                profileContainer.InnerHtml = " <a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='Login'>وارد شوید </a><span><br />یا<br /> </span><a href='#'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
+
+                Response.Redirect("/");
+            };
+            //var link = new HtmlGenericControl("a");
+            //link.Attributes["href"] = "javascript:__doPostBack('ctl00$ctl55$LinkButton1','')";
+            //link.Attributes["class"] = "ij-effect-3";
+            //link.ID = "LinkButton1";
             var span101 = new HtmlGenericControl("span");
             span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
             div101.Controls.Add(span101);
-            link.Controls.Add(div101);
-            divLogOut.Controls.Add(link);
+            linkLogOut.Controls.Add(div101);
+            divLogOut.Controls.Add(linkLogOut);
             ////////////////////////////////////////////////
             div.Controls.Add(divLogOut);
+
             divv.Controls.Add(btnProfile);
             divv.Controls.Add(div);
 
             profileContainer.Controls.Add(divv);
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Session.Remove("adminid");
-            Response.Redirect("/Blogs");
-        }
-
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
-            Session.Remove("userid");
-            Response.Redirect("/Blogs");
-        }
-
-        protected void LinkButton3_Click(object sender, EventArgs e)
-        {
-            Session.Remove("employeeid");
-            Response.Redirect("/Blogs");
         }
     }
 }

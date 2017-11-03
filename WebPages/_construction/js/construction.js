@@ -56,7 +56,7 @@ $(document).ready(function () {
             });
         }
         $(document).click(function (event) {
-            if (!$(event.target).closest('#btnProfilePopover').length) {
+            if (!$(event.target).closest('#btnProfilePopover').length && !$(event.target).closest('#myPopoverContent').length) {
                 if ($('#myPopoverContent').is(":visible")) {
                     $('#myPopoverContent').hide();
                 }

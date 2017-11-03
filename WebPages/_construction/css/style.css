@@ -26,6 +26,16 @@ li {
     left: 49% !important;
 }
 
+.manageTitle {
+    float: right;
+    margin-top: 3px;
+    margin-right: 65px;
+}
+
+    .manageTitle:hover {
+        cursor: pointer;
+    }
+
 .scrollToTop {
     z-index: 99999999999;
     width: 50px;

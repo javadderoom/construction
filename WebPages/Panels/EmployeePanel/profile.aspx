@@ -172,7 +172,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
     <script>
         // toggle password visibility
-        $(' .glyphicon').on('click', function () {
+        $('.glyphicon-eye-open').on('click', function () {
             $(this).toggleClass('glyphicon-eye-close').toggleClass('glyphicon-eye-open'); // toggle our classes for the eye icon
 
             var x = document.getElementById("ContentPlaceHolder1_password");

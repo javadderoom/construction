@@ -38,7 +38,6 @@
         <link rel="stylesheet" href="../../_construction/css/style.css" />
         <link href="<%= ResolveUrl("../../_construction/css/popoverStyle.css")%>" rel="stylesheet" />
 
-
         <!--[if lt IE 9]>
       <script src="../../_construction/js/html5shiv.min.js"></script>
       <script src="../../_construction/js/respond.min.js"></script>
@@ -87,15 +86,12 @@
 
                                             <img class="popupProfileImg" src="<%= ResolveUrl("../../_construction/images/user128px.png") %>" />
                                             <div class="personName">مدیر سایت</div>
-
-
                                         </div>
                                         <div class="popoverLinks">
                                             <ul>
                                                 <li class="projects" style="text-align: center">
 
                                                     <h4 class="projectDiv">پیام ها</h4>
-
                                                 </li>
                                                 <li class="message">
                                                     <a href="/Admin/Inbox">
@@ -116,18 +112,14 @@
                                                         <div class="projectDiv">ارسال پیام گروهی</div>
                                                     </a>
                                                 </li>
-
-
                                             </ul>
                                         </div>
-                                        <div class="popoverLinks">
+                                        <div class="manageTitle" data-toggle="collapse" data-target="#demo" style="text-align: center; margin-top: 20px;">
+
+                                            <h4 class="projectDiv">بخش مدیریتی</h4>
+                                        </div>
+                                        <div class="popoverLinks collapse" id="demo">
                                             <ul>
-                                                <li class="projects" style="text-align: center">
-
-                                                    <h4 class="projectDiv">بخش مدیریتی</h4>
-
-                                                </li>
-
 
                                                 <li class="projects">
                                                     <a href="/Admin/AddProject" class="progectReq">
@@ -183,7 +175,6 @@
                                                 <asp:LinkButton ID="LinkButton1" CssClass="ij-effect-3" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">خروج </asp:LinkButton>
                                                 <span class="glyphicon glyphicon-off iconLeft"></span>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>

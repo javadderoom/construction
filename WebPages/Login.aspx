@@ -6,7 +6,21 @@
 <head runat="server">
     <title>ورود</title>
 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,max-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/npm.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="_Styles/StyleSheet.css" rel="stylesheet" />
 
     <link href="_Styles/LoginStyle.css" rel="stylesheet" />

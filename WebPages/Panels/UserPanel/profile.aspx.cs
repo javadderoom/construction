@@ -89,11 +89,11 @@ namespace WebPages.Panels.UserPanel
             ddlState.DataValueField = "StateID";
             ddlState.DataBind();
 
-            //CityRepository cr = new CityRepository();
-            //ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
-            //ddlCity.DataTextField = "CityName";
-            //ddlCity.DataValueField = "CityID";
-            //ddlCity.DataBind();
+            CityRepository cr = new CityRepository();
+            ddlCity.DataSource = cr.getCitiesInfoByStateID(ddlState.SelectedIndex + 1);
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityID";
+            ddlCity.DataBind();
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)

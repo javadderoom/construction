@@ -36,7 +36,7 @@ namespace WebPages._construction
             {
                 if (Admin)
                 {
-                    // adminProfile();
+                    adminProfile();
                 }
                 else if (User)
                 {
@@ -52,6 +52,7 @@ namespace WebPages._construction
                 }
                 ContactUsRepository repo = new ContactUsRepository();
                 ContactWay cnw = repo.Findcwy(1);
+
                 phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";
                 mail.InnerHtml = "<span><i class='fa fa-envelope-o' style='margin-right: 7px'></i>" + cnw.Email + "</span>";
                 AboutUs.InnerHtml = cnw.AboutUs;
@@ -91,6 +92,21 @@ namespace WebPages._construction
             var div4 = new HtmlGenericControl("div");
             div4.Attributes["class"] = "popoverLinks";
             var ul = new HtmlGenericControl("ul");
+            var ul2 = new HtmlGenericControl("ul");
+            var divp2 = new HtmlGenericControl("div");
+            divp2.Attributes["class"] = "popoverLinks";
+
+            #region messageSection
+
+            var liMS = new HtmlGenericControl("li");
+            liMS.Attributes["class"] = "projects";
+            liMS.Attributes.Add("style", "text-align: center");
+            var hM = new HtmlGenericControl("h4");
+            hM.Attributes["class"] = "projectDiv";
+            hM.InnerText = "پیام ها";
+            liMS.Controls.Add(hM);
+
+            #endregion messageSection
 
             #region messageBox
 
@@ -114,50 +130,8 @@ namespace WebPages._construction
 
             #endregion messageBox
 
-            #region orders
-
-            var li2 = new HtmlGenericControl("li");
-            li2.Attributes["class"] = "projects";
-            var a2 = new HtmlGenericControl("a");
-            a2.Attributes["href"] = "/Admin/Orders";
-            a2.Attributes["class"] = "progectReq";
-            var div6 = new HtmlGenericControl("div");
-            div6.Attributes["class"] = "projectDiv";
-            div6.InnerText = "سفارشات";
-            a2.Controls.Add(div6);
-            li2.Controls.Add(a2);
-
-            #endregion orders
-
-            #region ManageUsers
-
-            var li3 = new HtmlGenericControl("li");
-            li3.Attributes["class"] = "projects";
-            var a3 = new HtmlGenericControl("a");
-            a3.Attributes["class"] = "progectReq";
-            a2.Attributes["href"] = "/Admin/ManageUsers";
-            var div7 = new HtmlGenericControl("div");
-            div7.Attributes["class"] = "projectDiv";
-            div7.InnerText = "مديريت کاربران";
-            a3.Controls.Add(div7);
-            li3.Controls.Add(a3);
-
-            #endregion ManageUsers
-
-            #region AddProject
-
-            var li4 = new HtmlGenericControl("li");
-            li4.Attributes["class"] = "projects";
-            var a4 = new HtmlGenericControl("a");
-            a4.Attributes["href"] = "/Admin/AddProject";
-            a4.Attributes["class"] = "progectReq";
-            var div8 = new HtmlGenericControl("div");
-            div8.Attributes["class"] = "projectDiv";
-            div8.InnerText = "افزودن پروژه";
-            a4.Controls.Add(div8);
-            li4.Controls.Add(a4);
-
-            #endregion AddProject
+            MessageRepository repms = new MessageRepository();
+            span1.InnerText = repms.AdminNewMessageCount();
 
             #region MessageTak
 
@@ -169,7 +143,7 @@ namespace WebPages._construction
             var div9 = new HtmlGenericControl("div");
             div9.Attributes["class"] = "projectDiv";
             div9.InnerText = "ارسال پيام تکي";
-            a5.Controls.Add(div8);
+            a5.Controls.Add(div9);
             li5.Controls.Add(a5);
 
             #endregion MessageTak
@@ -189,14 +163,173 @@ namespace WebPages._construction
 
             #endregion Messagemany
 
+            ul.Controls.Add(liMS);
             ul.Controls.Add(li1);
-            ul.Controls.Add(li2);
-            ul.Controls.Add(li3);
-            ul.Controls.Add(li4);
             ul.Controls.Add(li5);
             ul.Controls.Add(li6);
             div4.Controls.Add(ul);
+
+            #region managementSection
+
+            var liManageS = new HtmlGenericControl("li");
+            liManageS.Attributes["class"] = "projects";
+            liManageS.Attributes.Add("style", "text-align: center");
+            var hManage = new HtmlGenericControl("h4");
+            liManageS.Attributes["class"] = "projectDiv";
+            hManage.InnerText = "بخش مدیریتی";
+            liManageS.Controls.Add(hManage);
+
+            #endregion managementSection
+
+            #region AddProject
+
+            var li4 = new HtmlGenericControl("li");
+            li4.Attributes["class"] = "projects";
+            var a4 = new HtmlGenericControl("a");
+            a4.Attributes["href"] = "/Admin/AddProject";
+            a4.Attributes["class"] = "progectReq";
+            var div8 = new HtmlGenericControl("div");
+            div8.Attributes["class"] = "projectDiv";
+            div8.InnerText = "افزودن پروژه";
+            a4.Controls.Add(div8);
+            li4.Controls.Add(a4);
+
+            #endregion AddProject
+
+            #region AddMaghale
+
+            var liMaghale = new HtmlGenericControl("li");
+            liMaghale.Attributes["class"] = "projects";
+            var aMaghale = new HtmlGenericControl("a");
+            aMaghale.Attributes["href"] = "/Admin/AddBlog";
+            aMaghale.Attributes["class"] = "progectReq";
+            var divMaghale = new HtmlGenericControl("div");
+            divMaghale.Attributes["class"] = "projectDiv";
+            divMaghale.InnerText = "مقاله جدید";
+            aMaghale.Controls.Add(divMaghale);
+            liMaghale.Controls.Add(aMaghale);
+
+            #endregion AddMaghale
+
+            #region ManageUsers
+
+            var li3 = new HtmlGenericControl("li");
+            li3.Attributes["class"] = "projects";
+            var a3 = new HtmlGenericControl("a");
+            a3.Attributes["class"] = "progectReq";
+            a3.Attributes["href"] = "/Admin/ManageUsers";
+            var div7 = new HtmlGenericControl("div");
+            div7.Attributes["class"] = "projectDiv";
+            div7.InnerText = "مديريت کاربران";
+            a3.Controls.Add(div7);
+            li3.Controls.Add(a3);
+
+            #endregion ManageUsers
+
+            #region ManageWeblog
+
+            var liWeblog = new HtmlGenericControl("li");
+            liWeblog.Attributes["class"] = "projects";
+            var aWeblog = new HtmlGenericControl("a");
+            aWeblog.Attributes["class"] = "progectReq";
+            aWeblog.Attributes["href"] = "/Admin/ManageBlogs";
+            var divWeblog = new HtmlGenericControl("div");
+            divWeblog.Attributes["class"] = "projectDiv";
+            divWeblog.InnerText = "مديريت وبلاگ ها";
+            aWeblog.Controls.Add(divWeblog);
+            liWeblog.Controls.Add(aWeblog);
+
+            #endregion ManageWeblog
+
+            #region ManageProjects
+
+            var liManageProjects = new HtmlGenericControl("li");
+            liManageProjects.Attributes["class"] = "projects";
+            var aManageProjects = new HtmlGenericControl("a");
+            aManageProjects.Attributes["href"] = "/Admin/ManageProjects";
+            aManageProjects.Attributes["class"] = "progectReq";
+            var divManageProjects = new HtmlGenericControl("div");
+            divManageProjects.Attributes["class"] = "projectDiv";
+            divManageProjects.InnerText = "مدیریت پروژه ها";
+            aManageProjects.Controls.Add(divManageProjects);
+            liManageProjects.Controls.Add(aManageProjects);
+
+            #endregion ManageProjects
+
+            #region FirstPage
+
+            var liFirstPage = new HtmlGenericControl("li");
+            liFirstPage.Attributes["class"] = "projects";
+            var aFirstPage = new HtmlGenericControl("a");
+            aFirstPage.Attributes["href"] = "/Admin/ManageFirstPage";
+            aFirstPage.Attributes["class"] = "progectReq";
+            var divFirstPage = new HtmlGenericControl("div");
+            divFirstPage.Attributes["class"] = "projectDiv";
+            divFirstPage.InnerText = "مدیریت صفحه اول";
+            aFirstPage.Controls.Add(divFirstPage);
+            liFirstPage.Controls.Add(aFirstPage);
+
+            #endregion FirstPage
+
+            #region Services
+
+            var liServices = new HtmlGenericControl("li");
+            liServices.Attributes["class"] = "projects";
+            var aServices = new HtmlGenericControl("a");
+            aServices.Attributes["href"] = "/Admin/ManageGroups";
+            aServices.Attributes["class"] = "progectReq";
+            var divServices = new HtmlGenericControl("div");
+            divServices.Attributes["class"] = "projectDiv";
+            divServices.InnerText = "مدیریت خدمات";
+            aServices.Controls.Add(divServices);
+            liServices.Controls.Add(aServices);
+
+            #endregion Services
+
+            #region orders
+
+            var li2 = new HtmlGenericControl("li");
+            li2.Attributes["class"] = "projects";
+            var a2 = new HtmlGenericControl("a");
+            a2.Attributes["href"] = "/Admin/Orders";
+            a2.Attributes["class"] = "progectReq";
+            var div6 = new HtmlGenericControl("div");
+            div6.Attributes["class"] = "projectDiv";
+            div6.InnerText = "سفارشات";
+            a2.Controls.Add(div6);
+            li2.Controls.Add(a2);
+
+            #endregion orders
+
+            #region Scores
+
+            var liScores = new HtmlGenericControl("li");
+            liScores.Attributes["class"] = "projects";
+            var aScores = new HtmlGenericControl("a");
+            aScores.Attributes["href"] = "/Admin/Scores";
+            aScores.Attributes["class"] = "progectReq";
+            var divScores = new HtmlGenericControl("div");
+            divScores.Attributes["class"] = "projectDiv";
+            divScores.InnerText = "امتیازات";
+            aScores.Controls.Add(divScores);
+            liScores.Controls.Add(aScores);
+
+            #endregion Scores
+
+            ul2.Controls.Add(liManageS);
+            ul2.Controls.Add(li4);
+            ul2.Controls.Add(liMaghale);
+            ul2.Controls.Add(li3);
+            ul2.Controls.Add(liWeblog);
+            ul2.Controls.Add(liManageProjects);
+            ul2.Controls.Add(liFirstPage);
+            ul2.Controls.Add(liServices);
+            ul2.Controls.Add(li2);
+            ul2.Controls.Add(liScores);
+
+            divp2.Controls.Add(ul2);
             div.Controls.Add(div4);
+            div.Controls.Add(divp2);
             //////////////////////////////////////
             var divLogOut = new HtmlGenericControl("div");
             divLogOut.Attributes["class"] = "logOutDiv";

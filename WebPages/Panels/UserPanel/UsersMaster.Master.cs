@@ -15,7 +15,7 @@ namespace WebPages.Panels.UserPanel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Timeout = 30;
+            Session.Timeout = 120;
 
 
             if (!IsPostBack)

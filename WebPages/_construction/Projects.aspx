@@ -59,6 +59,10 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
+    <script>
+        $('.active').removeClass('active');
+        $('.Projects').addClass('active');
+    </script>
     <script src="../_Scripts/jquery.easyPaginate.js"></script>
     <script src="../_Scripts/BlogsScript.js"></script>
 </asp:Content>

@@ -72,6 +72,10 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="Scripts" runat="server">
     <script>
+        
+        $('.active').removeClass('active');
+        $('.Projects').addClass('active');
+ 
         $("#ContentPlaceHolder1_DivBody").find("img").addClass("img-responsive");
     </script>
 </asp:Content>

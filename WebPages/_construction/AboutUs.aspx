@@ -42,6 +42,8 @@
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
+        $('.active').removeClass('active');
+        $('.AboutUs').addClass('active');
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
         var imagePath = 'images/Pin-location.png'
         var mapOptions = {

@@ -1,7 +1,9 @@
-﻿using DataAccess;
+﻿using Common;
+using DataAccess;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -40,7 +42,7 @@ namespace WebPages._construction
                 }
                 else if (User)
                 {
-                    profileContainer.InnerHtml = "User";
+                    userProfile();
                 }
                 else if (Employee)
                 {
@@ -62,8 +64,304 @@ namespace WebPages._construction
             }
         }
 
+        private void userProfile()
+        {
+            var divv = new HtmlGenericControl("div");
+            divv.Attributes["class"] = "popover-container";
+            /////////////////////////////////////////////////////
+            var btnProfile = new HtmlGenericControl("button");
+            btnProfile.ID = "btnProfilePopover";
+            btnProfile.Attributes["class"] = "logInProfile";
+            btnProfile.Attributes["type"] = "button";
+
+            //btnProfile.Controls.Add(img);
+            ////////////////////////////////////////////////////////////////
+            var div = new HtmlGenericControl("div");
+            div.Attributes.Add("style", "display: none");
+            div.ID = "myPopoverContent";
+            ////////////////////////////////////////
+            var div2 = new HtmlGenericControl("div");
+            div2.Attributes["class"] = "popoverProfile";
+
+            var img = new HtmlGenericControl("img"); ;
+            img.Attributes["class"] = "popupProfileImg";
+            string url = ResolveUrl("~/_construction/images/user128px.png");
+            img.Attributes["src"] = url;
+            var divName = new HtmlGenericControl("div");
+            divName.Attributes["class"] = "personName";
+            divName.Attributes["runat"] = "server";
+            divName.ID = "Name";
+            var nav = new HtmlGenericControl("nav");
+            nav.Attributes["class"] = "ij-effect-3";
+            var aProfile = new HtmlGenericControl("a");
+            aProfile.Attributes["href"] = "/Employee/Profile";
+            aProfile.InnerText = "پروفایل";
+            nav.Controls.Add(aProfile);
+            ////
+            div2.Controls.Add(img);
+            div2.Controls.Add(divName);
+            div2.Controls.Add(nav);
+
+            UsersRepository repemplo = new UsersRepository();
+            User user = repemplo.getUserById(Session["userid"].ToString().ToInt());
+
+            divName.InnerText = user.FirstName + " " + user.LastName;
+            div.Controls.Add(div2);
+            ////////////////////////////////////////////////
+            var div4 = new HtmlGenericControl("div");
+            div4.Attributes["class"] = "popoverLinks";
+            var ul = new HtmlGenericControl("ul");
+
+            #region messageBox
+
+            var li1 = new HtmlGenericControl("li");
+            li1.Attributes["class"] = "message";
+            var a1 = new HtmlGenericControl("a");
+            a1.Attributes["href"] = "/Employee/Inbox";
+            var div5 = new HtmlGenericControl("div");
+            div5.Attributes["class"] = "mssageBox";
+            var span = new HtmlGenericControl("span");
+            span.Attributes["class"] = "messageBox";
+            span.InnerText = "صندوق پيام ها";
+            var span1 = new HtmlGenericControl("span");
+            span1.Attributes["class"] = "messageCount";
+            span1.Attributes["runat"] = "server";
+            span1.ID = "messageCount";
+            div5.Controls.Add(span);
+            div5.Controls.Add(span1);
+            a1.Controls.Add(div5);
+            li1.Controls.Add(a1);
+
+            #endregion messageBox
+
+            #region Message
+
+            var li5 = new HtmlGenericControl("li");
+            li5.Attributes["class"] = "projects";
+            var a5 = new HtmlGenericControl("a");
+            a5.Attributes["href"] = "/Employee/NewMessage";
+            a5.Attributes["class"] = "progectReq";
+            var div9 = new HtmlGenericControl("div");
+            div9.Attributes["class"] = "projectDiv";
+            div9.InnerText = "ارسال پيام";
+            a5.Controls.Add(div9);
+            li5.Controls.Add(a5);
+
+            #endregion Message
+
+            #region work
+
+            var li4 = new HtmlGenericControl("li");
+            li4.Attributes["class"] = "projects";
+            var a4 = new HtmlGenericControl("a");
+            a4.Attributes["href"] = "/Employee/SelectJob";
+            a4.Attributes["class"] = "progectReq";
+            var div8 = new HtmlGenericControl("div");
+            div8.Attributes["class"] = "projectDiv";
+            div8.InnerText = "انتخاب شغل";
+            a4.Controls.Add(div8);
+            li4.Controls.Add(a4);
+
+            #endregion work
+
+            MessageRepository repms = new MessageRepository();
+            span1.InnerText = repms.AdminNewMessageCount();
+            ul.Controls.Add(li1);
+            ul.Controls.Add(li5);
+            ul.Controls.Add(li4);
+            div4.Controls.Add(ul);
+            ////////////////////////////////////////////////////
+            var divLogOut = new HtmlGenericControl("div");
+            divLogOut.Attributes["class"] = "logOutDiv";
+            var div101 = new HtmlGenericControl("div");
+            div101.Attributes["class"] = "logOutContent";
+            div101.InnerText = "خروج";
+            //LinkButton link = new LinkButton();
+
+            //link.ID = "LinkButton1";
+            ////link.CssClass = "ij-effect-3";
+
+            //link.Click += LinkButton1_Click;
+            var link = new HtmlGenericControl("a");
+            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton1','')";
+            link.Attributes["class"] = "ij-effect-3";
+            link.ID = "LinkButton1";
+            var span101 = new HtmlGenericControl("span");
+            span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
+            div101.Controls.Add(span101);
+            link.Controls.Add(div101);
+            divLogOut.Controls.Add(link);
+            ////////////////////////////////////////////////
+            div.Controls.Add(div4);
+            div.Controls.Add(divLogOut);
+
+            divv.Controls.Add(btnProfile);
+            divv.Controls.Add(div);
+
+            profileContainer.Controls.Add(divv);
+        }
+
+        private string setInlineImage(int arid)
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", arid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+                }
+            }
+            return ans;
+        }
+
         private void employeeProfile()
         {
+            var divv = new HtmlGenericControl("div");
+            divv.Attributes["class"] = "popover-container";
+            /////////////////////////////////////////////////////
+            var btnProfile = new HtmlGenericControl("button");
+            btnProfile.ID = "btnProfilePopover";
+            btnProfile.Attributes["class"] = "logInProfile2";
+            btnProfile.Attributes["type"] = "button";
+            var pimg2 = new HtmlGenericControl("img");
+            pimg2.ID = "pimg2";
+            pimg2.Attributes["class"] = "popupProfileImg";
+            pimg2.Attributes.Add("style", "width : 55px;height : 55px");
+            btnProfile.Controls.Add(pimg2);
+            ////////////////////////////////////////////////////////////////
+            var div = new HtmlGenericControl("div");
+            div.Attributes.Add("style", "display: none");
+            div.ID = "myPopoverContent";
+            ////////////////////////////////////////
+            var div2 = new HtmlGenericControl("div");
+            div2.Attributes["class"] = "popoverProfile";
+            var pImg = new HtmlGenericControl("img"); ;
+            pImg.Attributes["class"] = "popupProfileImg";
+            pImg.ID = "pImg";
+            pImg.Attributes["runat"] = "server";
+            var divName = new HtmlGenericControl("div");
+            divName.Attributes["class"] = "personName";
+            divName.Attributes["runat"] = "server";
+            divName.ID = "Name";
+            var nav = new HtmlGenericControl("nav");
+            nav.Attributes["class"] = "ij-effect-3";
+            var aProfile = new HtmlGenericControl("a");
+            aProfile.Attributes["href"] = "/Employee/Profile";
+            aProfile.InnerText = "پروفایل";
+            nav.Controls.Add(aProfile);
+            ////
+            div2.Controls.Add(pImg);
+            div2.Controls.Add(divName);
+            div2.Controls.Add(nav);
+            EmployeesRepository repemplo = new EmployeesRepository();
+            Employee emp = repemplo.getEmployeeByID(Session["employeeid"].ToString().ToInt());
+            pImg.Attributes["src"] = setInlineImage(Session["employeeid"].ToString().ToInt());
+            pimg2.Attributes["src"] = setInlineImage(Session["employeeid"].ToString().ToInt());
+            divName.InnerText = emp.FirstName + " " + emp.LastName;
+            div.Controls.Add(div2);
+            ////////////////////////////////////////////////
+            var div4 = new HtmlGenericControl("div");
+            div4.Attributes["class"] = "popoverLinks";
+            var ul = new HtmlGenericControl("ul");
+
+            #region messageBox
+
+            var li1 = new HtmlGenericControl("li");
+            li1.Attributes["class"] = "message";
+            var a1 = new HtmlGenericControl("a");
+            a1.Attributes["href"] = "/Employee/Inbox";
+            var div5 = new HtmlGenericControl("div");
+            div5.Attributes["class"] = "mssageBox";
+            var span = new HtmlGenericControl("span");
+            span.Attributes["class"] = "messageBox";
+            span.InnerText = "صندوق پيام ها";
+            var span1 = new HtmlGenericControl("span");
+            span1.Attributes["class"] = "messageCount";
+            span1.Attributes["runat"] = "server";
+            span1.ID = "messageCount";
+            div5.Controls.Add(span);
+            div5.Controls.Add(span1);
+            a1.Controls.Add(div5);
+            li1.Controls.Add(a1);
+
+            #endregion messageBox
+
+            #region Message
+
+            var li5 = new HtmlGenericControl("li");
+            li5.Attributes["class"] = "projects";
+            var a5 = new HtmlGenericControl("a");
+            a5.Attributes["href"] = "/Employee/NewMessage";
+            a5.Attributes["class"] = "progectReq";
+            var div9 = new HtmlGenericControl("div");
+            div9.Attributes["class"] = "projectDiv";
+            div9.InnerText = "ارسال پيام";
+            a5.Controls.Add(div9);
+            li5.Controls.Add(a5);
+
+            #endregion Message
+
+            #region work
+
+            var li4 = new HtmlGenericControl("li");
+            li4.Attributes["class"] = "projects";
+            var a4 = new HtmlGenericControl("a");
+            a4.Attributes["href"] = "/Employee/SelectJob";
+            a4.Attributes["class"] = "progectReq";
+            var div8 = new HtmlGenericControl("div");
+            div8.Attributes["class"] = "projectDiv";
+            div8.InnerText = "انتخاب شغل";
+            a4.Controls.Add(div8);
+            li4.Controls.Add(a4);
+
+            #endregion work
+
+            MessageRepository repms = new MessageRepository();
+            span1.InnerText = repms.AdminNewMessageCount();
+            ul.Controls.Add(li1);
+            ul.Controls.Add(li5);
+            ul.Controls.Add(li4);
+            div4.Controls.Add(ul);
+            ////////////////////////////////////////////////////
+            var divLogOut = new HtmlGenericControl("div");
+            divLogOut.Attributes["class"] = "logOutDiv";
+            var div101 = new HtmlGenericControl("div");
+            div101.Attributes["class"] = "logOutContent";
+            div101.InnerText = "خروج";
+            //LinkButton link = new LinkButton();
+
+            //link.ID = "LinkButton1";
+            ////link.CssClass = "ij-effect-3";
+
+            //link.Click += LinkButton1_Click;
+            var link = new HtmlGenericControl("a");
+            link.Attributes["href"] = "javascript:__doPostBack('ctl00$LinkButton1','')";
+            link.Attributes["class"] = "ij-effect-3";
+            link.ID = "LinkButton1";
+            var span101 = new HtmlGenericControl("span");
+            span101.Attributes["class"] = "glyphicon glyphicon-off iconLeft";
+            div101.Controls.Add(span101);
+            link.Controls.Add(div101);
+            divLogOut.Controls.Add(link);
+            ////////////////////////////////////////////////
+            div.Controls.Add(div4);
+            div.Controls.Add(divLogOut);
+
+            divv.Controls.Add(btnProfile);
+            divv.Controls.Add(div);
+
+            profileContainer.Controls.Add(divv);
         }
 
         private void adminProfile()
@@ -142,7 +440,7 @@ namespace WebPages._construction
             var li5 = new HtmlGenericControl("li");
             li5.Attributes["class"] = "projects";
             var a5 = new HtmlGenericControl("a");
-            a5.Attributes["href"] = "/Admin/AddProject";
+            a5.Attributes["href"] = "/Admin/Message";
             a5.Attributes["class"] = "progectReq";
             var div9 = new HtmlGenericControl("div");
             div9.Attributes["class"] = "projectDiv";
@@ -157,7 +455,7 @@ namespace WebPages._construction
             var li6 = new HtmlGenericControl("li");
             li6.Attributes["class"] = "projects";
             var a6 = new HtmlGenericControl("a");
-            a6.Attributes["href"] = "/Admin/AddProject";
+            a6.Attributes["href"] = "/Admin/GroupMessage";
             a6.Attributes["class"] = "progectReq";
             var div0 = new HtmlGenericControl("div");
             div0.Attributes["class"] = "projectDiv";

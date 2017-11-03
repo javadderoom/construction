@@ -44,7 +44,7 @@ namespace WebPages._construction
                 }
                 else if (Employee)
                 {
-                    profileContainer.InnerHtml = "Employee";
+                    employeeProfile();
                 }
                 else
                 {
@@ -60,6 +60,10 @@ namespace WebPages._construction
                 contactPhone.InnerHtml = "<i class='fa fa-phone'></i>" + cnw.PhoneNumber;
                 contactHome.InnerHtml = "<i class='fa fa-home'></i>" + cnw.Adrees;
             }
+        }
+
+        private void employeeProfile()
+        {
         }
 
         private void adminProfile()

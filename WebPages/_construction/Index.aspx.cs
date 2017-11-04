@@ -196,16 +196,18 @@ namespace WebPages._construction
             servisContent.InnerHtml = "";
             Button btn = (Button)sender;
 
-            string id = btn.ID;
-            fillSungroups(id);
+            string grouIid = btn.ID;
+            fillSungroups(grouIid);
             triggers();
             fillServises();
+
             ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "myFunc()", true);
         }
 
         //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         private void fillSungroups(string id)
         {
+            Session.Add("subGroupdIDForjavad", id);
             updateProgress.Visible = true;
             GroupsRepository gr = new GroupsRepository();
             List<Group> groups = new List<Group>();
@@ -222,17 +224,17 @@ namespace WebPages._construction
                     link.OnClientClick = "FireEvent();";
                     link.ID = gp.GroupID.ToString();
 
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "text", "function FireEvent(){$('#'" + link.ClientID + ").trigger('click');}", true);
+                    link.Click += new EventHandler(Link_Click);
                     ScriptManager.GetCurrent(this).RegisterPostBackControl(link);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "function", "function FireEvent(){$('#'" + link.ClientID + ").trigger('click');}", true);
-                    link.Click += Link_Click;
-                    link.Click += (s, e) =>
-                    {
-                        LinkButton btn2 = (LinkButton)s;
+                    //link.Click += (s, e) =>
+                    //{
+                    //    LinkButton btn2 = (LinkButton)s;
 
-                        string idTosend = btn2.ID;
-                        Session.Add("SubGroupidForOpenBlog", idTosend);
-                        Response.Redirect("/Blogs");
-                    };
+                    //    string idTosend = btn2.ID;
+                    //    Session.Add("SubGroupidForOpenBlog", idTosend);
+                    //    Response.Redirect("/Blogs");
+                    //};
 
                     //Button btn = new Button();
                     //btn.CssClass = "subGroup";
@@ -252,6 +254,7 @@ namespace WebPages._construction
                     //div.Attributes["runat"] = "server";
 
                     servisContent.Controls.Add(link);
+
                     //ScriptManager1.RegisterAsyncPostBackControl(div);
                 }
             }
@@ -263,7 +266,11 @@ namespace WebPages._construction
 
         private void Link_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز عبور را وارد نکردید ! ');", true);
+            LinkButton btn2 = (LinkButton)sender;
+
+            string idTosend = btn2.ID;
+            Session.Add("SubGroupidForOpenBlog", idTosend);
+            Response.Redirect("/Blogs");
         }
 
         private void fillArticles(List<Article> artList)
@@ -299,8 +306,15 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                string id = Session["subGroupdIDForjavad"].ToString();
+                fillSungroups(id);
+            }
+            catch { }
             fillServises();
             triggers();
+
             if (!IsPostBack)
             {
                 SetProjects();

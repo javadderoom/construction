@@ -50,7 +50,7 @@ namespace WebPages
             try
             {
                 Random rdm = new Random();
-                string combination = "0123456789abcdefghijklmnopqrstuvwxyz";
+                string combination = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 StringBuilder ImgValue = new StringBuilder();
                 for (int i = 0; i < 5; i++)
                 {
@@ -117,9 +117,10 @@ namespace WebPages
                 return;
             }
             ///////////////////////////////////////////////////////////////////////////////////
-            using (TransactionScope ts = new TransactionScope())
+            bool iscomplete = true;
+            try
             {
-                try
+                using (TransactionScope ts = new TransactionScope())
                 {
                     if (rdiUsers.Checked)
                     {
@@ -153,9 +154,9 @@ namespace WebPages
                         u.PostalCode = txtzip.Value;
                         u.Password = txtPassword.Value;
                         u.Score = 0;
-                        string ps = ResolveUrl("~/_construction/images/user128px.png");
 
-                        FileStream fStream = File.OpenRead(ps);
+
+                        FileStream fStream = File.OpenRead(Server.MapPath("~/_construction/images/user128px.png"));
                         byte[] contents = new byte[fStream.Length];
                         fStream.Read(contents, 0, (int)fStream.Length);
                         fStream.Close();
@@ -172,14 +173,26 @@ namespace WebPages
 
                         int id = ur.getLastEmployeeID();
                         Session.Add("employeeid", id);
-                        Response.Redirect("/Employee/Profile");
+
+
                     }
+
+
                     ts.Complete();
                 }
-                catch
-                {
-                }
             }
+            catch (Exception m)
+            {
+                string txt = m.Message;
+                iscomplete = false;
+            }
+            if (iscomplete)
+            {
+                Response.Redirect("/Employee/Profile");
+            }
+
+
+
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)

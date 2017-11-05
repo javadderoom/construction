@@ -10,7 +10,7 @@
         <div class="row pageTitle">ویرایش پروژه</div>
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
-                <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
+                <li><a href="/" style="color: #F7B71E">خانه</a></li>
                 <li><span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden6="true"></span></li>
                 <li class="active" style="color: #F7B71E">ویرایش پروژه</li>
             </ol>

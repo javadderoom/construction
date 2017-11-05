@@ -22,7 +22,7 @@ namespace WebPages
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+            HttpContext.Current.Response.AddHeader("x-frame-options", "DENY");
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

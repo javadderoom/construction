@@ -13,7 +13,7 @@
         <div class="row pageTitle">افزودن پروژه</div>
         <div class="row pageBreadcrumbs">
             <ol class="breadcrumb" style="direction: rtl">
-                <li><a href="index.html" style="color: #F7B71E">خانه</a></li>
+                <li><a href="/" style="color: #F7B71E">خانه</a></li>
                 <li><span class="fa fa-arrow-left" style="color: #ffffff" aria-hidden="true"></span></li>
                 <li class="active" style="color: #F7B71E">افزودن پروژه</li>
             </ol>

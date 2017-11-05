@@ -57,6 +57,16 @@ namespace WebPages._construction
                     List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
                     if (articles.Count != 0)
                     {
+                        DataTable DT = new DataTable();
+                        DT = Groupsrepo.LoadSubGroup(Session["GroupidForOpenBlog"].ToString().ToInt());
+                        ddlSubGroups.Enabled = true;
+
+                        ddlSubGroups.DataSource = DT;
+                        ddlSubGroups.DataTextField = "Title";
+                        ddlSubGroups.DataValueField = "GroupID";
+                        ddlSubGroups.DataBind();
+                        ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+
                         fillUl(articles);
                         GroupsRepository repo = new GroupsRepository();
                         ddlGroups.DataSource = repo.LoadAllGroups();
@@ -104,37 +114,45 @@ namespace WebPages._construction
                         DataTable DT = new DataTable();
                         DT = Groupsrepo.LoadSubGroup(fatherid.ToString().ToInt());
 
-                        if ((DT.Rows.Count > 0))
-                        {
-                            ddlSubGroups.Enabled = true;
 
-                            ddlSubGroups.DataSource = DT;
-                            ddlSubGroups.DataTextField = "Title";
-                            ddlSubGroups.DataValueField = "GroupID";
-                            ddlSubGroups.DataBind();
-                            ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-                            ddlSubGroups.SelectedValue = Session["SubGroupidForOpenBlog"].ToString();
-                        }
-                        else
-                        {
-                            ddlSubGroups.Enabled = false;
-                            ddlSubGroups.Items.Clear();
-                            ddlSubGroups.Items.Insert(0, new ListItem("گروه : " + repo.FindGroup(Session["SubGroupidForOpenBlog"].ToString().ToInt()).Title, fatherid.ToString()));
-                        }
+                        ddlSubGroups.Enabled = true;
+
+                        ddlSubGroups.DataSource = DT;
+                        ddlSubGroups.DataTextField = "Title";
+                        ddlSubGroups.DataValueField = "GroupID";
+                        ddlSubGroups.DataBind();
+                        ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                        ddlSubGroups.SelectedValue = Session["SubGroupidForOpenBlog"].ToString();
+
                         Session.Remove("SubGroupidForOpenBlog");
                     }
                     else
                     {
+
+                        GroupsRepository repo = new GroupsRepository();
+                        int fatherid = repo.FindGroup(Session["SubGroupidForOpenBlog"].ToString().ToInt()).FatherID.ToString().ToInt();
                         UlArticles.InnerHtml = " <li class='danger'>در این بخش مقاله ای وجود ندارد!</li> ";
-                        ddlSubGroups.SelectedIndex = 0;
-                        ddlGroups.DataSource = Groupsrepo.LoadAllGroups();
+
+                        ddlGroups.DataSource = repo.LoadAllGroups();
                         ddlGroups.DataTextField = "Title";
                         ddlGroups.DataValueField = "GroupID";
                         ddlGroups.DataBind();
                         ddlGroups.Items.Insert(0, new ListItem("همه گروه ها", "-2"));
-                        ddlGroups.SelectedValue = Session["SubGroupidForOpenBlog"].ToString();
-                        ddlSubGroups.Enabled = false;
-                        ddlSubGroups.Items.Insert(0, new ListItem("همه زیرگروه ها", "-2"));
+                        ddlGroups.SelectedValue = fatherid.ToString();
+                        DataTable DT = new DataTable();
+                        DT = Groupsrepo.LoadSubGroup(fatherid);
+
+
+                        ddlSubGroups.Enabled = true;
+
+                        ddlSubGroups.DataSource = DT;
+                        ddlSubGroups.DataTextField = "Title";
+                        ddlSubGroups.DataValueField = "GroupID";
+                        ddlSubGroups.DataBind();
+                        ddlSubGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                        ddlSubGroups.SelectedValue = Session["SubGroupidForOpenBlog"].ToString();
+
+
 
                         Session.Remove("SubGroupidForOpenBlog");
                     }

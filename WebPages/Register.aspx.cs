@@ -14,6 +14,7 @@ using DataAccess.Repository;
 using DataAccess;
 using Common;
 using System.Transactions;
+using System.IO;
 
 namespace WebPages
 {
@@ -152,6 +153,14 @@ namespace WebPages
                         u.PostalCode = txtzip.Value;
                         u.Password = txtPassword.Value;
                         u.Score = 0;
+                        string ps = ResolveUrl("~/_construction/images/user128px.png");
+
+                        FileStream fStream = File.OpenRead(ps);
+                        byte[] contents = new byte[fStream.Length];
+                        fStream.Read(contents, 0, (int)fStream.Length);
+                        fStream.Close();
+
+                        u.empImage = contents;
                         u.UserName = txtusername.Value;
                         u.City = ddlCity.SelectedValue.ToInt();
                         u.State = ddlState.SelectedValue.ToInt();

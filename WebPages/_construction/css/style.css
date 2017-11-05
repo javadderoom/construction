@@ -71,9 +71,10 @@ li {
 }
 
     .theBest .imgDiv {
-        width: 39%;
+        width: 119px;
         position: relative;
         margin: auto;
+        height: 119px;
     }
 
     .theBest .arrow {
@@ -86,6 +87,11 @@ li {
         margin-top: 20px;
         font-weight: bold;
         letter-spacing: 0.5px;
+    }
+
+    .theBest .empImg {
+        width: 100%;
+        height: 100%;
     }
 /*------------------------------------------------------------------
 [Master Stylesheet]

@@ -318,7 +318,7 @@ namespace WebPages._construction
                 string projectCount = ep.getEmployeeProjectCount(id).ToString();
                 string img = setImage(id);
 
-                text += "<div class='item '><div class='theBest '><div class='imgDiv'><img src='";
+                text += "<div class='item '><div class='theBest '><div class='imgDiv'><img class='empImg' src='";
                 text += img;
                 text += "'/></div ><div class='employeeName'><h3>";
                 text += "";

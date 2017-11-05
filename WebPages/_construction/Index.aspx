@@ -215,32 +215,33 @@
                 <div class="sectionSubTitle whiteTC">از دیددگاه شما</div>
             </div>
             <div class="row">
-                <div class="owl-carousel testimonialSlider row m0">
-                    <div class="item">
-                        <div class="clientPhoto row m0">
-                            <img src="images/testimonial/photo.png" alt="" />
+                <div id="best" class="owl-carousel owl-two testimonialSlider row m0" runat="server">
+
+                    <div class="item ">
+                        <div class="theBest ">
+                            <div class="imgDiv">
+                                <img src="images/user128px.png" />
+                            </div>
+                            <div class="employeeName">
+                                <h3>مجید محمدی
+                                </h3>
+                            </div>
+                            <div class="arrow row m0">
+                                <img src="images/testimonial/down-arrow.png" />
+                            </div>
+                            <div class="projectNum">
+                                <h4>تعداد پروژه ها
+                                </h4>
+                                <h3>5
+                                </h3>
+                            </div>
+                            <div class="EmployeeScore">
+                                <h4>امتیاز
+                                </h4>
+                                <h3>2
+                                </h3>
+                            </div>
                         </div>
-                        <div class="clientNameTitle row m0">
-                            <h4>مجید محمدی</h4>
-                        </div>
-                        <div class="arrow row m0">
-                            <img src="images/testimonial/arrow.png" alt="arrow down" />
-                        </div>
-                        <div class="testimonial row m0">
-                            <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="clientPhoto row m0">
-                            <img src="images/testimonial/photo.png" alt="" />
-                        </div>
-                        <div class="clientNameTitle row m0">
-                            <h4>مجید محمدی</h4>
-                        </div>
-                        <div class="arrow row m0">
-                            <img src="images/testimonial/arrow.png" alt="arrow down" />
-                        </div>
-                        <div class="testimonial row m0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</div>
                     </div>
                 </div>
             </div>
@@ -411,12 +412,11 @@
         $(".project").mouseleave(function () {
             $(this).find(".projectName").removeClass("dispnone");
         });
-
-        function owl() {
+        $(document).ready(function () {
             $('.owl-one').owlCarousel({
 
                 loop: true,
-                autoplay: true,
+                autoplay: false,
                 autoplayHoverPause: true,
                 autoplayTimeout: 3000,
 
@@ -426,7 +426,7 @@
 
                     },
                     600: {
-                        items: 3
+                        items: 2
 
                     },
                     1200: {
@@ -434,12 +434,12 @@
                     }
                 }
             })
-        }
+        });
         $(document).ready(function () {
-            $('.owl-one').owlCarousel({
+            $('.owl-two').owlCarousel({
 
                 loop: true,
-                autoplay: true,
+                autoplay: false,
                 autoplayHoverPause: true,
                 autoplayTimeout: 3000,
 
@@ -453,7 +453,7 @@
 
                     },
                     1200: {
-                        items: 4
+                        items: 3
                     }
                 }
             })

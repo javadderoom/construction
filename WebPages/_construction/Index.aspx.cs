@@ -304,6 +304,61 @@ namespace WebPages._construction
             blogsContainer.InnerHtml = text;
         }
 
+        private void bestEmploees()
+        {
+            string text = "";
+            EmployeesRepository er = new EmployeesRepository();
+            EmployeeProjectRepository ep = new EmployeeProjectRepository();
+            DataTable dt = er.getTopEmploees();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string fullName = dt.Rows[i][0].ToString();
+                string score = dt.Rows[i][1].ToString();
+                int id = dt.Rows[i][2].ToString().ToInt();
+                string projectCount = ep.getEmployeeProjectCount(id).ToString();
+                string img = setImage(id);
+
+                text += "<div class='item '><div class='theBest '><div class='imgDiv'><img src='";
+                text += img;
+                text += "'/></div ><div class='employeeName'><h3>";
+                text += "";
+                text += fullName;
+                text += "</h3></div><div class='arrow row m0'><img src='images/testimonial/down-arrow.png'/></div><div class='projectNum'><h4>";
+                text += " تعداد پروژه ها";
+                text += "</h4><h3>";
+                text += projectCount;
+                text += "</h3></div><div class='EmployeeScore'><h4>";
+                text += "امتیاز</h4><h3>";
+                text += score;
+                text += "</h3></div></div></div>";
+            }
+            best.InnerHtml = text;
+        }
+
+        private string setImage(int empid)
+        {
+            string img = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", empid), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            img = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+                }
+            }
+            return img;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -325,8 +380,7 @@ namespace WebPages._construction
                 fillArticles(articles);
 
                 LoadSliders();
-                //string s = "1";
-                //fillSungroups(s);
+                bestEmploees();
             }
         }
 

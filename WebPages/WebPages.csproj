@@ -1001,6 +1001,8 @@
     <Content Include="_construction\images\Progress.gif" />
     <Content Include="_construction\images\projects\cover3.jpg" />
     <Content Include="_construction\images\projects\penCover.jpg" />
+    <Content Include="_construction\images\testimonial\down-arrow %281%29.png" />
+    <Content Include="_construction\images\testimonial\down-arrow.png" />
     <Content Include="_construction\images\user.png" />
     <Content Include="_construction\images\user128px.png" />
     <Content Include="_construction\images\user64px.png" />
@@ -1154,6 +1156,7 @@
     <Content Include="_Styles\ManageFirstPage.css" />
     <Content Include="_Styles\ManageGroups.css" />
     <Content Include="_Styles\ProfileStyles.css" />
+    <Content Include="_Styles\RegisterStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />
     <Content Include="_Styles\simple-sidebar.css" />

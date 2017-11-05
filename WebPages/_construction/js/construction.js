@@ -118,15 +118,15 @@ $(document).ready(function () {
         });
 
         /*Testimonial Slider*/
-        $('.testimonialSlider').owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            items: 1,
-            dots: false,
-            lazyLoad: true,
-            autoplay: true
-        });
+        //$('.testimonialSlider').owlCarousel({
+        //    loop: true,
+        //    margin: 0,
+        //    nav: false,
+        //    items: 3,
+        //    dots: false,
+        //    lazyLoad: true,
+        //    autoplay: false
+        //});
 
         /*ParterSlider*/
         $('.partnerSlider').owlCarousel({

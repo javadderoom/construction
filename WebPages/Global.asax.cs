@@ -56,6 +56,7 @@ namespace WebPages
             routes.MapPageRoute("R6", "Login", "~/Login.aspx");
             routes.MapPageRoute("R7", "AboutUs", "~/_construction/AboutUs.aspx");
             routes.MapPageRoute("R8", "Services", "~/_construction/Services.aspx");
+            routes.MapPageRoute("R99", "Register", "~/Register.aspx");
             routes.MapPageRoute("R9", "AdminLogin", "~/AdminLogin.aspx");
 
             //admin

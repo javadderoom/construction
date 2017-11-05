@@ -15,16 +15,16 @@ namespace DataAccess.Repository
     public class EmployeesRepository
     {
         private ConstructionCompanyEntities database;
-        ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
+        private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
 
         public EmployeesRepository()
         {
             database = new ConstructionCompanyEntities();
         }
+
         public Employee ChekEmployee(string txt)
         {
             return DB.Employees.Where(p => p.Email == txt || p.UserName == txt).FirstOrDefault();
-
         }
 
         public DataTable searchEmployeeForScores(string s)
@@ -56,6 +56,17 @@ namespace DataAccess.Repository
              orderby r.Score
              select r).FirstOrDefault();
             return em;
+        }
+
+        public DataTable getTopEmploees()
+        {
+            var pl =
+                (from r in database.EmployeeScores
+                 join h in database.Employees on r.EmployeeID equals h.EmployeeID
+                 orderby r.Score
+                 select new { r.FullName, r.Score, r.EmployeeID, h.empImage }).Take(3);
+
+            return OnlineTools.ToDataTable(pl.ToList());
         }
 
         public Employee getEmployeeByID(int id)

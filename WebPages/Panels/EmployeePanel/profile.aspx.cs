@@ -17,12 +17,10 @@ namespace WebPages.Panels.EmployeePanel
     {
         private int empid;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["employeeid"] != null)
             {
-
                 empid = Session["employeeid"].ToString().ToInt();
                 if (!IsPostBack)
                 {
@@ -182,7 +180,7 @@ namespace WebPages.Panels.EmployeePanel
                 string filename = Path.GetFileName(fileResume.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
-                string ps = Server.MapPath(@"~\resume\") + filename;
+                string ps = Server.MapPath(@"~\img\") + filename;
                 fileResume.SaveAs(ps);
 
                 FileStream fStream = File.OpenRead(ps);

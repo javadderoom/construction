@@ -21,8 +21,8 @@ namespace WebPages.Panels.EmployeePanel
             {
                 EmployeesRepository repemplo = new EmployeesRepository();
                 Employee emp = repemplo.getEmployeeByID(Session["employeeid"].ToString().ToInt());
-                pImg.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
-                pimg2.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
+                //pImg.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
+                //pimg2.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
                 Name.InnerText = emp.FirstName + " " + emp.LastName;
                 MessageRepository repmsg = new MessageRepository();
                 messageCount.InnerText = repmsg.CountUserNewMessages(Session["employeeid"].ToString().ToInt());
@@ -36,11 +36,12 @@ namespace WebPages.Panels.EmployeePanel
                 contactPhone.InnerHtml = "<i class='fa fa-phone'></i>" + cnw.PhoneNumber;
                 contactHome.InnerHtml = "<i class='fa fa-home'></i>" + cnw.Adrees;
             }
-
         }
+
         private string setInlineImage(int arid)
         {
             string ans = "";
+
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
@@ -50,7 +51,6 @@ namespace WebPages.Panels.EmployeePanel
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -58,13 +58,12 @@ namespace WebPages.Panels.EmployeePanel
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
+
             return ans;
         }
+
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Remove("employeeid");

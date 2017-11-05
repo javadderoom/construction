@@ -54,6 +54,39 @@ li {
     .scrollToTop:hover {
         text-decoration: none;
     }
+
+.testimonialSlider .item {
+    background-color: white;
+    box-shadow: 6px 4px 6px 1px #2f2f2fcc;
+    width: 91%;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.theBest {
+    text-align: center;
+    height: 435px;
+    padding: 20px;
+    /*border: 2px #f89815 solid;*/
+}
+
+    .theBest .imgDiv {
+        width: 39%;
+        position: relative;
+        margin: auto;
+    }
+
+    .theBest .arrow {
+        width: 50px;
+        height: 37px;
+        display: inline-block;
+    }
+
+    .theBest .employeeName {
+        margin-top: 20px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
 /*------------------------------------------------------------------
 [Master Stylesheet]
 
@@ -2368,89 +2401,7 @@ header .social_nav {
     padding: 60px 0;
 }
 
-    #testimonials .testimonialSlider {
-        margin: 15px 0 10px;
-    }
-
-        #testimonials .testimonialSlider .item {
-            color: #FFF;
-            text-align: center;
-        }
-
-            #testimonials .testimonialSlider .item .clientPhoto {
-                width: 153px;
-                height: 153px;
-                border-radius: 100%;
-                padding: 20px;
-                margin: 0 auto;
-                border: 1px solid #FFF;
-            }
-
-                #testimonials .testimonialSlider .item .clientPhoto img {
-                    width: 100%;
-                    height: 100%;
-                }
-
-            #testimonials .testimonialSlider .item .clientNameTitle {
-                margin: 20px 0;
-            }
-
-            #testimonials .testimonialSlider .item .arrow {
-                margin-bottom: 30px;
-                font-size: 40px;
-            }
-
-                #testimonials .testimonialSlider .item .arrow img {
-                    width: 42px;
-                    display: block;
-                    margin: 0 auto;
-                }
-
-            #testimonials .testimonialSlider .item .testimonial {
-                background: rgba(255, 255, 255, 0.1);
-                font-size: 22px;
-                font-weight: 300;
-                border-radius: 10px;
-                padding: 20px 40px;
-            }
-
 @media (max-width: 1024px) {
-    #testimonials {
-        padding: 40px 0;
-    }
-
-        #testimonials .testimonialSlider {
-            margin: 0;
-        }
-
-            #testimonials .testimonialSlider .item .clientPhoto {
-                width: 120px;
-                height: 120px;
-                padding: 10px;
-            }
-
-                #testimonials .testimonialSlider .item .clientPhoto img {
-                    width: 100%;
-                    height: 100%;
-                }
-
-            #testimonials .testimonialSlider .item .clientNameTitle {
-                margin: 10px 0;
-            }
-
-            #testimonials .testimonialSlider .item .arrow {
-                margin-bottom: 15px;
-            }
-
-                #testimonials .testimonialSlider .item .arrow img {
-                    width: 25px;
-                }
-
-            #testimonials .testimonialSlider .item .testimonial {
-                font-size: 16px;
-                border-radius: 5px;
-                padding: 15px 30px;
-            }
 }
 /*----------------------------------------------------------------*/
 /*Elements*/

@@ -21,11 +21,8 @@ namespace DataAccess.Repository
             database = new ConstructionCompanyEntities();
         }
 
-
-
         public void SaveEmployeeProject(EmployeeProject ep)
         {
-
             if (ep.EmployeeProjectID > 0)
             {
                 //==== UPDATE ====
@@ -39,11 +36,18 @@ namespace DataAccess.Repository
             }
 
             database.SaveChanges();
-
         }
 
+        public int getEmployeeProjectCount(int id)
+        {
+            int result = 0;
+            result = (
 
+                from r in database.EmployeeProjects
+                where r.EmployeeID == id
+                select r).Count();
 
-
+            return result;
+        }
     }
 }

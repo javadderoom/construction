@@ -12,7 +12,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess.Repository;
 
-
 namespace WebPages
 {
     public partial class AdminLogin : System.Web.UI.Page
@@ -24,7 +23,8 @@ namespace WebPages
                 FillImageText();
             }
         }
-        void FillImageText()
+
+        private void FillImageText()
         {
             try
             {
@@ -44,8 +44,6 @@ namespace WebPages
             }
         }
 
-
-
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtName.Value) || string.IsNullOrEmpty(txtPassword.Value))
@@ -60,7 +58,7 @@ namespace WebPages
             }
             else
             {
-                lblWarning.Text = "کد وارد شده صحیح نمی باشد";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ');", true);
                 txtImage.Value = "";
                 FillImageText();
                 return;
@@ -71,23 +69,16 @@ namespace WebPages
             int eid = ar.getAdminIDByUsername_Password(txtName.Value, txtPassword.Value);
             if (eid == 0)
             {
-                lblWarning.Text = "نام کاربری یا رمز ورود اشتباه است";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز ورود اشتباه است ');", true);
                 txtImage.Value = "";
                 FillImageText();
                 return;
             }
             else
             {
-
                 Session.Add("adminid", 1);
                 Response.Redirect("/Admin/Inbox");
             }
-
         }
-
-
-
-
-
     }
 }

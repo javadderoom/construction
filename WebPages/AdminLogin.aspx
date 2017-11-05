@@ -27,58 +27,96 @@
         .form-control:focus {
             border-color: #18bc9c;
         }
- </style>
+    </style>
 </head>
 <body style="overflow-x: hidden">
 
-    <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div class="container-fluid MainDiv">
-            <div class="col-md-8" style="direction: rtl; margin-top: 10px;">
-            </div>
-            <div class="row mrgTop20">
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-8" style="margin-top: 20px;">
-                    نام کاربری
-                  <br />
-                    <input type="text" class="form-control" id="txtName" runat="server" maxlength="50" style="width: 400px;" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
-                    <br />
-                    رمز عبور
-                  <br />
-                    <input type="password" class="form-control" id="txtPassword" runat="server" maxlength="50" style="width: 400px;" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
-                    <br />
-                    <%-- <div id="dvCaptcha">
-                        </div>
-                        <asp:TextBox ID="txtCaptcha" runat="server" Style="display: none" />
-                        <asp:RequiredFieldValidator ID="rfvCaptcha" ErrorMessage="Captcha validation is required." ControlToValidate="txtCaptcha"
-                            runat="server" ForeColor="Red" Display="Dynamic" />--%>
+    <!-- Header -->
 
-                    <asp:UpdatePanel ID="UpdateImage" runat="server">
-                        <ContentTemplate>
-                            <table>
-                                <tr>
-                                    <td style="height: 40px; width: 50px;">
-                                        <asp:Image ID="btnImg" runat="server" CssClass="imgInline" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                    <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline"></input>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button runat="server" ID="BtnLogin" CssClass="btn btn-success" Text="ورود" OnClick="BtnLogin_Click" Height="50" Width="100" />
-                    <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" BackColor="LightPink"></asp:Label>
-                    <span runat="server" id="SpLabl" class="alert-danger"></span>
-                    <br />
-                    <br />
-                </div>
-                <div class="col-md-4">
+    <div>
+        <div class="page-bg"></div>
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 "></div>
+                    <div class="loginContainer col-md-4 col-sm-12 col-xs-12">
+
+                        <div class=" MainDiv ">
+                            <div class="loginLogo"></div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 loginContent">
+
+                                <div>
+
+                                    <br />
+                                    <div class="loginInfo">
+                                        <div class="userText">
+                                            <span class="glyphicon glyphicon-user "></span>
+                                            <input type="text" placeholder="نام کاربری" class="" id="txtName" runat="server" maxlength="50" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="myAlert"
+                                                runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                        </div>
+
+                                        <br />
+
+                                        <div class="passText">
+                                            <div class="passcontainer">
+                                                <div class="passIcon"></div>
+                                            </div>
+                                            <input type="password" placeholder="رمز عبور" class="" id="txtPassword" runat="server" maxlength="50" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtPassword" CssClass="myAlert"
+                                                runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="row captchaBlock">
+                                        <div class="col-md-5 col-xs-5">
+                                            <asp:UpdatePanel ID="UpdateImage" runat="server">
+                                                <ContentTemplate>
+                                                    <table>
+                                                        <tr>
+                                                            <td style="height: 100%; width: 50px;">
+                                                                <asp:Image ID="btnImg" runat="server" CssClass="imgInline" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                        <div class="col-md-7 col-xs-7">
+                                            <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline; font-family: Tahoma"></input>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 btnLogindiv" style="">
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <asp:Button runat="server" ID="BtnLogin" CssClass="btnLogin" Text="ورود" OnClick="BtnLogin_Click" />
+                                            </div>
+
+                                            <br />
+                                        </div>
+                                        <%--<div class="col-md-12 col-xs-12 col-sm-12 emailForgot">
+
+                                            <nav class="cl-effect-21">
+                                                رمز عبور خود را فراموش کرده اید؟
+                                                <a href="#">اینجا</a>
+                                                را کلیک کنید
+                                            </nav>
+                                        </div>--%>
+                                    </div>
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
+    <!-- Footer -->
 </body>
 </html>

@@ -117,7 +117,9 @@ namespace WebPages
                 return;
             }
             ///////////////////////////////////////////////////////////////////////////////////
-            bool iscomplete = true;
+            bool Employee = false;
+            bool User = false;
+            bool isComplete = true;
             try
             {
                 using (TransactionScope ts = new TransactionScope())
@@ -142,7 +144,7 @@ namespace WebPages
 
                         int id = ur.getLastUserID();
                         Session.Add("userid", id);
-                        Response.Redirect("/Employee/Profile");
+                        User = true;
                     }
                     else
                     {
@@ -154,7 +156,6 @@ namespace WebPages
                         u.PostalCode = txtzip.Value;
                         u.Password = txtPassword.Value;
                         u.Score = 0;
-
 
                         FileStream fStream = File.OpenRead(Server.MapPath("~/_construction/images/user128px.png"));
                         byte[] contents = new byte[fStream.Length];
@@ -174,9 +175,8 @@ namespace WebPages
                         int id = ur.getLastEmployeeID();
                         Session.Add("employeeid", id);
 
-
+                        Employee = true;
                     }
-
 
                     ts.Complete();
                 }
@@ -184,15 +184,19 @@ namespace WebPages
             catch (Exception m)
             {
                 string txt = m.Message;
-                iscomplete = false;
+                isComplete = false;
             }
-            if (iscomplete)
+            if (isComplete)
             {
-                Response.Redirect("/Employee/Profile");
+                if (Employee)
+                {
+                    Response.Redirect("/Employee/Profile");
+                }
+                else
+                {
+                    Response.Redirect("/User/Profile");
+                }
             }
-
-
-
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)

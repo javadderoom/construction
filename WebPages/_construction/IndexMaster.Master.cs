@@ -140,7 +140,7 @@ namespace WebPages._construction
             var li1 = new HtmlGenericControl("li");
             li1.Attributes["class"] = "message";
             var a1 = new HtmlGenericControl("a");
-            a1.Attributes["href"] = "/Employee/Inbox";
+            a1.Attributes["href"] = "/User/Inbox";
             var div5 = new HtmlGenericControl("div");
             div5.Attributes["class"] = "mssageBox";
             var span = new HtmlGenericControl("span");
@@ -188,7 +188,7 @@ namespace WebPages._construction
             #endregion work
 
             MessageRepository repms = new MessageRepository();
-            span1.InnerText = repms.AdminNewMessageCount();
+            span1.InnerText = repms.CountUserNewMessages(Session["userid"].ToString().ToInt());
             ul.Controls.Add(li1);
             ul.Controls.Add(li5);
             ul.Controls.Add(li4);
@@ -332,7 +332,7 @@ namespace WebPages._construction
             #endregion work
 
             MessageRepository repms = new MessageRepository();
-            span1.InnerText = repms.AdminNewMessageCount();
+            span1.InnerText = repms.CountUserNewMessages(Session["employeeid"].ToString().ToInt());
             ul.Controls.Add(li1);
             ul.Controls.Add(li5);
             ul.Controls.Add(li4);

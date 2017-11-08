@@ -51,36 +51,8 @@ namespace WebPages.Panels.UserPanel
             lblmobile.Value = dt.Rows[0][5].ToString();
             lblemail.Value = dt.Rows[0][10].ToString();
             lbladdress.Value = dt.Rows[0][6].ToString();
-            pImg.ImageUrl = setInlineImage(id);
-
         }
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
 
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-
-
-
-                }
-            }
-            return ans;
-        }
         public void fillDDL()
         {
             StatesRepository r = new StatesRepository();
@@ -127,7 +99,6 @@ namespace WebPages.Panels.UserPanel
         {
             save();
             Response.Redirect("/User/Profile");
-
         }
     }
 }

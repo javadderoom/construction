@@ -9,7 +9,6 @@ namespace WebPages
 {
     public class Global : System.Web.HttpApplication
     {
-
         protected void Application_Start(object sender, EventArgs e)
         {
             RegisterRoutes(System.Web.Routing.RouteTable.Routes);
@@ -17,7 +16,6 @@ namespace WebPages
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -27,26 +25,22 @@ namespace WebPages
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-
         }
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
         }
 
         protected void Session_End(object sender, EventArgs e)
         {
-
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
-
         }
-        void RegisterRoutes(System.Web.Routing.RouteCollection routes)
-        {
 
+        private void RegisterRoutes(System.Web.Routing.RouteCollection routes)
+        {
             //matual
             routes.MapPageRoute("R1", "Blogs/{id}/{text}", "~/_construction/BlogPost.aspx");
             routes.MapPageRoute("R2", "Blogs", "~/_construction/Blogs.aspx");
@@ -83,8 +77,7 @@ namespace WebPages
             routes.MapPageRoute("R29", "Admin/Orders/OrderDetail", "~/Panels/Admin/ProjectDetail.aspx");
             routes.MapPageRoute("R32", "Admin/Scores", "~/Panels/Admin/Scores.aspx");
             routes.MapPageRoute("R30", "Admin/ManageUsers/UserInfo", "~/Panels/Admin/UserInfo.aspx");
-            routes.MapPageRoute("R30", "Admin/ManageUsers", "~/Panels/Admin/UserInfo.aspx");
-
+            routes.MapPageRoute("R50", "Admin/ManageJobGroups", "~/Panels/Admin/ManageJobGroups.aspx");
             //Employee
             routes.MapPageRoute("R31", "Employee/Profile", "~/Panels/EmployeePanel/profile.aspx");
             //routes.MapPageRoute("R32", "Employee/ChangeInfo", "~/Panels/EmployeePanel/ChangeInfo.aspx");
@@ -100,8 +93,6 @@ namespace WebPages
             routes.MapPageRoute("R40", "User/Inbox", "~/Panels/UserPanel/MessageInbox.aspx");
             routes.MapPageRoute("R41", "User/Inbox/SelectedMessage", "~/Panels/UserPanel/Messages.aspx");
             routes.MapPageRoute("R42", "User/NewMessage", "~/Panels/UserPanel/newMessage.aspx");
-
-
         }
     }
 }

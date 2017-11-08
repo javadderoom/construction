@@ -47,7 +47,8 @@
     padding: 10px;
     position: absolute;
     width: 270px;
-    min-height: 140px;
+    height: 400px;
+    overflow-y: auto;
     top: 62px;
     right: -55px;
     background-color: #fdfdfd;

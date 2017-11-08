@@ -11,7 +11,7 @@ using System.Data;
 
 namespace WebPages.Panels.Admin
 {
-    public partial class ManageGroups : System.Web.UI.Page
+    public partial class ManageJobGroups : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,21 +19,23 @@ namespace WebPages.Panels.Admin
             {
                 if (!IsPostBack)
                 {
-                    GroupsRepository repGP = new GroupsRepository();
+                    JobGroupsRepository repGP = new JobGroupsRepository();
+                    JobRepository jobs = new JobRepository();
                     DataTable allGroups = new DataTable();
-                    allGroups = repGP.LoadAllGroups();
+                    allGroups = repGP.getJobGroups();
                     gvGroups.DataSource = allGroups;
                     gvGroups.DataBind();
                     ddlGroups.DataSource = allGroups;
-                    ddlGroups.DataTextField = "Title";
-                    ddlGroups.DataValueField = "GroupID";
+                    ddlGroups.DataTextField = "JobGroupTitle";
+                    ddlGroups.DataValueField = "JobGroupID";
                     ddlGroups.DataBind();
                     ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-                    gvSubGroups.DataSource = repGP.LoadAllSubGroups();
+
+                    gvSubGroups.DataSource = jobs.getAllJobsByGroupID();
                     gvSubGroups.DataBind();
-                    ddlgroupsForModal.DataSource = allGroups;
-                    ddlgroupsForModal.DataTextField = "Title";
-                    ddlgroupsForModal.DataValueField = "GroupID";
+                    ddlgroupsForModal.DataSource = jobs.getAllJobsByGroupID();
+                    ddlgroupsForModal.DataTextField = "JobTitle";
+                    ddlgroupsForModal.DataValueField = "JobID";
                     ddlgroupsForModal.DataBind();
                     ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
                 }

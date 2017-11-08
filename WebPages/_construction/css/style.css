@@ -13,6 +13,10 @@
     min-height: 200px;
 }
 
+.mainSection {
+    min-height: 200px;
+}
+
 .breadcrumb > li + li:before {
     content: none !important;
 }

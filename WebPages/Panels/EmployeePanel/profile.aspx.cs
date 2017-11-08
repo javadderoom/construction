@@ -194,6 +194,7 @@ namespace WebPages.Panels.EmployeePanel
                 er.setEmployeeResume(empid, contents);
                 lblWarning.Text = "اطلاعات با موفقیت ویرایش شد.";
                 lblWarning.ForeColor = System.Drawing.Color.Green;
+                Response.Redirect("/Employee/Profile");
             }
         }
     }

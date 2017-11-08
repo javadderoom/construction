@@ -21,8 +21,8 @@ namespace WebPages.Panels.EmployeePanel
             {
                 EmployeesRepository repemplo = new EmployeesRepository();
                 Employee emp = repemplo.getEmployeeByID(Session["employeeid"].ToString().ToInt());
-                //pImg.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
-                //pimg2.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
+                pImg.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
+                pimg2.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
                 Name.InnerText = emp.FirstName + " " + emp.LastName;
                 MessageRepository repmsg = new MessageRepository();
                 messageCount.InnerText = repmsg.CountUserNewMessages(Session["employeeid"].ToString().ToInt());

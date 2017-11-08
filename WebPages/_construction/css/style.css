@@ -1,4 +1,9 @@
-﻿.blogDateTime {
+﻿html,
+body {
+    height: 100%;
+}
+
+.blogDateTime {
     text-align: left;
 }
 

@@ -83,6 +83,7 @@ namespace WebPages
             routes.MapPageRoute("R29", "Admin/Orders/OrderDetail", "~/Panels/Admin/ProjectDetail.aspx");
             routes.MapPageRoute("R32", "Admin/Scores", "~/Panels/Admin/Scores.aspx");
             routes.MapPageRoute("R30", "Admin/ManageUsers/UserInfo", "~/Panels/Admin/UserInfo.aspx");
+            routes.MapPageRoute("R30", "Admin/ManageUsers", "~/Panels/Admin/UserInfo.aspx");
 
             //Employee
             routes.MapPageRoute("R31", "Employee/Profile", "~/Panels/EmployeePanel/profile.aspx");

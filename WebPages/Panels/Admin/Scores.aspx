@@ -24,7 +24,7 @@
 
         @media (max-width: 414px) {
             .myContainer {
-                padding: 30px 10px;
+                padding: 30px 5%;
             }
         }
     </style>

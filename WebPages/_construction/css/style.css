@@ -10,6 +10,7 @@
     direction: rtl;
     padding: 50px 5%;
     box-shadow: 5px 4px 10px #858585;
+    min-height: 200px;
 }
 
 .breadcrumb > li + li:before {

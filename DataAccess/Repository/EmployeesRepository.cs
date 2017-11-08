@@ -87,7 +87,7 @@ namespace DataAccess.Repository
             var pl = (
                 from r in database.EmployeeScores
 
-                orderby r.Score
+                orderby r.Score descending
                 select r);
             result = pl.ToList();
             return OnlineTools.ToDataTable(result.ToList());

@@ -6,7 +6,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <section class="mainSection">
+    <div class="bigDiv">
+
         <div class="c_title col-md-3 col-sm-12 col-xs-12">
             <h4>
                 <asp:Literal runat="server" Text="اطلاعات کاربر" />
@@ -85,7 +86,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
 </asp:Content>

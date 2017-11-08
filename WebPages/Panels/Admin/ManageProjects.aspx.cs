@@ -183,7 +183,7 @@ namespace WebPages.Panels.Admin
 
                 string id = row.Cells[0].Text;
 
-                Response.Redirect(" /Projects/ " + id + "/" + row.Cells[1].Text.Replace(' ', '-'));//show
+                Response.Redirect("/Projects/" + id + "/" + row.Cells[1].Text.Replace(' ', '-'));//show
             }
             if (e.CommandName == "Delet")
             {

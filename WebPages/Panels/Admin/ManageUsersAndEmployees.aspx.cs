@@ -53,7 +53,7 @@ namespace WebPages.Panels.Admin
                 if (userid % 2 == 0)
                 {
                     //karmand
-                    Response.Redirect("Admin/ManageUsers/EmployeeInfo");
+                    Response.Redirect("/Admin/ManageUsers/EmployeeInfo");
                 }
                 else
                 {

@@ -108,7 +108,7 @@ namespace WebPages.Panels.Admin
                     tbxMessageText.Value = "";
                 }
                 catch
-                {
+                {//jh
                     lblWarning.Text = "در ارسال پیام مشکلی بوجود آمد.لطفا مجددا سعی کنید";
                     lblWarning.ForeColor = System.Drawing.Color.Red;
                 }

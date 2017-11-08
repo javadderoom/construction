@@ -102,7 +102,7 @@
 
                                             <nav class="cl-effect-21">
                                                 رمز عبور خود را فراموش کرده اید؟
-                                                <a href="#">اینجا</a>
+                                                <a href="/ForgotPass">اینجا</a>
                                                 را کلیک کنید
                                             </nav>
                                         </div>

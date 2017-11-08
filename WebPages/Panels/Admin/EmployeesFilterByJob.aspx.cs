@@ -228,6 +228,7 @@ namespace WebPages.Panels.Admin
         {
             EmployeeProjectRepository ep = new EmployeeProjectRepository();
             int projid = Session["ProjectLastIDForEmployeeFilter"].ToString().ToInt();
+            Session.Remove("ProjectLastIDForEmployeeFilter");
             EmployeeProject em;
 
             foreach (int i in loi)
@@ -237,6 +238,7 @@ namespace WebPages.Panels.Admin
                 em.ProjectID = projid;
                 ep.SaveEmployeeProject(em);
             }
+            Response.Redirect("/Admin/ManageProjects");
         }
     }
 }

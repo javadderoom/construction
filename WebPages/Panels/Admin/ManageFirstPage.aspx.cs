@@ -46,7 +46,7 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvSlider.Rows[index];
 
-                Response.Redirect("Admin/EditSlider/" + row.Cells[0].Text);
+                Response.Redirect("/Admin/EditSlider/" + row.Cells[0].Text);
             }
         }
 

@@ -323,7 +323,8 @@ namespace WebPages._construction
                 text += "'/></div ><div class='employeeName'><h3>";
                 text += "";
                 text += fullName;
-                text += "</h3></div><div class='arrow row m0'><img src='images/testimonial/down-arrow.png'/></div><div class='projectNum'><h4>";
+                string txt = ResolveUrl("images/testimonial/down-arrow.png");
+                text += "</h3></div><div class='arrow row m0'><img src='" + txt + "'/></div><div class='projectNum'><h4>";
                 text += " تعداد پروژه ها";
                 text += "</h4><h3>";
                 text += projectCount;

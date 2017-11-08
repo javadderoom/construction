@@ -22,7 +22,7 @@ namespace WebPages.Panels.EmployeePanel
             }
             else
             {
-                Response.Redirect("~/Login");
+                Response.Redirect("/Login");
             }
         }
 

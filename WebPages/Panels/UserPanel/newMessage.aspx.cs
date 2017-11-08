@@ -30,7 +30,7 @@ namespace WebPages.Panels.UserPanel
             }
             else
             {
-                Response.Redirect("~/Login");
+                Response.Redirect("/Login");
             }
         }
 

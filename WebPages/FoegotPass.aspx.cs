@@ -83,7 +83,7 @@ namespace WebPages._construction
                     string password = "2210226104H";
                     string emailTo = emp.Email;
                     string subject = "فراموشی رمز";
-                    string body = "<p style='direction: rtl; text - align:right'><p><span style='font-size:18px'><strong>کاربر محترم سلام.</strong></span></p><p>این پیام شامل رمز ورود شما میباشد و به این دلیل برای شما ارسال شده که شخصی ایمیل شما را در بخش فراموشی رمز عبور وارد کرده است.</p><p>اگر این شخص شما نبوده اید این پیام را نادیده بگیرید،در غیر این صورت میتوانید با اطلاعات زیر وارد شوید :</p><p>نام کاربری :&quot;" + emp.UserName + "&quot;</p><p>رمزعبور :&quot;" + emp.Password + "&quot;</p><p style='text-align:center'>با تشکر</p><p style='text-align:center'>تیم پشتیبانی <a href='http://localhost:6421'>وبسایت</a></p></p>";
+                    string body = "<p style='direction: rtl; text - align:right'><p><span style='font-size:18px'><strong>کاربر محترم سلام.</strong></span></p><p>این پیام شامل رمز ورود شما میباشد و به این دلیل برای شما ارسال شده که شخصی ایمیل شما را در بخش فراموشی رمز عبور وارد کرده است.</p><p>اگر این شخص شما نبوده اید این پیام را نادیده بگیرید،در غیر این صورت میتوانید با اطلاعات زیر وارد شوید :</p><p>نام کاربری  :&quot; " + emp.UserName + " &quot; </p><p>رمزعبور  :&quot; " + emp.Password + " &quot; </p><p style='text-align:center'>با تشکر</p><p style='text-align:center'>تیم پشتیبانی <a href='http://localhost:6421'>وبسایت</a></p></p>";
 
                     using (MailMessage mail = new MailMessage())
                     {

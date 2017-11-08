@@ -136,10 +136,8 @@ namespace WebPages
                         u.State = ddlState.SelectedValue.ToInt();
                         u.Email = txtEmail.Value;
                         u.RegSeen = false;
-
                         UsersRepository ur = new UsersRepository();
                         ur.SaveUsers(u);
-
                         int id = ur.getLastUserID();
                         Session.Add("userid", id);
                         Response.Redirect("/Employee/Profile");

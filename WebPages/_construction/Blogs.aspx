@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <section id="pageCover" class="row blogPage">
+    <section id="pageCover" class="row AddNewsHead">
 
         <div class="row pageTitle">مقاله ها</div>
         <div class="row pageBreadcrumbs">

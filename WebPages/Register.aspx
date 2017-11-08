@@ -102,6 +102,7 @@
                                             ایمیل
                                     <br />
                                             <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" id="txtEmail" runat="server" maxlength="50" />
+                                            <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
                                         </div>
                                         <br />
                                     </div>
@@ -121,6 +122,7 @@
                                     <br />
                                         <input type="text" class="" placeholder="شماره موبایل خود را وارد کنید" id="txtmobile" runat="server" maxlength="11" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtmobile" CssClass="alert-danger" runat="server" ErrorMessage="شماره موبایل خود را وارد کنید"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="(\+98|0)?9\d{9}" ControlToValidate="txtmobile" ErrorMessage="فرمت شماره وارد شده اشتباه است"></asp:RegularExpressionValidator>
                                         <br />
 
                                         آدرس

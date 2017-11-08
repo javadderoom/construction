@@ -104,7 +104,7 @@ namespace WebPages
                 lblWarning.ForeColor = Color.Red;
                 return;
             }
-            if (Session["ImgValue"].ToString() == txtImage.Value)
+            if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
             {
                 //lblWarning.Text = "کد وارد شده صحیح می باشد";
                 //FillImageText();

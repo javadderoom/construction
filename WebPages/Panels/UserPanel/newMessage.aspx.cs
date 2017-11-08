@@ -73,7 +73,7 @@ namespace WebPages.Panels.UserPanel
             fStream.Close();
             FileInfo fi = new FileInfo(ps);
             fi.Delete();
-
+            bool done = true;
             using (TransactionScope ts = new TransactionScope())
             {
                 try
@@ -110,9 +110,14 @@ namespace WebPages.Panels.UserPanel
                 }
                 catch
                 {
+                    done = false;
                     lblWarning.Text = "در ارسال پیام مشکلی بوجود آمد.لطفا مجددا سعی کنید";
                     lblWarning.ForeColor = System.Drawing.Color.Red;
                 }
+            }
+            if (done)
+            {
+                Response.Redirect("/User/Inbox");
             }
 
 

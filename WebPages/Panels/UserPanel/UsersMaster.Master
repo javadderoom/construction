@@ -86,14 +86,14 @@
                                             <div class="personName" runat="server" id="Name"></div>
                                             <nav class="ij-effect-3">
 
-                                                <a href="/Employee/Profile">پروفایل</a>
+                                                <a href="/User/Profile">پروفایل</a>
                                             </nav>
 
                                         </div>
                                         <div class="popoverLinks">
                                             <ul>
                                                 <li class="message">
-                                                    <a href="/Employee/Inbox">
+                                                    <a href="/User/Inbox">
                                                         <div class="mssageBox">
 
                                                             <span class="messageBox">صندوق پیام ها
@@ -103,13 +103,13 @@
                                                     </a>
                                                 </li>
                                                 <li class="projects">
-                                                    <a href="/Employee/NewMessage" class="progectReq">
+                                                    <a href="/User/NewMessage" class="progectReq">
                                                         <div class="projectDiv">ارسال پیام</div>
                                                     </a>
                                                 </li>
 
                                                 <li class="projects">
-                                                    <a href="/Employee/SelectJob" class="progectReq">
+                                                    <a href="/User/SelectJob" class="progectReq">
                                                         <div class="projectDiv">انتخاب شغل</div>
                                                     </a>
                                                 </li>

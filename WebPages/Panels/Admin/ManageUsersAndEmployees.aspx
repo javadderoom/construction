@@ -3,14 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <title>مدیریت کاربران</title>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="../../_Styles/ManageGroups.css" rel="stylesheet" />
     <link href="../../_Styles/GridView.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
+    <div class="bigDiv">
 
         <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 100px">
             <div class="input-group">

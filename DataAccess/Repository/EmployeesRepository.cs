@@ -64,7 +64,7 @@ namespace DataAccess.Repository
                 (from r in database.EmployeeScores
                  join h in database.Employees on r.EmployeeID equals h.EmployeeID
                  orderby r.Score
-                 select new { r.FullName, r.Score, r.EmployeeID, h.empImage }).Take(3);
+                 select new { r.FullName, r.Score, r.EmployeeID, h.empImage }).Take(5);
 
             return OnlineTools.ToDataTable(pl.ToList());
         }

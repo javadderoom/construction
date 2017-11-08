@@ -4,6 +4,7 @@
     <title>اطلاعات کاربر</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
+    <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
     <div class="bigDiv">

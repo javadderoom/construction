@@ -109,8 +109,8 @@
                                                 </li>
 
                                                 <li class="projects">
-                                                    <a href="/User/SelectJob" class="progectReq">
-                                                        <div class="projectDiv">انتخاب شغل</div>
+                                                    <a href="/User/OrderNewProject" class="progectReq">
+                                                        <div class="projectDiv">سفارش پروژه</div>
                                                     </a>
                                                 </li>
 

@@ -6,7 +6,7 @@
     <link href="../../_Styles/GridView.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
+    <div class="bigDiv">
         <div class="c-title" style="margin-bottom: 20px; font-size: 16px; font-weight: bold">
             <h3>
 

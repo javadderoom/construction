@@ -8,7 +8,7 @@
             float: left !important;
         }
     </style>
-    <div style="direction: rtl; padding: 28px 100px 20px 100px;">
+    <div class="bigDiv">
         <div class="c-title">
             <h3>
 
@@ -18,8 +18,6 @@
         <div class="right_col" role="main" style="min-height: 420px;">
 
             <span id="tickMessageStatus" style="visibility: hidden; display: none;"></span>
-
-
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -100,7 +98,12 @@
                                             <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
                                                 <span id="ContentPlaceHolder1_FileUploadMessage" class="control-label formLabel" style="color: Green; font-size: 100%;">!حداکثر ظرفیت فایل آپلود 1 مگابایت</span>
 
-                                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                <label class="btn btn-info" style="width: 100px;">
+                                                    <asp:Literal runat="server" Text="انتخاب فایل" />
+
+                                                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="displaynone" BackColor="#CCCCCC" />
+                                                </label>
+                                                <label style="padding: 18px" id="filename"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -157,4 +160,14 @@
             <!-- /footer content -->
         </div>
     </div>
+    <script>
+        $('#ContentPlaceHolder1_FileUpload1').change(function () {
+            var filename = $(this).val();
+            var lastIndex = filename.lastIndexOf("\\");
+            if (lastIndex >= 0) {
+                filename = filename.substring(lastIndex + 1);
+            }
+            $('#filename').html(filename);
+        });
+    </script>
 </asp:Content>

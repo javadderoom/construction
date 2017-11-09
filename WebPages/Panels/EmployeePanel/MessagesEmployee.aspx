@@ -98,12 +98,7 @@
 
                                 <div class="ln_double_solid"></div>
                                 <div class="form-group">
-                                    <div class="col-xs-4 text-left">
-                                        <a href="/Student/ReciveMessages/Back/48698" class="btn btn-default">
-                                            <span class="fa fa-chevron-left"></span>
-                                            بازگشت
-                                        </a>
-                                    </div>
+
                                     <div class="col-xs-8 text-right">
                                         <div id="ContentPlaceHolder1_upMsgBtn">
 

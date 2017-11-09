@@ -82,14 +82,12 @@
                                     <div id="myPopoverContent" style="display: none">
                                         <div class="popoverProfile">
 
-
                                             <asp:Image ID="pImg" CssClass="popupProfileImg" runat="server" />
                                             <div class="personName" runat="server" id="Name"></div>
                                             <nav class="ij-effect-3">
 
                                                 <a href="/Employee/Profile">پروفایل</a>
                                             </nav>
-
                                         </div>
                                         <div class="popoverLinks">
                                             <ul>
@@ -114,19 +112,14 @@
                                                         <div class="projectDiv">انتخاب شغل</div>
                                                     </a>
                                                 </li>
-
-
-
-
                                             </ul>
                                         </div>
                                         <div class="logOutDiv">
 
                                             <div class="logOutContent">
 
-                                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">خروج </</asp:LinkButton>
-
-                                                <div class="glyphicon glyphicon-off iconLeft pull-left" style="float: left"></div>
+                                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">
+                                                      <div class="logOutContent">خروج<span class="glyphicon glyphicon-off iconLeft"></span></div> </</asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>

@@ -30,7 +30,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.registerContainer {
+.row .registerContainer {
     float: none !important;
     filter: unset !important;
     position: relative;
@@ -42,9 +42,9 @@ body {
     top: 50px;
 }
 
-@media(max-width:991px) {
-    .registerContainer {
-        height: 1057px;
+@media(max-width:767px) {
+    .row .registerContainer {
+        height: 1158px;
     }
 }
 
@@ -79,6 +79,10 @@ input::placeholder {
     color: #fad36f;
 }
 
+textarea::placeholder {
+    color: #fad36f;
+}
+
 .registerContent {
     margin-left: auto;
     margin-right: auto;
@@ -102,6 +106,17 @@ input::placeholder {
     border-radius: 4px;
 }
 
+.text textarea {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: transparent;
+    width: 95%;
+    height: 68px;
+    border: 1px white solid;
+    border-radius: 4px;
+    resize: none;
+}
+
 .registerTexts input {
     width: 100%;
     height: 33px;
@@ -119,23 +134,27 @@ select {
     color: #f7bb10;
 }
 
-.dropDiv select:first-child {
-    margin-bottom: 10px;
+.dropDiv {
+    margin-top: 20px;
 }
 
-.dropDiv select:focus {
-    outline: 0px !important;
-    border: 1px solid #F7B918;
-    box-shadow: 0 0px 4px #F7B918;
-}
+    .dropDiv select:first-child {
+        margin-bottom: 10px;
+    }
 
-.dropDiv select::placeholder {
-    color: white;
-}
+    .dropDiv select:focus {
+        outline: 0px !important;
+        border: 1px solid #F7B918;
+        box-shadow: 0 0px 4px #F7B918;
+    }
 
-.dropDiv select option {
-    background: #3c3c3c;
-}
+    .dropDiv select::placeholder {
+        color: white;
+    }
+
+    .dropDiv select option {
+        background: #3c3c3c;
+    }
 
 /*.dropDiv select.decorated option:hover {
         box-shadow: 0 0 10px 100px #1882A8 inset;
@@ -207,15 +226,15 @@ a, a.active, a:active, a:focus, a:hover {
 .btnRegister {
     text-align: center;
     transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    border-radius: 30px;
+    border-radius: 30px !important;
     float: right;
     margin-top: 20px;
     margin-right: 10px;
     font-family: IranSans;
-    border: 2px solid #F7B818;
+    border: 2px solid #F7B818 !important;
     background-color: transparent;
-    height: 50px;
-    width: 91%;
+    height: 50px !important;
+    width: 91% !important;
 }
 
     .btnRegister:hover {

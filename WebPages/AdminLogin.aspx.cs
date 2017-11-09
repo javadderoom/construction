@@ -77,6 +77,8 @@ namespace WebPages
             else
             {
                 Session.Add("adminid", 1);
+                Session.Remove("userid");
+                Session.Remove("employeeid");
                 Response.Redirect("/Admin/Inbox");
             }
         }

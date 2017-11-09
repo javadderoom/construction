@@ -48,6 +48,7 @@ namespace DataAccess.Repository
 
         public DataTable getAllOrders()
         {
+            Order o = new Order();
             string Command = string.Format("select o.*,CityName,StateName,FirstName+' '+LastName as fullName ,Mobile,Email,CityName+' - ' +StateName as FullAdd from Orders o left outer join Users u on o.UserID = u.UserID left outer join States s on o.State = s.StateID left outer join Cities c on o.City = c.CityID");
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);

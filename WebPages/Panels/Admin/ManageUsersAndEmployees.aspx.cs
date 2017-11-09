@@ -18,7 +18,6 @@ namespace WebPages.Panels.Admin
                 if (!IsPostBack)
                 {
                     fillGV();
-                    setRegSeenTrue();
                 }
             }
             else
@@ -27,12 +26,10 @@ namespace WebPages.Panels.Admin
             }
         }
 
-        private void setRegSeenTrue()
+        private void setEmpRegSeenTrue(int empid)
         {
-            UsersRepository ur = new UsersRepository();
             EmployeesRepository er = new EmployeesRepository();
-            ur.setRegSeenToTrue();
-            er.setRegSeenToTrue();
+            er.setRegSeenToTrue(empid);
         }
 
         private void fillGV()
@@ -50,16 +47,25 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvUsers.Rows[index];
                 int userid = row.Cells[0].Text.ToInt();
                 Session.Add("useridForAdminDetails", userid);
+
                 if (userid % 2 == 0)
                 {
                     //karmand
+                    setEmpRegSeenTrue(userid);
                     Response.Redirect("/Admin/ManageUsers/EmployeeInfo");
                 }
                 else
                 {
+                    setUserRegSeenTrue(userid);
                     Response.Redirect("/Admin/ManageUsers/UserInfo");
                 }
             }
+        }
+
+        private void setUserRegSeenTrue(int userid)
+        {
+            UsersRepository ur = new UsersRepository();
+            ur.setRegSeenToTrue(userid);
         }
 
         protected void gvUsers_RowDataBound(object sender, GridViewRowEventArgs e)

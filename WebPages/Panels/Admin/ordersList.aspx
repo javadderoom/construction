@@ -21,8 +21,12 @@
                 <asp:BoundField DataField="Title" HeaderText="عنوان سفارش" />
                 <asp:BoundField DataField="FullAdd" HeaderText="شهر و استان" />
                 <asp:BoundField DataField="Budget" HeaderText="بودجه" />
+                <asp:BoundField DataField="IsSeen" HeaderText="IsSeen" />
 
                 <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Label ID="lblSeen" runat="server" Text='<%#  %>'></asp:Label>
+                    </ItemTemplate>
                     <ItemTemplate>
                         <asp:Button ID="Details" runat="server"
                             CommandName="view"

@@ -127,7 +127,7 @@
 
                                         آدرس
                                     <br />
-                                        <input type="text" class="" placeholder="آدرس خود را وارد کنید" id="txtadress" runat="server" maxlength="50" />
+                                        <input type="text" class="" placeholder="آدرس خود را وارد کنید" id="txtadress" runat="server" maxlength="150" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtadress" CssClass="alert-danger" runat="server" ErrorMessage="آدرس را وارد کنید"></asp:RequiredFieldValidator>
                                         <br />
                                         کد پستی

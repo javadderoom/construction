@@ -13,6 +13,15 @@ namespace WebPages.Panels.Admin {
     public partial class newMesaageAdmin {
         
         /// <summary>
+        /// divReciver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReciver;
+        
+        /// <summary>
         /// txtSubject control.
         /// </summary>
         /// <remarks>

@@ -18,11 +18,19 @@ namespace WebPages.Panels.Admin
         {
             if (Session["adminid"] != null)
             {
-                orderid = Session["orderidForDetails"].ToString().ToInt();
-                if (!IsPostBack)
+                if (Session["orderidForDetails"] != null)
                 {
-                    setLabels();
+                    orderid = Session["orderidForDetails"].ToString().ToInt();
+                    if (!IsPostBack)
+                    {
+                        setLabels();
+                    }
                 }
+                else
+                {
+                    Response.Redirect("/Admin/Orders");
+                }
+
             }
             else
             {
@@ -45,6 +53,14 @@ namespace WebPages.Panels.Admin
             ostan.Value = dt.Rows[0][12].ToString();
             city.Value = dt.Rows[0][11].ToString();
             address.Value = dt.Rows[0][10].ToString();
+        }
+
+        protected void btnMessage_Click(object sender, EventArgs e)
+        {
+            OrderRepository or = new OrderRepository();
+            Session.Add("useridForNewMessage", or.returnorder(Session["orderidForDetails"].ToString().ToInt()).UserID);
+            Response.Redirect("/Admin/Message/NewMessage");
+
         }
     }
 }

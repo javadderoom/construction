@@ -19,18 +19,7 @@
 
             <span id="tickMessageStatus" style="visibility: hidden; display: none;"></span>
 
-            <div id="UpdateProgress1" style="display: none;" role="status" aria-hidden="true">
 
-                <div class="divWaiting">
-                    <div class="row">
-                        <div class="col-xs-12 divWaitingText text-center">
-                            <img id="imgWait" src="../Images/ms-loading.gif" align="middle" style="height: 32px; width: 32px;">
-
-                            <span id="lblWait">لطفا چند لحظه صبر کنید ...</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">

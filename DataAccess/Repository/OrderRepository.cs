@@ -55,6 +55,10 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+        public Order returnorder(int id)
+        {
+            return DB.Orders.Where(p => p.OrderID == id).FirstOrDefault();
+        }
 
     }
 

@@ -51,7 +51,7 @@
         href="#"
         class="scrollToTop"></a>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 100%">
 
             <div id="pageloader" class="row m0">
                 <div class="loader-item">

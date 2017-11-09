@@ -1,8 +1,4 @@
-﻿
-
-
-
-.blogDateTime {
+﻿.blogDateTime {
     text-align: left;
 }
 
@@ -19,6 +15,10 @@
 
 .mainSection {
     min-height: 200px;
+}
+
+.alert-info {
+    color: black;
 }
 
 .breadcrumb > li + li:before {

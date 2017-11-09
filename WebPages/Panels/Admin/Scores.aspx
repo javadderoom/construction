@@ -125,4 +125,22 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
+    <script>
+        $(document).ready(function () {
+            var score = document.getElementById("Content_gvEmployees_Score_0");
+
+            score.addEventListener("input", function (event) {
+                if (score.validity.rangeUnderflow) {
+                    score.setCustomValidity("عدد وارد شده باید بین 0 تا 100 باشد!");
+                } else {
+                    score.setCustomValidity("");
+                }
+                if (score.validity.rangeOverflow) {
+                    score.setCustomValidity("عدد وارد شده باید بین 0 تا 100 باشد!");
+                } else {
+                    score.setCustomValidity("");
+                }
+            });
+        });
+    </script>
 </asp:Content>

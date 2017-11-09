@@ -15,8 +15,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
 
-                    <div class="alert alert-info alert-dismissable dirRight text-right" style="color: white; background-color: #18bc9c">
-                        <span id="lblid" runat="server" style="color: White;"><span class="fa fa-arrow-left"></span><b></b><span class="fa fa-arrow-left"></span>کارشناس آموزش مهندسی شیمی- خانم صداقت</span>
+                    <div class="alert alert-info alert-dismissable dirRight text-right" style="color: black; background-color: #18bc9c">
+                        <span id="lblid" runat="server" style="color: black;"><span class="fa fa-arrow-left"></span><b></b><span class="fa fa-arrow-left"></span>کارشناس آموزش مهندسی شیمی- خانم صداقت</span>
                     </div>
 
                     <div class="x_content">

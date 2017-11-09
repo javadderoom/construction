@@ -15,8 +15,9 @@ namespace WebPages.Panels.Admin
 {
     public partial class MessagesAdmin : System.Web.UI.Page
     {
-        int chatid = 0;
-        int userid = 0;
+        private int chatid = 0;
+        private int userid = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["adminid"] != null)
@@ -25,7 +26,6 @@ namespace WebPages.Panels.Admin
                 {
                     chatid = Session["chatidforMessages"].ToString().ToInt();
                     userid = Session["useridforMessages"].ToString().ToInt();
-
 
                     if (!IsPostBack)
                     {
@@ -36,7 +36,6 @@ namespace WebPages.Panels.Admin
                         string elemid = Request.Form["__EVENTTARGET"].ToString();
                         if (elemid.Substring(0, 7) == "btnmsgx")
                         {
-
                             int elid = Int32.Parse(elemid.Substring(7));
                             try
                             {
@@ -44,12 +43,8 @@ namespace WebPages.Panels.Admin
                             }
                             catch
                             {
-
                             }
-
-
                         }
-
                     }
                 }
                 else
@@ -61,7 +56,6 @@ namespace WebPages.Panels.Admin
             {
                 Response.Redirect("/AdminLogin");
             }
-
         }
 
         private void setLabels()
@@ -104,7 +98,6 @@ namespace WebPages.Panels.Admin
             string ps = Server.MapPath(@"~\img\") + filename;
             FileUpload1.SaveAs(ps);
 
-
             FileStream fStream = File.OpenRead(ps);
             byte[] contents = new byte[fStream.Length];
             fStream.Read(contents, 0, (int)fStream.Length);
@@ -138,8 +131,8 @@ namespace WebPages.Panels.Admin
                 lblWarning.Text = "در ارسال پیام مشکلی بوجود آمد.لطفا مجددا سعی کنید";
                 lblWarning.ForeColor = System.Drawing.Color.Red;
             }
-
         }
+
         public string messages()
         {
             MessageRepository mr = new MessageRepository();
@@ -172,7 +165,6 @@ namespace WebPages.Panels.Admin
                 else
                     pers = "کاربر :";
 
-
                 tag += "<div id = \"msg\" style = \"width: 50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
                     "<div id = \"mhead\" style = \"height: 40px; background-color: #18bc9c; padding: 10px\" >" +
                         "<div style = \"float: left;color:white\" > " + dt.Rows[i][9].ToString() + " </div>" +
@@ -184,10 +176,6 @@ namespace WebPages.Panels.Admin
 
                     "</div>" +
               "</div>";
-
-
-
-
             }
             return tag;
         }
@@ -198,6 +186,7 @@ namespace WebPages.Panels.Admin
 
             Response.Write("<script>window.open('" + controlName + "');</script>");
         }
+
         public void download(int idname)
         {
             string ToSaveFileTo = KnownFolders.GetPath(KnownFolder.Downloads) + "\\" + DBManager.CurrentPersianDateWithoutSlash() + DBManager.CurrentTimeWithoutColons() + "file.zip";// Server.MapPath("~\\File\\file.zip");
@@ -211,25 +200,27 @@ namespace WebPages.Panels.Admin
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             using (System.IO.FileStream fs = new System.IO.FileStream(ToSaveFileTo, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
                             {
-                                using (System.IO.BinaryWriter bw = new System.IO.BinaryWriter(fs))
-                                {
-                                    bw.Write(fileData);
-                                    bw.Close();
-                                }
+                                //using (System.IO.BinaryWriter bw = new System.IO.BinaryWriter(fs))
+                                //{
+                                //    bw.Write(fileData);
+                                //    bw.Close();
+                                //}
+                                Response.ContentType = "";
+                                Response.AddHeader("content-disposition", "attachment; filename=" + ToSaveFileTo);
+                                Response.BufferOutput = true;
+                                Response.OutputStream.Write(fileData, 0, fileData.Length);
+                                Response.End();
                             }
                         }
 
                         dr.Close();
                     }
                     cn.Close();
-
                 }
             }
         }
-
     }
 }

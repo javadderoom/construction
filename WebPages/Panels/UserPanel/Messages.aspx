@@ -23,7 +23,7 @@
             }
         }
     </style>
-    <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
+    <div class="bigDiv">
         <input id="hiddenControl" type="hidden" runat="server" />
         <div class="c-title">
             <h4>

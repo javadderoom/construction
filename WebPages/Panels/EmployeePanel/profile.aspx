@@ -63,6 +63,7 @@
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
+                            <label>رمز عبور </label>
                             <div id="wrapper">
                                 <div class="form-group has-feedback">
                                     <input type="password" runat="server" class="form-control dirToLeft" id="password" />

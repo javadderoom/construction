@@ -4,7 +4,15 @@
     <title>پیام جدید</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
+    <style>
+        @media (min-width: 768px) {
+        }
+
+        .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+            float: left !important;
+        }
+    </style>
+    <div class="bigDiv">
         <div class="c-title">
             <h4>
 
@@ -15,8 +23,6 @@
         <div class="right_col" role="main" style="min-height: 420px;">
 
             <span id="tickMessageStatus" style="visibility: hidden; display: none;"></span>
-
-
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -35,7 +41,7 @@
                                                     </div>
 
                                                     <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right dirRight">
-                                                        <div class="alert alert-warning alert-dismissible text-right dirRight" style="background-color: #18bc9c; color: white;" role="alert">
+                                                        <div class="alert alert-warning alert-dismissible text-right dirRight" role="alert">
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
 
                                                             رعایت  اخلاقیات توسط طرفین(درخواست کننده و پاسخ دهنده) در سامانه الزامی خواهد بود، در غیر اینصورت مطابق مقررات برخورد خواهد شد.</span>
@@ -97,7 +103,12 @@
                                             <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
                                                 <span id="ContentPlaceHolder1_FileUploadMessage" class="control-label formLabel" style="color: Green; font-size: 100%;">!حداکثر ظرفیت فایل آپلود 1 مگابایت</span>
 
-                                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                <label class="btn btn-info" style="width: 100px;">
+                                                    <asp:Literal runat="server" Text="انتخاب فایل" />
+
+                                                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="displaynone" BackColor="#CCCCCC" />
+                                                </label>
+                                                <label style="padding: 18px" id="filename"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -162,4 +173,14 @@
             <!-- /footer content -->
         </div>
     </div>
+    <script>
+        $('#ContentPlaceHolder1_FileUpload1').change(function () {
+            var filename = $(this).val();
+            var lastIndex = filename.lastIndexOf("\\");
+            if (lastIndex >= 0) {
+                filename = filename.substring(lastIndex + 1);
+            }
+            $('#filename').html(filename);
+        });
+    </script>
 </asp:Content>

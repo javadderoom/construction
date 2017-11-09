@@ -177,11 +177,11 @@ namespace WebPages._construction
             var li4 = new HtmlGenericControl("li");
             li4.Attributes["class"] = "projects";
             var a4 = new HtmlGenericControl("a");
-            a4.Attributes["href"] = "/Employee/SelectJob";
+            a4.Attributes["href"] = "/User/OrderNewProject";
             a4.Attributes["class"] = "progectReq";
             var div8 = new HtmlGenericControl("div");
             div8.Attributes["class"] = "projectDiv";
-            div8.InnerText = "انتخاب شغل";
+            div8.InnerText = "سفارش پروژه";
             a4.Controls.Add(div8);
             li4.Controls.Add(a4);
 

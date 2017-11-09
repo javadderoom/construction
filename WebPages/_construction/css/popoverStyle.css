@@ -163,11 +163,21 @@ button:focus {
     border-bottom: 1px solid #F7B71E;
 }
 
-    .popoverLinks ul {
-        list-style: none;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+.ulManage1 {
+    width: 50%;
+    float: right;
+}
+
+.ulManage2 {
+    width: 50%;
+    float: left;
+}
+
+.popoverLinks ul {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 .messageCountLink {
     text-align: center;

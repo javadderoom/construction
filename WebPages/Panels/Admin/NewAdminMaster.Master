@@ -81,14 +81,14 @@
                                 <div class="popover-container">
                                     <button type="button" id="btnProfilePopover" class="logInProfile">
                                     </button>
-                                    <div id="myPopoverContent" style="display: none">
+                                    <div id="myPopoverContent" class="adminpop" style="display: none">
                                         <div class="popoverProfile">
 
                                             <img class="popupProfileImg" src="<%= ResolveUrl("../../_construction/images/user128px.png") %>" />
                                             <div class="personName">مدیر سایت</div>
                                         </div>
                                         <div class="popoverLinks">
-                                            <ul>
+                                            <ul class="ulMessage">
                                                 <li class="projects" style="text-align: center">
 
                                                     <h4 class="projectDiv">پیام ها</h4>
@@ -119,7 +119,7 @@
                                             <h4 class="projectDiv">بخش مدیریتی</h4>
                                         </div>
                                         <div class="popoverLinks collapse" id="demo">
-                                            <ul>
+                                            <ul class="ulManage1">
 
                                                 <li class="projects">
                                                     <a href="/Admin/AddProject" class="progectReq">
@@ -147,6 +147,9 @@
                                                         <div class="projectDiv">مدیریت پروژه ها</div>
                                                     </a>
                                                 </li>
+                                            </ul>
+                                            <ul class="ulManage2">
+
                                                 <li class="projects">
                                                     <a href="/Admin/ManageFirstPage" class="progectReq">
                                                         <div class="projectDiv">مدیریت صفحه اول</div>
@@ -169,11 +172,13 @@
                                                 </li>
                                             </ul>
                                         </div>
+
                                         <div class="logOutDiv">
 
                                             <div class="logOutContent">
-                                                <asp:LinkButton ID="LinkButton1" CssClass="ij-effect-3" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">خروج </asp:LinkButton>
-                                                <span class="glyphicon glyphicon-off iconLeft"></span>
+                                                <asp:LinkButton ID="LinkButton1" CssClass="ij-effect-3" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">
+                                                    <div class="logOutContent">خروج<span class="glyphicon glyphicon-off iconLeft"></span></div>
+                                                </asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>

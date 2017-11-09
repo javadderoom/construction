@@ -82,6 +82,20 @@
                                 <div class="row text">
                                     <div class="col-md-12 registerAccountInfo">
 
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                                    نام
+                                    <br />
+                                                    <input type="text" class="" id="txtName" runat="server" maxlength="50" placeholder="نام خود را وارد کنید" />
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام خود را وارد کنید"></asp:RequiredFieldValidator>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                                    نام خانوادگی
+                                    <br />
+                                                    <input type="text" class="" id="txtFamily" runat="server" maxlength="50" placeholder="نام خانوادگی خود را وارد کنید" />
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtFamily" CssClass="alert-danger" runat="server" ErrorMessage="نام خانوادگی را وارد کنید"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
                                                 نام کاربری
@@ -90,19 +104,19 @@
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtusername" CssClass="alert-danger" runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
-                                                رمز عبور
-                                    <br />
-                                                <input type="password" class="" placeholder="رمز عبور خود را وارد کنید" id="txtPassword" runat="server" maxlength="50" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
+                                                ایمیل
+                                                    <br />
+                                                <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" id="txtEmail" runat="server" maxlength="50" />
+                                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
-                                                ایمیل
-                                                    <br />
-                                                <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" id="txtEmail" runat="server" maxlength="50" />
-                                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
+                                                رمز عبور
+                                    <br />
+                                                <input type="password" class="" placeholder="رمز عبور خود را وارد کنید" id="txtPassword" runat="server" maxlength="50" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                                 تکرار رمز عبور
@@ -112,26 +126,13 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <%-- <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
-                                                نام
-                                    <br />
-                                                <input type="text" class="" id="txtName" runat="server" maxlength="50" placeholder="نام خود را وارد کنید" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام خود را وارد کنید"></asp:RequiredFieldValidator>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
-                                                نام خانوادگی
-                                    <br />
-                                                <input type="text" class="" id="txtFamily" runat="server" maxlength="50" placeholder="نام خانوادگی خود را وارد کنید" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtFamily" CssClass="alert-danger" runat="server" ErrorMessage="نام خانوادگی را وارد کنید"></asp:RequiredFieldValidator>
-                                            </div>
-                                        </div>
+                                        </div>--%>
+
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
                                                 موبایل
@@ -191,8 +192,8 @@
                                                 <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline; text-align: right; font-family: Tahoma"></input>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
+            </div>
+            <div class="row">
                                         <div class="col-md-12 btnLogindiv" style="">
                                             <div class="col-md-12 col-xs-12 col-sm-12">
                                                 <asp:Button runat="server" ID="BtnRegister" CssClass="btnRegister" Text="ثبت نام" OnClick="BtnLogin_Click" />

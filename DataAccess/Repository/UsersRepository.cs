@@ -30,7 +30,7 @@ namespace DataAccess.Repository
         {
             int query =
                 (from r in database.Users
-                 where r.UserName == username && r.Password == password
+                 where ((r.UserName == username) && (r.Password == password))
                  select r.UserID).FirstOrDefault();
 
             return query;
@@ -167,11 +167,11 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
-        public void setRegSeenToTrue()
+        public void setRegSeenToTrue(int userid)
         {
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
             conn.Open();
-            string sql2 = string.Format("update Users set RegSeen = 1");
+            string sql2 = string.Format("update Users set RegSeen = 1 where UserID = {0}", userid);
             SqlCommand myCommand2 = new SqlCommand(sql2, conn);
             myCommand2.ExecuteNonQuery();
             conn.Close();

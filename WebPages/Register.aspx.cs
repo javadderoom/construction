@@ -73,21 +73,41 @@ namespace WebPages
                 || string.IsNullOrEmpty(txtadress.Value) || string.IsNullOrEmpty(txtFamily.Value))
             {
                 lblWarning.Text = "اطلاعات را کامل وارد کنید";
+                txtImage.Value = "";
+                FillImageText();
+                return;
+            }
+            if (
+                (txtusername.Value.Length > 50) || (txtName.Value.Length > 50) || (txtFamily.Value.Length > 50) ||
+                (txtEmail.Value.Length > 150) || (txtPassword.Value.Length > 50) || (txtzip.Value.Length > 10) ||
+                (txtmobile.Value.Length > 11) || (txtadress.Value.Length > 150) || (txtpassword2.Value.Length > 50) ||
+                (txtImage.Value.Length > 5)
+              )
+            {
+                lblWarning.Text = "اطلاعات ورودی بیش از حد مجاز";
+                txtImage.Value = "";
+                FillImageText();
                 return;
             }
             if (txtPassword.Value != txtpassword2.Value)
             {
                 lblWarning.Text = "رمز های عبور مطابقت ندارند";
+                txtImage.Value = "";
+                FillImageText();
                 return;
             }
             if (txtmobile.Value.Length < 11)
             {
                 lblWarning.Text = "شماره موبایل 11 رقمی خود را وارد کنید";
+                txtImage.Value = "";
+                FillImageText();
                 return;
             }
             if (txtzip.Value.Length < 10)
             {
                 lblWarning.Text = "کد پستی 10 رقمی خود را وارد کنبد";
+                txtImage.Value = "";
+                FillImageText();
                 return;
             }
             EmployeesRepository em = new EmployeesRepository();
@@ -96,14 +116,30 @@ namespace WebPages
             {
                 lblWarning.Text = "این نام کاربری از قبل وجود دارد";
                 lblWarning.ForeColor = Color.Red;
+                txtImage.Value = "";
+                FillImageText();
+                txtusername.Value = "";
+                return;
+            }
+            if (em.isThereEmail(txtEmail.Value))
+            {
+                lblWarning.Text = "این ایمیل از قبل وجود دارد";
+                lblWarning.ForeColor = Color.Red;
+                txtImage.Value = "";
+                FillImageText();
+                txtEmail.Value = "";
                 return;
             }
             if (rdiUsers.Checked && urr.isThereUsername(txtusername.Value))
             {
                 lblWarning.Text = "این نام کاربری از قبل وجود دارد";
                 lblWarning.ForeColor = Color.Red;
+                txtImage.Value = "";
+                FillImageText();
+                txtusername.Value = "";
                 return;
             }
+
             if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
             {
                 //lblWarning.Text = "کد وارد شده صحیح می باشد";

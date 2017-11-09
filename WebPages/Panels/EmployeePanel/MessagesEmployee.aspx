@@ -159,7 +159,7 @@
                                                 <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
                                                     <span id="ContentPlaceHolder1_FileUploadMessage" class="control-label formLabel" style="color: Green; font-size: 100%;">!حداکثر ظرفیت فایل آپلود 1 مگابایت</span>
 
-                                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                    <asp:FileUpload ID="FileUpload1" runat="server" accept=".zip" />
                                                 </div>
                                             </div>
                                         </div>

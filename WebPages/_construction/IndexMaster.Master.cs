@@ -22,15 +22,17 @@ namespace WebPages._construction
             bool Employee = false;
             if (Session["adminid"] != null)//for Admin
             {
-                string txt = Session["adminid"].ToString();
+
                 Admin = true;
             }
             else if (Session["userid"] != null)//for User
             {
+
                 User = true;
             }
             else if (Session["employeeid"] != null)//for Emplyoee
             {
+
                 Employee = true;
             }
             if (Admin)

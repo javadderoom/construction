@@ -24,10 +24,9 @@
                 <asp:BoundField DataField="IsSeen" HeaderText="IsSeen" />
 
                 <asp:TemplateField>
+
                     <ItemTemplate>
-                        <asp:Label ID="lblSeen" runat="server" Text='<%#  %>'></asp:Label>
-                    </ItemTemplate>
-                    <ItemTemplate>
+                        <asp:Label ID="lblSeen" runat="server" ForeColor="Green" Text='<%# (((Eval("IsSeen").ToString() == "False")) ? "سفارش جدید" : "")  %>'></asp:Label>
                         <asp:Button ID="Details" runat="server"
                             CommandName="view"
                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"

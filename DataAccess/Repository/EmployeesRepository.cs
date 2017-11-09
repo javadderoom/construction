@@ -97,7 +97,7 @@ namespace DataAccess.Repository
         {
             int query =
                 (from r in database.Employees
-                 where r.UserName == username && r.Password == password
+                 where ((r.UserName == username) && (r.Password == password))
                  select r.EmployeeID).FirstOrDefault();
 
             return query;
@@ -155,6 +155,17 @@ namespace DataAccess.Repository
             database.SaveChanges();
         }
 
+        public bool isThereEmail(string value)
+        {
+            int cnt1 =
+                (from r in database.Employees where r.Email == value select r).Count();
+            int cnt2 =
+                (from r in database.Users where r.Email == value select r).Count();
+            int res = cnt1 + cnt2;
+            if (res == 0) return false;
+            return true;
+        }
+
         public bool isThereUsername(string uname)
         {
             int cnt =
@@ -198,11 +209,11 @@ namespace DataAccess.Repository
             }
         }
 
-        public void setRegSeenToTrue()
+        public void setRegSeenToTrue(int empid)
         {
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
             conn.Open();
-            string sql2 = string.Format("update Employees set RegSeen = 1");
+            string sql2 = string.Format("update Employees set RegSeen = 1 where EmployeeID = {0}", empid);
             SqlCommand myCommand2 = new SqlCommand(sql2, conn);
             myCommand2.ExecuteNonQuery();
             conn.Close();

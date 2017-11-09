@@ -14,6 +14,7 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Add("adminid", 1);
             if (Session["adminid"] != null)
             {
                 if (!IsPostBack)
@@ -42,6 +43,8 @@ namespace WebPages.Panels.Admin
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = gvChats.Rows[index];
                 int orderid = row.Cells[0].Text.ToInt();
+                OrderRepository or = new OrderRepository();
+                or.setIsSeenToTrue(orderid);
                 Session.Add("orderidForDetails", orderid);
                 Response.Redirect("/Admin/Orders/OrderDetail");
             }
@@ -49,7 +52,7 @@ namespace WebPages.Panels.Admin
 
         protected void gvChats_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
+            this.gvChats.Columns[5].Visible = false;
         }
     }
 }

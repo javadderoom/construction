@@ -101,7 +101,7 @@
                                                 <label class="btn btn-info" style="width: 100px;">
                                                     <asp:Literal runat="server" Text="انتخاب فایل" />
 
-                                                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="displaynone" BackColor="#CCCCCC" />
+                                                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="displaynone" BackColor="#CCCCCC" accept=".zip" />
                                                 </label>
                                                 <label style="padding: 18px" id="filename"></label>
                                             </div>

@@ -102,6 +102,15 @@
                                                         </div>
                                                     </a>
                                                 </li>
+                                                <li class="message">
+                                                    <a href="/Admin/Inbox">
+                                                        <div class="mssageBox">
+                                                            <span class="messageBox">سفارشات جدید
+                                                            </span>
+                                                            <span class="messageCount" runat="server" id="OrderCount"></span>
+                                                        </div>
+                                                    </a>
+                                                </li>
                                                 <li class="projects">
                                                     <a href="/Admin/Message" class="progectReq">
                                                         <div class="projectDiv">ارسال پیام تکی</div>

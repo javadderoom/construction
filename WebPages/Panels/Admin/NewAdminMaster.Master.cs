@@ -19,6 +19,9 @@ namespace WebPages.Panels.Admin
             {
                 MessageRepository repms = new MessageRepository();
                 messageCount.InnerText = repms.AdminNewMessageCount();
+
+                OrderRepository or = new OrderRepository();
+                OrderCount.InnerText = or.AdminNewOrders().ToString();
                 ContactUsRepository repo = new ContactUsRepository();
                 ContactWay cnw = repo.Findcwy(1);
                 phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";

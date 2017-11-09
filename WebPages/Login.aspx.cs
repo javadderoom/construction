@@ -76,6 +76,8 @@ namespace WebPages
                 else
                 {
                     Session.Add("employeeid", eid);
+                    Session.Remove("adminid");
+                    Session.Remove("userid");
                     Response.Redirect("/Employee/Profile");
                 }
             }
@@ -93,6 +95,9 @@ namespace WebPages
                 else
                 {
                     Session.Add("userid", uid);
+
+                    Session.Remove("adminid");
+                    Session.Remove("employeeid");
                     Response.Redirect("/User/Profile");
                 }
             }

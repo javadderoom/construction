@@ -6,6 +6,11 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="PageStyle" runat="server">
     <link href="<%= ResolveUrl("../../_Styles/ProfileStyles.css")%>" rel="stylesheet" />
+    <style>
+        .jobslb {
+            padding: 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
     <div class="bigDiv">
@@ -38,13 +43,13 @@
                         <div class="infoInnerContent">
                             <div class="formGroup">
                                 <label>حیطه ی کاری</label>
-                                <asp:ListBox ID="lbxJobs" runat="server" Height="150" Width="200"></asp:ListBox>
+                                <asp:ListBox ID="lbxJobs" runat="server" CssClass="jobslb" Height="150" Width="200"></asp:ListBox>
                             </div>
                         </div>
                         <div class="infoInnerContent">
                             <div class="formGroup">
-                                <label>رزومه</label>
-                                <asp:Button ID="btnDownLoadResume" CssClass="btnLogin" runat="server" Text="دانلود رزومه" OnClick="btnDownLoadResume_Click" />
+
+                                <asp:Button ID="btnDownLoadResume" runat="server" Text="دانلود رزومه" OnClick="btnDownLoadResume_Click" />
                             </div>
                         </div>
                     </div>

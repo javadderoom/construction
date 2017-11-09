@@ -81,6 +81,7 @@ namespace WebPages.Panels.UserPanel
         {
             UsersRepository er = new UsersRepository();
             User em = new User();
+            em = er.getUserById(Session["ee"].ToString().ToInt());
             em.Address = lbladdress.Value;
             em.City = ddlCity.SelectedValue.ToInt();
             em.State = ddlState.SelectedValue.ToInt();

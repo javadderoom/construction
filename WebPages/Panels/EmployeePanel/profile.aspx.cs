@@ -88,6 +88,7 @@ namespace WebPages.Panels.EmployeePanel
         {
             EmployeesRepository er = new EmployeesRepository();
             Employee em = new Employee();
+            em = er.getEmployeeByID(Session["employeeid"].ToString().ToInt());
             em.Address = lbladdress.Value;
             em.City = ddlCity.SelectedValue.ToInt();
             em.State = ddlState.SelectedValue.ToInt();

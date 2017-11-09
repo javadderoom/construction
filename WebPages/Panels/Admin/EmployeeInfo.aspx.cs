@@ -13,7 +13,8 @@ namespace WebPages.Panels.Admin
 {
     public partial class EmployeeInfo : System.Web.UI.Page
     {
-        int empid = 0;
+        private int empid = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["adminid"] != null)
@@ -35,8 +36,6 @@ namespace WebPages.Panels.Admin
             {
                 Response.Redirect("/AdminLogin");
             }
-
-
         }
 
         private void setLabels()
@@ -61,6 +60,7 @@ namespace WebPages.Panels.Admin
 
             setImage();
         }
+
         public int download(int idname)
         {
             string ToSaveFileTo = KnownFolders.GetPath(KnownFolder.Downloads) + "\\" + DBManager.CurrentPersianDateWithoutSlash() + DBManager.CurrentTimeWithoutColons() + "file.zip";// Server.MapPath("~\\File\\file.zip");
@@ -81,9 +81,14 @@ namespace WebPages.Panels.Admin
                             {
                                 using (System.IO.BinaryWriter bw = new System.IO.BinaryWriter(fs))
                                 {
-                                    bw.Write(fileData);
-                                    bw.Close();
+                                    //bw.Write(fileData);
+                                    //bw.Close();
                                 }
+                                Response.ContentType = "zip";
+                                Response.AddHeader("content-disposition", "attachment; filename=" + ToSaveFileTo);
+                                Response.BufferOutput = true;
+                                Response.OutputStream.Write(fileData, 0, fileData.Length);
+                                Response.End();
                             }
                         }
 
@@ -102,6 +107,7 @@ namespace WebPages.Panels.Admin
             if (res == 0)
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کاربر رزومه ای ارسال نکرده است!');", true);
         }
+
         private void setImage()
         {
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
@@ -118,7 +124,6 @@ namespace WebPages.Panels.Admin
                                 byte[] fileData = (byte[])dr.GetValue(0);
                                 Image1.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
                             }
-
                         }
 
                         dr.Close();

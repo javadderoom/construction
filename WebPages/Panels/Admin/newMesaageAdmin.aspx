@@ -14,113 +14,14 @@
 
         <span id="tickMessageStatus" style="visibility: hidden; display: none;"></span>
 
-        <div id="UpdateProgress1" style="display: none;" role="status" aria-hidden="true">
 
-            <div class="divWaiting">
-                <div class="row">
-                    <div class="col-xs-12 divWaitingText text-center">
-                        <img id="imgWait" src="../Images/ms-loading.gif" align="middle" style="height: 32px; width: 32px;">
 
-                        <span id="lblWait">لطفا چند لحظه صبر کنید ...</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessage-label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="modalMessage-label">پیام
-
-                                        <span class="glyphicon glyphicon-info-sign"></span>
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                        </p>
-                        <div id="upModalMessage">
-                            <span id="lblModalMessage"></span>
-                        </div>
-                        <p></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            تایید
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalExit" tabindex="-1" role="dialog" aria-labelledby="modalExit-label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="modalExit-label">خروج از سامانه
-
-                                        <span class="glyphicon glyphicon-off"></span>
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <span id="lblAskExit" style="color: Orange;">آیا برای خروج از سامانه اطمینان دارید؟</span>
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" name="ctl00$btnLogout" value="تایید" id="btnLogout" class="btn btn-primary">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            انصراف
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalSystemInfo" tabindex="-1" role="dialog" aria-labelledby="modalSystemInfo-label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="modalSystemInfo-label">درباره سامانه
-
-                                        <span class="fa fa-info-circle"></span>
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center">
-                            <span style="color: blue;"><b>سامانه مدیریت ارتباطات مستمر (CRM) </b>
-                                <br>
-                                دانشگاه علم و فناوری مازندران
-                                <br>
-                            </span>
-                            <br>
-                            محصول شرکت نرم افزاری<br>
-                            تجارت وب شمال<br>
-                            <br>
-                            نسخه ۲.۰.۰
-                            <br>
-                            زمستان ۱۳۹۵
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            تایید
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-
+                    <div runat="server" id="divReciver"></div>
 
                     <div class="x_content">
                         <div id="demo-form2" class="form-horizontal form-label-right">

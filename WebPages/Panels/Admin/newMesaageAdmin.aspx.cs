@@ -19,7 +19,29 @@ namespace WebPages.Panels.Admin
             if (Session["adminid"] != null)
             {
 
+                if (Session["useridForNewMessage"] == null)
+                {
+                    Response.Redirect("/Admin/Inbox");
+                }
+                else
+                {
+                    int remain = (Session["useridForNewMessage"].ToString().ToInt()) % 2;
+                    if (remain == 0)
+                    {
+                        //emp
+                        EmployeesRepository repemp = new EmployeesRepository();
+                        Employee emp = repemp.getEmployeeByID(Session["useridForNewMessage"].ToString().ToInt());
+                        divReciver.InnerText = "ارسال پیام به : " + emp.FirstName + " " + emp.LastName;
+                    }
+                    else
+                    {
+                        //use
+                        UsersRepository repemp = new UsersRepository();
+                        User emp = repemp.getUserById(Session["useridForNewMessage"].ToString().ToInt());
+                        divReciver.InnerText = "ارسال پیام به : " + emp.FirstName + " " + emp.LastName;
+                    }
 
+                }
 
 
 
@@ -73,6 +95,7 @@ namespace WebPages.Panels.Admin
             FileInfo fi = new FileInfo(ps);
             fi.Delete();
             int userEmployeeid = Session["useridForNewMessage"].ToString().ToInt();
+            bool done = true;
             using (TransactionScope ts = new TransactionScope())
             {
                 try
@@ -108,10 +131,16 @@ namespace WebPages.Panels.Admin
                     tbxMessageText.Value = "";
                 }
                 catch
-                {//jh
+
+                {
+                    done = false;
                     lblWarning.Text = "در ارسال پیام مشکلی بوجود آمد.لطفا مجددا سعی کنید";
                     lblWarning.ForeColor = System.Drawing.Color.Red;
                 }
+            }
+            if (done)
+            {
+                Response.Redirect("/Admin/Inbox");
             }
 
 

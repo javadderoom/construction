@@ -82,7 +82,7 @@ namespace WebPages.Panels.UserPanel
                     maxTime.Value = string.Empty;
                     title.Value = string.Empty;
                     description.Value = string.Empty;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('سفارش شما با موفقیت ارسال گردید.')", true);//لینک بشه
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('سفارش شما با موفقیت ارسال گردید.')window.location ='/User/Inbox'", true);//لینک بشه
                 }
                 catch
                 {

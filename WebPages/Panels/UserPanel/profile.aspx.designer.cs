@@ -103,6 +103,15 @@ namespace WebPages.Panels.UserPanel {
         protected global::System.Web.UI.HtmlControls.HtmlInputText lblemail;
         
         /// <summary>
+        /// regexEmailValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexEmailValid;
+        
+        /// <summary>
         /// ddlState control.
         /// </summary>
         /// <remarks>

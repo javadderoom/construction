@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/UserPanel/UsersMaster.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="WebPages.Panels.UserPanel.profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/UserPanel/UsersMaster.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="WebPages.Panels.UserPanel.profile" %>
 
 <asp:Content ID="content3" ContentPlaceHolderID="pageStyles" runat="server">
     <link href="../../_Styles/ProfileStyles.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
                                 <label>رمز عبور </label>
                                 <div id="wrapper">
                                     <div class="form-group has-feedback">
-                                        <input type="password" runat="server" class="form-control dirToLeft" id="password" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
+                                        <input type="password" runat="server" class="form-control dirToLeft" id="password" />
                                         <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
                                     </div>
                                 </div>

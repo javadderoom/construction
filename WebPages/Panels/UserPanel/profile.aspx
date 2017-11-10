@@ -44,13 +44,13 @@
                         <div class="infoInnerContent">
                             <div class="formGroup">
                                 <label>شناسه </label>
-                                <input id="lblid" class="dirToLeft" runat="server" disabled type="text" />
+                                <input id="lblid" class="dirToLeft" runat="server" disabled="disabled" type="text" />
                             </div>
                         </div>
                         <div class="infoInnerContent">
                             <div class="formGroup">
                                 <label>نام کاربری </label>
-                                <input id="lblusername" class="dirToLeft" runat="server" type="text" />
+                                <input id="lblusername" class="dirToLeft" disabled="disabled" runat="server" type="text" />
                             </div>
                         </div>
                         <%--<label>رمز عبور </label>

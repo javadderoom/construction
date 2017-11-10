@@ -89,20 +89,24 @@ namespace WebPages.Panels.EmployeePanel
             EmployeesRepository er = new EmployeesRepository();
             Employee em = new Employee();
             em = er.getEmployeeByID(Session["employeeid"].ToString().ToInt());
-            em.Address = lbladdress.Value;
+            if (lbladdress.Value != "")
+                em.Address = lbladdress.Value;
             em.City = ddlCity.SelectedValue.ToInt();
             em.State = ddlState.SelectedValue.ToInt();
-            em.Email = lblemail.Value;
-            em.EmployeeID = lblid.Value.ToInt();
-            em.FirstName = lblfirstName.Value;
-            em.LastName = lblLastName.Value;
-            em.Mobile = lblmobile.Value;
-            if (!String.IsNullOrEmpty(password.Value))
-            {
-                em.Password = password.Value;
-            }
-
-            em.UserName = lblusername.Value;
+            if (lblemail.Value != "")
+                em.Email = lblemail.Value;
+            if (lblid.Value != "")
+                em.EmployeeID = lblid.Value.ToInt();
+            if (lblfirstName.Value != "")
+                em.FirstName = lblfirstName.Value;
+            if (lblLastName.Value != "")
+                em.LastName = lblLastName.Value;
+            if (lblmobile.Value != "")
+                em.Mobile = lblmobile.Value;
+            if (password.Value != "")
+            { em.Password = password.Value; }
+            if (lblusername.Value != "")
+                em.UserName = lblusername.Value;
             em.PostalCode = lblzip.Value;
             er.SaveEmployees(em);
         }

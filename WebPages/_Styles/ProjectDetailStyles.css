@@ -50,7 +50,7 @@
 
 @media(max-width:767px) {
     .content {
-        height: 1080px;
+        height: 1173px;
     }
 }
 
@@ -62,4 +62,17 @@
 
 #nr_footer .container:after {
     border-top: 68px solid #F5F8F9;
+}
+
+.btnMessage {
+    text-align: center;
+    transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 30px;
+    float: right;
+    font-family: IranSans;
+    border: 2px solid #F7B818 !important;
+    background-color: transparent;
+    height: 50px !important;
+    width: 85% !important;
+    margin-right: 189px;
 }

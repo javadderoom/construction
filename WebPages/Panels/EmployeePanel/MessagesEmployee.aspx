@@ -28,12 +28,11 @@
         }
     </style>
     <div style="direction: rtl; padding: 28px 7% 20px 7%; margin-bottom: 20px;">
-        <input id="hiddenControl" type="hidden" runat="server" />
         <div class="c-title">
             <h4>
                 <asp:Literal runat="server" Text="پیام انتخاب شده" /></h4>
         </div>
-
+        <div>کاربر : </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">

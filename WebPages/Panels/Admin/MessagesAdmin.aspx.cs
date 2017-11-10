@@ -16,7 +16,7 @@ namespace WebPages.Panels.Admin
     public partial class MessagesAdmin : System.Web.UI.Page
     {
         private int chatid = 0;
-        private int userid = 0;
+        private string userid = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +25,10 @@ namespace WebPages.Panels.Admin
                 if (Session["chatidforMessages"] != null && Session["useridforMessages"] != null)
                 {
                     chatid = Session["chatidforMessages"].ToString().ToInt();
-                    userid = Session["useridforMessages"].ToString().ToInt();
+                    userid = Session["useridforMessages"].ToString();
+
+                    divReciver.InnerText = "نام کاربر : " + userid;
+
 
                     if (!IsPostBack)
                     {
@@ -165,7 +168,7 @@ namespace WebPages.Panels.Admin
                 else
                     pers = "کاربر :";
 
-                tag += "<div id = \"msg\" style = \"width: 50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
+                tag += "<div id = \"msg\"  style = \"width:50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
                     "<div id = \"mhead\" style = \"height: 40px; background-color: #18bc9c; padding: 10px\" >" +
                         "<div style = \"float: left;color:white\" > " + dt.Rows[i][9].ToString() + " </div>" +
                         "<div style = \"float: right\" >" + pers + " </div>" +

@@ -9,7 +9,7 @@
     <link href="../../_Styles/GridView.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="container">
         <h2 style="padding-right: 5px;">مدیریت گروه ها  :   </h2>
 
@@ -25,7 +25,7 @@
                 <td class=" disp" style="margin-top: 40px;">
 
                     <h3>گروه های اصلی : </h3>
-                    <asp:updatepanel id="updatepanel2" runat="server" childrenastriggers="true" updatemode="Conditional">
+                    <asp:UpdatePanel ID="updatepanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                         <ContentTemplate>
 
                             <asp:GridView ID="gvGroups" runat="server"
@@ -68,11 +68,11 @@
                             <asp:AsyncPostBackTrigger ControlID="btnSaveGroupChange" EventName="Click" />
                             <asp:AsyncPostBackTrigger ControlID="btnSaveNewGroup" EventName="Click" />
                         </Triggers>
-                    </asp:updatepanel>
+                    </asp:UpdatePanel>
                 </td>
                 <td class="disp">
 
-                    <asp:updatepanel id="updatepanel1" runat="server" childrenastriggers="true" updatemode="Conditional">
+                    <asp:UpdatePanel ID="updatepanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                         <ContentTemplate>
                             <h3>زیر گروه ها : </h3>
                             <div>
@@ -85,8 +85,8 @@
                                 AllowCustomPaging="False" AllowPaging="True"
                                 OnRowCommand="gvSubGroups_RowCommand" OnPageIndexChanging="gvSubGroups_PageIndexChanging">
                                 <Columns>
-                                    <asp:BoundField DataField="GroupID" HeaderText="شناسه" />
-                                    <asp:BoundField DataField="Title" HeaderText="عنوان" />
+                                    <asp:BoundField DataField="JobID" HeaderText="شناسه" />
+                                    <asp:BoundField DataField="JobTitle" HeaderText="عنوان" />
 
                                     <asp:TemplateField>
                                         <ItemTemplate>
@@ -121,13 +121,13 @@
                             <asp:AsyncPostBackTrigger ControlID="btnSaveNewGroup" EventName="Click" />
                             <asp:AsyncPostBackTrigger ControlID="btnSaveNewSub" EventName="Click" />
                         </Triggers>
-                    </asp:updatepanel>
+                    </asp:UpdatePanel>
                 </td>
             </tr>
         </table>
     </div>
 
-    <asp:updatepanel id="UpdatePanel3" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
 
             <div class="modal fade" id="modalShowGroupDetails" tabindex="-1" role="dialog" aria-labelledby="modalAskSubmitUpdate-label" aria-hidden="true">
@@ -196,8 +196,8 @@
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSaveGroupChange" EventName="Click" />
         </Triggers>
-    </asp:updatepanel>
-    <asp:updatepanel id="UpdatePanel4" runat="server">
+    </asp:UpdatePanel>
+    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
         <ContentTemplate>
 
             <div class="modal fade" id="modalShowSubGroupDetails" tabindex="-1" role="dialog" aria-labelledby="modalAskSubmitUpdate-label" aria-hidden="true">
@@ -266,8 +266,8 @@
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSaveSubGroupChane" EventName="Click" />
         </Triggers>
-    </asp:updatepanel>
-    <asp:updatepanel id="UpdatePanel5" runat="server">
+    </asp:UpdatePanel>
+    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
         <ContentTemplate>
 
             <div class="modal fade" id="modalNewGroup" tabindex="-1" role="dialog" aria-labelledby="modalAskSubmitUpdate-label" aria-hidden="true">
@@ -311,8 +311,8 @@
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSaveSubGroupChane" EventName="Click" />
         </Triggers>
-    </asp:updatepanel>
-    <asp:updatepanel id="UpdatePanel6" runat="server">
+    </asp:UpdatePanel>
+    <asp:UpdatePanel ID="UpdatePanel6" runat="server">
         <ContentTemplate>
 
             <div class="modal fade" id="modalNewSubGroup" tabindex="-1" role="dialog" aria-labelledby="modalAskSubmitUpdate-label" aria-hidden="true">
@@ -392,7 +392,7 @@
             <asp:AsyncPostBackTrigger ControlID="btnSaveNewSub" EventName="Click" />
             <asp:AsyncPostBackTrigger ControlID="btnAddNewSub" EventName="Click" />
         </Triggers>
-    </asp:updatepanel>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
 </asp:Content>

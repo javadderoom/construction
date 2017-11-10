@@ -22,7 +22,7 @@ namespace WebPages.Panels.EmployeePanel
         {
             if (Session["employeeid"] != null)
             {
-                if (Session["chatidForMessages"] != null && Session["employeeid"] != null)
+                if (Session["chatidForMessages"] != null)
                 {
                     chatid = Session["chatidForMessages"].ToString().ToInt();
                     empid = Session["employeeid"].ToString().ToInt();

@@ -22,6 +22,15 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenControl;
         
         /// <summary>
+        /// divReciver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReciver;
+        
+        /// <summary>
         /// lblid control.
         /// </summary>
         /// <remarks>

@@ -87,7 +87,8 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
                                                 نام
                                     <br />
-                                                <input type="text" class="" id="txtName" runat="server" required maxlength="50" placeholder="نام خود را وارد کنید" />
+
+                                                <input type="text" class="" id="txtName" runat="server" required="required" maxlength="50" placeholder="نام خود را وارد کنید" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام خود را وارد کنید"></asp:RequiredFieldValidator>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
@@ -210,33 +211,7 @@
                 </div>
         </form>
     </div>
-    <script>
-        $(document).ready(function () {
-            var score = $('#BtnRegister')
-            var item = document.getElementById('txtName');
-            document.getElementById('BtnRegister').addEventListener("click", function (event) {
 
-                if (!item.checkValidity) {
-                    item.setCustomValidity("این فیلد باید پر شود!");
-                }
-                else {
-                    item.setCustomValidity("");
-                }
-            });
-            //var score = $('#BtnRegister')
-            //var item = document.getElementByTagName('imput[text]');
-            //document.getElementById('BtnRegister').addEventListener("click", function (event) {
-            //    for (i = 0; i <= score.length; i++) {
-            //        if (item[i].checkValidity) {
-            //            item[i].setCustomValidity("این فیلد باید پر شود!");
-            //        } else {
-            //            item[i].setCustomValidity("");
-            //        }
-            //    }
-
-            //});
-        });
-    </script>
     <!-- Footer -->
 </body>
 </html>

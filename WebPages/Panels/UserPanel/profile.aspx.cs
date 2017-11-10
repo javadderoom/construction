@@ -81,8 +81,9 @@ namespace WebPages.Panels.UserPanel
         private void save()
         {
             UsersRepository er = new UsersRepository();
-            User em = new User();
-            em = er.getUserById(Session["ee"].ToString().ToInt());
+
+            User em = er.getUserById(Session["userid"].ToString().ToInt());
+
             if (lbladdress.Value != "")
                 em.Address = lbladdress.Value;
             em.City = ddlCity.SelectedValue.ToInt();

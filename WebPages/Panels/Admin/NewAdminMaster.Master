@@ -103,7 +103,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="message">
-                                                    <a href="/Admin/Inbox">
+                                                    <a href="/Admin/Orders">
                                                         <div class="mssageBox">
                                                             <span class="messageBox">سفارشات جدید
                                                             </span>

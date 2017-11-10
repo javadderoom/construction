@@ -155,7 +155,12 @@
                                                 <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
                                                     <span id="ContentPlaceHolder1_FileUploadMessage" class="control-label formLabel" style="color: Green; font-size: 100%;">!حداکثر ظرفیت فایل آپلود 1 مگابایت</span>
 
-                                                    <asp:FileUpload ID="FileUpload1" runat="server" accept=".zip" />
+                                                    <label class="btn btn-info" style="width: 100px;">
+                                                        <asp:Literal runat="server" Text="انتخاب فایل" />
+
+                                                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="displaynone" accept=".zip" BackColor="#CCCCCC" />
+                                                    </label>
+                                                    <label style="padding: 18px" id="filename"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -184,4 +189,16 @@
 
         <div class="extra"></div>
     </div>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+    <script>
+        $('#ContentPlaceHolder1_FileUpload1').change(function () {
+            var filename = $(this).val();
+            var lastIndex = filename.lastIndexOf("\\");
+            if (lastIndex >= 0) {
+                filename = filename.substring(lastIndex + 1);
+            }
+            $('#filename').html(filename);
+        });
+    </script>
 </asp:Content>

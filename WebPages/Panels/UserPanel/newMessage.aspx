@@ -160,6 +160,9 @@
             <!-- /footer content -->
         </div>
     </div>
+
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
     <script>
         $('#ContentPlaceHolder1_FileUpload1').change(function () {
             var filename = $(this).val();

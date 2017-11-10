@@ -3,7 +3,7 @@
 }
 
 .dispnone {
-    display: none;
+    display: none !important;
 }
 
 .bigDiv {

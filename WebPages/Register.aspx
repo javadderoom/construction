@@ -26,6 +26,17 @@
     <script>
         $(document).ready(function () {
 
+            $("#txtusername").keypress(function (event) {
+                var ew = event.which;
+                if (48 <= ew && ew <= 57)
+                    return true;
+                if (65 <= ew && ew <= 90)
+                    return true;
+                if (97 <= ew && ew <= 122)
+                    return true;
+                return false;
+            });
+
             $("#txtmobile").keydown(function (e) {
                 // Allow: backspace, delete, tab, escape, enter and .
                 if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -101,7 +112,7 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
                                                 نام کاربری
                                     <br />
-                                                <input type="text" class="" id="txtusername" runat="server" required="required" maxlength="50" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" placeholder="نام کاربری خود را وارد کنید" />
+                                                <input type="text" class="" id="txtusername" runat="server" required="required" maxlength="50" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" placeholder="نام کاربری خود را وارد کنید(انگلیسی)" />
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                                 ایمیل
@@ -120,7 +131,7 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                                 تکرار رمز عبور
                                     <br />
-                                                <input type="password" class="" placeholder="رمز عبور خود را تکرار کنید" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="check(this)" id="txtpassword2" runat="server" maxlength="50" />
+                                                <input type="password" class="" placeholder="رمز عبور خود را تکرار کنید" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" id="txtpassword2" runat="server" maxlength="50" />
                                             </div>
                                         </div>
 
@@ -201,7 +212,7 @@
             </div>
         </form>
     </div>
-    <script>
+    <!--<script>
         function check(input) {
             if (input.value != document.getElementById('password').value) {
                 input.setCustomValidity('رمزهای عبور تطابق ندارند!');
@@ -210,7 +221,7 @@
                 input.setCustomValidity('');
             }
         }
-    </script>
+    </script>-->
     <!-- Footer -->
 </body>
 </html>

@@ -64,7 +64,7 @@ namespace WebPages
                 || string.IsNullOrEmpty(txtadress.Value) || string.IsNullOrEmpty(txtFamily.Value))
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('اطلاعات را کامل وارد کنید ! ');", true);
-
+                txtImage.Value = "";
                 FillImageText();
                 return;
             }
@@ -76,21 +76,14 @@ namespace WebPages
               )
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('اطلاعات ورودی بیش از حد مجاز');", true);
-
-                FillImageText();
-                return;
-            }
-            if (txtPassword.Value != txtpassword2.Value)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('رمز های عبور مطابقت ندارند');", true);
-
+                txtImage.Value = "";
                 FillImageText();
                 return;
             }
             if (txtmobile.Value.Length < 11)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('شماره موبایل 11 رقمی خود را وارد کنید');", true);
-
+                txtImage.Value = "";
                 FillImageText();
                 return;
             }
@@ -98,7 +91,7 @@ namespace WebPages
                 if (txtzip.Value.Length < 10)
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد پستی 10 رقمی خود را وارد کنبد');", true);
-
+                    txtImage.Value = "";
                     FillImageText();
                     return;
                 }
@@ -130,6 +123,13 @@ namespace WebPages
                 txtusername.Value = "";
                 return;
             }
+            if (txtPassword.Value != txtpassword2.Value)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('رمز های عبور مطابقت ندارند');", true);
+                txtImage.Value = "";
+                FillImageText();
+                return;
+            }
 
             if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
             {
@@ -139,7 +139,7 @@ namespace WebPages
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد تصویر وارد شده صحیح نمی باشد');", true);
-
+                txtImage.Value = "";
                 FillImageText();
                 return;
             }

@@ -80,7 +80,9 @@ namespace WebPages.Panels.UserPanel
 
         private void save()
         {
+
             UsersRepository er = new UsersRepository();
+
 
             User em = er.getUserById(Session["userid"].ToString().ToInt());
 

@@ -25,6 +25,7 @@
     </style>
     <script>
         $(document).ready(function () {
+
             $("#txtmobile").keydown(function (e) {
                 // Allow: backspace, delete, tab, escape, enter and .
                 if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -80,114 +81,162 @@
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12 loginContent">
                                 <div class="row text">
-                                    <div class="col-md-6 registerAccountInfo">
-                                        <div>
-                                            نام کاربری
-                                    <br />
-                                            <input type="text" class="" id="txtusername" runat="server" maxlength="50" placeholder="نام کاربری خود را وارد کنید" />
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtusername" CssClass="alert-danger" runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
-                                            <br />
-                                            رمز عبور
-                                    <br />
-                                            <input type="password" class="" placeholder="رمز عبور خود را وارد کنید" id="txtPassword" runat="server" maxlength="50" />
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
-                                            <br />
+                                    <div class="col-md-12 registerAccountInfo">
 
-                                            تکرار رمز عبور
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                                نام
                                     <br />
-                                            <input type="password" class="" placeholder="رمز عبور خود را تکرار کنید" id="txtpassword2" runat="server" maxlength="50" />
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtpassword2" CssClass="alert-danger" runat="server" ErrorMessage="رمز عبور خود را دوباره وارد کنید"></asp:RequiredFieldValidator>
-
-                                            <br />
-                                            ایمیل
+                                                <input type="text" class="" id="txtName" runat="server" required maxlength="50" placeholder="نام خود را وارد کنید" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام خود را وارد کنید"></asp:RequiredFieldValidator>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                                نام خانوادگی
                                     <br />
-                                            <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" id="txtEmail" runat="server" maxlength="50" />
-                                            <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
+                                                <input type="text" class="" id="txtFamily" runat="server" required maxlength="50" placeholder="نام خانوادگی خود را وارد کنید" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtFamily" CssClass="alert-danger" runat="server" ErrorMessage="نام خانوادگی را وارد کنید"></asp:RequiredFieldValidator>
+                                            </div>
                                         </div>
-                                        <br />
-                                    </div>
-                                    <div class="col-md-6 registerPersonalInfo">
-                                        نام
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                                نام کاربری
                                     <br />
-                                        <input type="text" class="" id="txtName" runat="server" maxlength="50" placeholder="نام خود را وارد کنید" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TxtName" CssClass="alert-danger" runat="server" ErrorMessage="نام خود را وارد کنید"></asp:RequiredFieldValidator>
-                                        <br />
-                                        نام خانوادگی
-                                    <br />
-                                        <input type="text" class="" id="txtFamily" runat="server" maxlength="50" placeholder="نام خانوادگی خود را وارد کنید" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtFamily" CssClass="alert-danger" runat="server" ErrorMessage="نام خانوادگی را وارد کنید"></asp:RequiredFieldValidator>
-                                        <br />
+                                                <input type="text" class="" id="txtusername" runat="server" required maxlength="50" placeholder="نام کاربری خود را وارد کنید" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtusername" CssClass="alert-danger" runat="server" ErrorMessage="نام کاربری را وارد کنید"></asp:RequiredFieldValidator>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                                ایمیل
+                                                    <br />
+                                                <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" id="txtEmail" runat="server" maxlength="50" />
+                                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
 
-                                        موبایل
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                                رمز عبور
                                     <br />
-                                        <input type="text" class="" placeholder="شماره موبایل خود را وارد کنید" id="txtmobile" runat="server" maxlength="11" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtmobile" CssClass="alert-danger" runat="server" ErrorMessage="شماره موبایل خود را وارد کنید"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="(\+98|0)?9\d{9}" ControlToValidate="txtmobile" ErrorMessage="فرمت شماره وارد شده اشتباه است"></asp:RegularExpressionValidator>
-                                        <br />
+                                                <input type="password" class="" placeholder="رمز عبور خود را وارد کنید" required id="txtPassword" runat="server" maxlength="50" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                                تکرار رمز عبور
+                                    <br />
+                                                <input type="password" class="" placeholder="رمز عبور خود را تکرار کنید" required id="txtpassword2" runat="server" maxlength="50" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtpassword2" CssClass="alert-danger" runat="server" ErrorMessage="رمز عبور خود را دوباره وارد کنید"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
 
-                                        آدرس
-                                    <br />
-                                        <input type="text" class="" placeholder="آدرس خود را وارد کنید" id="txtadress" runat="server" maxlength="150" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtadress" CssClass="alert-danger" runat="server" ErrorMessage="آدرس را وارد کنید"></asp:RequiredFieldValidator>
-                                        <br />
-                                        کد پستی
-                                    <br />
-                                        <input type="text" class="" placeholder="کدپستی خود را بدون خط تیره وارد کنید" id="txtzip" runat="server" maxlength="10" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="txtzip" CssClass="alert-danger" runat="server" ErrorMessage="کدپستی خود را وارد کنید"></asp:RequiredFieldValidator>
+                                        <%-- <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                            </div>
+                                        </div>--%>
 
-                                        <div class="dropDiv">
-                                            استان :
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                                موبایل
+                                    <br />
+                                                <input type="text" class="" placeholder="شماره موبایل خود را وارد کنید" required id="txtmobile" runat="server" maxlength="11" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtmobile" CssClass="alert-danger" runat="server" ErrorMessage="شماره موبایل خود را وارد کنید"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="(\+98|0)?9\d{9}" ControlToValidate="txtmobile" ErrorMessage="فرمت شماره وارد شده اشتباه است"></asp:RegularExpressionValidator>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                                کد پستی
+                                    <br />
+                                                <input type="text" class="" placeholder="کدپستی خود را بدون خط تیره وارد کنید" id="txtzip" runat="server" maxlength="10" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="txtzip" CssClass="alert-danger" runat="server" ErrorMessage="کدپستی خود را وارد کنید"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                                                <div class="dropDiv">
+                                                    استان :
                                     <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                            <br />
-                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                <ContentTemplate>
-                                                    شهر &nbsp :
+                                                    <br />
+                                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                        <ContentTemplate>
+                                                            شهر &nbsp :
                                     <asp:DropDownList ID="ddlCity" runat="server"></asp:DropDownList>
-                                                </ContentTemplate>
-                                                <Triggers>
-                                                    <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
-                                                </Triggers>
-                                            </asp:UpdatePanel>
+                                                        </ContentTemplate>
+                                                        <Triggers>
+                                                            <asp:AsyncPostBackTrigger ControlID="ddlState" EventName="SelectedIndexChanged" />
+                                                        </Triggers>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
+                                                آدرس
+                                    <br />
+                                                <textarea placeholder="آدرس خود را وارد کنید" id="txtadress" runat="server" maxlength="50"></textarea>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtadress" CssClass="alert-danger" runat="server" ErrorMessage="آدرس را وارد کنید"></asp:RequiredFieldValidator>--%>
+                                            </div>
+                                        </div>
+
+                                        <div class="row   captchaBlock">
+                                            <div class="col-md-12 col-xs-12" style="margin-bottom: 10px;">
+                                                <asp:UpdatePanel ID="UpdateImage" runat="server">
+                                                    <ContentTemplate>
+                                                        <table>
+                                                            <tr>
+                                                                <td style="height: 100%; width: 50px;">
+                                                                    <asp:Image ID="btnImg" runat="server" CssClass="imgInline" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
+                                            <div class="col-md-12 col-xs-12">
+                                                <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline; text-align: right; font-family: Tahoma"></input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 btnLogindiv" style="">
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <asp:Button runat="server" ID="BtnRegister" CssClass="btnRegister" Text="ثبت نام" OnClick="BtnLogin_Click" />
+                                                <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" BackColor="LightPink"></asp:Label>
+                                                <span runat="server" id="SpLabl" class="alert-danger"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row captchaBlock">
-                                    <div class="col-md-5 col-xs-5">
-                                        <asp:UpdatePanel ID="UpdateImage" runat="server">
-                                            <ContentTemplate>
-                                                <table>
-                                                    <tr>
-                                                        <td style="height: 100%; width: 50px;">
-                                                            <asp:Image ID="btnImg" runat="server" CssClass="imgInline" />
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                    </div>
-                                    <div class="col-md-7 col-xs-7">
-                                        <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline; font-family: Tahoma"></input>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 btnLogindiv" style="">
-                                        <div class="col-md-12 col-xs-12 col-sm-12">
-                                            <asp:Button runat="server" ID="BtnRegister" CssClass="btnRegister" Text="ثبت نام" OnClick="BtnLogin_Click" />
-                                            <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" BackColor="LightPink"></asp:Label>
-                                            <span runat="server" id="SpLabl" class="alert-danger"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <%--<div class="col-md-4">
-                    </div>--%>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </form>
     </div>
+    <script>
+        $(document).ready(function () {
+            var score = $('#BtnRegister')
+            var item = document.getElementById('txtName');
+            document.getElementById('BtnRegister').addEventListener("click", function (event) {
 
+                if (!item.checkValidity) {
+                    item.setCustomValidity("این فیلد باید پر شود!");
+                }
+                else {
+                    item.setCustomValidity("");
+                }
+            });
+            //var score = $('#BtnRegister')
+            //var item = document.getElementByTagName('imput[text]');
+            //document.getElementById('BtnRegister').addEventListener("click", function (event) {
+            //    for (i = 0; i <= score.length; i++) {
+            //        if (item[i].checkValidity) {
+            //            item[i].setCustomValidity("این فیلد باید پر شود!");
+            //        } else {
+            //            item[i].setCustomValidity("");
+            //        }
+            //    }
+
+            //});
+        });
+    </script>
     <!-- Footer -->
 </body>
 </html>

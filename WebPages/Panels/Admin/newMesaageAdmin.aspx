@@ -4,6 +4,13 @@
     <title>پیام جدید</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
+    <style>
+        @media (min-width: 768px) {
+            .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+                float: left;
+            }
+        }
+    </style>
     <div class="bigDiv">
         <div class="c-title">
             <h4>
@@ -29,11 +36,11 @@
 
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-xs-12 col-sm-2 col-sm-push-10 text-right">
+                                                    <div class="col-xs-12 col-md-2 col-sm-2 col-sm-push-10 text-right">
                                                     </div>
 
-                                                    <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right dirRight">
-                                                        <div class="alert alert-warning alert-dismissible text-right dirRight" style="background-color: #18bc9c; color: white;" role="alert">
+                                                    <div class="col-xs-12 col-md-10 col-sm-10 col-sm-pull-2 text-right dirRight">
+                                                        <div class="alert alert-warning alert-dismissible text-right dirRight" style="background-color: #18bc9c; color: black;" role="alert">
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
 
                                                             رعایت  اخلاقیات توسط طرفین(درخواست کننده و پاسخ دهنده) در سامانه الزامی خواهد بود، در غیر اینصورت مطابق مقررات برخورد خواهد شد.</span>
@@ -45,11 +52,11 @@
 
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-xs-12 col-sm-2 col-sm-push-10 text-right">
+                                                <div class="col-xs-12 col-md-2 col-sm-2 col-sm-push-10 text-right">
                                                     <span id="ContentPlaceHolder1_lblSubject" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">موضوع</span>
                                                 </div>
 
-                                                <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
+                                                <div class="col-xs-12 col-md-10 col-sm-10 col-sm-pull-2 text-right">
                                                     <input type="text" runat="server" maxlength="50" id="txtSubject" class="form-control text-right dirRight tbxCounter" />
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtSubject" CssClass="alert-danger" runat="server" ErrorMessage="موضوع پیام را وارد کنید"></asp:RequiredFieldValidator>
                                                 </div>
@@ -59,11 +66,11 @@
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-2 col-sm-push-10 text-right">
+                                            <div class="col-xs-12 col-md-2 col-sm-2 col-sm-push-10 text-right">
                                                 <span id="ContentPlaceHolder1_lblMessageText" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">متن پیام</span>
                                             </div>
 
-                                            <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right dirRight">
+                                            <div class="col-xs-12 col-md-10 col-sm-10 col-sm-pull-2 text-right dirRight">
                                                 <textarea name="" runat="server" rows="2" cols="20" id="tbxMessageText" class="form-control text-right dirRight" maxlength="500" style="height: 160px;"></textarea>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="tbxMessageText" CssClass="alert-danger" runat="server" ErrorMessage="متن پیام را وارد کنید"></asp:RequiredFieldValidator>
 
@@ -74,10 +81,10 @@
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-2 col-sm-push-10 text-right">
+                                            <div class="col-xs-12 col-sm-2 col-sm-2 col-sm-push-10 text-right">
                                             </div>
 
-                                            <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right dirRight">
+                                            <div class="col-xs-12 col-md-10  col-sm-10 col-sm-pull-2 text-right dirRight">
                                                 <div class="alert alert-info alert-dismissible text-right dirRight" role="alert">
                                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
                                                     در صورت نیاز به ارسال پیام های طولانی لطفا متن پیام را در فایل word تایپ کرده و درقالب فایل پیوست پیام ارسال نمایید
@@ -88,11 +95,11 @@
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-2 col-sm-push-10 text-right">
+                                            <div class="col-xs-12 col-md-2 col-sm-2 col-sm-push-10 text-right">
                                                 <span id="ContentPlaceHolder1_lblAttachFile" class="control-label formLabel" style="font-size: 100%; font-weight: bold;">فایل ضمیمه</span>
                                             </div>
 
-                                            <div class="col-xs-12 col-sm-10 col-sm-pull-2 text-right">
+                                            <div class="col-xs-12 col-md-10 col-sm-10 col-sm-pull-2 text-right">
                                                 <span id="ContentPlaceHolder1_FileUploadMessage" class="control-label formLabel" style="color: Green; font-size: 100%;">!حداکثر ظرفیت فایل آپلود 1 مگابایت</span>
 
                                                 <label class="btn btn-info" style="width: 100px;">
@@ -150,8 +157,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </asp:Content>
@@ -167,4 +172,3 @@
         });
     </script>
 </asp:Content>
-

@@ -95,15 +95,13 @@
                     <div class="formGroup">
                         <label>آدرس </label>
                         <textarea id="address" runat="server" disabled type="text"></textarea>
-
                     </div>
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                 </div>
-                <asp:Button ID="btnMessage" OnClick="btnMessage_Click" runat="server" Text="پاسخ با پیام" />
+                <asp:Button ID="btnMessage" CssClass="btnMessage" OnClick="btnMessage_Click" runat="server" Text="پاسخ با پیام" />
             </div>
-
         </div>
     </div>
 </asp:Content>

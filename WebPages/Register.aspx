@@ -63,6 +63,7 @@
 <body style="overflow-x: hidden">
 
     <!-- Header -->
+
     <div class="page-bg"></div>
     <div>
         <form id="form1" runat="server">
@@ -106,7 +107,7 @@
                                                 ایمیل
                                                     <br />
                                                 <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" required="required" id="txtEmail" runat="server" maxlength="50" />
-                                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ValidationGroup="Validation" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
 
@@ -115,29 +116,20 @@
                                                 رمز عبور
                                     <br />
                                                 <input type="password" class="" placeholder="رمز عبور خود را وارد کنید" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" id="txtPassword" runat="server" maxlength="50" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPassword" CssClass="alert-danger" runat="server" ErrorMessage="رمز کاربری را وارد کنید"></asp:RequiredFieldValidator>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                                 تکرار رمز عبور
                                     <br />
-                                                <input type="password" class="" placeholder="رمز عبور خود را تکرار کنید" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" id="txtpassword2" runat="server" maxlength="50" />
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtpassword2" CssClass="alert-danger" runat="server" ErrorMessage="رمز عبور خود را دوباره وارد کنید"></asp:RequiredFieldValidator>
+                                                <input type="password" class="" placeholder="رمز عبور خود را تکرار کنید" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="check(this)" id="txtpassword2" runat="server" maxlength="50" />
                                             </div>
                                         </div>
-
-                                        <%-- <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
-                                            </div>
-                                        </div>--%>
 
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
                                                 موبایل
                                     <br />
                                                 <input type="text" class="" placeholder="شماره موبایل خود را وارد کنید" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" id="txtmobile" runat="server" maxlength="11" />
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="(\+98|0)?9\d{9}" ControlToValidate="txtmobile" ErrorMessage="فرمت شماره وارد شده اشتباه است"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="(\+98|0)?9\d{9}" ControlToValidate="txtmobile" ValidationGroup="Validation" ErrorMessage="فرمت شماره وارد شده اشتباه است"></asp:RegularExpressionValidator>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                                 کد پستی
@@ -199,14 +191,26 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True"
+                                        ShowSummary="False" ValidationGroup="Validation" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </form>
     </div>
-
+    <script>
+        function check(input) {
+            if (input.value != document.getElementById('password').value) {
+                input.setCustomValidity('رمزهای عبور تطابق ندارند!');
+            } else {
+                // input is valid -- reset the error message
+                input.setCustomValidity('');
+            }
+        }
+    </script>
     <!-- Footer -->
 </body>
 </html>

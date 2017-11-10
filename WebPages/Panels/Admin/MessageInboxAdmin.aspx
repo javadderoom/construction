@@ -29,7 +29,7 @@
 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div id="ContentPlaceHolder1_upGrid">
-            <div>
+            <div style="overflow-x: auto; overflow-x: auto; width: 100%;">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
 

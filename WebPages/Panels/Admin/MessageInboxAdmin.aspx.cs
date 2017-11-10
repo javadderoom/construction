@@ -50,7 +50,7 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvChats.Rows[index];
                 int chatid = row.Cells[0].Text.ToInt();
                 Session.Add("chatidforMessages", chatid);
-                int userid = row.Cells[1].Text.ToInt();
+                string userid = row.Cells[2].Text;
                 Session.Add("useridforMessages", userid);
                 MessageRepository mr = new MessageRepository();
                 mr.setMessagesSeenToTrueForAdmin(chatid);

@@ -16,7 +16,7 @@ namespace WebPages.Panels.Admin
     public partial class MessagesAdmin : System.Web.UI.Page
     {
         private int chatid = 0;
-        private int userid = 0;
+        private string userid = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +25,10 @@ namespace WebPages.Panels.Admin
                 if (Session["chatidforMessages"] != null && Session["useridforMessages"] != null)
                 {
                     chatid = Session["chatidforMessages"].ToString().ToInt();
-                    userid = Session["useridforMessages"].ToString().ToInt();
+                    userid = Session["useridforMessages"].ToString();
+
+                    divReciver.InnerText = "نام کاربر : " + userid;
+
 
                     if (!IsPostBack)
                     {

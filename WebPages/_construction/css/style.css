@@ -51,6 +51,18 @@ li {
         cursor: pointer;
     }
 
+@media (min-width: 768px) {
+    #msg {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #msg {
+        width: 100% !important;
+    }
+}
+
 .scrollToTop {
     z-index: 99999999999;
     width: 50px;

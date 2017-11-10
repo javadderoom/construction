@@ -402,7 +402,10 @@ namespace WebPages._construction
             var div4 = new HtmlGenericControl("div");
             div4.Attributes["class"] = "popoverLinks";
             var ul = new HtmlGenericControl("ul");
-            var ul2 = new HtmlGenericControl("ul");
+            var ulManage1 = new HtmlGenericControl("ul");
+            ulManage1.Attributes["class"] = "ulManage1";
+            var ulManage2 = new HtmlGenericControl("ul");
+            ulManage2.Attributes["class"] = "ulManage2";
             var divp2 = new HtmlGenericControl("div");
             divp2.Attributes["class"] = "popoverLinks collapse";
             divp2.ID = "colap";
@@ -444,7 +447,7 @@ namespace WebPages._construction
             MessageRepository repms = new MessageRepository();
             span1.InnerText = repms.AdminNewMessageCount();
 
-            #region orders
+            #region ordersList
 
             var liorders = new HtmlGenericControl("li");
             liorders.Attributes["class"] = "message";
@@ -464,7 +467,7 @@ namespace WebPages._construction
             aorders.Controls.Add(divorders);
             liorders.Controls.Add(aorders);
 
-            #endregion orders
+            #endregion ordersList
 
             OrderRepository or = new OrderRepository();
             span1orders.InnerText = or.AdminNewOrders().ToString();
@@ -656,18 +659,34 @@ namespace WebPages._construction
 
             #endregion Scores
 
-            //ul2.Controls.Add(liManageS);
-            ul2.Controls.Add(li4);
-            ul2.Controls.Add(liMaghale);
-            ul2.Controls.Add(li3);
-            ul2.Controls.Add(liWeblog);
-            ul2.Controls.Add(liManageProjects);
-            ul2.Controls.Add(liFirstPage);
-            ul2.Controls.Add(liServices);
-            ul2.Controls.Add(li2);
-            ul2.Controls.Add(liScores);
+            #region Scores
 
-            divp2.Controls.Add(ul2);
+            var liJobs = new HtmlGenericControl("li");
+            liJobs.Attributes["class"] = "projects";
+            var aJobs = new HtmlGenericControl("a");
+            aJobs.Attributes["href"] = "/Admin/ManageJobGroups";
+            aJobs.Attributes["class"] = "progectReq";
+            var divJobs = new HtmlGenericControl("div");
+            divJobs.Attributes["class"] = "projectDiv";
+            divJobs.InnerText = "میدیرت شغل ها";
+            aJobs.Controls.Add(divJobs);
+            liJobs.Controls.Add(aJobs);
+
+            #endregion Scores
+
+            //ul2.Controls.Add(liManageS);
+            ulManage1.Controls.Add(li4);
+            ulManage1.Controls.Add(liMaghale);
+            ulManage1.Controls.Add(li3);
+            ulManage1.Controls.Add(liWeblog);
+            ulManage1.Controls.Add(liManageProjects);
+            ulManage2.Controls.Add(liFirstPage);
+            ulManage2.Controls.Add(liServices);
+            ulManage2.Controls.Add(li2);
+            ulManage2.Controls.Add(liScores);
+            ulManage2.Controls.Add(liJobs);
+            divp2.Controls.Add(ulManage1);
+            divp2.Controls.Add(ulManage2);
             div.Controls.Add(div4);
             div.Controls.Add(divManageS);
             div.Controls.Add(divp2);

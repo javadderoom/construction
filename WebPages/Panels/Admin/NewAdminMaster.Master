@@ -179,6 +179,11 @@
                                                         <div class="projectDiv">امتیازات</div>
                                                     </a>
                                                 </li>
+                                                <li class="projects">
+                                                    <a href="/Admin/ManageJobGroups" class="progectReq">
+                                                        <div class="projectDiv">مدیریت شغل ها</div>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
 

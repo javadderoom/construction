@@ -165,7 +165,7 @@ namespace WebPages.Panels.Admin
                 else
                     pers = "کاربر :";
 
-                tag += "<div id = \"msg\" style = \"width: 50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
+                tag += "<div id = \"msg\"  style = \"width:50%; border: 1px solid #dad0d0; margin: auto; margin-bottom: 20px; direction: rtl; overflow-wrap: break-word\" > " +
                     "<div id = \"mhead\" style = \"height: 40px; background-color: #18bc9c; padding: 10px\" >" +
                         "<div style = \"float: left;color:white\" > " + dt.Rows[i][9].ToString() + " </div>" +
                         "<div style = \"float: right\" >" + pers + " </div>" +

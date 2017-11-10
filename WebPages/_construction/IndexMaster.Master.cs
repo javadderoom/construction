@@ -22,17 +22,14 @@ namespace WebPages._construction
             bool Employee = false;
             if (Session["adminid"] != null)//for Admin
             {
-
                 Admin = true;
             }
             else if (Session["userid"] != null)//for User
             {
-
                 User = true;
             }
             else if (Session["employeeid"] != null)//for Emplyoee
             {
-
                 Employee = true;
             }
             if (Admin)
@@ -447,6 +444,31 @@ namespace WebPages._construction
             MessageRepository repms = new MessageRepository();
             span1.InnerText = repms.AdminNewMessageCount();
 
+            #region orders
+
+            var liorders = new HtmlGenericControl("li");
+            liorders.Attributes["class"] = "message";
+            var aorders = new HtmlGenericControl("a");
+            aorders.Attributes["href"] = "/Admin/Orders";
+            var divorders = new HtmlGenericControl("div");
+            divorders.Attributes["class"] = "mssageBox";
+            var spanorders = new HtmlGenericControl("span");
+            spanorders.Attributes["class"] = "messageBox";
+            spanorders.InnerText = "سفارشات";
+            var span1orders = new HtmlGenericControl("span");
+            span1orders.Attributes["class"] = "messageCount";
+            span1orders.Attributes["runat"] = "server";
+            span1orders.ID = "OrderCount";
+            divorders.Controls.Add(spanorders);
+            divorders.Controls.Add(span1orders);
+            aorders.Controls.Add(divorders);
+            liorders.Controls.Add(aorders);
+
+            #endregion orders
+
+            OrderRepository or = new OrderRepository();
+            span1orders.InnerText = or.AdminNewOrders().ToString();
+
             #region MessageTak
 
             var li5 = new HtmlGenericControl("li");
@@ -479,6 +501,7 @@ namespace WebPages._construction
 
             ul.Controls.Add(liMS);
             ul.Controls.Add(li1);
+            ul.Controls.Add(liorders);
             ul.Controls.Add(li5);
             ul.Controls.Add(li6);
             div4.Controls.Add(ul);

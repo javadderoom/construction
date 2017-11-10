@@ -1157,6 +1157,8 @@
     <Content Include="_Styles\ManageFirstPage.css" />
     <Content Include="_Styles\ManageGroups.css" />
     <Content Include="_Styles\ProfileStyles.css" />
+    <Content Include="_Styles\ProjectAppStyles.css" />
+    <Content Include="_Styles\ProjectDetailStyles.css" />
     <Content Include="_Styles\RegisterStyles.css" />
     <Content Include="_Styles\RegStyle.css" />
     <Content Include="_Styles\sasan.css" />

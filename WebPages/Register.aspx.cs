@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Net;
 using System.Text;
-using System.Web;
-using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using DataAccess.Repository;
-using DataAccess;
 using Common;
 using System.Transactions;
 using System.IO;
+using System.Web.UI;
 
 namespace WebPages
 {
@@ -69,11 +60,11 @@ namespace WebPages
         {
             if (string.IsNullOrEmpty(txtName.Value) || string.IsNullOrEmpty(txtPassword.Value)
                 || string.IsNullOrEmpty(txtusername.Value) || string.IsNullOrEmpty(txtpassword2.Value)
-                || string.IsNullOrEmpty(txtmobile.Value) || string.IsNullOrEmpty(txtzip.Value)
+                || string.IsNullOrEmpty(txtmobile.Value)
                 || string.IsNullOrEmpty(txtadress.Value) || string.IsNullOrEmpty(txtFamily.Value))
             {
-                lblWarning.Text = "اطلاعات را کامل وارد کنید";
-                txtImage.Value = "";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('اطلاعات را کامل وارد کنید ! ');", true);
+
                 FillImageText();
                 return;
             }
@@ -84,38 +75,39 @@ namespace WebPages
                 (txtImage.Value.Length > 5)
               )
             {
-                lblWarning.Text = "اطلاعات ورودی بیش از حد مجاز";
-                txtImage.Value = "";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('اطلاعات ورودی بیش از حد مجاز');", true);
+
                 FillImageText();
                 return;
             }
             if (txtPassword.Value != txtpassword2.Value)
             {
-                lblWarning.Text = "رمز های عبور مطابقت ندارند";
-                txtImage.Value = "";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('رمز های عبور مطابقت ندارند');", true);
+
                 FillImageText();
                 return;
             }
             if (txtmobile.Value.Length < 11)
             {
-                lblWarning.Text = "شماره موبایل 11 رقمی خود را وارد کنید";
-                txtImage.Value = "";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('شماره موبایل 11 رقمی خود را وارد کنید');", true);
+
                 FillImageText();
                 return;
             }
-            if (txtzip.Value.Length < 10)
-            {
-                lblWarning.Text = "کد پستی 10 رقمی خود را وارد کنبد";
-                txtImage.Value = "";
-                FillImageText();
-                return;
-            }
+            if (txtzip.Value != "")
+                if (txtzip.Value.Length < 10)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد پستی 10 رقمی خود را وارد کنبد');", true);
+
+                    FillImageText();
+                    return;
+                }
             EmployeesRepository em = new EmployeesRepository();
             UsersRepository urr = new UsersRepository();
             if (rdiEmployees.Checked && em.isThereUsername(txtusername.Value))
             {
-                lblWarning.Text = "این نام کاربری از قبل وجود دارد";
-                lblWarning.ForeColor = Color.Red;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('این نام کاربری از قبل وجود دارد');", true);
+
                 txtImage.Value = "";
                 FillImageText();
                 txtusername.Value = "";
@@ -123,8 +115,8 @@ namespace WebPages
             }
             if (em.isThereEmail(txtEmail.Value))
             {
-                lblWarning.Text = "این ایمیل از قبل وجود دارد";
-                lblWarning.ForeColor = Color.Red;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('این ایمیل از قبل وجود دارد');", true);
+
                 txtImage.Value = "";
                 FillImageText();
                 txtEmail.Value = "";
@@ -132,8 +124,7 @@ namespace WebPages
             }
             if (rdiUsers.Checked && urr.isThereUsername(txtusername.Value))
             {
-                lblWarning.Text = "این نام کاربری از قبل وجود دارد";
-                lblWarning.ForeColor = Color.Red;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('این نام کاربری از قبل وجود دارد');", true);
                 txtImage.Value = "";
                 FillImageText();
                 txtusername.Value = "";
@@ -147,8 +138,8 @@ namespace WebPages
             }
             else
             {
-                lblWarning.Text = "کد وارد شده صحیح نمی باشد";
-                txtImage.Value = "";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد تصویر وارد شده صحیح نمی باشد');", true);
+
                 FillImageText();
                 return;
             }

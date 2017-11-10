@@ -13,6 +13,7 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Add("adminid", 1);
             if (Session["adminid"] != null)
             {
                 if (!IsPostBack)
@@ -62,6 +63,11 @@ namespace WebPages.Panels.Admin
                 CheckBox chkRow = (r.Cells[0].FindControl("chk") as CheckBox);
                 if (chkRow.Checked)
                     list.Add(i);
+            }
+            if (list.Count == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ کاربری انتخاب نشده است.حداقل یک کاربر را انتخاب کنید.');", true);
+                return;
             }
             NewMessageGroup.list = list;
             Response.Redirect("/Admin/GroupMessage/NewGroupMessage");

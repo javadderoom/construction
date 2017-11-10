@@ -28,28 +28,14 @@
 
             <div class="right_col" role="main" style="min-height: 420px;">
 
-
-
-
-
-
-
-
-
-
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-
 
                             <div class="x_content">
                                 <div id="demo-form2" class="form-horizontal form-label-right">
                                     <div class="col-md-8 col-md-offset-2 col-xs-12">
                                         <div id="ContentPlaceHolder1_upWait">
-
-
-
-
 
                                             <div id="ContentPlaceHolder1_pnlBoxInfo">
 
@@ -67,9 +53,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
-
 
                                             <div class="form-group">
                                                 <div class="row">
@@ -81,10 +65,8 @@
                                                         <input type="text" runat="server" maxlength="50" id="txtSubject" class="form-control text-right dirRight tbxCounter" />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtSubject" CssClass="alert-danger" runat="server" ErrorMessage="موضوع پیام را وارد کنید"></asp:RequiredFieldValidator>
                                                     </div>
-
                                                 </div>
                                             </div>
-
                                         </div>
 
                                         <div class="form-group">
@@ -134,7 +116,6 @@
                                             </div>
                                         </div>
 
-
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -145,8 +126,6 @@
                                                 <input style="float: right; margin-left: 50px; margin-top: -3px" type="button" id="btnSend" class="btn btn-success" runat="server" onserverclick="btnSend_ServerClick" value="ارسال پیام" />
 
                                                 <asp:Label ID="lblWarning" runat="server" Text=""></asp:Label>
-
-
                                             </div>
 
                                             <div class="modal fade" id="modalAskSubmitAdd" tabindex="-1" role="dialog" aria-labelledby="modalAskSubmitAdd-label" aria-hidden="true">
@@ -176,7 +155,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -184,10 +162,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
     </div>

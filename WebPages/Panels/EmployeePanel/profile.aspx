@@ -52,13 +52,13 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>شناسه </label>
-                            <input id="lblid" class="dirToLeft" runat="server" disabled type="text" />
+                            <input id="lblid" class="dirToLeft" runat="server" disabled="disabled" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>نام کاربری </label>
-                            <input id="lblusername" class="dirToLeft" runat="server" type="text" />
+                            <input id="lblusername" class="dirToLeft" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" disabled="disabled" runat="server" type="text" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
@@ -66,7 +66,7 @@
                             <label>رمز عبور </label>
                             <div id="wrapper">
                                 <div class="form-group has-feedback">
-                                    <input type="password" runat="server" class="form-control dirToLeft" id="password" />
+                                    <input type="password" runat="server" class="form-control dirToLeft" id="password" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
                                     <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
                                 </div>
                             </div>
@@ -94,19 +94,19 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>نام  </label>
-                            <input id="lblfirstName" runat="server" type="text" />
+                            <input id="lblfirstName" runat="server" type="text" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>نام خانوادگی </label>
-                            <input id="lblLastName" runat="server" type="text" />
+                            <input id="lblLastName" runat="server" type="text" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>موبایل </label>
-                            <input id="lblmobile" class="dirToLeft" runat="server" type="text" />
+                            <input id="lblmobile" class="dirToLeft" runat="server" type="text" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
@@ -118,7 +118,7 @@
                     <div class="infoInnerContent">
                         <div class="formGroup">
                             <label>پست الکترونیک </label>
-                            <input id="lblemail" class="dirToLeft" runat="server" type="text" />
+                            <input id="lblemail" class="dirToLeft" runat="server" type="text" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" />
                         </div>
                     </div>
                     <div class="infoInnerContent">
@@ -149,7 +149,7 @@
 
                         <div class="formGroup">
                             <label>آدرس </label>
-                            <textarea cols="2" id="lbladdress" runat="server"></textarea>
+                            <textarea cols="2" id="lbladdress" style="resize: none;" runat="server" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')"></textarea>
                         </div>
                     </div>
                     <div class="infoInnerContent">

@@ -87,8 +87,8 @@ namespace WebPages.Panels.EmployeePanel
         private void save()
         {
             EmployeesRepository er = new EmployeesRepository();
-            Employee em = new Employee();
-            em = er.getEmployeeByID(Session["employeeid"].ToString().ToInt());
+
+            Employee em = er.getEmployeeByID(Session["employeeid"].ToString().ToInt());
             if (lbladdress.Value != "")
                 em.Address = lbladdress.Value;
             em.City = ddlCity.SelectedValue.ToInt();

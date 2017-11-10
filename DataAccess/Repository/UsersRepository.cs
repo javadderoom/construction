@@ -15,21 +15,18 @@ namespace DataAccess.Repository
     public class UsersRepository
     {
         ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
-        private ConstructionCompanyEntities database;
+
         public User ChekUser(string txt)
         {
             return DB.Users.Where(p => p.Email == txt || p.UserName == txt).FirstOrDefault();
 
         }
-        public UsersRepository()
-        {
-            database = new ConstructionCompanyEntities();
-        }
+
 
         public int getUserIDByUsername_Password(string username, string password)
         {
             int query =
-                (from r in database.Users
+                (from r in DB.Users
                  where ((r.UserName == username) && (r.Password == password))
                  select r.UserID).FirstOrDefault();
 
@@ -38,7 +35,7 @@ namespace DataAccess.Repository
         public int getLastUserID()
         {
             int query =
-               (from r in database.Users
+               (from r in DB.Users
                 orderby r.UserID descending
                 select r.UserID).FirstOrDefault();
             return query;
@@ -49,16 +46,16 @@ namespace DataAccess.Repository
             if (user.UserID > 0)
             {
                 //==== UPDATE ====
-                database.Users.Attach(user);
-                database.Entry(user).State = EntityState.Modified;
+                DB.Users.Attach(user);
+                DB.Entry(user).State = EntityState.Modified;
             }
             else
             {
                 //==== INSERT ====
-                database.Users.Add(user);
+                DB.Users.Add(user);
             }
 
-            database.SaveChanges();
+            DB.SaveChanges();
 
         }
 
@@ -67,12 +64,12 @@ namespace DataAccess.Repository
         public void DeleteUser(int ID)
         {
 
-            User selectedUser = database.Users.Where(p => p.UserID == ID).Single();
+            User selectedUser = DB.Users.Where(p => p.UserID == ID).Single();
 
             if (selectedUser != null)
             {
-                database.Users.Remove(selectedUser);
-                database.SaveChanges();
+                DB.Users.Remove(selectedUser);
+                DB.SaveChanges();
             }
         }
 
@@ -120,7 +117,7 @@ namespace DataAccess.Repository
         public bool isThereUsername(string value)
         {
             int cnt =
-                (from r in database.Users where r.UserName == value select r).Count();
+                (from r in DB.Users where r.UserName == value select r).Count();
 
             if (cnt == 0) return false;
             return true;
@@ -130,7 +127,7 @@ namespace DataAccess.Repository
         {
             string pass =
                 (
-                    from r in database.Users
+                    from r in DB.Users
                     where r.UserID == userid
                     select r.Password
                 ).FirstOrDefault();

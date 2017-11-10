@@ -668,7 +668,7 @@ namespace WebPages._construction
             aJobs.Attributes["class"] = "progectReq";
             var divJobs = new HtmlGenericControl("div");
             divJobs.Attributes["class"] = "projectDiv";
-            divJobs.InnerText = "میدیرت شغل ها";
+            divJobs.InnerText = "میدیرت مشاغل";
             aJobs.Controls.Add(divJobs);
             liJobs.Controls.Add(aJobs);
 

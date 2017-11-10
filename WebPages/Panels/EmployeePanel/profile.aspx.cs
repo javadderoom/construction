@@ -97,7 +97,11 @@ namespace WebPages.Panels.EmployeePanel
             em.FirstName = lblfirstName.Value;
             em.LastName = lblLastName.Value;
             em.Mobile = lblmobile.Value;
-            em.Password = password.Value;
+            if (!String.IsNullOrEmpty(password.Value))
+            {
+                em.Password = password.Value;
+            }
+
             em.UserName = lblusername.Value;
             em.PostalCode = lblzip.Value;
             er.SaveEmployees(em);

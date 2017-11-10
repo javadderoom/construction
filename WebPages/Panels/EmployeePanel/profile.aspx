@@ -183,5 +183,13 @@
                 x.type = "password";
             }
         });
+        $('#ContentPlaceHolder1_fileResume').change(function () {
+            var filename = $(this).val();
+            var lastIndex = filename.lastIndexOf("\\");
+            if (lastIndex >= 0) {
+                filename = filename.substring(lastIndex + 1);
+            }
+            $('#filename').html(filename);
+        });
     </script>
 </asp:Content>

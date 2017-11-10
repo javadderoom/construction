@@ -20,6 +20,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <script>
+    </script>
     <div class="user">
         <section class="mainSection ">
             <div class="c_title col-md-3 col-sm-12 col-xs-12">
@@ -94,6 +96,7 @@
                             <div class="formGroup">
                                 <label>پست الکترونیک </label>
                                 <input id="lblemail" class="dirToLeft" required="required" oninvalid="this.setCustomValidity('لطفا این فیلد را پر کنید !')" oninput="setCustomValidity('')" runat="server" type="text" />
+                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="lblemail" ValidationGroup="Validation" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -137,9 +140,46 @@
             </div>
         </section>
     </div>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True"
+        ShowSummary="False" ValidationGroup="Validation" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
     <script>
+        $(document).ready(function () {
+            $('#ContentPlaceHolder1_lblmobile').keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#ContentPlaceHolder1_lblzip').keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });
+
         // toggle password visibility
         $('.glyphicon-eye-open').on('click', function () {
             $(this).toggleClass('glyphicon-eye-close').toggleClass('glyphicon-eye-open'); // toggle our classes for the eye icon

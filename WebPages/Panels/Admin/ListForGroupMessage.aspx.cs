@@ -63,6 +63,11 @@ namespace WebPages.Panels.Admin
                 if (chkRow.Checked)
                     list.Add(i);
             }
+            if (list.Count == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ کاربری انتخاب نشده است.حداقل یک کاربر را انتخاب کنید.');", true);
+                return;
+            }
             NewMessageGroup.list = list;
             Response.Redirect("/Admin/GroupMessage/NewGroupMessage");
         }

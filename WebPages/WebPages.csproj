@@ -869,6 +869,7 @@
     <Content Include="MdBootstrapPersianDateTimePicker\jalaali.js" />
     <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
+    <Content Include="OrderProject.aspx" />
     <Content Include="Panels\Admin\AddBlog.aspx" />
     <Content Include="Panels\Admin\AddProject.aspx" />
     <Content Include="Panels\Admin\EditProject.aspx" />
@@ -1190,6 +1191,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="OrderProject.aspx.cs">
+      <DependentUpon>OrderProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderProject.aspx.designer.cs">
+      <DependentUpon>OrderProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Panels\Admin\AddBlog.aspx.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>

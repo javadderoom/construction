@@ -54,6 +54,7 @@ namespace WebPages
             routes.MapPageRoute("R990", "ForgotPass", "~/FoegotPass.aspx");
             routes.MapPageRoute("R9", "AdminLogin", "~/AdminLogin.aspx");
 
+            routes.MapPageRoute("R125", "OrderProject", "~/OrderProject.aspx");
             //admin
             routes.MapPageRoute("R10", "Admin/AddBlog", "~/Panels/Admin/AddBlog.aspx");
             routes.MapPageRoute("R11", "Admin/AddProject", "~/Panels/Admin/AddProject.aspx");

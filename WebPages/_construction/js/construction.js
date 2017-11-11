@@ -257,7 +257,7 @@ equalheight = function (container) {
             rowDivs.push($el);
         } else {
             rowDivs.push($el);
-            currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+            currentTallest = (currentTallest > $el.height()) ? ($el.height()) : (currentTallest);
         }
         for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
             rowDivs[currentDiv].height(currentTallest);

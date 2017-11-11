@@ -88,7 +88,6 @@
 
                                                 <a href="/User/Profile">پروفایل</a>
                                             </nav>
-
                                         </div>
                                         <div class="popoverLinks">
                                             <ul>
@@ -113,10 +112,6 @@
                                                         <div class="projectDiv">سفارش پروژه</div>
                                                     </a>
                                                 </li>
-
-
-
-
                                             </ul>
                                         </div>
                                         <div class="logOutDiv">
@@ -171,7 +166,7 @@
                             <ul class="nav navbar-nav">
 
                                 <li class="active "><a href="/">خانه</a></li>
-                                <li><a href="/Services">سرویس ها</a></li>
+                                <li class="order  "><a href="/OrderProject">سفارش پروژه</a></li>
                                 <li><a href="/Projects">پروژه های ما</a></li>
                                 <li><a href="/Blogs">وبلاگ ها</a></li>
                                 <li><a href="/AboutUs">درباره ما</a></li>

@@ -248,146 +248,7 @@
         </div>
     </section>
     <!--Testimonials-->
-    <section id="elements" class="row">
-        <div class="row sectionTitles m0">
-            <h2 class="sectionTitle">Accordion &amp; Tabs</h2>
-            <div class="sectionSubTitle">elements</div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="panel-group" id="hAccordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#hAccordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        <i class="fa fa-question"></i>Marketplace Basics <span class="sign fa"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <div class="fleft icon">
-                                        <i class="fa fa-laptop"></i>
-                                    </div>
-                                    <div class="fleft texts">
-                                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--hAccordion No #1-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading2">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#hAccordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        <i class="fa fa-question"></i>Author Resources <span class="sign fa"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-                                <div class="panel-body">
-                                    <div class="fleft icon">
-                                        <i class="fa fa-laptop"></i>
-                                    </div>
-                                    <div class="fleft texts">
-                                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--hAccordion No #2-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading3">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#hAccordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        <i class="fa fa-question"></i>Authoring Rquirements <span class="sign fa"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
-                                <div class="panel-body">
-                                    <div class="fleft icon">
-                                        <i class="fa fa-laptop"></i>
-                                    </div>
-                                    <div class="fleft texts">
-                                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--hAccordion No #3-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading4">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#hAccordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                        <i class="fa fa-question"></i>Copyright &amp; Legal <span class="sign fa"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
-                                <div class="panel-body">
-                                    <div class="fleft icon">
-                                        <i class="fa fa-laptop"></i>
-                                    </div>
-                                    <div class="fleft texts">
-                                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--hAccordion No #4-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading5">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#hAccordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                        <i class="fa fa-question"></i>Affiliate Program <span class="sign fa"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
-                                <div class="panel-body">
-                                    <div class="fleft icon">
-                                        <i class="fa fa-laptop"></i>
-                                    </div>
-                                    <div class="fleft texts">
-                                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--hAccordion No #5-->
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="row m0 leftAlignedTap">
-                        <ul class="nav nav-tabs" role="tablist" id="myTab">
-                            <li role="presentation" class="active"><a href="#h_tab1" aria-controls="h_tab1" role="tab" data-toggle="tab">
-                                <i class="fa fa-laptop"></i>Responsive Layout
-                            </a></li>
-                            <li role="presentation"><a href="#h_tab2" aria-controls="h_tab2" role="tab" data-toggle="tab">
-                                <i class="fa fa-briefcase"></i>Multiple Portfolios
-                            </a></li>
-                            <li role="presentation"><a href="#h_tab3" aria-controls="h_tab3" role="tab" data-toggle="tab">
-                                <i class="fa fa-youtube-play"></i>Video Support
-                            </a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="h_tab1">
-                                Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit.
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="h_tab2">
-                                Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit.
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="h_tab3">
-                                Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!--Elements-->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="map" runat="server">
@@ -416,9 +277,9 @@
             $('.owl-one').owlCarousel({
 
                 loop: true,
-                autoplay: false,
+                autoplay: true,
                 autoplayHoverPause: true,
-                autoplayTimeout: 3000,
+                autoplayTimeout: 2000,
 
                 responsive: {
                     0: {
@@ -439,9 +300,9 @@
             $('.owl-two').owlCarousel({
 
                 loop: true,
-                autoplay: false,
+                autoplay: true,
                 autoplayHoverPause: true,
-                autoplayTimeout: 3000,
+                autoplayTimeout: 2000,
 
                 responsive: {
                     0: {

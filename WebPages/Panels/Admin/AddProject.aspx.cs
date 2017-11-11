@@ -18,7 +18,6 @@ namespace WebPages.Panels.Admin
         {
             if (Session["adminid"] != null)
             {
-
                 if (!IsPostBack)
                 {
                     btnSave.Enabled = false;
@@ -29,13 +28,11 @@ namespace WebPages.Panels.Admin
                     DDLGroups.DataValueField = "GroupID";
                     DDLGroups.DataBind();
                     DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-
                 }
             }
             else
             {
                 Response.Redirect("/AdminLogin");
-
             }
         }
 
@@ -201,11 +198,7 @@ namespace WebPages.Panels.Admin
                     }
                     else
                     {
-                        Response.Redirect("/Admin/ManageProjects");
-
-
-
-
+                        Response.Redirect("/Admin/AddProject/AddEmployeeToProject");
                     }
                 }
                 else

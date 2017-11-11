@@ -21,20 +21,20 @@
                 <div class="inputDiv">
                     <div class="formGroup">
                         <label>نام </label>
-                        <input id="FullName" value="نام مشتری" runat="server" disabled type="text" />
+                        <input id="FullName" runat="server" disabled type="text" />
                     </div>
                 </div>
 
                 <div class="inputDiv">
                     <div class="formGroup">
                         <label>موبایل </label>
-                        <input id="mobile" class="dirToLeft" value="09111234567" runat="server" disabled type="text" />
+                        <input id="mobile" class="dirToLeft" runat="server" disabled type="text" />
                     </div>
                 </div>
                 <div class="inputDiv">
                     <div class="formGroup">
                         <label>ایمیل </label>
-                        <input id="email" class="dirToLeft" value="deomo@info.com" runat="server" disabled type="text" />
+                        <input id="email" class="dirToLeft" runat="server" disabled type="text" />
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <div class="inputDiv">
                     <div class="formGroup">
                         <label>عنوان </label>
-                        <input id="onvan" value="عنوان پروژه" runat="server" disabled type="text" />
+                        <input id="onvan" runat="server" disabled type="text" />
                     </div>
                 </div>
 

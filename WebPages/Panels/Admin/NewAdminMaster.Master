@@ -202,10 +202,7 @@
                         <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
 
-                                <a href="#">
-
-                                    <div class="logoImg"></div>
-                                </a>
+                                <div runat="server" id="logo" class="logoImg"></div>
                             </div>
                         </div>
                     </div>

@@ -14,14 +14,12 @@ namespace DataAccess.Repository
 {
     public class UsersRepository
     {
-        ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
+        private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
 
         public User ChekUser(string txt)
         {
             return DB.Users.Where(p => p.Email == txt || p.UserName == txt).FirstOrDefault();
-
         }
-
 
         public int getUserIDByUsername_Password(string username, string password)
         {
@@ -32,6 +30,7 @@ namespace DataAccess.Repository
 
             return query;
         }
+
         public int getLastUserID()
         {
             int query =
@@ -40,9 +39,9 @@ namespace DataAccess.Repository
                 select r.UserID).FirstOrDefault();
             return query;
         }
+
         public void SaveUsers(User user)
         {
-
             if (user.UserID > 0)
             {
                 //==== UPDATE ====
@@ -56,14 +55,10 @@ namespace DataAccess.Repository
             }
 
             DB.SaveChanges();
-
         }
-
-
 
         public void DeleteUser(int ID)
         {
-
             User selectedUser = DB.Users.Where(p => p.UserID == ID).Single();
 
             if (selectedUser != null)
@@ -73,11 +68,8 @@ namespace DataAccess.Repository
             }
         }
 
-
-
         public void DeleteAll()
         {
-
             System.Configuration.ConnectionStringSettingsCollection connectionStrings =
                 WebConfigurationManager.ConnectionStrings as ConnectionStringSettingsCollection;
 
@@ -87,8 +79,8 @@ namespace DataAccess.Repository
 
                 db.ExecuteCommand("TRUNCATE TABLE Users");
             }
-
         }
+
         public User getUserById(int id)
         {
             return DB.Users.Where(p => p.UserID == id).FirstOrDefault();
@@ -136,7 +128,6 @@ namespace DataAccess.Repository
 
         public void setNewMobileForUser(int userid, string mobile)
         {
-
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
             conn.Open();
             string sql2 = string.Format("update Users set users.Mobile=N'{1}' where UserID={0}", userid, mobile);
@@ -147,7 +138,7 @@ namespace DataAccess.Repository
 
         public DataTable getAllUsersAndEmployeesForMessage()
         {
-            string Command = string.Format("select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole,RegSeen,Mobile from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole,RegSeen,Mobile from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID");
+            string Command = string.Format("select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole,RegSeen,Mobile from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID where users.FirstName != 'guest'  union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole,RegSeen,Mobile from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID  ");
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();
@@ -164,6 +155,7 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+
         public void setRegSeenToTrue(int userid)
         {
             SqlConnection conn = new SqlConnection(OnlineTools.conString);
@@ -173,6 +165,7 @@ namespace DataAccess.Repository
             myCommand2.ExecuteNonQuery();
             conn.Close();
         }
+
         public DataTable searchUserUnionEmployee(string txt)
         {
             string Command = string.Format("select * from( select users.UserName,Users.UserID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'مشتری' as urole,RegSeen,Mobile from Users left outer join Cities on Users.City = Cities.CityID left outer join States on Users.State = States.StateID union select Employees.UserName,Employees.EmployeeID,CityName +' - '+StateName as FullAddress,FirstName+' ' +LastName as FullName,N'کارمند' as urole,RegSeen,Mobile from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID)tbl where UserName like N'%{0}%' or UserID like N'%{0}%' or FullAddress like N'%{0}%' or FullName like N'%{0}%' or urole like N'%{0}%' or Mobile like N'%{0}%' order by UserID desc", txt);

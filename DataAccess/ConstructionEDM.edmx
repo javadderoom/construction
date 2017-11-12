@@ -53,6 +53,10 @@
           <Property Name="Adrees" Type="nvarchar(max)" />
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="AboutUs" Type="nvarchar(max)" />
+          <Property Name="AboutPage" Type="nvarchar(max)" />
+          <Property Name="logo" Type="varbinary(max)" />
+          <Property Name="Telegram" Type="nvarchar(max)" />
+          <Property Name="Instagram" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="EmployeeProjects">
           <Key>
@@ -540,6 +544,10 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <Property Name="Adrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Telegram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="EmployeeProject">
           <Key>
@@ -903,6 +911,10 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <EntitySetMapping Name="ContactWays">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.ContactWay">
               <MappingFragment StoreEntitySet="ContactWay">
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Telegram" ColumnName="Telegram" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="AboutPage" ColumnName="AboutPage" />
                 <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Adrees" ColumnName="Adrees" />

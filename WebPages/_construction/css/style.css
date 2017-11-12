@@ -21,6 +21,31 @@
     color: black;
 }
 
+.social {
+    width: 20px;
+    height: 20px;
+}
+
+#instagram {
+    background-image: url('../../Icons/instagram-logo  .png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#insUrl #instagram:hover {
+    background-image: url('../../Icons/instagram-logo hover.png');
+}
+
+#telegram {
+    background-image: url('../../Icons/telegram-logo .png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    #telegram:hover {
+        background-image: url('../../Icons/telegram-logo hover.png');
+    }
+
 .breadcrumb > li + li:before {
     content: none !important;
 }
@@ -523,15 +548,6 @@ a {
     #nr_topStrip {
         height: 60px;
     }
-
-        #nr_topStrip .c-info {
-            width: 100%;
-            margin-bottom: 5px;
-        }
-
-        #nr_topStrip .lang {
-            width: 100%;
-        }
 }
 /*----------------------------------------------------------------*/
 /*Header*/
@@ -570,7 +586,7 @@ header .social_nav {
     }
 
 .logoImg {
-    background-image: url('../images/logo.png');
+    background-repeat: no-repeat;
     width: 262px;
     height: 45px;
     background-size: contain;

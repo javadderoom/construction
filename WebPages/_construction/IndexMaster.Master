@@ -64,6 +64,19 @@
                             <li runat="server" id="mail" style="color: white; margin-left: 10px"></li>
                         </ul>
                         <ul class="list-inline lang fright">
+                            <li>
+                                <a runat="server" id="insUrl" href="#">
+                                    <div id="instagram" class="social">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="teleUrl" runat="server" href="#">
+
+                                    <div id="telegram" class="social">
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -84,11 +97,7 @@
                         <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
 
-                                <a href="#">
-
-                                    <div class="logoImg"></div>
-                                    <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
-                                </a>
+                                <div runat="server" id="logo" class="logoImg"></div>
                             </div>
                         </div>
                     </div>

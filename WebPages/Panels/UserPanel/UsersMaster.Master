@@ -130,16 +130,7 @@
                         <div class="social_nav col-xs-10 col-md-6">
                             <div class="row">
 
-                                <a href="#">
-
-                                    <div class="logoImg"></div>
-                                    <%--<img class="logoImg" src="images/logo.png" alt="Construction" />--%>
-                                </a>
-                                <%-- <ul class="list-inline">
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                </ul>--%>
+                                <div runat="server" id="logo" class="logoImg"></div>
                             </div>
                         </div>
                     </div>

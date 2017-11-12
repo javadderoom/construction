@@ -35,7 +35,32 @@ namespace WebPages.Panels.EmployeePanel
                 contactEmail.InnerHtml = "<i class='fa fa-envelope'></i>" + cnw.Email;
                 contactPhone.InnerHtml = "<i class='fa fa-phone'></i>" + cnw.PhoneNumber;
                 contactHome.InnerHtml = "<i class='fa fa-home'></i>" + cnw.Adrees;
+                logo.Attributes["style"] = "background-image:url(" + setLogoImage() + ")";
             }
+        }
+
+        private string setLogoImage()
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select logo from ContactWay"), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
+
+                        dr.Close();
+                    }
+                    cn.Close();
+                }
+            }
+            return ans;
         }
 
         private string setInlineImage(int arid)

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataAccess;
+using DataAccess.Repository;
 
 namespace WebPages._construction
 {
@@ -11,7 +13,17 @@ namespace WebPages._construction
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LoadAboat();
+            }
+        }
 
+        private void LoadAboat()
+        {
+            ContactUsRepository repo = new ContactUsRepository();
+            ContactWay cnw = repo.Findcwy(1);
+            aboutUs.InnerHtml = cnw.AboutPage;
         }
     }
 }

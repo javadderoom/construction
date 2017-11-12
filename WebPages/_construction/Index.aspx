@@ -166,6 +166,13 @@
                         <div class="owl-one owl-carousel " runat="server" id="ourServises"></div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                <asp:UpdateProgress ID="updateProgress1" runat="server" DisplayAfter="0">
+                    <ProgressTemplate>
+                        <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
+                            <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
+                        </div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
             </div>
         </div>
     </section>
@@ -176,20 +183,6 @@
             <h2 class="sectionTitle">پروژه های ما</h2>
             <div class="sectionSubTitle">آخرین کار ها</div>
         </div>
-        <%--<div class="row filters m0">
-            <button type="button" class="collapsed project_filderButton visible-xs" data-toggle="collapse" data-target="#filters">
-                <span class="btn-text"><i class="fa fa-filter"></i>فیلتر پروژه ها</span>
-            </button>
-            <ul class="list-inline text-center collapse navbar-collapse" id="filters">
-                <li class="filter" data-filter="all"><i class="fa fa-th"></i>نمایش همه</li>
-                <li class="filter" data-filter=".catHospital">بیمارستان</li>
-                <li class="filter" data-filter=".catSchools">مدرسه</li>
-                <li class="filter" data-filter=".catHouses">خانه</li>
-                <li class="filter" data-filter=".catFlats">آپارتمان</li>
-                <li class="filter" data-filter=".catOffices">دفتر کار</li>
-                <li class="filter" data-filter=".catUniversities">دانشگاه ها</li>
-            </ul>
-        </div>--%>
 
         <div class="row projects m0" runat="server" id="projectss">
         </div>
@@ -263,7 +256,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <%--<script src="../_Scripts/slick.js"></script>--%>
-    <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
+    <script src="<%= ResolveUrl("vendors/owl.carousel/js/owl.carousel.min.js")%>"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALleZ3zPaYhtpL2fLhiYKxEEbnQscPw3I"></script>
     <script>
 
@@ -330,7 +323,7 @@
         })
 
         var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
-        var imagePath = 'images/Pin-location.png'
+        var imagePath = '/_construction/images/Pin-location.png'
         var mapOptions = {
             zoom: 11,
             center: myLatlng,

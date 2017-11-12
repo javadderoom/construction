@@ -837,11 +837,10 @@
     <Content Include="fileman\Uploads\LICENSE.txt" />
     <Content Include="fileman\Uploads\roxy-fileman-logo.gif" />
     <Content Include="Global.asax" />
-    <Content Include="Icons\instagram-logo .png" />
-    <Content Include="Icons\instagram-logo green.png" />
-    <Content Include="Icons\instagram-logo.png" />
-    <Content Include="Icons\telegram-logo green.png" />
-    <Content Include="Icons\telegram-logo.png" />
+    <Content Include="Icons\instagram-logo  .png" />
+    <Content Include="Icons\instagram-logo hover.png" />
+    <Content Include="Icons\telegram-logo .png" />
+    <Content Include="Icons\telegram-logo hover.png" />
     <Content Include="Images\1 %281%29.jpg" />
     <Content Include="Images\1 %282%29.jpg" />
     <Content Include="Images\1 %283%29.jpg" />

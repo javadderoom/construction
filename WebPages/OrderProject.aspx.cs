@@ -90,7 +90,7 @@ namespace WebPages
                         description.Value = string.Empty;
                         ts.Complete();
                     }
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('سفارش شما با موفقیت ارسال گردید.')window.location ='/'", true);//لینک بشه
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('سفارش شما با موفقیت ارسال گردید.'),window.location ='/'", true);//لینک بشه
                 }
                 catch
                 {

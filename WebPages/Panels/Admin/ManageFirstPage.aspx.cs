@@ -6,6 +6,7 @@ using DataAccess;
 using DataAccess.Repository;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace WebPages.Panels.Admin
 {
@@ -26,6 +27,9 @@ namespace WebPages.Panels.Admin
                     tbxAdress.Text = cnw.Adrees;
                     tbxMail.Text = cnw.Email;
                     tbxPhone.Text = cnw.PhoneNumber;
+                    tbxAboutPage.Text = cnw.AboutPage;
+                    tbxInsta.Text = cnw.Instagram;
+                    tbxtele.Text = cnw.Telegram;
                 }
             }
             else
@@ -54,10 +58,38 @@ namespace WebPages.Panels.Admin
         {
             ContactUsRepository repContact = new ContactUsRepository();
             ContactWay cnw = repContact.Findcwy(1);
-            cnw.AboutUs = tbxAbout.Text;
-            cnw.Adrees = tbxAdress.Text;
-            cnw.Email = tbxMail.Text;
-            cnw.PhoneNumber = tbxPhone.Text;
+            if (tbxAbout.Text != "")
+                cnw.AboutUs = tbxAbout.Text;
+            if (tbxAdress.Text != "")
+                cnw.Adrees = tbxAdress.Text;
+            if (tbxMail.Text != "")
+                cnw.Email = tbxMail.Text;
+            if (tbxPhone.Text != "")
+                cnw.PhoneNumber = tbxPhone.Text;
+            if (tbxAboutPage.Text != "")
+                cnw.AboutPage = tbxAboutPage.Text;
+            if (tbxtele.Text != "")
+                cnw.Telegram = tbxtele.Text;
+            if (tbxInsta.Text != "")
+                cnw.Instagram = tbxInsta.Text;
+            if (FileUpload1.HasFile)
+            {
+                string filename = Path.GetFileName(FileUpload1.FileName);
+                string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
+
+                filename = rand + filename;
+                string ps = Server.MapPath(@"~\img\") + filename;
+                FileUpload1.SaveAs(ps);
+
+                FileStream fStream = File.OpenRead(ps);
+                byte[] contents = new byte[fStream.Length];
+                fStream.Read(contents, 0, (int)fStream.Length);
+                fStream.Close();
+                FileInfo fi = new FileInfo(ps);
+                fi.Delete();
+                cnw.logo = contents;
+            }
+
             if (repContact.Savecwy(cnw))
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(' ثبت با موفقیت انجام شد  ');", true);

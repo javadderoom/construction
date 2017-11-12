@@ -67,6 +67,24 @@ namespace WebPages._construction {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mail;
         
         /// <summary>
+        /// insUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor insUrl;
+        
+        /// <summary>
+        /// teleUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor teleUrl;
+        
+        /// <summary>
         /// profileContainer control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace WebPages._construction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pContainer;
+        
+        /// <summary>
+        /// logo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logo;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

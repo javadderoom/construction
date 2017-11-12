@@ -3,6 +3,7 @@ using DataAccess;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,11 +13,9 @@ namespace WebPages.Panels.UserPanel
 {
     public partial class UsersMaster : System.Web.UI.MasterPage
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Timeout = 120;
-
 
             if (!IsPostBack)
             {
@@ -35,9 +34,32 @@ namespace WebPages.Panels.UserPanel
                 contactEmail.InnerHtml = "<i class='fa fa-envelope'></i>" + cnw.Email;
                 contactPhone.InnerHtml = "<i class='fa fa-phone'></i>" + cnw.PhoneNumber;
                 contactHome.InnerHtml = "<i class='fa fa-home'></i>" + cnw.Adrees;
+                logo.Attributes["style"] = "background-image:url(" + setLogoImage() + ")";
             }
+        }
 
+        private string setLogoImage()
+        {
+            string ans = "";
+            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand(string.Format("select logo from ContactWay"), cn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    {
+                        if (dr.Read())
+                        {
+                            byte[] fileData = (byte[])dr.GetValue(0);
+                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                        }
 
+                        dr.Close();
+                    }
+                    cn.Close();
+                }
+            }
+            return ans;
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

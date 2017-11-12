@@ -26,14 +26,23 @@
             </div>
         </div>
         <br />
+
         <div class="form-group" style="clear: right;">
             <label style="display: block" for="DDLJobGroup">گروه کاری : </label>
-            <asp:DropDownList ID="DDLJobGroup" OnSelectedIndexChanged="DDLJobGroup_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
+                    <asp:DropDownList ID="DDLJobGroup" OnSelectedIndexChanged="DDLJobGroup_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
 
         <div class="form-group" style="">
             <label style="display: block" for="DDLJob">کار : </label>
-            <asp:DropDownList ID="DDLJob" OnSelectedIndexChanged="DDLJob_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                <ContentTemplate>
+                    <asp:DropDownList ID="DDLJob" OnSelectedIndexChanged="DDLJob_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
 
         <div class="c-title" style="display: block; clear: right">
@@ -136,7 +145,7 @@
                 <asp:UpdateProgress ID="updateProgress2" runat="server" DisplayAfter="0">
                     <ProgressTemplate>
                         <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                            <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
+                            <asp:Image ID="imgUpdateProgress2" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
                         </div>
                     </ProgressTemplate>
                 </asp:UpdateProgress>

@@ -59,13 +59,6 @@
                         <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
                     </Triggers>
                 </asp:UpdatePanel>
-                <asp:UpdateProgress ID="updateProgress1" runat="server" DisplayAfter="0">
-                    <ProgressTemplate>
-                        <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                            <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                        </div>
-                    </ProgressTemplate>
-                </asp:UpdateProgress>
             </div>
         </div>
         <div class="form-group">
@@ -83,13 +76,6 @@
                             <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-                    <asp:UpdateProgress ID="updateProgress2" runat="server" DisplayAfter="0">
-                        <ProgressTemplate>
-                            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                                <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                            </div>
-                        </ProgressTemplate>
-                    </asp:UpdateProgress>
                 </div>
                 <div style="display: inline;">
 
@@ -116,13 +102,6 @@
                             <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-                    <asp:UpdateProgress ID="updateProgress3" runat="server" DisplayAfter="0">
-                        <ProgressTemplate>
-                            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                                <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                            </div>
-                        </ProgressTemplate>
-                    </asp:UpdateProgress>
                 </div>
             </div>
         </div>
@@ -142,6 +121,44 @@
 
             <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" data-role="tagsinput" onkeydown="return (event.keyCode!=13);" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
+        <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+            <ContentTemplate>
+                <asp:GridView ID="gvSelected" runat="server" BackColor="White" BorderColor="#CCCCCC"
+                    BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
+                    GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
+                    HorizontalAlign="Center" OnRowDataBound="gvSelected_RowDataBound" AllowCustomPaging="False"
+                    AllowPaging="True" OnPageIndexChanging="gvSelected_PageIndexChanging" OnRowCommand="gvSelected_RowCommand">
+                    <Columns>
+
+                        <asp:BoundField DataField="EmployeeID" HeaderText="شناسه" />
+                        <asp:BoundField DataField="UserName" HeaderText="نام کاربری" />
+                        <asp:BoundField DataField="fullName" HeaderText="نام" />
+                        <asp:BoundField DataField="Mobile" HeaderText="شماره تلفن" />
+                        <asp:BoundField DataField="addr" HeaderText="آدرس" />
+                        <asp:BoundField DataField="Email" HeaderText="ایمیل" />
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+
+                                <asp:Button ID="Details" runat="server"
+                                    CommandName="view"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                    Text="حذف" Width="100" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+
+                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                    <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
+                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#242121" />
+                </asp:GridView>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
         <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" ChildrenAsTriggers="true" runat="server">
             <ContentTemplate>
@@ -161,13 +178,6 @@
                 <asp:PostBackTrigger ControlID="btnSave" />
             </Triggers>
         </asp:UpdatePanel>
-        <asp:UpdateProgress ID="updateProgress4" runat="server" DisplayAfter="0">
-            <ProgressTemplate>
-                <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                    <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                </div>
-            </ProgressTemplate>
-        </asp:UpdateProgress>
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">

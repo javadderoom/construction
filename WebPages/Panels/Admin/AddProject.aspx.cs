@@ -36,6 +36,13 @@ namespace WebPages.Panels.Admin
             }
         }
 
+        protected void gvSelected_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "view")
+            {
+            }
+        }
+
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             GroupsRepository repo = new GroupsRepository();

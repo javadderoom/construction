@@ -79,6 +79,7 @@ namespace WebPages
             routes.MapPageRoute("R32", "Admin/Scores", "~/Panels/Admin/Scores.aspx");
             routes.MapPageRoute("R30", "Admin/ManageUsers/UserInfo", "~/Panels/Admin/UserInfo.aspx");
             routes.MapPageRoute("R50", "Admin/ManageJobGroups", "~/Panels/Admin/ManageJobGroups.aspx");
+            routes.MapPageRoute("R56", "Admin/AddProject/AddEmployeeToProjectEdit", "~/Panels/Admin/EmployeesFilterByJobEdit.aspx");
             //Employee
             routes.MapPageRoute("R31", "Employee/Profile", "~/Panels/EmployeePanel/profile.aspx");
             //routes.MapPageRoute("R32", "Employee/ChangeInfo", "~/Panels/EmployeePanel/ChangeInfo.aspx");

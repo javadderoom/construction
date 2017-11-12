@@ -103,15 +103,6 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl NoItemDiv;
         
         /// <summary>
-        /// updateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress1;
-        
-        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -128,15 +119,6 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox SubGroups2;
-        
-        /// <summary>
-        /// updateProgress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress2;
         
         /// <summary>
         /// AddToSub2 control.
@@ -173,15 +155,6 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox SelectedSubGroups;
-        
-        /// <summary>
-        /// updateProgress3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress3;
         
         /// <summary>
         /// editor1 control.
@@ -254,14 +227,5 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
-        /// updateProgress4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress4;
     }
 }

@@ -52,8 +52,8 @@ namespace WebPages.Panels.Admin
                     {
 
                         int id = Session["ProjectIDForEdit"].ToString().ToInt();
-                        Session.Add("newProjectIDForEdit", id);
-                        Session.Remove("ProjectIDForEdit");
+                        //Session.Add("newProjectIDForEdit", id);
+                        //Session.Remove("ProjectIDForEdit");
                         ProjectsRepository repArt = new ProjectsRepository();
                         GroupsRepository repo = new GroupsRepository();
                         Project art = repArt.FindeProjectByID(id);
@@ -105,13 +105,13 @@ namespace WebPages.Panels.Admin
                 String.IsNullOrEmpty(Tags.Text) ||
                 String.IsNullOrEmpty(KeyWords.Text) || SelectedSubGroups.Items.Count == 0 || Abstract.Text.Count() < 130))
             {
-                if (Session["newProjectIDForEdit"] != null)
+                if (Session["ProjectIDForEdit"] != null)
                 {
 
 
 
-                    int id = Session["newProjectIDForEdit"].ToString().ToInt();
-                    Session.Remove("newProjectIDForEdit");
+                    int id = Session["ProjectIDForEdit"].ToString().ToInt();
+                    //Session.Remove("newProjectIDForEdit");
                     ProjectsRepository repArt = new ProjectsRepository();
                     GroupsRepository repo = new GroupsRepository();
                     Project art = repArt.FindeProjectByID(id);
@@ -155,6 +155,10 @@ namespace WebPages.Panels.Admin
                     art.Abstract = Abstract.Text;
                     art.Tags = Tags.Text;
                     art.KeyWords = KeyWords.Text;
+
+                    ProjectConRepository pcr = new ProjectConRepository();
+                    pcr.deleteByProjectID(Session["ProjectIDForEdit"].ToString().ToInt());
+
                     ProjectsRepository ARTRep = new ProjectsRepository();
                     if (ARTRep.SaveProject(art))
                     {
@@ -177,6 +181,9 @@ namespace WebPages.Panels.Admin
                                     result = false;
                                 }
                             }
+
+                            Session.Add("ProjectLastIDForEmployeeFilterEdit", id);
+                            Response.Redirect("AddProject/AddEmployeeToProjectEdit");
                         }
                         else
                         {

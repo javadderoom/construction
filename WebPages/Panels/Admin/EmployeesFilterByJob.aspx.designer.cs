@@ -76,6 +76,15 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.WebControls.GridView gvUsers;
         
         /// <summary>
+        /// updateProgress1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress updateProgress1;
+        
+        /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSelected;
+        
+        /// <summary>
+        /// updateProgress2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress updateProgress2;
         
         /// <summary>
         /// btnViewAll control.

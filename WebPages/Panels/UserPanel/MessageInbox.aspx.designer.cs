@@ -58,6 +58,15 @@ namespace WebPages.Panels.UserPanel {
         protected global::System.Web.UI.WebControls.GridView gvChats;
         
         /// <summary>
+        /// updateProgress1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress updateProgress1;
+        
+        /// <summary>
         /// btnViewAll control.
         /// </summary>
         /// <remarks>

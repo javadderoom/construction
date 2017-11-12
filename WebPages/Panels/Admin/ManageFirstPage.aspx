@@ -46,7 +46,13 @@
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
-
+            <asp:UpdateProgress ID="updateProgress1" runat="server" DisplayAfter="0">
+                <ProgressTemplate>
+                    <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
+                        <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
             <hr style="margin-top: 20px; margin-bottom: 20px" />
             <h3>راه های ارتباطی : </h3>
             <div style="padding-right: 25px;">

@@ -43,19 +43,16 @@ namespace WebPages.Panels.Admin
                         Response.Redirect("/Admin/ManageFirstPage");
                     }
                 }
-                else
-                {
-                    Response.Redirect("/AdminLogin");
-                }
-
+            }
+            else
+            {
+                Response.Redirect("/AdminLogin");
             }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
             string id = this.Page.RouteData.Values["id"].ToString();
-
 
             if (!String.IsNullOrEmpty(id))
             {
@@ -90,9 +87,7 @@ namespace WebPages.Panels.Admin
                     FileInfo fi = new FileInfo(ps);
                     fi.Delete();
                     slider.BackgroundImg = contents;
-
                 }
-
 
                 if (FileUpload2.HasFile)
                 {
@@ -121,7 +116,6 @@ namespace WebPages.Panels.Admin
                     FileInfo fi = new FileInfo(ps);
                     fi.Delete();
                     slider.thumbnail = contents;
-
                 }
                 if (CheckBox1.Checked == true)
                 {
@@ -135,7 +129,6 @@ namespace WebPages.Panels.Admin
                 else
                 {
                     slider.Link = null;
-
                 }
                 if (text.Text != "")
                 {
@@ -146,17 +139,15 @@ namespace WebPages.Panels.Admin
                     slider.Text = "";
                 }
 
-
                 if (repSlider.SaveSlider(slider))
                 { Response.Redirect("/Admin/ManageFirstPage"); }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert' ثبت تغییرات با خطا مواجه شد !  ');", true);
-
                 }
-
             }
         }
+
         private string setBKGSrc(int SlideID)
         {
             string ans = "";
@@ -169,7 +160,6 @@ namespace WebPages.Panels.Admin
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -177,13 +167,11 @@ namespace WebPages.Panels.Admin
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
             return ans;
         }
+
         private string setRightimgSrc(int SlideID)
         {
             string ans = "";
@@ -196,7 +184,6 @@ namespace WebPages.Panels.Admin
                     {
                         if (dr.Read())
                         {
-
                             byte[] fileData = (byte[])dr.GetValue(0);
                             ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
                         }
@@ -204,9 +191,6 @@ namespace WebPages.Panels.Admin
                         dr.Close();
                     }
                     cn.Close();
-
-
-
                 }
             }
             return ans;

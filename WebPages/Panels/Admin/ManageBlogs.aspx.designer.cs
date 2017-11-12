@@ -49,15 +49,6 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlSubGroups;
         
         /// <summary>
-        /// updateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress1;
-        
-        /// <summary>
         /// updatepanel3 control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl diverror;
-        
-        /// <summary>
-        /// updateProgress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress2;
         
         /// <summary>
         /// updatepanel2 control.
@@ -110,14 +92,5 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPosts;
-        
-        /// <summary>
-        /// updateProgress3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress3;
     }
 }

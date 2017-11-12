@@ -18,6 +18,10 @@ namespace WebPages
                 FillImageText();
                 fillDDL();
             }
+            while (Session["ImgValue"] == null)
+            {
+                FillImageText();
+            }
         }
 
         public void fillDDL()
@@ -130,19 +134,19 @@ namespace WebPages
                 FillImageText();
                 return;
             }
-
-            if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
-            {
-                //lblWarning.Text = "کد وارد شده صحیح می باشد";
-                //FillImageText();
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد تصویر وارد شده صحیح نمی باشد');", true);
-                txtImage.Value = "";
-                FillImageText();
-                return;
-            }
+            if (Session["ImgValue"].ToString() != null)
+                if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
+                {
+                    //lblWarning.Text = "کد وارد شده صحیح می باشد";
+                    //FillImageText();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد تصویر وارد شده صحیح نمی باشد');", true);
+                    txtImage.Value = "";
+                    FillImageText();
+                    return;
+                }
             ///////////////////////////////////////////////////////////////////////////////////
             bool Employee = false;
             bool User = false;

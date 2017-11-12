@@ -40,15 +40,6 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.WebControls.GridView gvSlider;
         
         /// <summary>
-        /// updateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress1;
-        
-        /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>

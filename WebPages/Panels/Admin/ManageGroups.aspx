@@ -68,13 +68,6 @@
                             <asp:AsyncPostBackTrigger ControlID="btnSaveNewGroup" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-                    <asp:UpdateProgress ID="updateProgress1" runat="server" DisplayAfter="0">
-                        <ProgressTemplate>
-                            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                                <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                            </div>
-                        </ProgressTemplate>
-                    </asp:UpdateProgress>
                 </td>
                 <td class="disp">
 
@@ -128,13 +121,6 @@
                             <asp:AsyncPostBackTrigger ControlID="btnSaveNewSub" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
-                    <asp:UpdateProgress ID="updateProgress2" runat="server" DisplayAfter="0">
-                        <ProgressTemplate>
-                            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                                <asp:Image ID="imgUpdateProgress2" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                            </div>
-                        </ProgressTemplate>
-                    </asp:UpdateProgress>
                 </td>
             </tr>
         </table>
@@ -211,13 +197,7 @@
             <asp:AsyncPostBackTrigger ControlID="btnSaveGroupChange" EventName="Click" />
         </Triggers>
     </asp:UpdatePanel>
-    <asp:UpdateProgress ID="updateProgress3" runat="server" DisplayAfter="0">
-        <ProgressTemplate>
-            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                <asp:Image ID="imgUpdateProgress3" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-            </div>
-        </ProgressTemplate>
-    </asp:UpdateProgress>
+
     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
         <ContentTemplate>
 
@@ -289,13 +269,7 @@
             <asp:AsyncPostBackTrigger ControlID="btnSaveSubGroupChane" EventName="Click" />
         </Triggers>
     </asp:UpdatePanel>
-    <asp:UpdateProgress ID="updateProgress4" runat="server" DisplayAfter="0">
-        <ProgressTemplate>
-            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                <asp:Image ID="Image1" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-            </div>
-        </ProgressTemplate>
-    </asp:UpdateProgress>
+
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
         <ContentTemplate>
 
@@ -431,13 +405,6 @@
             <asp:AsyncPostBackTrigger ControlID="btnAddNewSub" EventName="Click" />
         </Triggers>
     </asp:UpdatePanel>
-    <asp:UpdateProgress ID="updateProgress6" runat="server" DisplayAfter="0">
-        <ProgressTemplate>
-            <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                <asp:Image ID="Image3" runat="server" ImageUrl="~/_construction/images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-            </div>
-        </ProgressTemplate>
-    </asp:UpdateProgress>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
 </asp:Content>

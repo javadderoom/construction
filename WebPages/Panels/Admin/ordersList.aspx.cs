@@ -53,5 +53,11 @@ namespace WebPages.Panels.Admin
         {
             this.gvChats.Columns[5].Visible = false;
         }
+
+        protected void gvChats_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvChats.PageIndex = e.NewPageIndex;
+            fillGrid();
+        }
     }
 }

@@ -40,15 +40,6 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.WebControls.GridView gvGroups;
         
         /// <summary>
-        /// updateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress1;
-        
-        /// <summary>
         /// updatepanel1 control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSubGroups;
-        
-        /// <summary>
-        /// updateProgress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress2;
         
         /// <summary>
         /// UpdatePanel3 control.
@@ -130,15 +112,6 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.WebControls.Button btnSaveGroupChange;
         
         /// <summary>
-        /// updateProgress3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress3;
-        
-        /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
         /// <remarks>
@@ -182,15 +155,6 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveSubGroupChane;
-        
-        /// <summary>
-        /// updateProgress4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress4;
         
         /// <summary>
         /// UpdatePanel5 control.
@@ -281,14 +245,5 @@ namespace WebPages.Panels.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveNewSub;
-        
-        /// <summary>
-        /// updateProgress6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress6;
     }
 }

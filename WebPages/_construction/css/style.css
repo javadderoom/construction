@@ -319,22 +319,36 @@ a {
             position: relative;
         }
 
-        .sectionTitles .sectionSubTitle:before {
-            margin-right: 20px;
-        }
+@media screen and (max-width:500px) {
+    .sectionTitles .sectionSubTitle:before,
+    .sectionTitles .sectionSubTitle:after {
+        width: 30px;
+    }
+}
 
-        .sectionTitles .sectionSubTitle:after {
-            margin-left: 20px;
-        }
+@media screen and (max-width:320px) {
+    .sectionTitles .sectionSubTitle:before,
+    .sectionTitles .sectionSubTitle:after {
+        visibility: hidden;
+    }
+}
 
-        .sectionTitles .sectionSubTitle.whiteTC {
-            color: #FFF;
-        }
+.sectionTitles .sectionSubTitle:before {
+    margin-right: 20px;
+}
 
-            .sectionTitles .sectionSubTitle.whiteTC:before,
-            .sectionTitles .sectionSubTitle.whiteTC:after {
-                background: #FFF;
-            }
+.sectionTitles .sectionSubTitle:after {
+    margin-left: 20px;
+}
+
+.sectionTitles .sectionSubTitle.whiteTC {
+    color: #FFF;
+}
+
+    .sectionTitles .sectionSubTitle.whiteTC:before,
+    .sectionTitles .sectionSubTitle.whiteTC:after {
+        background: #FFF;
+    }
 
 @media (max-width: 1024px) {
     .sectionTitles .sectionTitle {

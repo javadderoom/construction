@@ -22,42 +22,48 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
     <div id="container">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="InnerContainer">
-            <div style="float: right; overflow-x: auto; width: 100%;">
-                <asp:GridView ID="gvChats" runat="server" BackColor="White" BorderColor="#CCCCCC"
-                    BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
-                    GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirToLeft table grid "
-                    HorizontalAlign="Center" OnRowDataBound="gvChats_RowDataBound" AllowCustomPaging="True"
-                    AllowPaging="True" OnRowCommand="gvChats_RowCommand">
-                    <Columns>
-                        <asp:BoundField DataField="OrderID" HeaderText="شناسه" />
-                        <asp:BoundField DataField="fullName" HeaderText="نام" />
-                        <asp:BoundField DataField="Title" HeaderText="عنوان سفارش" />
-                        <asp:BoundField DataField="FullAdd" HeaderText="شهر و استان" />
-                        <asp:BoundField DataField="Budget" HeaderText="بودجه" />
-                        <asp:BoundField DataField="IsSeen" HeaderText="IsSeen" />
 
-                        <asp:TemplateField>
+            <div style="overflow-x: auto; width: 100%;">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvChats" runat="server" BackColor="White" BorderColor="#CCCCCC"
+                            BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
+                            GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirToLeft table grid "
+                            HorizontalAlign="Center" OnPageIndexChanging="gvChats_PageIndexChanging" OnRowDataBound="gvChats_RowDataBound" AllowCustomPaging="False"
+                            AllowPaging="True" OnRowCommand="gvChats_RowCommand">
+                            <Columns>
+                                <asp:BoundField DataField="OrderID" HeaderText="شناسه" />
+                                <asp:BoundField DataField="fullName" HeaderText="نام" />
+                                <asp:BoundField DataField="Title" HeaderText="عنوان سفارش" />
+                                <asp:BoundField DataField="FullAdd" HeaderText="شهر و استان" />
+                                <asp:BoundField DataField="Budget" HeaderText="بودجه" />
+                                <asp:BoundField DataField="IsSeen" HeaderText="IsSeen" />
 
-                            <ItemTemplate>
-                                <asp:Label ID="lblSeen" runat="server" ForeColor="Green" Text='<%# (((Eval("IsSeen").ToString() == "False")) ? "سفارش جدید" : "")  %>'></asp:Label>
-                                <asp:Button ID="Details" runat="server"
-                                    CommandName="view"
-                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                    Text="مشاهده جزییات" Width="100" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
+                                <asp:TemplateField>
 
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblSeen" runat="server" ForeColor="Green" Text='<%# (((Eval("IsSeen").ToString() == "False")) ? "سفارش جدید" : "")  %>'></asp:Label>
+                                        <asp:Button ID="Details" runat="server"
+                                            CommandName="view"
+                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                            Text="مشاهده جزییات" Width="100" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle HorizontalAlign="center" CssClass="GridPager" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
     </div>

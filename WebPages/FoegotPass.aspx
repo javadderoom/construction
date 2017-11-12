@@ -49,32 +49,32 @@
 
                     <asp:UpdatePanel ID="UpdateImage" runat="server">
                         <ContentTemplate>
-                            <div class="col-md-5 col-xs-5">
+                            <div class="col-md-4 col-xs-5" style="float: right">
+                                <div class="dow">
+                                    <div class="col-md-4 col-sx-12">
+                                        <asp:Image ID="btnImg" runat="server" CssClass="imgInline" />
+                                    </div>
+                                    <div class="col-md-8 col-sx-12">
+                                        <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 154px; display: inline; font-family: Tahoma"></input>
+                                    </div>
+                                </div>
                                 <table>
                                     <tr>
-                                        <td style="height: 100%; width: 50px;">
-                                            <asp:Image ID="btnImg" runat="server" CssClass="imgInline" />
-                                        </td>
+                                        <td style="height: 100%; width: 50px;"></td>
+                                        <td style="height: 100%;"></td>
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-7 col-xs-7">
-                                <input type="text" id="txtImage" runat="server" maxlength="5" class="form-control" placeholder="کد تصویر را وارد کنید" style="width: 190px; display: inline; font-family: Tahoma"></input>
+                            <div class="col-md-8 col-xs-7">
                             </div>
                         </ContentTemplate>
-
                     </asp:UpdatePanel>
-
-
-
-
                 </div>
                 <div style="text-align: center; padding-bottom: 25px;">
                     <asp:Button ID="Button1" CssClass="btn btn-success" runat="server" OnClick="Button1_Click" Text="تایید" />
                 </div>
             </div>
         </div>
-
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="map" runat="server">

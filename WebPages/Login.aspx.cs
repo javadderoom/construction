@@ -20,6 +20,10 @@ namespace WebPages
             {
                 FillImageText();
             }
+            while (Session["ImgValue"] == null)
+            {
+                FillImageText();
+            }
         }
 
         private void FillImageText()
@@ -49,18 +53,19 @@ namespace WebPages
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('نام کاربری یا رمز عبور را وارد نکردید ! ');", true);
                 return;
             }
-            if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
-            {
-                //lblWarning.Text = "کد وارد شده صحیح می باشد";
-                //FillImageText();
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');", true);
-                txtImage.Value = "";
-                FillImageText();
-                return;
-            }
+            if (Session["ImgValue"].ToString() != null)
+                if (Session["ImgValue"].ToString() == txtImage.Value.ToUpper())
+                {
+                    //lblWarning.Text = "کد وارد شده صحیح می باشد";
+                    //FillImageText();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('کد وارد شده صحیح نمی باشد ! ');", true);
+                    txtImage.Value = "";
+                    FillImageText();
+                    return;
+                }
             ///////////////////////////////////////////////////////////////////////////////////
             if (rdiEmployees.Checked == true)
             {

@@ -336,5 +336,15 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+        public List<int> getEmployeeIDsFromProjectID(int pid)
+        {
+            List<int?> l = (from r in DB.EmployeeProjects where r.ProjectID == pid select r.EmployeeID).ToList();
+            List<int> l2 = new List<int>();
+            foreach (int i in l)
+            {
+                l2.Add(i);
+            }
+            return l2;
+        }
     }
 }

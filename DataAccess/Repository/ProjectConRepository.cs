@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +78,16 @@ namespace DataAccess.Repository
                 ans = false;
             }
             return ans;
+        }
+
+        public void deleteByProjectID(int pid)
+        {
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("delete from ProjectConnection where projectid = {0}", pid);
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
         }
         public bool DeleteConsBySubGroupIdList(List<int> list)
         {

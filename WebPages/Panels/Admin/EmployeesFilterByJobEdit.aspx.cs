@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace WebPages.Panels.Admin
 {
-    public partial class EmployeesFilterByJob : System.Web.UI.Page
+    public partial class EmployeesFilterByJobEdit : System.Web.UI.Page
     {
         private const string cChalMemNameConst = "ChalMem_cnst";
 
@@ -25,6 +25,10 @@ namespace WebPages.Panels.Admin
                 }
 
                 return (List<int>)ViewState[cChalMemNameConst];
+            }
+            set
+            {
+                ViewState[cChalMemNameConst] = value;
             }
         }
 
@@ -60,6 +64,9 @@ namespace WebPages.Panels.Admin
                 if (!IsPostBack)
                 {
                     viewAll = "false";
+                    EmployeesRepository epr = new EmployeesRepository();
+                    loi = epr.getEmployeeIDsFromProjectID(Session["ProjectLastIDForEmployeeFilterEdit"].ToString().ToInt());
+
                     fillDDLs();
                     fillGrids();
                 }
@@ -162,6 +169,7 @@ namespace WebPages.Panels.Admin
                 GridViewRow row = gvUsers.Rows[index];
                 int empid = row.Cells[0].Text.ToInt();
                 loi.Add(empid);
+                viewAll = "false";
                 fillGrids();
             }
         }
@@ -233,8 +241,8 @@ namespace WebPages.Panels.Admin
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ کارمندی انتخاب نشده است!حداقل یک کارمند را انتخاب کنید')", true);
                 return;
             }
-            int projid = Session["ProjectLastIDForEmployeeFilter"].ToString().ToInt();
-            Session.Remove("ProjectLastIDForEmployeeFilter");
+            int projid = Session["ProjectLastIDForEmployeeFilterEdit"].ToString().ToInt();
+            Session.Remove("ProjectLastIDForEmployeeFilterEdit");
             EmployeeProject em;
 
             foreach (int i in loi)

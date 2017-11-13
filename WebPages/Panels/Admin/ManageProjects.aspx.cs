@@ -129,7 +129,6 @@ namespace WebPages.Panels.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("adminid", 1);
             if (Session["adminid"] != null)
             {
                 if (!IsPostBack)

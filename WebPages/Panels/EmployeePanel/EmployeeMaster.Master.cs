@@ -15,8 +15,6 @@ namespace WebPages.Panels.EmployeePanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Timeout = 120;
-
             if (!IsPostBack)
             {
                 EmployeesRepository repemplo = new EmployeesRepository();

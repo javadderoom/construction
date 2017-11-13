@@ -173,6 +173,7 @@ namespace WebPages
                         ur.SaveUsers(u);
                         int id = ur.getLastUserID();
                         Session.Add("userid", id);
+                        Session.Timeout = 20;
                         User = true;
                     }
                     else
@@ -203,7 +204,7 @@ namespace WebPages
 
                         int id = ur.getLastEmployeeID();
                         Session.Add("employeeid", id);
-
+                        Session.Timeout = 20;
                         Employee = true;
                     }
 

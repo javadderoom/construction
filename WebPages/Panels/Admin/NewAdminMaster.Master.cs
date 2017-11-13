@@ -15,8 +15,6 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Timeout = 120;
-
             if (!IsPostBack)
             {
                 MessageRepository repms = new MessageRepository();

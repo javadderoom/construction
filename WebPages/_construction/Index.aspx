@@ -322,7 +322,7 @@
 
         })
 
-        var myLatlng = new google.maps.LatLng(36.542219, 52.678913);
+        var myLatlng = new google.maps.LatLng(36.543681, 52.689014);
         var imagePath = '/_construction/images/Pin-location.png'
         var mapOptions = {
             zoom: 11,

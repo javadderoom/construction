@@ -85,6 +85,7 @@ namespace WebPages
                 Session.Add("adminid", 1);
                 Session.Remove("userid");
                 Session.Remove("employeeid");
+                Session.Timeout = 60;
                 Response.Redirect("/Admin/Inbox");
             }
         }

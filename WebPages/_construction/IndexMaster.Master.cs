@@ -16,7 +16,6 @@ namespace WebPages._construction
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Timeout = 120;
             bool Admin = false;
             bool User = false;
             bool Employee = false;

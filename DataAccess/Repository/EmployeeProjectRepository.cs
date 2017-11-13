@@ -50,6 +50,14 @@ namespace DataAccess.Repository
             return result;
         }
 
-
+        public void deleteByProjectID(int pid)
+        {
+            SqlConnection conn = new SqlConnection(OnlineTools.conString);
+            conn.Open();
+            string sql2 = string.Format("delete from EmployeeProjects where projectid = {0}", pid);
+            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+            myCommand2.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

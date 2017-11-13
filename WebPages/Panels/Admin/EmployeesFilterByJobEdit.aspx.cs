@@ -243,6 +243,9 @@ namespace WebPages.Panels.Admin
             }
             int projid = Session["ProjectLastIDForEmployeeFilterEdit"].ToString().ToInt();
             Session.Remove("ProjectLastIDForEmployeeFilterEdit");
+
+            ep.deleteByProjectID(projid);
+
             EmployeeProject em;
 
             foreach (int i in loi)

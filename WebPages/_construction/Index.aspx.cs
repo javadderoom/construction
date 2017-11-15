@@ -137,13 +137,11 @@ namespace WebPages._construction
                 }
                 else
                 {
-                    icons = new List<string> {  "fa-university", "fa-building", "fa-cogs"
-            ,  "fa-gavel", "fa-suitcase", "fa-truck", "fa-university fa-spin", "fa-building fa-spin", "fa-cogs fa-spin"
-            ,  "fa-gavel fa-spin", "fa-suitcase fa-spin", "fa-truck fa-spin"};
+                    icons = new List<string> {   "fa-building"
+            };
                     int index = random.Next(icons.Count);
                     name = icons[index];
                     icons.RemoveAt(index);
-
                 }
 
                 ourServises.InnerHtml += "<div class='item '><div class='row m0 service'><div class='row m0 innerRow item'><div><i class='fa " + name + "'></i><div class='serviceName'>" + gp.Title + "</div><div class='item-overlay left'><ul><li class='liLeft'><input type='button' onclick=\"window.location='/Blogs/" + gp.GroupID + "';\" value='مقالات'  class='btnLeftService'></li><li class='liRight'><input type='button' onclick=\"$('#modal" + gp.GroupID + "').modal('show');\"  value='زیر گروه ها'  class='btnRightService'></li></ul></div></div></div></div></div>";
@@ -162,19 +160,8 @@ namespace WebPages._construction
                 {
                     modalsdiv.InnerHtml += "<div class='modal fade' id='modal" + gp.GroupID + "' tabindex='-1' role='dialog' aria-labelledby='modalAskSubmitUpdate-label' aria-hidden='true'> <div class='modal-dialog'> <div class='modal-content'> <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button> <h4 class='modal-title'> <span class='glyphicon glyphicon-warning-sign'></span> زیر گروه های " + gp.Title + " </h4> </div><div class='modal-body' style='direction: rtl'> <span style='color: red;font-weight: bold;'>این گروه زیر گروهی ندارد !</span> </div><div class='modal-footer'> </div></div></div></div>";
                 }
-
-
             }
-
-
-
         }
-
-
-
-
-
-
 
         private void fillArticles(List<Article> artList)
         {
@@ -265,9 +252,7 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             fillServises();
-
 
             if (!IsPostBack)
             {
@@ -282,8 +267,6 @@ namespace WebPages._construction
                 bestEmploees();
             }
         }
-
-
 
         private string setInlineImage(int arid)
         {

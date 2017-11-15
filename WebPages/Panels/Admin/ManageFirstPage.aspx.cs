@@ -7,6 +7,7 @@ using DataAccess.Repository;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using Common;
 
 namespace WebPages.Panels.Admin
 {
@@ -30,6 +31,9 @@ namespace WebPages.Panels.Admin
                     tbxAboutPage.Text = cnw.AboutPage;
                     tbxInsta.Text = cnw.Instagram;
                     tbxtele.Text = cnw.Telegram;
+                    AdminsRepository ad = new AdminsRepository();
+                    DataAccess.Admin admin = ad.getAdmin(Session["adminid"].ToString().ToInt());
+                    tbxPass.Text = admin.Password;
                 }
             }
             else
@@ -57,6 +61,13 @@ namespace WebPages.Panels.Admin
         protected void btnSave_Click(object sender, EventArgs e)
         {
             ContactUsRepository repContact = new ContactUsRepository();
+            AdminsRepository ad = new AdminsRepository();
+            DataAccess.Admin addsd = ad.getAdmin(Session["adminid"].ToString().ToInt());
+            if (tbxPass.Text != "")
+            {
+                addsd.Password = tbxPass.Text;
+                ad.SaveAdmin(addsd);
+            }
             ContactWay cnw = repContact.Findcwy(1);
             if (tbxAbout.Text != "")
                 cnw.AboutUs = tbxAbout.Text;

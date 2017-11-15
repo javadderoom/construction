@@ -11,6 +11,7 @@ namespace DataAccess.Repository
     public class OrderRepository
     {
         private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
+
         public bool SaveOrder(Order o)
         {
             try
@@ -32,11 +33,8 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
-
                 return false;
             }
-
-
         }
 
         public int AdminNewOrders()
@@ -69,18 +67,17 @@ namespace DataAccess.Repository
         public DataTable getAllOrders()
         {
             Order o = new Order();
-            string Command = string.Format("select o.*,CityName,StateName,FirstName+' '+LastName as fullName ,Mobile,Email,CityName+' - ' +StateName as FullAdd from Orders o left outer join Users u on o.UserID = u.UserID left outer join States s on o.State = s.StateID left outer join Cities c on o.City = c.CityID");
+            string Command = string.Format("select o.*,CityName,StateName,FirstName+' '+LastName as fullName ,Mobile,Email,CityName+' - ' +StateName as FullAdd from Orders o left outer join Users u on o.UserID = u.UserID left outer join States s on o.State = s.StateID left outer join Cities c on o.City = c.CityID order by OrderID DESC");
             SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
             DataTable dtResult = new DataTable();
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+
         public Order returnorder(int id)
         {
             return DB.Orders.Where(p => p.OrderID == id).FirstOrDefault();
         }
-
     }
-
 }

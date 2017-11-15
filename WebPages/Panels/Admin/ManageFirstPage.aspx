@@ -53,6 +53,13 @@
 
                 <div class="form-group">
 
+                    <label for="tbxPass">رمز عبور :</label>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Display="Dynamic" SetFocusOnError="true" ControlToValidate="tbxPhone" runat="server" CssClass="error" ErrorMessage="شماره تماس نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
+
+                    <asp:TextBox ID="tbxPass" Style="max-width: 500px; height: 40px;" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="form-group">
+
                     <label for="tbxPhone">شماره تماس :</label>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Display="Dynamic" SetFocusOnError="true" ControlToValidate="tbxPhone" runat="server" CssClass="error" ErrorMessage="شماره تماس نمیتواند خالی باشد!"></asp:RequiredFieldValidator>
 

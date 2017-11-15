@@ -152,6 +152,7 @@
             </ProgressTemplate>
         </asp:UpdateProgress>
     </div>
+    <div runat="server" id="modalsdiv"></div>
 
     <section class="nr_services row ">
 
@@ -161,18 +162,10 @@
                 <div class="sectionSubTitle">آنچه ما ارائه می دهیم</div>
             </div>
             <div class="row m0 text-center">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
-                    <ContentTemplate>
-                        <div class="owl-one owl-carousel " runat="server" id="ourServises"></div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <asp:UpdateProgress ID="updateProgress1" runat="server" DisplayAfter="0">
-                    <ProgressTemplate>
-                        <div style="position: fixed; text-align: center; height: 100%; padding-top: 100px; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #ffffff; opacity: 0.8;">
-                            <asp:Image ID="imgUpdateProgress2" runat="server" ImageUrl="images/44frgm.gif" AlternateText="Loading ..." ToolTip="Loading ..." Style="padding: 10px; top: 45%; left: 50%;" />
-                        </div>
-                    </ProgressTemplate>
-                </asp:UpdateProgress>
+
+                <div class="owl-one owl-carousel " runat="server" id="ourServises"></div>
+
+
             </div>
         </div>
     </section>

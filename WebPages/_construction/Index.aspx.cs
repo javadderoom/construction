@@ -124,154 +124,57 @@ namespace WebPages._construction
             GroupsRepository gr = new GroupsRepository();
             List<Group> groups = new List<Group>();
             groups = gr.LoadListAllGroups();
+            Random random = new Random();
+            List<string> icons = new List<string>();
             foreach (Group gp in groups)
             {
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////
-                Button btnLeft = new Button();
-                btnLeft.CssClass = "btnLeftService";
-                btnLeft.Text = "مقالات";
-                btnLeft.ID = "l" + gp.GroupID.ToString();
-                btnLeft.Click += (s, e) =>
+                string name = "";
+                if (icons.Count != 0)
                 {
-                    Button btn = (Button)s;
-
-                    string id = btn.ID.Replace("l", "");
-                    Session.Add("GroupidForOpenBlog", id);
-                    Response.Redirect("/Blogs");
-                };
-
-                Button btnRight = new Button();
-                btnRight.CssClass = "btnRightService";
-                btnRight.Text = "زیر گروه ها";
-                btnRight.Click += BtnRight_Click;
-                btnRight.ID = gp.GroupID.ToString();
-                btnRight.OnClientClick = "owl()";
-
-                var li1 = new HtmlGenericControl("li");
-                li1.Attributes["class"] = "liLeft";
-
-                var li2 = new HtmlGenericControl("li");
-                li2.Attributes["class"] = "liRight";
-                var ul = new HtmlGenericControl("ul");
-
-                var div6 = new HtmlGenericControl("div");
-                div6.Attributes["class"] = "item-overlay left";
-                var div41 = new HtmlGenericControl("div");
-                div41.Attributes["class"] = "serviceName";
-                div41.InnerText = gp.Title;
-
-                var i = new HtmlGenericControl("i");
-                i.Attributes["class"] = "fa fa-laptop";
-                var div4 = new HtmlGenericControl("div");
-                var div3 = new HtmlGenericControl("div");
-                div3.Attributes["class"] = "row m0 innerRow item";
-                var div2 = new HtmlGenericControl("div");
-                div2.Attributes["class"] = "row m0 service";
-                var div1 = new HtmlGenericControl("div");
-                div1.Attributes["class"] = "item";
-                var div = new HtmlGenericControl("div");
-                div.Attributes["class"] = "owl-one owl-carousel";
-                div.ID = "ourServises";
-
-                li2.Controls.Add(btnRight);
-                li1.Controls.Add(btnLeft);
-                ul.Controls.Add(li1);
-                ul.Controls.Add(li2);
-                div6.Controls.Add(ul);
-                div4.Controls.Add(i);
-                div4.Controls.Add(div41);
-                div4.Controls.Add(div6);
-                div3.Controls.Add(div4);
-                div2.Controls.Add(div3);
-                div1.Controls.Add(div2);
-                div.Controls.Add(div1);
-                ourServises.Controls.Add(div1);
-            }
-
-            //ourServises.InnerHtml = content;
-        }
-
-        private void BtnRight_Click(object sender, EventArgs e)
-        {
-            servisContent.InnerHtml = "";
-            Button btn = (Button)sender;
-
-            string grouIid = btn.ID;
-            fillSungroups(grouIid);
-            triggers();
-            fillServises();
-
-            ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "myFunc()", true);
-        }
-
-        //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
-        private void fillSungroups(string id)
-        {
-            Session.Add("subGroupdIDForjavad", id);
-            updateProgress.Visible = true;
-            GroupsRepository gr = new GroupsRepository();
-            List<Group> groups = new List<Group>();
-            int ID = id.ToInt();
-            groups = gr.LoadListSubGroup(ID);
-            if (groups.Count > 0)
-            {
-                servisContent.InnerHtml = "";
-                foreach (Group gp in groups)
-                {
-                    LinkButton link = new LinkButton();
-                    link.CssClass = "subGroup";
-                    link.Text = gp.Title;
-                    link.OnClientClick = "FireEvent();";
-                    link.ID = gp.GroupID.ToString();
-
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "text", "function FireEvent(){$('#'" + link.ClientID + ").trigger('click');}", true);
-                    link.Click += new EventHandler(Link_Click);
-                    ScriptManager.GetCurrent(this).RegisterPostBackControl(link);
-                    //link.Click += (s, e) =>
-                    //{
-                    //    LinkButton btn2 = (LinkButton)s;
-
-                    //    string idTosend = btn2.ID;
-                    //    Session.Add("SubGroupidForOpenBlog", idTosend);
-                    //    Response.Redirect("/Blogs");
-                    //};
-
-                    //Button btn = new Button();
-                    //btn.CssClass = "subGroup";
-                    //btn.Text = gp.Title;
-                    //btn.ID = gp.GroupID.ToString();
-                    //btn.Click += (s, e) =>
-                    //{
-                    //    Button btn2 = (Button)s;
-
-                    //    string idTosend = btn2.ID;
-                    //    Session.Add("SubGroupidForOpenBlog", idTosend);
-                    //    Response.Redirect("/Blogs");
-                    //};
-                    //var div = new HtmlGenericControl("div");
-                    //div.Attributes["class"] = "subGroup ";
-                    //div.InnerText = gp.Title;
-                    //div.Attributes["runat"] = "server";
-
-                    servisContent.Controls.Add(link);
-
-                    //ScriptManager1.RegisterAsyncPostBackControl(div);
+                    int index = random.Next(icons.Count);
+                    name = icons[index];
+                    icons.RemoveAt(index);
                 }
+                else
+                {
+                    icons = new List<string> {  "fa-university", "fa-building", "fa-cogs"
+            ,  "fa-gavel", "fa-suitcase", "fa-truck", "fa-university fa-spin", "fa-building fa-spin", "fa-cogs fa-spin"
+            ,  "fa-gavel fa-spin", "fa-suitcase fa-spin", "fa-truck fa-spin"};
+                    int index = random.Next(icons.Count);
+                    name = icons[index];
+                    icons.RemoveAt(index);
+
+                }
+
+                ourServises.InnerHtml += "<div class='item '><div class='row m0 service'><div class='row m0 innerRow item'><div><i class='fa " + name + "'></i><div class='serviceName'>" + gp.Title + "</div><div class='item-overlay left'><ul><li class='liLeft'><input type='button' onclick=\"window.location='/Blogs/" + gp.GroupID + "';\" value='مقالات'  class='btnLeftService'></li><li class='liRight'><input type='button' onclick=\"$('#modal" + gp.GroupID + "').modal('show');\"  value='زیر گروه ها'  class='btnRightService'></li></ul></div></div></div></div></div>";
+                List<Group> templist = new List<Group>();
+                templist = gr.LoadListSubGroup(gp.GroupID);
+                string buttons = "";
+                if (templist.Count != 0)
+                {
+                    foreach (Group sgp in templist)
+                    {
+                        buttons += " <input type='button' class='btn btn-warning' onclick=\"window.location='/Blogs/" + gp.GroupID + "/" + sgp.GroupID + "';\" style='margin: 5px' value='" + sgp.Title + "'/>";
+                    }
+                    modalsdiv.InnerHtml += "<div class='modal fade' id='modal" + gp.GroupID + "' tabindex='-1' role='dialog' aria-labelledby='modalAskSubmitUpdate-label' aria-hidden='true'> <div class='modal-dialog'> <div class='modal-content'> <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button> <h4 class='modal-title'> <span class='glyphicon glyphicon-warning-sign'></span> زیر گروه های " + gp.Title + " </h4> </div><div class='modal-body' style='direction: rtl'> " + buttons + " </div><div class='modal-footer'> </div></div></div></div>";
+                }
+                else
+                {
+                    modalsdiv.InnerHtml += "<div class='modal fade' id='modal" + gp.GroupID + "' tabindex='-1' role='dialog' aria-labelledby='modalAskSubmitUpdate-label' aria-hidden='true'> <div class='modal-dialog'> <div class='modal-content'> <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button> <h4 class='modal-title'> <span class='glyphicon glyphicon-warning-sign'></span> زیر گروه های " + gp.Title + " </h4> </div><div class='modal-body' style='direction: rtl'> <span style='color: red;font-weight: bold;'>این گروه زیر گروهی ندارد !</span> </div><div class='modal-footer'> </div></div></div></div>";
+                }
+
+
             }
-            else
-            {
-                servisContent.InnerHtml = "<h3 style='float: right;'>برای این گروه زیر گروهی وجود ندارد</h3>";
-            }
+
+
+
         }
 
-        private void Link_Click(object sender, EventArgs e)
-        {
-            LinkButton btn2 = (LinkButton)sender;
 
-            string idTosend = btn2.ID;
-            Session.Add("SubGroupidForOpenBlog", idTosend);
-            Response.Redirect("/Blogs");
-        }
+
+
+
+
 
         private void fillArticles(List<Article> artList)
         {
@@ -362,14 +265,9 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                string id = Session["subGroupdIDForjavad"].ToString();
-                fillSungroups(id);
-            }
-            catch { }
+
             fillServises();
-            triggers();
+
 
             if (!IsPostBack)
             {
@@ -385,19 +283,7 @@ namespace WebPages._construction
             }
         }
 
-        private void triggers()
-        {
-            GroupsRepository gr = new GroupsRepository();
-            List<Group> groups = new List<Group>();
-            groups = gr.LoadListAllGroups();
-            foreach (Group gp in groups)
-            {
-                AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                trigger.ControlID = gp.GroupID.ToString();
-                trigger.EventName = "Click";
-                updatepanel2.Triggers.Add(trigger);
-            }
-        }
+
 
         private string setInlineImage(int arid)
         {

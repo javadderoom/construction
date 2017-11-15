@@ -42,8 +42,10 @@ namespace WebPages
         private void RegisterRoutes(System.Web.Routing.RouteCollection routes)
         {
             //matual
-            routes.MapPageRoute("R1", "Blogs/{id}/{text}", "~/_construction/BlogPost.aspx");
+            routes.MapPageRoute("R1", "Blog/{id}/{text}", "~/_construction/BlogPost.aspx");
             routes.MapPageRoute("R2", "Blogs", "~/_construction/Blogs.aspx");
+            routes.MapPageRoute("R554", "Blogs/{gid}", "~/_construction/Blogs.aspx");
+            routes.MapPageRoute("R555", "Blogs/{gid}/{sid}", "~/_construction/Blogs.aspx");
             routes.MapPageRoute("R3", "", "~/_construction/Index.aspx");
             routes.MapPageRoute("R4", "Projects", "~/_construction/Projects.aspx");
             routes.MapPageRoute("R5", "Projects/{id}/{text}", "~/_construction/ShowProject.aspx");

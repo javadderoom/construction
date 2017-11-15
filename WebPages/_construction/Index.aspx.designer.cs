@@ -166,13 +166,13 @@ namespace WebPages._construction {
         protected global::System.Web.UI.UpdateProgress updateProgress;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// modalsdiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl modalsdiv;
         
         /// <summary>
         /// ourServises control.
@@ -182,15 +182,6 @@ namespace WebPages._construction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ourServises;
-        
-        /// <summary>
-        /// updateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress1;
         
         /// <summary>
         /// projectss control.

@@ -21,6 +21,13 @@ namespace WebPages._construction
                 string id = this.Page.RouteData.Values["id"].ToString();
                 if (!String.IsNullOrEmpty(id))
                 {
+                    ///address
+                    ContactUsRepository repo = new ContactUsRepository();
+                    ContactWay cnw = repo.Findcwy(1);
+                    BlogAddress.InnerText = cnw.Adrees;
+                    BlogMail.InnerText = cnw.Email;
+                    BlogPhone.InnerText = cnw.PhoneNumber;
+                    //////////////
                     ProjectsRepository ART = new ProjectsRepository();
                     Project post = ART.FindeProjectByID(id.ToInt());
                     PageTitle.InnerText = post.Title;

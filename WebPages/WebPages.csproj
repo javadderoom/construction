@@ -982,6 +982,7 @@
     <Content Include="fileman\web.config" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

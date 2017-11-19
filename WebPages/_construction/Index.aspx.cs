@@ -202,31 +202,35 @@ namespace WebPages._construction
             EmployeesRepository er = new EmployeesRepository();
             EmployeeProjectRepository ep = new EmployeeProjectRepository();
             DataTable dt = er.getTopEmploees();
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (dt.Rows.Count != 0)
             {
-                string fullName = dt.Rows[i][0].ToString();
-                string score = dt.Rows[i][1].ToString();
-                int id = dt.Rows[i][2].ToString().ToInt();
-                string projectCount = ep.getEmployeeProjectCount(id).ToString();
-                string img = setImage(id);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string fullName = dt.Rows[i][0].ToString();
+                    string score = dt.Rows[i][1].ToString();
+                    int id = dt.Rows[i][2].ToString().ToInt();
+                    string projectCount = ep.getEmployeeProjectCount(id).ToString();
+                    string img = setImage(id);
 
-                text += "<div class='item '><div class='theBest '><div class='imgDiv'><img class='empImg' src='";
-                text += img;
-                text += "'/></div ><div class='employeeName'><h3>";
-                text += "";
-                text += fullName;
-                string txt = ResolveUrl("images/testimonial/down-arrow.png");
-                text += "</h3></div><div class='arrow row m0'><img src='" + txt + "'/></div><div class='projectNum'><h4>";
-                text += " تعداد پروژه ها";
-                text += "</h4><h3>";
-                text += projectCount;
-                text += "</h3></div><div class='EmployeeScore'><h4>";
-                text += "امتیاز</h4><h3>";
-                text += score;
-                text += "</h3></div></div></div>";
+                    text += "<div class='item '><div class='theBest '><div class='imgDiv'><img class='empImg' src='";
+                    text += img;
+                    text += "'/></div ><div class='employeeName'><h3>";
+                    text += "";
+                    text += fullName;
+                    string txt = ResolveUrl("images/testimonial/down-arrow.png");
+                    text += "</h3></div><div class='arrow row m0'><img src='" + txt + "'/></div><div class='projectNum'><h4>";
+                    text += " تعداد پروژه ها";
+                    text += "</h4><h3>";
+                    text += projectCount;
+                    text += "</h3></div><div class='EmployeeScore'><h4>";
+                    text += "امتیاز</h4><h3>";
+                    text += score;
+                    text += "</h3></div></div></div>";
+                }
+                best.InnerHtml = text;
             }
-            best.InnerHtml = text;
         }
+
 
         private string setImage(int empid)
         {

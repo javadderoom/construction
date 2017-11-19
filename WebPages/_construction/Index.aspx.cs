@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using System.Threading;
+using System.Drawing;
+using System.IO;
 
 namespace WebPages._construction
 {
@@ -281,7 +283,10 @@ namespace WebPages._construction
                         if (dr.Read())
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            System.Drawing.Image img = imgResize.ToImage(fileData);
+                            System.Drawing.Image image = imgResize.Resize(img, 358, 358);
+                            var myArray = image.ToByteArray();
+                            ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 
                         dr.Close();
@@ -305,7 +310,10 @@ namespace WebPages._construction
                         if (dr.Read())
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            System.Drawing.Image img = imgResize.ToImage(fileData);
+                            System.Drawing.Image image = imgResize.Resize(img, 466, 466);
+                            var myArray = image.ToByteArray();
+                            ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 
                         dr.Close();

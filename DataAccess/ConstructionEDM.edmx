@@ -439,7 +439,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <EntitySet Name="EmployeeProjects" EntityType="ConstructionCompanyModel.EmployeeProject" />
           <EntitySet Name="Employees" EntityType="ConstructionCompanyModel.Employee" />
           <EntitySet Name="GroupConnections" EntityType="ConstructionCompanyModel.GroupConnection" />
-          <EntitySet Name="Groups" EntityType="ConstructionCompanyModel.Group" />
+          <EntitySet Name="Groups1" EntityType="ConstructionCompanyModel.Groups" />
           <EntitySet Name="Images" EntityType="ConstructionCompanyModel.Image" />
           <EntitySet Name="JobEmployees" EntityType="ConstructionCompanyModel.JobEmployee" />
           <EntitySet Name="JobGroups" EntityType="ConstructionCompanyModel.JobGroup" />
@@ -587,7 +587,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <Property Name="GroupID" Type="Int32" />
           <Property Name="ArticleID" Type="Int32" />
         </EntityType>
-        <EntityType Name="Group">
+        <EntityType Name="Groups">
           <Key>
             <PropertyRef Name="GroupID" />
           </Key>
@@ -962,8 +962,8 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.Group">
+          <EntitySetMapping Name="Groups1">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.Groups">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="FatherID" ColumnName="FatherID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

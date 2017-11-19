@@ -49,12 +49,12 @@
     <Reference Include="CKEditor.NET">
       <HintPath>..\..\..\tools\ckeditor\CKEditor.NET.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FarsiLibrary.Resources, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -130,14 +130,23 @@
   <ItemGroup>
     <Content Include="AdminLogin.aspx" />
     <Content Include="bin\Common.dll" />
+    <Content Include="bin\Common.pdb" />
     <Content Include="bin\DataAccess.dll" />
+    <Content Include="bin\DataAccess.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
     <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\FarsiLibrary.Resources.dll" />
+    <Content Include="bin\FarsiLibrary.Resources.xml" />
+    <Content Include="bin\FarsiLibrary.Utils.dll" />
+    <Content Include="bin\FarsiLibrary.Utils.xml" />
+    <Content Include="bin\FarsiLibrary.Win.dll" />
+    <Content Include="bin\FarsiLibrary.Win.xml" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\PersianCalander.dll" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Resources.dll" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Resources.xml" />
     <Content Include="bin\persianDateTime\FarsiLibrary.Utils.dll" />
@@ -166,6 +175,7 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebPages.dll" />
+    <Content Include="bin\WebPages.pdb" />
     <Content Include="Catchimage.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
@@ -970,11 +980,16 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
+    <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="TagsInput\bootstrap-tagsinput.css" />
     <Content Include="TagsInput\bootstrap-tagsinput.js" />

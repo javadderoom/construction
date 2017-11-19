@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="ConstructionCompanyModel.EmployeeProject" Width="1.5" PointX="5.75" PointY="10.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Employee" Width="1.5" PointX="5.25" PointY="0.875" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.GroupConnection" Width="1.5" PointX="7.75" PointY="10.75" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.Group" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.Groups" Width="1.5" PointX="10.75" PointY="8.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Image" Width="1.5" PointX="9.75" PointY="11.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.JobEmployee" Width="1.5" PointX="11.75" PointY="11.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.JobGroup" Width="1.5" PointX="0.75" PointY="11" />

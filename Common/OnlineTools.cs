@@ -10,7 +10,8 @@ namespace Common
 {
     public class OnlineTools
     {
-        static public string conString = "data source =.; initial catalog = ConstructionCompany; integrated security = True;";
+        static public string conString = "data source=185.159.152.16;initial catalog=jabeabza_DB;user id=jabeabza_javad;password=2210226104H.m;";
+
         public static void ShowMessage(Label lbl, string msg, Color col)
         {
             lbl.Text = msg;
@@ -40,9 +41,9 @@ namespace Common
             //put a breakpoint here and check datatable
             return dataTable;
         }
+
         public static string persianFormatedDate()
         {
-
             int pday, pmonth, pyear;
             DateTime dt = DateTime.Now;
             PersianCalendar PC = new PersianCalendar();
@@ -57,41 +58,51 @@ namespace Common
                 case 1:
                     translatedMonth = "فروردین";
                     break;
+
                 case 2:
                     translatedMonth = "اردیبهشت";
                     break;
+
                 case 3:
                     translatedMonth = "خرداد";
                     break;
+
                 case 4:
                     translatedMonth = "تیر";
                     break;
+
                 case 5:
                     translatedMonth = "مرداد";
                     break;
+
                 case 6:
                     translatedMonth = "شهریور";
                     break;
+
                 case 7:
                     translatedMonth = "مهر";
                     break;
+
                 case 8:
                     translatedMonth = "آبان";
                     break;
+
                 case 9:
                     translatedMonth = "آذر";
                     break;
+
                 case 10:
                     translatedMonth = "دی";
                     break;
+
                 case 11:
                     translatedMonth = "بهمن";
                     break;
+
                 case 12:
                     translatedMonth = "اسفند";
                     break;
             }
-
 
             string PTime = dt.Second + " : " + dt.Minute + " : " + dt.Hour + " , " + pday.ToString() + " / " + translatedMonth + " / " + pyear.ToString();
 

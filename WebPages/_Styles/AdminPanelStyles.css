@@ -1,5 +1,4 @@
-﻿
-#nr_footer .container .copyrightRow {
+﻿#nr_footer .container .copyrightRow {
     border-top: none !important;
 }
 
@@ -11,13 +10,11 @@ body {
     height: auto;
     width: 100%;
     padding-top: 50px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 3%;
+    padding-right: 3%;
     padding-bottom: 50px;
     direction: rtl;
 }
-
-
 
 .liststylenone {
     width: 50px;
@@ -53,9 +50,6 @@ textarea {
     max-width: 500px;
     display: block !important;
 }
-
-
-
 
 .DDLClass {
     display: inline;

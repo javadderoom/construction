@@ -20,27 +20,27 @@ namespace DataAccess.Repository
 
         public DataTable LoadAllGroups()
         {
-            return OnlineTools.ToDataTable(DB.Groups.Where(p => p.FatherID == -1).ToList());
+            return OnlineTools.ToDataTable(DB.Groups1.Where(p => p.FatherID == -1).ToList());
         }
 
-        public List<Group> LoadListAllGroups()
+        public List<Groups> LoadListAllGroups()
         {
-            return DB.Groups.Where(p => p.FatherID == -1).ToList();
+            return DB.Groups1.Where(p => p.FatherID == -1).ToList();
         }
 
         public DataTable LoadSubGroup(int fatherID)
         {
-            return OnlineTools.ToDataTable(DB.Groups.Where(p => p.FatherID == fatherID).ToList());
+            return OnlineTools.ToDataTable(DB.Groups1.Where(p => p.FatherID == fatherID).ToList());
         }
 
-        public List<Group> LoadListSubGroup(int fatherID)
+        public List<Groups> LoadListSubGroup(int fatherID)
         {
-            return DB.Groups.Where(p => p.FatherID == fatherID).ToList();
+            return DB.Groups1.Where(p => p.FatherID == fatherID).ToList();
         }
 
         public List<int> getSubGroupsIDByFatherID(int FatherId)
         {
-            List<int> result = (from r in DB.Groups
+            List<int> result = (from r in DB.Groups1
                                 where r.FatherID == FatherId
                                 select r.GroupID).ToList();
             if (result.Count != 0)
@@ -60,7 +60,7 @@ namespace DataAccess.Repository
             ConstructionCompanyEntities pb = conn.GetContext();
 
             IEnumerable<string> pl =
-                (from r in pb.Groups
+                (from r in pb.Groups1
                  where r.GroupID == -1
                  select r.Title);
 
@@ -71,15 +71,15 @@ namespace DataAccess.Repository
 
         public DataTable FindSubGroupsOfAnArticle(int artID)
         {
-            List<Group> ans = new List<Group>();
+            List<Groups> ans = new List<Groups>();
 
             List<int?> conIDes = (from r in DB.GroupConnections
                                   where r.ArticleID == artID
                                   select r.GroupID).ToList();
             foreach (int groupId in conIDes)
             {
-                Group temp = null;
-                temp = (from r in DB.Groups
+                Groups temp = null;
+                temp = (from r in DB.Groups1
                         where r.GroupID == groupId
                         select r).FirstOrDefault();
                 if (temp != null)
@@ -90,17 +90,18 @@ namespace DataAccess.Repository
 
             return OnlineTools.ToDataTable(ans);
         }
+
         public DataTable FindSubGroupsOfAProject(int artID)
         {
-            List<Group> ans = new List<Group>();
+            List<Groups> ans = new List<Groups>();
 
             List<int?> conIDes = (from r in DB.ProjectConnections
                                   where r.ProjectID == artID
                                   select r.GroupID).ToList();
             foreach (int groupId in conIDes)
             {
-                Group temp = null;
-                temp = (from r in DB.Groups
+                Groups temp = null;
+                temp = (from r in DB.Groups1
                         where r.GroupID == groupId
                         select r).FirstOrDefault();
                 if (temp != null)
@@ -114,31 +115,31 @@ namespace DataAccess.Repository
 
         public DataTable LoadAllSubGroups()
         {
-            return OnlineTools.ToDataTable((from r in DB.Groups
+            return OnlineTools.ToDataTable((from r in DB.Groups1
                                             where r.FatherID != -1
                                             select r
                            ).ToList());
         }
 
-        public Group FindGroup(int id)
+        public Groups FindGroup(int id)
         {
-            return DB.Groups.Where(p => p.GroupID == id).FirstOrDefault();
+            return DB.Groups1.Where(p => p.GroupID == id).FirstOrDefault();
         }
 
-        public bool Savegp(Group group)
+        public bool Savegp(Groups group)
         {
             try
             {
                 if (group.GroupID > 0)
                 {
                     //==== UPDATE ====
-                    DB.Groups.Attach(group);
+                    DB.Groups1.Attach(group);
                     DB.Entry(group).State = EntityState.Modified;
                 }
                 else
                 {
                     //==== INSERT ====
-                    DB.Groups.Add(group);
+                    DB.Groups1.Add(group);
                 }
 
                 DB.SaveChanges();
@@ -155,7 +156,7 @@ namespace DataAccess.Repository
             bool ans = false;
             try
             {
-                DB.Groups.Remove(DB.Groups.Where(p => p.GroupID == id).FirstOrDefault());
+                DB.Groups1.Remove(DB.Groups1.Where(p => p.GroupID == id).FirstOrDefault());
                 DB.SaveChanges();
                 ans = true;
             }
@@ -172,7 +173,7 @@ namespace DataAccess.Repository
             bool ans = false;
             try
             {
-                DB.Groups.Remove(DB.Groups.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault());
+                DB.Groups1.Remove(DB.Groups1.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault());
                 ans = true;
                 DB.SaveChanges();
             }
@@ -190,11 +191,11 @@ namespace DataAccess.Repository
             {
                 foreach (int id in ids)
                 {
-                    Group temp = null;
-                    temp = DB.Groups.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault();
+                    Groups temp = null;
+                    temp = DB.Groups1.Where(p => p.GroupID == id && p.FatherID != -1).FirstOrDefault();
                     if (temp != null)
                     {
-                        DB.Groups.Remove(temp);
+                        DB.Groups1.Remove(temp);
 
                         DB.SaveChanges();
                     }

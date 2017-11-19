@@ -53,11 +53,11 @@
     <form id="form1" runat="server">
         <div style="height: 100%">
 
-            <div id="pageloader" class="row m0">
+            <%-- <div id="pageloader" class="row m0">
                 <div class="loader-item">
                     <img src="../../_construction/images/loader.gif" alt="loading" />
                 </div>
-            </div>
+            </div>--%>
             <section id="nr_topStrip" class="row">
                 <div class="container">
                     <div class="row">

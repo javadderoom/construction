@@ -31,5 +31,39 @@ namespace DataAccess.Repository
             return query;
         }
 
+        public Admin getAdmin(int admin)
+        {
+            Admin result = new Admin();
+            result =
+               (from r in database.Admins
+                where r.AdminID == admin
+                select r).FirstOrDefault();
+            return result;
+        }
+
+        public bool SaveAdmin(Admin admin)
+        {
+            try
+            {
+                if (admin.AdminID > 0)
+                {
+                    //==== UPDATE ====
+                    database.Admins.Attach(admin);
+                    database.Entry(admin).State = EntityState.Modified;
+                }
+                else
+                {
+                    //==== INSERT ====
+                    database.Admins.Add(admin);
+                }
+
+                database.SaveChanges();
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+        }
     }
 }

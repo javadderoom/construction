@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using System.Threading;
+using System.Drawing;
+using System.IO;
 
 namespace WebPages._construction
 {
@@ -122,11 +124,11 @@ namespace WebPages._construction
         private void fillServises()
         {
             GroupsRepository gr = new GroupsRepository();
-            List<Group> groups = new List<Group>();
+            List<Groups> groups = new List<Groups>();
             groups = gr.LoadListAllGroups();
             Random random = new Random();
             List<string> icons = new List<string>();
-            foreach (Group gp in groups)
+            foreach (Groups gp in groups)
             {
                 string name = "";
                 if (icons.Count != 0)
@@ -137,22 +139,20 @@ namespace WebPages._construction
                 }
                 else
                 {
-                    icons = new List<string> {  "fa-university", "fa-building", "fa-cogs"
-            ,  "fa-gavel", "fa-suitcase", "fa-truck", "fa-university fa-spin", "fa-building fa-spin", "fa-cogs fa-spin"
-            ,  "fa-gavel fa-spin", "fa-suitcase fa-spin", "fa-truck fa-spin"};
+                    icons = new List<string> {   "fa-building"
+            };
                     int index = random.Next(icons.Count);
                     name = icons[index];
                     icons.RemoveAt(index);
-
                 }
 
                 ourServises.InnerHtml += "<div class='item '><div class='row m0 service'><div class='row m0 innerRow item'><div><i class='fa " + name + "'></i><div class='serviceName'>" + gp.Title + "</div><div class='item-overlay left'><ul><li class='liLeft'><input type='button' onclick=\"window.location='/Blogs/" + gp.GroupID + "';\" value='مقالات'  class='btnLeftService'></li><li class='liRight'><input type='button' onclick=\"$('#modal" + gp.GroupID + "').modal('show');\"  value='زیر گروه ها'  class='btnRightService'></li></ul></div></div></div></div></div>";
-                List<Group> templist = new List<Group>();
+                List<Groups> templist = new List<Groups>();
                 templist = gr.LoadListSubGroup(gp.GroupID);
                 string buttons = "";
                 if (templist.Count != 0)
                 {
-                    foreach (Group sgp in templist)
+                    foreach (Groups sgp in templist)
                     {
                         buttons += " <input type='button' class='btn btn-warning' onclick=\"window.location='/Blogs/" + gp.GroupID + "/" + sgp.GroupID + "';\" style='margin: 5px' value='" + sgp.Title + "'/>";
                     }
@@ -162,19 +162,8 @@ namespace WebPages._construction
                 {
                     modalsdiv.InnerHtml += "<div class='modal fade' id='modal" + gp.GroupID + "' tabindex='-1' role='dialog' aria-labelledby='modalAskSubmitUpdate-label' aria-hidden='true'> <div class='modal-dialog'> <div class='modal-content'> <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button> <h4 class='modal-title'> <span class='glyphicon glyphicon-warning-sign'></span> زیر گروه های " + gp.Title + " </h4> </div><div class='modal-body' style='direction: rtl'> <span style='color: red;font-weight: bold;'>این گروه زیر گروهی ندارد !</span> </div><div class='modal-footer'> </div></div></div></div>";
                 }
-
-
             }
-
-
-
         }
-
-
-
-
-
-
 
         private void fillArticles(List<Article> artList)
         {
@@ -265,9 +254,7 @@ namespace WebPages._construction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             fillServises();
-
 
             if (!IsPostBack)
             {
@@ -283,8 +270,6 @@ namespace WebPages._construction
             }
         }
 
-
-
         private string setInlineImage(int arid)
         {
             string ans = "";
@@ -298,7 +283,10 @@ namespace WebPages._construction
                         if (dr.Read())
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            System.Drawing.Image img = imgResize.ToImage(fileData);
+                            System.Drawing.Image image = imgResize.Resize(img, 358, 358);
+                            var myArray = image.ToByteArray();
+                            ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 
                         dr.Close();
@@ -322,7 +310,10 @@ namespace WebPages._construction
                         if (dr.Read())
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                            System.Drawing.Image img = imgResize.ToImage(fileData);
+                            System.Drawing.Image image = imgResize.Resize(img, 466, 466);
+                            var myArray = image.ToByteArray();
+                            ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 
                         dr.Close();

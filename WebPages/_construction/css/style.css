@@ -733,6 +733,16 @@ header .social_nav {
                         color: #FFF;
                     }
 
+                    .navbar-static-top .navbar-collapse ul li.active a:active {
+                        background: #f7b71e;
+                        color: #FFF;
+                    }
+
+                    .navbar-static-top .navbar-collapse ul li.active a:focus {
+                        background: #f7b71e;
+                        color: #FFF;
+                    }
+
                     .navbar-static-top .navbar-collapse ul li.active a:before {
                         content: '';
                         display: block;

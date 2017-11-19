@@ -133,7 +133,7 @@ namespace WebPages.Panels.Admin
             GroupsRepository repgp = new GroupsRepository();
             if (!String.IsNullOrEmpty(tbxNewName.Text))
             {
-                Group ngr = new Group();
+                Groups ngr = new Groups();
                 ngr.GroupID = IDholder.Text.ToInt();
                 ngr.FatherID = -1;
                 ngr.Title = tbxNewName.Text;
@@ -227,7 +227,7 @@ namespace WebPages.Panels.Admin
             GroupsRepository repgp = new GroupsRepository();
             if (!String.IsNullOrEmpty(SubNewName.Text))
             {
-                Group ngr = new Group();
+                Groups ngr = new Groups();
                 ngr = repgp.FindGroup(SubIDHolder.Text.ToInt());
                 ngr.Title = SubNewName.Text;
 
@@ -303,7 +303,7 @@ namespace WebPages.Panels.Admin
         protected void btnSaveNewGroup_Click(object sender, EventArgs e)
         {
             GroupsRepository repgp = new GroupsRepository();
-            Group ngp = new Group();
+            Groups ngp = new Groups();
 
             ngp.FatherID = -1;
             ngp.Title = tbxNewGroup.Text;
@@ -362,7 +362,7 @@ namespace WebPages.Panels.Admin
 
             for (int i = 0; i < lbxSubs.Items.Count; i++)
             {
-                Group gp = new Group();
+                Groups gp = new Groups();
 
                 gp.Title = lbxSubs.Items[i].Text;
                 gp.FatherID = lbxSubs.Items[i].Value.ToInt();

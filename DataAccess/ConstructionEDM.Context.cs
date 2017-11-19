@@ -33,7 +33,7 @@ namespace DataAccess
         public virtual DbSet<EmployeeProject> EmployeeProjects { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<GroupConnection> GroupConnections { get; set; }
-        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Groups> Groups1 { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<JobEmployee> JobEmployees { get; set; }
         public virtual DbSet<JobGroup> JobGroups { get; set; }

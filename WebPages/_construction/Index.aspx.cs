@@ -124,11 +124,11 @@ namespace WebPages._construction
         private void fillServises()
         {
             GroupsRepository gr = new GroupsRepository();
-            List<Group> groups = new List<Group>();
+            List<Groups> groups = new List<Groups>();
             groups = gr.LoadListAllGroups();
             Random random = new Random();
             List<string> icons = new List<string>();
-            foreach (Group gp in groups)
+            foreach (Groups gp in groups)
             {
                 string name = "";
                 if (icons.Count != 0)
@@ -147,12 +147,12 @@ namespace WebPages._construction
                 }
 
                 ourServises.InnerHtml += "<div class='item '><div class='row m0 service'><div class='row m0 innerRow item'><div><i class='fa " + name + "'></i><div class='serviceName'>" + gp.Title + "</div><div class='item-overlay left'><ul><li class='liLeft'><input type='button' onclick=\"window.location='/Blogs/" + gp.GroupID + "';\" value='مقالات'  class='btnLeftService'></li><li class='liRight'><input type='button' onclick=\"$('#modal" + gp.GroupID + "').modal('show');\"  value='زیر گروه ها'  class='btnRightService'></li></ul></div></div></div></div></div>";
-                List<Group> templist = new List<Group>();
+                List<Groups> templist = new List<Groups>();
                 templist = gr.LoadListSubGroup(gp.GroupID);
                 string buttons = "";
                 if (templist.Count != 0)
                 {
-                    foreach (Group sgp in templist)
+                    foreach (Groups sgp in templist)
                     {
                         buttons += " <input type='button' class='btn btn-warning' onclick=\"window.location='/Blogs/" + gp.GroupID + "/" + sgp.GroupID + "';\" style='margin: 5px' value='" + sgp.Title + "'/>";
                     }

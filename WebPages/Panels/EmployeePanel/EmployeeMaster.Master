@@ -50,11 +50,11 @@
     <form id="form1" runat="server">
         <div>
 
-            <div id="pageloader" class="row m0">
+            <%--<div id="pageloader" class="row m0">
                 <div class="loader-item">
                     <img src="../../_construction/images/loader.gif" alt="Loading" />
                 </div>
-            </div>
+            </div>--%>
             <section id="nr_topStrip" class="row">
                 <div class="container">
                     <div class="row">

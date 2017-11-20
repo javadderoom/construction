@@ -868,7 +868,9 @@
     <Content Include="Images\register64px.png" />
     <Content Include="Images\userMD.png" />
     <Content Include="Images\username.png" />
+    <Content Include="img\notSeenMsg.png" />
     <Content Include="img\profile.png" />
+    <Content Include="img\seenMsg.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.min.js" />
     <Content Include="js\JavaScript.js" />
@@ -980,9 +982,11 @@
     <Content Include="fileman\lang\sk.json" />
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
+    <Content Include="img\Thumbs.db" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

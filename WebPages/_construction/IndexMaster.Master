@@ -91,7 +91,7 @@
 
                             <div class="fRight" runat="server" id="profileContainer">
                             </div>
-                            <div class="fRight hidden-xs hidden-sm" runat="server" style="color: white" id="pContainer">
+                            <div class="fRight hidden-xs hidden-sm" runat="server" style="color: white; margin-right: 10px;" id="pContainer">
                             </div>
                         </div>
                         <div class="social_nav col-xs-10 col-md-6">

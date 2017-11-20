@@ -172,6 +172,10 @@ namespace WebPages.Panels.Admin
                 FileInfo fi = new FileInfo(ps);
                 fi.Delete();
                 ART.Image = contents;
+                System.Drawing.Image img = imgResize.ToImage(contents);
+                System.Drawing.Image image = imgResize.Resize(img, 358, 358);
+                var myArray = image.ToByteArray();
+
 
 
 

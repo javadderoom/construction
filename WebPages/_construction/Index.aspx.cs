@@ -176,21 +176,21 @@ namespace WebPages._construction
                     {
                         if ((130 - (article.Title.Count() - 30)) < 1)
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                         else
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                     }
                     else
                     {
-                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                     }
                 }
                 else
                 {
-                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ArticleID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                 }
             }
             blogsContainer.InnerHtml = text;
@@ -202,31 +202,35 @@ namespace WebPages._construction
             EmployeesRepository er = new EmployeesRepository();
             EmployeeProjectRepository ep = new EmployeeProjectRepository();
             DataTable dt = er.getTopEmploees();
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (dt.Rows.Count != 0)
             {
-                string fullName = dt.Rows[i][0].ToString();
-                string score = dt.Rows[i][1].ToString();
-                int id = dt.Rows[i][2].ToString().ToInt();
-                string projectCount = ep.getEmployeeProjectCount(id).ToString();
-                string img = setImage(id);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string fullName = dt.Rows[i][0].ToString();
+                    string score = dt.Rows[i][1].ToString();
+                    int id = dt.Rows[i][2].ToString().ToInt();
+                    string projectCount = ep.getEmployeeProjectCount(id).ToString();
+                    string img = setImage(id);
 
-                text += "<div class='item '><div class='theBest '><div class='imgDiv'><img class='empImg' src='";
-                text += img;
-                text += "'/></div ><div class='employeeName'><h3>";
-                text += "";
-                text += fullName;
-                string txt = ResolveUrl("images/testimonial/down-arrow.png");
-                text += "</h3></div><div class='arrow row m0'><img src='" + txt + "'/></div><div class='projectNum'><h4>";
-                text += " تعداد پروژه ها";
-                text += "</h4><h3>";
-                text += projectCount;
-                text += "</h3></div><div class='EmployeeScore'><h4>";
-                text += "امتیاز</h4><h3>";
-                text += score;
-                text += "</h3></div></div></div>";
+                    text += "<div class='item '><div class='theBest '><div class='imgDiv'><img class='empImg' src='";
+                    text += img;
+                    text += "'/></div ><div class='employeeName'><h3>";
+                    text += "";
+                    text += fullName;
+                    string txt = ResolveUrl("images/testimonial/down-arrow.png");
+                    text += "</h3></div><div class='arrow row m0'><img src='" + txt + "'/></div><div class='projectNum'><h4>";
+                    text += " تعداد پروژه ها";
+                    text += "</h4><h3>";
+                    text += projectCount;
+                    text += "</h3></div><div class='EmployeeScore'><h4>";
+                    text += "امتیاز</h4><h3>";
+                    text += score;
+                    text += "</h3></div></div></div>";
+                }
+                best.InnerHtml = text;
             }
-            best.InnerHtml = text;
         }
+
 
         private string setImage(int empid)
         {
@@ -324,7 +328,6 @@ namespace WebPages._construction
             return ans;
         }
 
-        //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         protected void subGroups_ServerClick(object sender, EventArgs e)
         {
         }

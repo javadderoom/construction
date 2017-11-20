@@ -49,6 +49,33 @@ namespace WebPages._construction {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivRecenPosts;
         
         /// <summary>
+        /// BlogPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BlogPhone;
+        
+        /// <summary>
+        /// BlogMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BlogMail;
+        
+        /// <summary>
+        /// BlogAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BlogAddress;
+        
+        /// <summary>
         /// DivPostDate control.
         /// </summary>
         /// <remarks>

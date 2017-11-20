@@ -22,5 +22,6 @@ namespace DataAccess
         public string PostDateTime { get; set; }
         public string Tags { get; set; }
         public string KeyWords { get; set; }
+        public byte[] ImgFisrtPage { get; set; }
     }
 }

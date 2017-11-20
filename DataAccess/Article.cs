@@ -23,5 +23,6 @@ namespace DataAccess
         public Nullable<int> Visits { get; set; }
         public string Tags { get; set; }
         public string KeyWords { get; set; }
+        public byte[] ImgFirstPage { get; set; }
     }
 }

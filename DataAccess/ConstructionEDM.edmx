@@ -26,6 +26,7 @@
           <Property Name="Visits" Type="int" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar(max)" />
+          <Property Name="ImgFirstPage" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Chats">
           <Key>
@@ -189,6 +190,7 @@
           <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar(max)" />
+          <Property Name="ImgFisrtPage" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -234,7 +236,7 @@
           <Property Name="RegSeen" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EmployeeScore">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -512,6 +514,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <Property Name="Visits" Type="Int32" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImgFirstPage" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Chat">
           <Key>
@@ -689,6 +692,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImgFisrtPage" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -877,6 +881,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <EntitySetMapping Name="Articles">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Article">
               <MappingFragment StoreEntitySet="Articles">
+                <ScalarProperty Name="ImgFirstPage" ColumnName="ImgFirstPage" />
                 <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
                 <ScalarProperty Name="Tags" ColumnName="Tags" />
                 <ScalarProperty Name="Visits" ColumnName="Visits" />
@@ -1057,6 +1062,7 @@ warning 6002: The table/view 'ConstructionCompany.dbo.EmployeeScore' does not ha
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ConstructionCompanyModel.Project">
               <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ImgFisrtPage" ColumnName="ImgFisrtPage" />
                 <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
                 <ScalarProperty Name="Tags" ColumnName="Tags" />
                 <ScalarProperty Name="PostDateTime" ColumnName="PostDateTime" />

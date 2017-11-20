@@ -56,7 +56,7 @@ namespace WebPages._construction
                     text = "";
                     foreach (Article article in ArticleList)
                     {
-                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><img src='" + setInlineImage(article.ArticleID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "/Blogs/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
+                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><img src='" + setInlineImage(article.ArticleID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
                     }
 
                     DivRecenPosts.InnerHtml = text;

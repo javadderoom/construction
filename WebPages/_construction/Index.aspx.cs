@@ -328,7 +328,6 @@ namespace WebPages._construction
             return ans;
         }
 
-        //<div class="subGroup col-md-2 col-xs-4">گروه 1</div>
         protected void subGroups_ServerClick(object sender, EventArgs e)
         {
         }

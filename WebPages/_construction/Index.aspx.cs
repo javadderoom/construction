@@ -280,7 +280,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select ImgFirstPage from Articles where ArticleID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {
@@ -288,8 +288,8 @@ namespace WebPages._construction
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
                             System.Drawing.Image img = imgResize.ToImage(fileData);
-                            System.Drawing.Image image = imgResize.Resize(img, 358, 358);
-                            var myArray = image.ToByteArray();
+                            //System.Drawing.Image image = imgResize.Resize(img, 358, 358);
+                            var myArray = img.ToByteArray();
                             ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 
@@ -307,7 +307,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select ImgFisrtPage from Projects where ProjectID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {
@@ -315,8 +315,8 @@ namespace WebPages._construction
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
                             System.Drawing.Image img = imgResize.ToImage(fileData);
-                            System.Drawing.Image image = imgResize.Resize(img, 466, 466);
-                            var myArray = image.ToByteArray();
+                            //System.Drawing.Image image = imgResize.Resize(img, 466, 466);
+                            var myArray = img.ToByteArray();
                             ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 

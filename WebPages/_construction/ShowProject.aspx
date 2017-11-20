@@ -44,7 +44,7 @@
                                     </div>
 
                                     <div class="row m0 featureImg">
-                                        <a href="single-post.html">
+                                        <a href="#">
                                             <img src="" runat="server" id="ImageTag" alt="عکس بالایی" class="img-responsive" />
                                         </a>
                                     </div>

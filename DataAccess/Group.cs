@@ -12,7 +12,7 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Groups
+    public partial class Group
     {
         public int GroupID { get; set; }
         public string Title { get; set; }

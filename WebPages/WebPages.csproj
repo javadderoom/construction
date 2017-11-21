@@ -871,6 +871,10 @@
     <Content Include="img\notSeenMsg.png" />
     <Content Include="img\profile.png" />
     <Content Include="img\seenMsg.png" />
+    <Content Include="img\slide1.png" />
+    <Content Include="img\slide2.png" />
+    <Content Include="img\slide3.png" />
+    <Content Include="img\thumb.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.min.js" />
     <Content Include="js\JavaScript.js" />

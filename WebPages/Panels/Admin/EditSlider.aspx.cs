@@ -80,9 +80,9 @@ namespace WebPages.Panels.Admin
                     filename = rand + filename;
                     string ps = Server.MapPath(@"~\img\") + filename;
                     FileUpload1.SaveAs(ps);
-                    FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + slider.BackgroundImg.Substring(10));
+                    FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + slider.BackgroundImg.Substring(7));
                     fi.Delete();
-                    slider.BackgroundImg = "../../img/" + filename;
+                    slider.BackgroundImg = "../img/" + filename;
 
 
                 }

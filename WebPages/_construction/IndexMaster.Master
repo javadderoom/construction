@@ -53,7 +53,7 @@
 
             <div id="pageloader" class="row m0">
                 <div class="loader-item">
-                    <img src="<%= ResolveUrl("images/loader.gif") %>" alt="loading" />
+                    <img src="<%=ResolveUrl("../_construction/images/loader.gif") %>" alt="loading" />
                 </div>
             </div>
             <section id="nr_topStrip" class="row">

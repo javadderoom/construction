@@ -27,6 +27,7 @@
         <div class="mainSliderContainer">
             <div class="mainSlider" style="direction: rtl;">
                 <ul>
+
                     <!-- SLIDE  -->
                     <!-- SLIDE 1 -->
                     <li data-transition="boxslide" data-slotamount="7">

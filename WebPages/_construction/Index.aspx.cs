@@ -31,53 +31,9 @@ namespace WebPages._construction
             projectss.InnerHtml = txt;
         }
 
-        private string setBKGSrc(int SlideID)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select BackgroundImg from Slider where SlideID = {0}", SlideID), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
 
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
-        }
 
-        private string setRightimgSrc(int SlideID)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select thumbnail from Slider where SlideID = {0}", SlideID), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
 
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
-        }
 
         private void LoadSliders()
         {
@@ -86,9 +42,10 @@ namespace WebPages._construction
             Slider slide2 = repSlider.FindSlider(2);
             Slider slide3 = repSlider.FindSlider(3);
 
-            bImg1.Src = setBKGSrc(1);
-            bImg2.Src = setBKGSrc(2);
-            bImg3.Src = setBKGSrc(3);
+            bImg1.Src = slide1.BackgroundImg.Replace("..", "");
+            bImg2.Src = slide2.BackgroundImg.Replace("..", "");
+            bImg3.Src = slide3.BackgroundImg.Replace("..", "");
+
 
             divText1.InnerHtml = slide1.Text;
             divText2.InnerHtml = slide2.Text;
@@ -96,15 +53,15 @@ namespace WebPages._construction
 
             if (slide1.thumbnail != null)
             {
-                rightPic.InnerHtml = "<img src='" + setRightimgSrc(1) + "' alt='عکس'/>";
+                rightPic.InnerHtml = "<img src='" + slide1.thumbnail + "' alt='عکس'/>";
             }
             if (slide2.thumbnail != null)
             {
-                rightPic2.InnerHtml = "<img src='" + setRightimgSrc(2) + "' alt='عکس'/>";
+                rightPic2.InnerHtml = "<img src='" + slide2.thumbnail + "' alt='عکس'/>";
             }
             if (slide3.thumbnail != null)
             {
-                rightPic3.InnerHtml = "<img src='" + setRightimgSrc(3) + "' alt='عکس'/>";
+                rightPic3.InnerHtml = "<img src='" + slide3.thumbnail + "' alt='عکس'/>";
             }
 
             if (slide1.Link != null)
@@ -124,11 +81,11 @@ namespace WebPages._construction
         private void fillServises()
         {
             GroupsRepository gr = new GroupsRepository();
-            List<Groups> groups = new List<Groups>();
+            List<Group> groups = new List<Group>();
             groups = gr.LoadListAllGroups();
             Random random = new Random();
             List<string> icons = new List<string>();
-            foreach (Groups gp in groups)
+            foreach (Group gp in groups)
             {
                 string name = "";
                 if (icons.Count != 0)
@@ -147,12 +104,12 @@ namespace WebPages._construction
                 }
 
                 ourServises.InnerHtml += "<div class='item '><div class='row m0 service'><div class='row m0 innerRow item'><div><i class='fa " + name + "'></i><div class='serviceName'>" + gp.Title + "</div><div class='item-overlay left'><ul><li class='liLeft'><input type='button' onclick=\"window.location='/Blogs/" + gp.GroupID + "';\" value='مقالات'  class='btnLeftService'></li><li class='liRight'><input type='button' onclick=\"$('#modal" + gp.GroupID + "').modal('show');\"  value='زیر گروه ها'  class='btnRightService'></li></ul></div></div></div></div></div>";
-                List<Groups> templist = new List<Groups>();
+                List<Group> templist = new List<Group>();
                 templist = gr.LoadListSubGroup(gp.GroupID);
                 string buttons = "";
                 if (templist.Count != 0)
                 {
-                    foreach (Groups sgp in templist)
+                    foreach (Group sgp in templist)
                     {
                         buttons += " <input type='button' class='btn btn-warning' onclick=\"window.location='/Blogs/" + gp.GroupID + "/" + sgp.GroupID + "';\" style='margin: 5px' value='" + sgp.Title + "'/>";
                     }
@@ -280,7 +237,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select ImgFirstPage from Articles where ArticleID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {
@@ -288,8 +245,8 @@ namespace WebPages._construction
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
                             System.Drawing.Image img = imgResize.ToImage(fileData);
-                            System.Drawing.Image image = imgResize.Resize(img, 358, 358);
-                            var myArray = image.ToByteArray();
+                            //System.Drawing.Image image = imgResize.Resize(img, 358, 358);
+                            var myArray = img.ToByteArray();
                             ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 
@@ -307,7 +264,7 @@ namespace WebPages._construction
             using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("select ImgFisrtPage from Projects where ProjectID = {0}", arid), cn))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
                     {
@@ -315,8 +272,8 @@ namespace WebPages._construction
                         {
                             byte[] fileData = (byte[])dr.GetValue(0);
                             System.Drawing.Image img = imgResize.ToImage(fileData);
-                            System.Drawing.Image image = imgResize.Resize(img, 466, 466);
-                            var myArray = image.ToByteArray();
+                            //System.Drawing.Image image = imgResize.Resize(img, 466, 466);
+                            var myArray = img.ToByteArray();
                             ans = "data:image/png;base64," + Convert.ToBase64String(myArray);
                         }
 

@@ -42,9 +42,9 @@ namespace WebPages._construction
             Slider slide2 = repSlider.FindSlider(2);
             Slider slide3 = repSlider.FindSlider(3);
 
-            bImg1.Src = slide1.BackgroundImg;
-            bImg2.Src = slide2.BackgroundImg;
-            bImg3.Src = slide3.BackgroundImg;
+            bImg1.Src = slide1.BackgroundImg.Replace("..", "");
+            bImg2.Src = slide2.BackgroundImg.Replace("..", "");
+            bImg3.Src = slide3.BackgroundImg.Replace("..", "");
 
 
             divText1.InnerHtml = slide1.Text;

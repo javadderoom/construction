@@ -865,7 +865,7 @@
     <Content Include="Images\register64px.png" />
     <Content Include="Images\userMD.png" />
     <Content Include="Images\username.png" />
-    <Content Include="img\000213960901slide1.png" />
+    <Content Include="img\slide1.png" />
     <Content Include="img\notSeenMsg.png" />
     <Content Include="img\profile.png" />
     <Content Include="img\seenMsg.png" />

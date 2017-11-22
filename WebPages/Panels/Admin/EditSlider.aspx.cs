@@ -26,10 +26,10 @@ namespace WebPages.Panels.Admin
                         SliderRepository repSr = new SliderRepository();
 
                         Slider oldSlider = repSr.FindSlider(id.ToInt());
-                        oldBimg.Src = oldSlider.BackgroundImg;
+                        oldBimg.Src = oldSlider.BackgroundImg.Replace("..", "");
                         if (oldSlider.thumbnail != null)
                         {
-                            Rimg.InnerHtml = "<img src='" + oldSlider.thumbnail + "' class='img-responsive'/>";
+                            Rimg.InnerHtml = "<img src='" + oldSlider.thumbnail.Replace("..", "") + "' class='img-responsive'/>";
                         }
                         else
                         {
@@ -109,7 +109,7 @@ namespace WebPages.Panels.Admin
                     FileUpload2.SaveAs(ps);
                     FileInfo fi = new FileInfo(slider.thumbnail);
                     fi.Delete();
-                    slider.thumbnail = "../../img/" + filename;
+                    slider.thumbnail = "../img/" + filename;
                 }
                 if (CheckBox1.Checked == true)
                 {

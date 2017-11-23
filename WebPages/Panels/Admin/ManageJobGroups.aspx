@@ -440,4 +440,35 @@
     </asp:UpdateProgress>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
+    <script>
+
+        $(document).ready(function ddlGroups() {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                //url is the path of our web method (Page name/function name)
+                url: "../panels/admin/ManageJobGroups.aspx/getJobGroups",
+                data: "{}",
+                dataType: "json",
+                //called on jquery ajax call success
+                success: function (result) {
+                    $('#Content_ddlGroups').empty();
+                    $('#Content_ddlGroups').append("<option value='0'>یک گروه انتخاب کنید</option>");
+                    $.each(result.d, function (key, value) {
+                        $("#Content_ddlGroups").append($("<option></option>").val(value.JobGroupID).html(value.JobGroupTitle));
+
+                    });
+                    $('#Content_ddlgroupsForModal').empty();
+                    $('#Content_ddlgroupsForModal').append("<option value='0'>یک گروه انتخاب کنید</option>");
+                    $.each(result.d, function (key, value) {
+                        $("#Content_ddlgroupsForModal").append($("<option></option>").val(value.JobGroupID).html(value.JobGroupTitle));
+                    });
+                },
+                //called on jquery ajax call failure
+                error: function ajaxError(result) {
+                    alert(result.status + ' : ' + result.statusText);
+                }
+            });
+        });
+    </script>
 </asp:Content>

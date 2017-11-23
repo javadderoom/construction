@@ -8,6 +8,7 @@ using Common;
 using DataAccess;
 using DataAccess.Repository;
 using System.Data;
+using System.Web.Services;
 
 namespace WebPages.Panels.Admin
 {
@@ -25,25 +26,46 @@ namespace WebPages.Panels.Admin
                     allGroups = repGP.getJobGroups();
                     gvGroups.DataSource = allGroups;
                     gvGroups.DataBind();
-                    ddlGroups.DataSource = allGroups;
-                    ddlGroups.DataTextField = "JobGroupTitle";
-                    ddlGroups.DataValueField = "JobGroupID";
-                    ddlGroups.DataBind();
-                    ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                    //ddlGroups.DataSource = allGroups;
+                    //ddlGroups.DataTextField = "JobGroupTitle";
+                    //ddlGroups.DataValueField = "JobGroupID";
+                    //ddlGroups.DataBind();
+                    //ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
 
                     gvSubGroups.DataSource = jobs.getAllJobsByGroupID();
                     gvSubGroups.DataBind();
-                    ddlgroupsForModal.DataSource = jobs.getAllJobsByGroupID();
-                    ddlgroupsForModal.DataTextField = "JobTitle";
-                    ddlgroupsForModal.DataValueField = "JobID";
-                    ddlgroupsForModal.DataBind();
-                    ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
+                    //ddlgroupsForModal.DataSource = jobs.getAllJobsByGroupID();
+                    //ddlgroupsForModal.DataTextField = "JobTitle";
+                    //ddlgroupsForModal.DataValueField = "JobID";
+                    //ddlgroupsForModal.DataBind();
+                    //ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
                 }
             }
             else
             {
                 Response.Redirect("/AdminLogin");
             }
+        }
+
+        [WebMethod]
+        public static List<JobGroup> getJobGroups()
+        {
+            DataTable dt = new DataTable();
+            List<JobGroup> objDept = new List<JobGroup>();
+            JobGroupsRepository jg = new JobGroupsRepository();
+            dt = jg.getJobGroups();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    objDept.Add(new JobGroup
+                    {
+                        JobGroupID = Convert.ToInt32(dt.Rows[i][0]),
+                        JobGroupTitle = dt.Rows[i][1].ToString(),
+                    });
+                }
+            }
+            return objDept;
         }
 
         protected void gvGroups_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -304,38 +326,43 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveNewGroup_Click(object sender, EventArgs e)
         {
-            GroupsRepository repgp = new GroupsRepository();
-            Groups ngp = new Groups();
+            JobGroupsRepository repgp = new JobGroupsRepository();
+            JobGroup ngp = new JobGroup();
 
-            ngp.FatherID = -1;
-            ngp.Title = tbxNewGroup.Text;
+            ngp.JobGroupTitle = tbxNewGroup.Text;
             repgp.Savegp(ngp);
+            DataTable allGroups = new DataTable();
+            allGroups = repgp.getJobGroups();
             gvGroups.DataSource = null;
             gvGroups.DataBind();
-            gvGroups.DataSource = repgp.LoadAllGroups();
+            gvGroups.DataSource = allGroups;
             gvGroups.DataBind();
-            ddlGroups.DataSource = null;
-            ddlGroups.DataBind();
-            ddlGroups.DataSource = repgp.LoadAllGroups();
-            ddlGroups.DataTextField = "Title";
-            ddlGroups.DataValueField = "GroupID";
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction()", false);
+            ddlGroups.DataSource = allGroups;
+            ddlGroups.DataTextField = "JobGroupTitle";
+            ddlGroups.DataValueField = "JobGroupID";
             ddlGroups.DataBind();
             ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-            ddlgroupsForModal.DataSource = repgp.LoadAllGroups();
-            ddlgroupsForModal.DataTextField = "Title";
-            ddlgroupsForModal.DataValueField = "GroupID";
+            JobRepository jobs = new JobRepository();
+            gvSubGroups.DataSource = jobs.getAllJobsByGroupID();
+            gvSubGroups.DataBind();
+            ddlgroupsForModal.DataSource = allGroups;
+            ddlgroupsForModal.DataTextField = "JobGroupsTitle";
+            ddlgroupsForModal.DataValueField = "JobGroupsID";
             ddlgroupsForModal.DataBind();
             ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
-            gvSubGroups.DataSource = repgp.LoadAllSubGroups();
-            gvSubGroups.DataBind();
             tbxNewGroup.Text = "";
         }
 
         protected void btnAddNewSub_Click(object sender, EventArgs e)
         {
+            JobGroupsRepository repgp = new JobGroupsRepository();
+            DataTable allGroups = new DataTable();
+            allGroups = repgp.getJobGroups();
             if (tbxNewSubGroupName.Text != "")
             {
-                if (ddlgroupsForModal.SelectedValue != "-2")
+                string s = ddlgroupsForModal.SelectedValue;
+                if (ddlgroupsForModal.SelectedValue != "")
                 {
                     lbxSubs.Items.Add(tbxNewSubGroupName.Text);
                     lbxSubs.Items[lbxSubs.Items.Count - 1].Value = ddlgroupsForModal.SelectedValue;
@@ -350,6 +377,12 @@ namespace WebPages.Panels.Admin
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('هیچ متنی وارد نشده است');", true);
             }
+            ddlgroupsForModal.DataSource = null;
+            ddlgroupsForModal.DataSource = allGroups;
+            ddlgroupsForModal.DataTextField = "JobGroupsTitle";
+            ddlgroupsForModal.DataValueField = "JobGroupID";
+            ddlgroupsForModal.DataBind();
+            ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "0"));
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");
             sb.Append("$('#modalNewSubGroup').modal('show');");

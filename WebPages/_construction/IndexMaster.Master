@@ -51,7 +51,6 @@
     <form id="form1" runat="server">
         <div>
 
-
             <div id="pageloader" class="row m0">
                 <div class="loader-item">
                     <img src="<%=ResolveUrl("images/loader.gif") %>" alt="loading" />

@@ -8,6 +8,7 @@ using Common;
 using DataAccess;
 using DataAccess.Repository;
 using System.Data;
+using System.Web.Services;
 
 namespace WebPages.Panels.Admin
 {
@@ -44,6 +45,17 @@ namespace WebPages.Panels.Admin
             {
                 Response.Redirect("/AdminLogin");
             }
+        }
+
+        [WebMethod]
+        public static DataTable getJobGroups()
+        {
+            DataTable dt = new DataTable();
+
+            JobGroupsRepository jg = new JobGroupsRepository();
+            dt = jg.getJobGroups();
+
+            return dt;
         }
 
         protected void gvGroups_RowCommand(object sender, GridViewCommandEventArgs e)

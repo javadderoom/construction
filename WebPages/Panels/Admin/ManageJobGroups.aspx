@@ -440,4 +440,28 @@
     </asp:UpdateProgress>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                //url is the path of our web method (Page name/function name)
+                url: "ManageJobGroups.aspx/getJobGroups",
+                data: "{}",
+                dataType: "json",
+                //called on jquery ajax call success
+                success: function (result) {
+                    $('#ddlDepartments').empty();
+                    $('#ddlDepartments').append("<option value='0'>--Select--</option>");
+                    $.each(result.d, function (key, value) {
+                        $("#ddlDepartments").append($("<option></option>").val(value.DeptId).html(value.DeptName));
+                    });
+                },
+                //called on jquery ajax call failure
+                error: function ajaxError(result) {
+                    alert(result.status + ' : ' + result.statusText);
+                }
+            });
+        });
+    </script>
 </asp:Content>

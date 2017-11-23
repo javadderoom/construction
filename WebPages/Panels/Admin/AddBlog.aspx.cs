@@ -175,7 +175,7 @@ namespace WebPages.Panels.Admin
                 System.Drawing.Image img = imgResize.ToImage(contents);
                 System.Drawing.Image image = imgResize.Resize(img, 358, 358);
                 var myArray = image.ToByteArray();
-
+                ART.ImgFirstPage = myArray;
 
 
 

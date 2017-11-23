@@ -26,10 +26,10 @@ namespace WebPages.Panels.Admin
                         SliderRepository repSr = new SliderRepository();
 
                         Slider oldSlider = repSr.FindSlider(id.ToInt());
-                        oldBimg.Src = setBKGSrc(id.ToInt());
+                        oldBimg.Src = oldSlider.BackgroundImg.Replace("..", "");
                         if (oldSlider.thumbnail != null)
                         {
-                            Rimg.InnerHtml = "<img src='" + setRightimgSrc(id.ToInt()) + "' class='img-responsive'/>";
+                            Rimg.InnerHtml = "<img src='" + oldSlider.thumbnail.Replace("..", "") + "' class='img-responsive'/>";
                         }
                         else
                         {
@@ -80,13 +80,11 @@ namespace WebPages.Panels.Admin
                     filename = rand + filename;
                     string ps = Server.MapPath(@"~\img\") + filename;
                     FileUpload1.SaveAs(ps);
-                    FileStream fStream = File.OpenRead(ps);
-                    byte[] contents = new byte[fStream.Length];
-                    fStream.Read(contents, 0, (int)fStream.Length);
-                    fStream.Close();
-                    FileInfo fi = new FileInfo(ps);
+                    FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + slider.BackgroundImg.Substring(7));
                     fi.Delete();
-                    slider.BackgroundImg = contents;
+                    slider.BackgroundImg = "../img/" + filename;
+
+
                 }
 
                 if (FileUpload2.HasFile)
@@ -109,13 +107,9 @@ namespace WebPages.Panels.Admin
                     filename = rand + filename;
                     string ps = Server.MapPath(@"~\img\") + filename;
                     FileUpload2.SaveAs(ps);
-                    FileStream fStream = File.OpenRead(ps);
-                    byte[] contents = new byte[fStream.Length];
-                    fStream.Read(contents, 0, (int)fStream.Length);
-                    fStream.Close();
-                    FileInfo fi = new FileInfo(ps);
+                    FileInfo fi = new FileInfo(slider.thumbnail);
                     fi.Delete();
-                    slider.thumbnail = contents;
+                    slider.thumbnail = "../img/" + filename;
                 }
                 if (CheckBox1.Checked == true)
                 {
@@ -148,52 +142,6 @@ namespace WebPages.Panels.Admin
             }
         }
 
-        private string setBKGSrc(int SlideID)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select BackgroundImg from Slider where SlideID = {0}", SlideID), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
 
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
-        }
-
-        private string setRightimgSrc(int SlideID)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select thumbnail from Slider where SlideID = {0}", SlideID), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
-        }
     }
 }

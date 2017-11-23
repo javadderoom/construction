@@ -83,7 +83,7 @@ namespace WebPages
                     Session.Add("employeeid", eid);
                     Session.Remove("adminid");
                     Session.Remove("userid");
-                    Session.Timeout = 10;
+                    Session.Timeout = 30;
                     Response.Redirect("/Employee/Profile");
                 }
             }
@@ -104,7 +104,7 @@ namespace WebPages
 
                     Session.Remove("adminid");
                     Session.Remove("employeeid");
-                    Session.Timeout = 10;
+                    Session.Timeout = 30;
                     Response.Redirect("/User/Profile");
                 }
             }

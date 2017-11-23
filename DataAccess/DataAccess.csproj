@@ -93,10 +93,10 @@
     <Compile Include="EmployeeScore.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="GroupConnection.cs">
+    <Compile Include="Group.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Groups.cs">
+    <Compile Include="GroupConnection.cs">
       <DependentUpon>ConstructionEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Image.cs">

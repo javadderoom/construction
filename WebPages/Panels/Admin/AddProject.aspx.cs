@@ -165,6 +165,10 @@ namespace WebPages.Panels.Admin
                 FileInfo fi = new FileInfo(ps);
                 fi.Delete();
                 ART.Image = contents;
+                System.Drawing.Image img = imgResize.ToImage(contents);
+                System.Drawing.Image image = imgResize.Resize(img, 466, 466);
+                var myArray = image.ToByteArray();
+                ART.ImgFisrtPage = myArray;
 
                 ART.Abstract = Abstract.Text;
                 ART.PostDateTime = OnlineTools.persianFormatedDate();

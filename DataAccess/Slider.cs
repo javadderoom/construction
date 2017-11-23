@@ -15,8 +15,8 @@ namespace DataAccess
     public partial class Slider
     {
         public int SlideID { get; set; }
-        public byte[] BackgroundImg { get; set; }
-        public byte[] thumbnail { get; set; }
+        public string BackgroundImg { get; set; }
+        public string thumbnail { get; set; }
         public string Text { get; set; }
         public string Link { get; set; }
     }

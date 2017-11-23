@@ -17,11 +17,11 @@ namespace DataAccess
         public int ProjectID { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public string Abstract { get; set; }
         public string PostDateTime { get; set; }
         public string Tags { get; set; }
         public string KeyWords { get; set; }
-        public byte[] ImgFisrtPage { get; set; }
+        public string ImgFisrtPage { get; set; }
     }
 }

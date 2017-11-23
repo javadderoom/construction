@@ -169,13 +169,30 @@ namespace WebPages.Panels.Admin
                 byte[] contents = new byte[fStream.Length];
                 fStream.Read(contents, 0, (int)fStream.Length);
                 fStream.Close();
-                FileInfo fi = new FileInfo(ps);
-                fi.Delete();
-                ART.Image = contents;
+
+                ART.Image = "/img/" + filename;
                 System.Drawing.Image img = imgResize.ToImage(contents);
                 System.Drawing.Image image = imgResize.Resize(img, 358, 358);
-                var myArray = image.ToByteArray();
 
+
+
+                string stream = Server.MapPath(@"~\img\") + "s" + filename;
+                switch (FileUpload1.FileName.Substring(FileUpload1.FileName.IndexOf('.') + 1).ToLower())
+                {
+                    case "jpg":
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+                    case "jpeg":
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+
+                    case "png":
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        break;
+
+                }
+
+                ART.ImgFirstPage = "/img/" + "s" + filename;
 
 
 

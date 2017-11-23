@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_construction/IndexMaster.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebPages._construction.Index1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>صفحه اصلی
+    <title>جعبه ابزار
     </title>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="pageStyles" runat="server">
@@ -27,6 +27,7 @@
         <div class="mainSliderContainer">
             <div class="mainSlider" style="direction: rtl;">
                 <ul>
+
                     <!-- SLIDE  -->
                     <!-- SLIDE 1 -->
                     <li data-transition="boxslide" data-slotamount="7">
@@ -144,7 +145,6 @@
             <Triggers>
             </Triggers>
         </asp:UpdatePanel>
-
     </div>
     <div runat="server" id="modalsdiv"></div>
 
@@ -158,8 +158,6 @@
             <div class="row m0 text-center">
 
                 <div class="owl-one owl-carousel " runat="server" id="ourServises"></div>
-
-
             </div>
         </div>
     </section>

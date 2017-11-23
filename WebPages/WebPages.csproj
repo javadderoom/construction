@@ -119,9 +119,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Telerik.Web.UI">
-      <HintPath>C:\Users\HAMOON\Desktop\Telerik.Web.UI.dll</HintPath>
-    </Reference>
     <Reference Include="WebCalendar, Version=1.0.2509.30447, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\HAMOON\Desktop\New folder\WebCalendar.dll</HintPath>
@@ -859,8 +856,6 @@
     <Content Include="Images\1 %285%29.jpg" />
     <Content Include="Images\BKTP.png" />
     <Content Include="Images\dark-eye.png" />
-    <Content Include="Images\loginBg.jpg" />
-    <Content Include="Images\loginbg_1280x1024.jpg" />
     <Content Include="Images\Loginbg_1366x768.jpg" />
     <Content Include="Images\ORFI0N0.png" />
     <Content Include="Images\passicon.png" />
@@ -868,9 +863,14 @@
     <Content Include="Images\register64px.png" />
     <Content Include="Images\userMD.png" />
     <Content Include="Images\username.png" />
+    <Content Include="img\013413960901slide1.png" />
+    <Content Include="img\nature-1511287527868-899.jpg" />
     <Content Include="img\notSeenMsg.png" />
     <Content Include="img\profile.png" />
     <Content Include="img\seenMsg.png" />
+    <Content Include="img\slide2.png" />
+    <Content Include="img\slide3.png" />
+    <Content Include="img\thumb.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.min.js" />
     <Content Include="js\JavaScript.js" />
@@ -983,6 +983,7 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="img\Thumbs.db" />
+    <Content Include="App_Offline.html" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %284%29.pubxml" />
@@ -1031,12 +1032,12 @@
     <Content Include="_construction\images\userLogIn.png" />
     <Content Include="_construction\index.aspx" />
     <Content Include="_construction\Projects.aspx" />
-    <Content Include="_construction\ShowProject.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
     <Content Include="_construction\fonts\IranSans.woff" />
     <Content Include="_construction\IndexMaster.Master" />
+    <Content Include="_Scripts\head.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
@@ -1060,43 +1061,14 @@
     <Content Include="_construction\fonts\fontawesome-webfont78ce.svg" />
     <Content Include="_construction\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="_construction\images\blog\avatar.png" />
-    <Content Include="_construction\images\blog\blog1.png" />
-    <Content Include="_construction\images\blog\blog2.png" />
-    <Content Include="_construction\images\blog\blog3.png" />
-    <Content Include="_construction\images\blog\recent1.png" />
-    <Content Include="_construction\images\blog\recent2.png" />
-    <Content Include="_construction\images\blog\recent3.png" />
     <Content Include="_construction\images\blog\replyIndicator.png" />
     <Content Include="_construction\images\contactCover.png" />
-    <Content Include="_construction\images\flags\flag1.png" />
-    <Content Include="_construction\images\flags\flag2.png" />
-    <Content Include="_construction\images\flags\flag3.png" />
-    <Content Include="_construction\images\flags\flag4.png" />
     <Content Include="_construction\images\loader.gif" />
     <Content Include="_construction\images\logo.png" />
     <Content Include="_construction\images\monitor.png" />
     <Content Include="_construction\images\partner1.png" />
     <Content Include="_construction\images\projects\cover.png" />
-    <Content Include="_construction\images\projects\project1.png" />
-    <Content Include="_construction\images\projects\project2.png" />
-    <Content Include="_construction\images\projects\project3.png" />
-    <Content Include="_construction\images\projects\project4.png" />
-    <Content Include="_construction\images\projects\project5.png" />
-    <Content Include="_construction\images\projects\project6.png" />
     <Content Include="_construction\images\serviceCover.png" />
-    <Content Include="_construction\images\slider\construction_tools.png" />
-    <Content Include="_construction\images\slider\ico1.png" />
-    <Content Include="_construction\images\slider\ico2.png" />
-    <Content Include="_construction\images\slider\ico3.png" />
-    <Content Include="_construction\images\slider\sketch.png" />
-    <Content Include="_construction\images\slider\slide1.png" />
-    <Content Include="_construction\images\slider\slide2.png" />
-    <Content Include="_construction\images\slider\slide3.png" />
-    <Content Include="_construction\images\team\about-us.png" />
-    <Content Include="_construction\images\team\cover.png" />
-    <Content Include="_construction\images\team\mem1.png" />
-    <Content Include="_construction\images\team\mem2.png" />
-    <Content Include="_construction\images\team\mem3.png" />
     <Content Include="_construction\images\testimonial\arrow.png" />
     <Content Include="_construction\images\testimonial\background.png" />
     <Content Include="_construction\images\testimonial\photo.png" />
@@ -1158,11 +1130,14 @@
     <Content Include="_construction\vendors\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="_Scripts\AddNews.js" />
     <Content Include="_Scripts\BlogsScript.js" />
+    <Content Include="_Scripts\FlotingLables.js" />
+    <Content Include="_Scripts\head.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.easyPaginate.js" />
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
     <Content Include="_Scripts\PlaceHolderScripts.js" />
     <Content Include="_Scripts\ScrolToTop.js" />
+    <Content Include="_Scripts\slick.js" />
     <Content Include="_Styles\EditSlider.css" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\BlogPost.css" />
@@ -1554,13 +1529,6 @@
     </Compile>
     <Compile Include="_construction\Projects.aspx.designer.cs">
       <DependentUpon>Projects.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="_construction\ShowProject.aspx.cs">
-      <DependentUpon>ShowProject.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="_construction\ShowProject.aspx.designer.cs">
-      <DependentUpon>ShowProject.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

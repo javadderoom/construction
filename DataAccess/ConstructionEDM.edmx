@@ -20,13 +20,13 @@
           <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Abstract" Type="nvarchar(max)" />
           <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Visits" Type="int" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar(max)" />
-          <Property Name="ImgFirstPage" Type="varbinary(max)" />
+          <Property Name="ImgFirstPage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Chats">
           <Key>
@@ -185,12 +185,12 @@
           <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Abstract" Type="nvarchar(max)" />
           <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar(max)" />
-          <Property Name="ImgFisrtPage" Type="varbinary(max)" />
+          <Property Name="ImgFisrtPage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -206,8 +206,8 @@
             <PropertyRef Name="SlideID" />
           </Key>
           <Property Name="SlideID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BackgroundImg" Type="varbinary(max)" />
-          <Property Name="thumbnail" Type="varbinary(max)" />
+          <Property Name="BackgroundImg" Type="nvarchar(max)" />
+          <Property Name="thumbnail" Type="nvarchar(max)" />
           <Property Name="Text" Type="nvarchar(max)" />
           <Property Name="Link" Type="nvarchar(max)" />
         </EntityType>
@@ -441,7 +441,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <EntitySet Name="EmployeeProjects" EntityType="ConstructionCompanyModel.EmployeeProject" />
           <EntitySet Name="Employees" EntityType="ConstructionCompanyModel.Employee" />
           <EntitySet Name="GroupConnections" EntityType="ConstructionCompanyModel.GroupConnection" />
-          <EntitySet Name="Groups1" EntityType="ConstructionCompanyModel.Groups" />
+          <EntitySet Name="Groups" EntityType="ConstructionCompanyModel.Group" />
           <EntitySet Name="Images" EntityType="ConstructionCompanyModel.Image" />
           <EntitySet Name="JobEmployees" EntityType="ConstructionCompanyModel.JobEmployee" />
           <EntitySet Name="JobGroups" EntityType="ConstructionCompanyModel.JobGroup" />
@@ -492,7 +492,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="AdminID" />
@@ -508,13 +508,13 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Visits" Type="Int32" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImgFirstPage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImgFirstPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Chat">
           <Key>
@@ -590,7 +590,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Property Name="GroupID" Type="Int32" />
           <Property Name="ArticleID" Type="Int32" />
         </EntityType>
-        <EntityType Name="Groups">
+        <EntityType Name="Group">
           <Key>
             <PropertyRef Name="GroupID" />
           </Key>
@@ -617,9 +617,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Key>
             <PropertyRef Name="JobGroupID" />
           </Key>
-
           <Property Name="JobGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-
           <Property Name="JobGroupTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Jobs" Relationship="ConstructionCompanyModel.FK_Jobs_JobGroups" FromRole="JobGroup" ToRole="Job" />
         </EntityType>
@@ -687,12 +685,12 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImgFisrtPage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImgFisrtPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -708,8 +706,8 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
             <PropertyRef Name="SlideID" />
           </Key>
           <Property Name="SlideID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BackgroundImg" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="BackgroundImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="thumbnail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -863,7 +861,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -967,8 +965,8 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Groups1">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.Groups">
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="FatherID" ColumnName="FatherID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1134,7 +1132,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

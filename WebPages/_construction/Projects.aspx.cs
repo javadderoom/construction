@@ -25,21 +25,21 @@ namespace WebPages._construction
                     {
                         if ((130 - (article.Title.Count() - 30)) < 1)
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + article.ImgFisrtPage + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p></p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                         else
                         {
-                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                            text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + article.ImgFisrtPage + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130 - (article.Title.Count() - 30)) + "</p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                         }
                     }
                     else
                     {
-                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                        text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + article.ImgFisrtPage + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract.Substring(0, 130) + "</p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                     }
                 }
                 else
                 {
-                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + setInlineImage(article.ProjectID) + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
+                    text += "<li><div class='col-sm-4 blog'><div class='row m0 blogInner'><div class='row m0 blogDateTime'><i class='fa fa-calendar'></i>" + article.PostDateTime + "</div><div class='row m0 featureImg'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' ><img src='" + article.ImgFisrtPage + "' alt='عکس' class='img-responsive'/></a></div><div class='row m0 postExcerpts'><div class='row m0 postExcerptInner'><a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='postTitle row m0'><h4>" + article.Title + "</h4></a><p>" + article.Abstract + "</p>...<a href= '" + "/Projects/" + article.ProjectID + "/" + article.Title.Replace(' ', '-') + "' class='readMore'>ادامه</a></div></div></div></div></li>";
                 }
             }
             UlArticles.InnerHtml = text;
@@ -156,28 +156,6 @@ namespace WebPages._construction
             ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "myFunction()", true);
         }
 
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
 
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
-        }
     }
 }

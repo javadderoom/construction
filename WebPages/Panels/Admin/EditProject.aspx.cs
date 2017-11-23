@@ -15,33 +15,7 @@ namespace WebPages.Panels.Admin
 {
     public partial class EdidProject : System.Web.UI.Page
     {
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Projects where ProjectID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
 
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-
-
-
-                }
-            }
-            return ans;
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["adminid"] != null)
@@ -52,8 +26,7 @@ namespace WebPages.Panels.Admin
                     {
 
                         int id = Session["ProjectIDForEdit"].ToString().ToInt();
-                        //Session.Add("newProjectIDForEdit", id);
-                        //Session.Remove("ProjectIDForEdit");
+
                         ProjectsRepository repArt = new ProjectsRepository();
                         GroupsRepository repo = new GroupsRepository();
                         Project art = repArt.FindeProjectByID(id);
@@ -79,7 +52,7 @@ namespace WebPages.Panels.Admin
                         DDLGroups2.DataValueField = "GroupID";
                         DDLGroups2.DataBind();
                         DDLGroups2.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-                        oldPhoto.ImageUrl = setInlineImage(id);
+                        oldPhoto.ImageUrl = art.ImgFisrtPage;
                     }
 
                 }
@@ -134,6 +107,7 @@ namespace WebPages.Panels.Admin
 
                             return;
                         }
+
                         string filename = Path.GetFileName(FileUpload1.FileName);
                         string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                         filename = rand + filename;
@@ -143,13 +117,31 @@ namespace WebPages.Panels.Admin
                         byte[] contents = new byte[fStream.Length];
                         fStream.Read(contents, 0, (int)fStream.Length);
                         fStream.Close();
-                        FileInfo fi = new FileInfo(ps);
+                        FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + art.Image.Substring(7));
                         fi.Delete();
-                        art.Image = contents;
+                        FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + art.ImgFisrtPage.Substring(7));
+                        fil.Delete();
+
+                        art.Image = "/img/" + filename;
                         System.Drawing.Image img = imgResize.ToImage(contents);
                         System.Drawing.Image image = imgResize.Resize(img, 466, 466);
-                        var myArray = image.ToByteArray();
-                        art.ImgFisrtPage = myArray;
+                        string stream = Server.MapPath(@"~\img\") + "s" + filename;
+                        switch (FileUpload1.FileName.Substring(FileUpload1.FileName.IndexOf('.') + 1).ToLower())
+                        {
+                            case "jpg":
+                                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                break;
+                            case "jpeg":
+                                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                break;
+
+                            case "png":
+                                image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                                break;
+
+                        }
+
+                        art.ImgFisrtPage = "/img/" + "s" + filename;
 
                     }
 

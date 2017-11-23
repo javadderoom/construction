@@ -51,7 +51,7 @@ namespace WebPages.Panels.Admin
                         DDLGroups.DataValueField = "GroupID";
                         DDLGroups.DataBind();
                         DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-                        oldPhoto.ImageUrl = setInlineImage(id);
+                        oldPhoto.ImageUrl = art.ImgFirstPage;
                     }
                     else
                     {
@@ -96,33 +96,7 @@ namespace WebPages.Panels.Admin
             }
 
         }
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
 
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-
-
-
-                }
-            }
-            return ans;
-        }
         protected void AddToSub_Click(object sender, EventArgs e)
         {
             if (SubGroups.SelectedIndex != -1)
@@ -222,13 +196,33 @@ namespace WebPages.Panels.Admin
                         byte[] contents = new byte[fStream.Length];
                         fStream.Read(contents, 0, (int)fStream.Length);
                         fStream.Close();
-                        FileInfo fi = new FileInfo(ps);
+                        FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + art.Image.Substring(7));
                         fi.Delete();
-                        art.Image = contents;
+                        FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + art.ImgFirstPage.Substring(7));
+                        fil.Delete();
+                        art.Image = "/img/" + filename;
                         System.Drawing.Image img = imgResize.ToImage(contents);
                         System.Drawing.Image image = imgResize.Resize(img, 358, 358);
-                        var myArray = image.ToByteArray();
-                        art.ImgFirstPage = myArray;
+
+
+
+                        string stream = Server.MapPath(@"~\img\") + "s" + filename;
+                        switch (FileUpload1.FileName.Substring(FileUpload1.FileName.IndexOf('.') + 1).ToLower())
+                        {
+                            case "jpg":
+                                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                break;
+                            case "jpeg":
+                                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                break;
+
+                            case "png":
+                                image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                                break;
+
+                        }
+
+                        art.ImgFirstPage = "/img/" + "s" + filename;
                     }
 
 

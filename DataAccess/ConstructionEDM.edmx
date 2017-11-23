@@ -20,13 +20,13 @@
           <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Abstract" Type="nvarchar(max)" />
           <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Visits" Type="int" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar(max)" />
-          <Property Name="ImgFirstPage" Type="varbinary(max)" />
+          <Property Name="ImgFirstPage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Chats">
           <Key>
@@ -185,12 +185,12 @@
           <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Abstract" Type="nvarchar(max)" />
           <Property Name="PostDateTime" Type="nvarchar" MaxLength="50" />
           <Property Name="Tags" Type="nvarchar(max)" />
           <Property Name="KeyWords" Type="nvarchar(max)" />
-          <Property Name="ImgFisrtPage" Type="varbinary(max)" />
+          <Property Name="ImgFisrtPage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>
@@ -508,13 +508,13 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Visits" Type="Int32" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImgFirstPage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImgFirstPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Chat">
           <Key>
@@ -685,12 +685,12 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PostDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="KeyWords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImgFisrtPage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImgFisrtPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Satisfaction">
           <Key>

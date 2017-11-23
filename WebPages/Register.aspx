@@ -4,6 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="apple-touch-icon" sizes="57x57" href="<%= ResolveUrl("_construction/favicon/apple-touch-icon-57x57.png") %>" />
+    <link rel="apple-touch-icon" sizes="60x60" href="<%= ResolveUrl("_construction/favicon/apple-touch-icon-60x60.png") %>" />
+    <link rel="icon" type="image/png" href="<%= ResolveUrl("_construction/favicon/favicon-16x16.png") %>" sizes="16x16" />
+    <link rel="icon" type="image/png" href="<%= ResolveUrl("_construction/favicon/favicon-32x32.png") %>" sizes="32x32" />
+    <meta name="msapplication-TileColor" content="#da532c" />
     <title>ثبت نام</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

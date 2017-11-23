@@ -864,6 +864,7 @@
     <Content Include="Images\userMD.png" />
     <Content Include="Images\username.png" />
     <Content Include="img\013413960901slide1.png" />
+    <Content Include="img\nature-1511287527868-899.jpg" />
     <Content Include="img\notSeenMsg.png" />
     <Content Include="img\profile.png" />
     <Content Include="img\seenMsg.png" />
@@ -982,6 +983,7 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="img\Thumbs.db" />
+    <Content Include="App_Offline.html" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %284%29.pubxml" />
@@ -1030,7 +1032,6 @@
     <Content Include="_construction\images\userLogIn.png" />
     <Content Include="_construction\index.aspx" />
     <Content Include="_construction\Projects.aspx" />
-    <Content Include="_construction\ShowProject.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.ttf" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
@@ -1528,13 +1529,6 @@
     </Compile>
     <Compile Include="_construction\Projects.aspx.designer.cs">
       <DependentUpon>Projects.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="_construction\ShowProject.aspx.cs">
-      <DependentUpon>ShowProject.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="_construction\ShowProject.aspx.designer.cs">
-      <DependentUpon>ShowProject.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

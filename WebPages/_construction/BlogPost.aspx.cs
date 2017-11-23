@@ -38,7 +38,7 @@ namespace WebPages._construction
                     MetaPlaceHolder.Controls.Add(meta);
                     //Article
                     if (post.Image != null)
-                        setImage(ImageTag, id.ToInt());
+                        ImageTag.Src = post.Image;
                     DivPostDate.InnerText = post.PostDateTime;
                     DivHeadTitle.InnerText = post.Title;
                     DivTitle.InnerText = post.Title;
@@ -56,7 +56,7 @@ namespace WebPages._construction
                     text = "";
                     foreach (Article article in ArticleList)
                     {
-                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><img src='" + setInlineImage(article.ArticleID) + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
+                        text += "<div class='media recentblog'><div class='media-left'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><img src='" + article.ImgFirstPage + "' runat='server'  alt='عکس' class='img - responsive'/></a></div><div class='media-body'><a href = '" + "/Blog/" + article.ArticleID + "/" + article.Title.Replace(' ', '-') + "'><h5 class='media-heading'>" + article.Title + "</h5></a></div></div>";
                     }
 
                     DivRecenPosts.InnerHtml = text;
@@ -71,57 +71,6 @@ namespace WebPages._construction
 
 
         }
-        private void setImage(HtmlImage hi, int arid)
-        {
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
 
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            hi.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-
-
-
-                }
-            }
-        }
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select Image from Articles where ArticleID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-
-
-
-                }
-            }
-            return ans;
-        }
     }
 }

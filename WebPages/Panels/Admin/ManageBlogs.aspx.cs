@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using DataAccess;
 using Common;
+using System.IO;
 
 namespace WebPages.Panels.Admin
 {
@@ -202,9 +203,23 @@ namespace WebPages.Panels.Admin
                 int id = row.Cells[0].Text.ToInt();
                 ArticleRepository repart = new ArticleRepository();
                 GroupsConRepository repgpCon = new GroupsConRepository();
+                string img = "";
+                string fimg = "";
+
+                Article pr = repart.FindeArticleByID(id);
+                if (pr != null)
+                {
+
+                    img = pr.Image;
+                    fimg = pr.ImgFirstPage;
+                }
                 if (repgpCon.DeletArticleConnections(id) && repart.DeletArticleByID(id))
                 {
                     subgroup();
+                    FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + img.Substring(5));
+                    fi.Delete();
+                    FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + fimg.Substring(5));
+                    fil.Delete();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
                 }
                 else

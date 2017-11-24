@@ -21,6 +21,7 @@ namespace WebPages.Panels.EmployeePanel
         {
             if (Session["employeeid"] != null)
             {
+
                 empid = Session["employeeid"].ToString().ToInt();
                 if (!IsPostBack)
                 {
@@ -57,7 +58,9 @@ namespace WebPages.Panels.EmployeePanel
             lblzip.Value = dt.Rows[0][11].ToString();
 
             if (dt.Rows[0][12] != DBNull.Value)
-                setImage();
+                Image1.Src = dt.Rows[0][12].ToString();
+
+
         }
 
         public void fillDDL()
@@ -108,34 +111,6 @@ namespace WebPages.Panels.EmployeePanel
             if (lblusername.Value != "")
                 em.UserName = lblusername.Value;
             em.PostalCode = lblzip.Value;
-            er.SaveEmployees(em);
-        }
-
-        private void setImage()
-        {
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", empid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            Image1.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-        }
-
-        protected void btnEdit_Click(object sender, EventArgs e)
-        {
-            save();
             if (fileImage.HasFile)
             {
                 if (fileImage.FileBytes.Length > 1024 * 1024)
@@ -157,20 +132,30 @@ namespace WebPages.Panels.EmployeePanel
                 string ps = Server.MapPath(@"~\img\") + filename;
                 fileImage.SaveAs(ps);
 
-                FileStream fStream = File.OpenRead(ps);
-                byte[] contents = new byte[fStream.Length];
-                fStream.Read(contents, 0, (int)fStream.Length);
-                fStream.Close();
-                FileInfo fi = new FileInfo(ps);
-                fi.Delete();
+                if (em.empImage.Substring(5) != "user128px.png")
+                {
+                    FileInfo fi = new FileInfo(Server.MapPath(em.empImage));
+                    fi.Delete();
+                }
 
-                EmployeesRepository er = new EmployeesRepository();
-                er.setEmployeeImage(empid, contents);
+
+                em.empImage = "/img/" + filename;
                 lblWarning.Text = "اطلاعات با موفقیت ویرایش شد";
                 lblWarning.ForeColor = System.Drawing.Color.Green;
 
-                setLabels();
+
             }
+            er.SaveEmployees(em);
+            (this.Master as EmployeeMaster).setimages();
+            setLabels();
+        }
+
+
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            save();
+
             if (fileResume.HasFile)
             {
                 if (fileResume.FileBytes.Length > 5 * 1024 * 1024)

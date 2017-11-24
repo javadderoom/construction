@@ -161,7 +161,11 @@
             </div>
         </div>
         <div class="extra"></div>
-        <asp:Button ID="btnSave" runat="server" Text="ذخیره" OnClick="btnSave_Click" />
+        <div style="text-align: center">
+            <asp:Button ID="btnSave" CssClass="btn btn-success" runat="server" Text="ذخیره" OnClick="btnSave_Click" />
+            <input type="button" class="btn btn-danger" style="margin: 0 10px" onclick="window.location = '/Admin/ManageProjects';" value="گذشتن از این بخش" />
+        </div>
+
     </div>
     <hr />
     <br />

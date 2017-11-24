@@ -117,9 +117,9 @@ namespace WebPages.Panels.Admin
                         byte[] contents = new byte[fStream.Length];
                         fStream.Read(contents, 0, (int)fStream.Length);
                         fStream.Close();
-                        FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + art.Image.Substring(7));
+                        FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + art.Image.Substring(5));
                         fi.Delete();
-                        FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + art.ImgFisrtPage.Substring(7));
+                        FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + art.ImgFisrtPage.Substring(5));
                         fil.Delete();
 
                         art.Image = "/img/" + filename;

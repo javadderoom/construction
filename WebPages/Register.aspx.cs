@@ -187,12 +187,9 @@ namespace WebPages
                         u.Password = txtPassword.Value;
                         u.Score = 0;
 
-                        FileStream fStream = File.OpenRead(Server.MapPath("~/_construction/images/user128px.png"));
-                        byte[] contents = new byte[fStream.Length];
-                        fStream.Read(contents, 0, (int)fStream.Length);
-                        fStream.Close();
 
-                        u.empImage = contents;
+
+                        u.empImage = "/img/user128px.png";
                         u.UserName = txtusername.Value;
                         u.City = ddlCity.SelectedValue.ToInt();
                         u.State = ddlState.SelectedValue.ToInt();

@@ -26,7 +26,7 @@ namespace DataAccess
         public string Mobile { get; set; }
         public string Email { get; set; }
         public string PostalCode { get; set; }
-        public byte[] empImage { get; set; }
+        public string empImage { get; set; }
         public Nullable<bool> RegSeen { get; set; }
         public Nullable<int> Score { get; set; }
     

@@ -129,7 +129,7 @@ namespace DataAccess.Repository
             database.SaveChanges();
         }
 
-        public void setEmployeeImage(int empid, byte[] cnts)
+        public void setEmployeeImage(int empid, string cnts)
         {
             Employee e =
                   (

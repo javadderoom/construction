@@ -4,6 +4,7 @@ using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -197,9 +198,23 @@ namespace WebPages.Panels.Admin
                 int id = row.Cells[0].Text.ToInt();
                 ProjectsRepository repart = new ProjectsRepository();
                 ProjectConRepository repgpCon = new ProjectConRepository();
+                string img = "";
+                string fimg = "";
+
+                Project pr = repart.FindeProjectByID(id);
+                if (pr != null)
+                {
+
+                    img = pr.Image;
+                    fimg = pr.ImgFisrtPage;
+                }
                 if (repgpCon.DeletProjectConnections(id) && repart.DeletProjectByID(id))
                 {
                     subgroup();
+                    FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + img.Substring(5));
+                    fi.Delete();
+                    FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + fimg.Substring(5));
+                    fil.Delete();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
                 }
                 else

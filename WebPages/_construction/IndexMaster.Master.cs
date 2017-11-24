@@ -65,29 +65,6 @@ namespace WebPages._construction
             }
         }
 
-        private string setInlineImage(int arid)
-        {
-            string ans = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return ans;
-        }
 
         private string setLogoImage()
         {
@@ -296,8 +273,8 @@ namespace WebPages._construction
             div2.Controls.Add(nav);
             EmployeesRepository repemplo = new EmployeesRepository();
             Employee emp = repemplo.getEmployeeByID(Session["employeeid"].ToString().ToInt());
-            pImg.Attributes["src"] = setInlineImage(Session["employeeid"].ToString().ToInt());
-            pimg2.Attributes["src"] = setInlineImage(Session["employeeid"].ToString().ToInt());
+            pImg.Attributes["src"] = emp.empImage;
+            pimg2.Attributes["src"] = emp.empImage;
             divName.InnerText = emp.FirstName + " " + emp.LastName;
             div.Controls.Add(div2);
             ////////////////////////////////////////////////

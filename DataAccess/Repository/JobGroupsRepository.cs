@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using System;
 
 namespace DataAccess.Repository
 {
@@ -44,6 +45,40 @@ namespace DataAccess.Repository
             {
                 return false;
             }
+        }
+
+        public bool JobGroup(int id)
+        {
+            bool ans = false;
+            try
+            {
+                DB.JobGroups.Remove(DB.JobGroups.Where(p => p.JobGroupID == id).FirstOrDefault());
+                DB.SaveChanges();
+                ans = true;
+            }
+            catch (System.Exception e)
+            {
+                string t = e.Message;
+                ans = false;
+            }
+            return ans;
+        }
+
+        public bool DelJobGruop(int id)
+        {
+            bool ans = false;
+            try
+            {
+                DB.JobGroups.Remove(DB.JobGroups.Where(p => p.JobGroupID == id).FirstOrDefault());
+                DB.SaveChanges();
+                ans = true;
+            }
+            catch (System.Exception e)
+            {
+                string t = e.Message;
+                ans = false;
+            }
+            return ans;
         }
     }
 }

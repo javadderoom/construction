@@ -463,6 +463,11 @@
                     $.each(result.d, function (key, value) {
                         $("#Content_ddlgroupsForModal").append($("<option></option>").val(value.JobGroupID).html(value.JobGroupTitle));
                     });
+                    //$("#Content_gvGroups").append("<tr><td>" + "شناسه" + "</td><td>" + "عنوان" + "</td></tr>");
+                    //$.each(result.d, function (key, value) {
+                    //    $("#Content_gvGroups").append("<tr><td>" + value.JobGroupID + "</td><td>" + value.JobGroupTitle + "</td></tr>");
+                    //});
+
                 },
                 //called on jquery ajax call failure
                 error: function ajaxError(result) {

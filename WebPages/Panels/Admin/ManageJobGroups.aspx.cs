@@ -26,19 +26,19 @@ namespace WebPages.Panels.Admin
                     allGroups = repGP.getJobGroups();
                     gvGroups.DataSource = allGroups;
                     gvGroups.DataBind();
-                    //ddlGroups.DataSource = allGroups;
-                    //ddlGroups.DataTextField = "JobGroupTitle";
-                    //ddlGroups.DataValueField = "JobGroupID";
-                    //ddlGroups.DataBind();
-                    //ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+                    ddlGroups.DataSource = allGroups;
+                    ddlGroups.DataTextField = "JobGroupTitle";
+                    ddlGroups.DataValueField = "JobGroupID";
+                    ddlGroups.DataBind();
+                    ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "0"));
 
                     gvSubGroups.DataSource = jobs.getAllJobsByGroupID();
                     gvSubGroups.DataBind();
-                    //ddlgroupsForModal.DataSource = jobs.getAllJobsByGroupID();
-                    //ddlgroupsForModal.DataTextField = "JobTitle";
-                    //ddlgroupsForModal.DataValueField = "JobID";
-                    //ddlgroupsForModal.DataBind();
-                    //ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
+                    ddlgroupsForModal.DataSource = jobs.getAllJobsByGroupID();
+                    ddlgroupsForModal.DataTextField = "JobTitle";
+                    ddlgroupsForModal.DataValueField = "JobID";
+                    ddlgroupsForModal.DataBind();
+                    ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "0"));
                 }
             }
             else
@@ -93,8 +93,8 @@ namespace WebPages.Panels.Admin
 
             if (e.CommandName == "Delet")
             {
-                GroupsConRepository repgpCon = new GroupsConRepository();
-                GroupsRepository repgp = new GroupsRepository();
+                JobGroupsRepository repJgp = new JobGroupsRepository();
+                JobRepository repgp = new JobRepository();
 
                 // Retrieve the row index stored in the
                 // CommandArgument property.
@@ -104,41 +104,34 @@ namespace WebPages.Panels.Admin
                 // from the Rows collection.
                 GridViewRow row = gvGroups.Rows[index];
                 int id = row.Cells[0].Text.ToInt();
-                List<int> subIDs = repgp.getSubGroupsIDByFatherID(id).ToList();
-                if (repgpCon.DeleteConsBySubGroupIdList(subIDs))
+
+                if (repgp.DelJobs(id))
                 {
-                    if (repgp.DelSubGruop(subIDs))
+                    if (repJgp.DelJobGruop(id))
                     {
-                        if (repgp.DelGruop(id))
-                        {
-                            gvGroups.DataSource = null;
-                            gvGroups.DataBind();
-                            ddlGroups.DataSource = null;
-                            ddlGroups.DataBind();
-                            gvSubGroups.DataSource = null;
-                            gvSubGroups.DataBind();
-                            DataTable allGroups = new DataTable();
-                            allGroups = repgp.LoadAllGroups();
-                            ddlgroupsForModal.DataSource = allGroups;
-                            ddlgroupsForModal.DataTextField = "Title";
-                            ddlgroupsForModal.DataValueField = "GroupID";
-                            ddlgroupsForModal.DataBind();
-                            ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
-                            gvGroups.DataSource = allGroups;
-                            gvGroups.DataBind();
-                            ddlGroups.DataSource = allGroups;
-                            ddlGroups.DataTextField = "Title";
-                            ddlGroups.DataValueField = "GroupID";
-                            ddlGroups.DataBind();
-                            ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
-                            gvSubGroups.DataSource = repgp.LoadAllSubGroups();
-                            gvSubGroups.DataBind();
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد');", true);
-                        }
-                        else
-                        {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با خطا مواجه شد ، بعدا سعی کنید یا با پشتیبانی تماس بگیرید!');", true);
-                        }
+                        gvGroups.DataSource = null;
+                        gvGroups.DataBind();
+                        ddlGroups.DataSource = null;
+                        ddlGroups.DataBind();
+                        gvSubGroups.DataSource = null;
+                        gvSubGroups.DataBind();
+                        DataTable allGroups = new DataTable();
+                        allGroups = repJgp.getJobGroups();
+                        ddlgroupsForModal.DataSource = allGroups;
+                        ddlgroupsForModal.DataTextField = "JobGroupTitle";
+                        ddlgroupsForModal.DataValueField = "JobGroupID";
+                        ddlgroupsForModal.DataBind();
+                        ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "0"));
+                        gvGroups.DataSource = allGroups;
+                        gvGroups.DataBind();
+                        ddlGroups.DataSource = allGroups;
+                        ddlGroups.DataTextField = "JobGroupTitle";
+                        ddlGroups.DataValueField = "JobGroupID";
+                        ddlGroups.DataBind();
+                        ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "0"));
+                        gvSubGroups.DataSource = repgp.getAllJobsByGroupID();
+                        gvSubGroups.DataBind();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد');", true);
                     }
                     else
                     {
@@ -154,19 +147,19 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveGroupChange_Click(object sender, EventArgs e)
         {
-            GroupsRepository repgp = new GroupsRepository();
+            JobGroupsRepository repgp = new JobGroupsRepository();
             if (!String.IsNullOrEmpty(tbxNewName.Text))
             {
-                Groups ngr = new Groups();
-                ngr.GroupID = IDholder.Text.ToInt();
-                ngr.FatherID = -1;
-                ngr.Title = tbxNewName.Text;
+                JobGroup ngr = new JobGroup();
+                ngr.JobGroupID = IDholder.Text.ToInt();
+
+                ngr.JobGroupTitle = tbxNewName.Text;
 
                 if (repgp.Savegp(ngr))
                 {
                     gvGroups.DataSource = null;
                     gvGroups.DataBind();
-                    gvGroups.DataSource = repgp.LoadAllGroups();
+                    gvGroups.DataSource = repgp.getJobGroups();
                     gvGroups.DataBind();
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
@@ -222,19 +215,19 @@ namespace WebPages.Panels.Admin
                 // Retrieve the row that contains the button
                 // from the Rows collection.
                 GridViewRow row = gvSubGroups.Rows[index];
-                GroupsRepository repgp = new GroupsRepository();
+                JobRepository repgp = new JobRepository();
 
-                if (repgp.DelSubGruop(row.Cells[0].Text.ToInt()))
+                if (repgp.DelJob(row.Cells[0].Text.ToInt()))
                 {
                     gvSubGroups.DataSource = null;
                     gvSubGroups.DataBind();
-                    if (ddlGroups.SelectedValue != "-2")
+                    if (ddlGroups.SelectedValue != "0")
                     {
-                        gvSubGroups.DataSource = repgp.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
+                        gvSubGroups.DataSource = repgp.getJobsByGroupID(ddlGroups.SelectedValue.ToInt());
                     }
                     else
                     {
-                        gvSubGroups.DataSource = repgp.LoadAllSubGroups();
+                        gvSubGroups.DataSource = repgp.getAllJobsByGroupID();
                     }
                     gvSubGroups.DataBind();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد');", true);
@@ -248,24 +241,23 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveSubGroupChane_Click(object sender, EventArgs e)
         {
-            GroupsRepository repgp = new GroupsRepository();
+            JobRepository repgp = new JobRepository();
             if (!String.IsNullOrEmpty(SubNewName.Text))
             {
-                Groups ngr = new Groups();
-                ngr = repgp.FindGroup(SubIDHolder.Text.ToInt());
-                ngr.Title = SubNewName.Text;
+                Job ngr = repgp.findJob(SubIDHolder.Text.ToInt());
+                ngr.JobTitle = SubNewName.Text;
 
                 if (repgp.Savegp(ngr))
                 {
                     gvSubGroups.DataSource = null;
                     gvSubGroups.DataBind();
-                    if (ddlGroups.SelectedValue != "-2")
+                    if (ddlGroups.SelectedValue != "0")
                     {
-                        gvSubGroups.DataSource = repgp.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
+                        gvSubGroups.DataSource = repgp.getJobsByGroupID(ddlGroups.SelectedValue.ToInt());
                     }
                     else
                     {
-                        gvSubGroups.DataSource = repgp.LoadAllSubGroups();
+                        gvSubGroups.DataSource = repgp.getAllJobsByGroupID();
                     }
 
                     gvSubGroups.DataBind();
@@ -294,12 +286,12 @@ namespace WebPages.Panels.Admin
 
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GroupsRepository Groupsrepo = new GroupsRepository();
+            JobRepository Groupsrepo = new JobRepository();
 
-            if (ddlGroups.SelectedValue != "-2")
+            if (ddlGroups.SelectedValue != "0")
             {
                 DataTable DT = new DataTable();
-                DT = Groupsrepo.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
+                DT = Groupsrepo.getJobsByGroupID(ddlGroups.SelectedValue.ToInt());
 
                 if ((DT.Rows.Count > 0))
                 {
@@ -319,7 +311,7 @@ namespace WebPages.Panels.Admin
             {
                 gvSubGroups.DataSource = null;
                 gvSubGroups.DataBind();
-                gvSubGroups.DataSource = Groupsrepo.LoadAllSubGroups();
+                gvSubGroups.DataSource = Groupsrepo.getAllJobsByGroupID();
                 gvSubGroups.DataBind();
             }
         }
@@ -342,7 +334,7 @@ namespace WebPages.Panels.Admin
             ddlGroups.DataTextField = "JobGroupTitle";
             ddlGroups.DataValueField = "JobGroupID";
             ddlGroups.DataBind();
-            ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "-2"));
+            ddlGroups.Items.Insert(0, new ListItem("همه زیر گروه ها", "0"));
             JobRepository jobs = new JobRepository();
             gvSubGroups.DataSource = jobs.getAllJobsByGroupID();
             gvSubGroups.DataBind();
@@ -350,7 +342,7 @@ namespace WebPages.Panels.Admin
             ddlgroupsForModal.DataTextField = "JobGroupsTitle";
             ddlgroupsForModal.DataValueField = "JobGroupsID";
             ddlgroupsForModal.DataBind();
-            ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "-2"));
+            ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "0"));
             tbxNewGroup.Text = "";
         }
 
@@ -362,11 +354,18 @@ namespace WebPages.Panels.Admin
             if (tbxNewSubGroupName.Text != "")
             {
                 string s = ddlgroupsForModal.SelectedValue;
-                if (ddlgroupsForModal.SelectedValue != "")
+                if (ddlgroupsForModal.SelectedValue != "0")
                 {
-                    lbxSubs.Items.Add(tbxNewSubGroupName.Text);
-                    lbxSubs.Items[lbxSubs.Items.Count - 1].Value = ddlgroupsForModal.SelectedValue;
-                    tbxNewSubGroupName.Text = "";
+                    if (ddlgroupsForModal.SelectedValue != "")
+                    {
+                        lbxSubs.Items.Add(tbxNewSubGroupName.Text);
+                        lbxSubs.Items[lbxSubs.Items.Count - 1].Value = ddlgroupsForModal.SelectedValue;
+                        tbxNewSubGroupName.Text = "";
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('لطفا یکی از گروه ها را انتخاب کنید');", true);
+                    }
                 }
                 else
                 {
@@ -379,7 +378,7 @@ namespace WebPages.Panels.Admin
             }
             ddlgroupsForModal.DataSource = null;
             ddlgroupsForModal.DataSource = allGroups;
-            ddlgroupsForModal.DataTextField = "JobGroupsTitle";
+            ddlgroupsForModal.DataTextField = "JobGroupTitle";
             ddlgroupsForModal.DataValueField = "JobGroupID";
             ddlgroupsForModal.DataBind();
             ddlgroupsForModal.Items.Insert(0, new ListItem("یکی از گروه ها را انتخاب کنید", "0"));
@@ -393,14 +392,14 @@ namespace WebPages.Panels.Admin
 
         protected void btnSaveNewSub_Click(object sender, EventArgs e)
         {
-            GroupsRepository repGP = new GroupsRepository();
+            JobRepository repGP = new JobRepository();
 
             for (int i = 0; i < lbxSubs.Items.Count; i++)
             {
-                Groups gp = new Groups();
+                Job gp = new Job();
 
-                gp.Title = lbxSubs.Items[i].Text;
-                gp.FatherID = lbxSubs.Items[i].Value.ToInt();
+                gp.JobTitle = lbxSubs.Items[i].Text;
+                gp.JobGroupID = lbxSubs.Items[i].Value.ToInt();
                 repGP.Savegp(gp);
             }
 
@@ -410,17 +409,23 @@ namespace WebPages.Panels.Admin
             gvSubGroups.DataBind();
             gvSubGroups.DataSource = null;
             gvSubGroups.DataBind();
-            if (ddlGroups.SelectedValue != "-2")
+            if (ddlGroups.SelectedValue != "")
             {
-                gvSubGroups.DataSource = repGP.LoadSubGroup(ddlGroups.SelectedValue.ToInt());
+                if (ddlGroups.SelectedValue != "0")
+                {
+                    gvSubGroups.DataSource = repGP.getJobsByGroupID(ddlGroups.SelectedValue.ToInt());
+                }
+                else
+                {
+                    gvSubGroups.DataSource = repGP.getAllJobsByGroupID();
+                }
             }
             else
             {
-                gvSubGroups.DataSource = repGP.LoadAllSubGroups();
+                gvSubGroups.DataSource = repGP.getAllJobsByGroupID();
             }
             gvSubGroups.DataBind();
-            gvSubGroups.DataBind();
-            ddlGroups.SelectedIndex = 0;
+
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");
             sb.Append("$('#modalNewSubGroup').modal('hide');");
@@ -432,10 +437,10 @@ namespace WebPages.Panels.Admin
         protected void gvGroups_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvGroups.PageIndex = e.NewPageIndex;
-            GroupsRepository repGP = new GroupsRepository();
+            JobGroupsRepository repGP = new JobGroupsRepository();
 
             DataTable allGroups = new DataTable();
-            allGroups = repGP.LoadAllGroups();
+            allGroups = repGP.getJobGroups();
             gvGroups.DataSource = allGroups;
             gvGroups.DataBind();
         }
@@ -443,9 +448,17 @@ namespace WebPages.Panels.Admin
         protected void gvSubGroups_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvSubGroups.PageIndex = e.NewPageIndex;
-            GroupsRepository repGP = new GroupsRepository();
-            gvSubGroups.DataSource = repGP.LoadAllSubGroups();
+            JobRepository jobs = new JobRepository();
+            gvSubGroups.DataSource = jobs.getAllJobsByGroupID();
             gvSubGroups.DataBind();
+        }
+
+        [WebMethod]
+        public static List<JobGroup> getJobGroupsforGrid()
+        {
+            List<JobGroup> result = new List<JobGroup>();
+
+            return result;
         }
     }
 }

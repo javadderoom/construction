@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" AutoEventWireup="true" ValidateRequest="false" CodeBehind="AddProject.aspx.cs" Inherits="WebPages.Panels.Admin.AddProject" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Panels/Admin/NewAdminMaster.Master" EnableEventValidation="false" AutoEventWireup="true" ValidateRequest="false" CodeBehind="AddProject.aspx.cs" Inherits="WebPages.Panels.Admin.AddProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>افزودن پروژه</title>
@@ -48,17 +48,10 @@
         </div>
         <div class="form-group">
             <label style="display: block" for="DDLGroups">گروه کاری : </label>
-            <asp:DropDownList ID="DDLGroups" OnSelectedIndexChanged="DDLGroups_SelectedIndexChanged" AutoPostBack="true" CssClass="DDLClass" runat="server"></asp:DropDownList>
-            <div class="Displayinline" id="upPan3">
-                <asp:UpdatePanel ID="updatepanel4" runat="server">
-                    <ContentTemplate>
-                        <div runat="server" id="NoItemDiv" style="display: inline; padding: 25px;">
-                        </div>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-                    </Triggers>
-                </asp:UpdatePanel>
+            <select id="DDLGroups" onchange="ddlGroups()" class="DDLClass"></select>
+            <%-- <asp:DropDownList ID="DDLGroups" onchange="ddlGroups()" CssClass="DDLClass" runat="server"></asp:DropDownList>--%>
+
+            <div runat="server" id="NoItemDiv" style="display: inline; padding: 25px; color: red;">
             </div>
         </div>
         <div class="form-group">
@@ -66,16 +59,8 @@
             <div>
 
                 <div class="Displayinline" id="upPan1">
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                            <asp:ListBox ID="SubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
-                        </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="DDLGroups" EventName="SelectedIndexChanged" />
-                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
-                            <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
+
+                    <asp:ListBox ID="SubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
                 </div>
                 <div style="display: inline;">
 
@@ -83,28 +68,23 @@
                         <tr>
 
                             <td style='width: 50px; text-align: center; vertical-align: middle;'>
-                                <asp:Button ID="AddToSub" Width="50px" OnClick="AddToSub_Click" CausesValidation="False" runat="server" Text=">>" />
+                                <button id="addToSub" type="button" style="width: 50px; height: 20px;" onclick="AddSubGroups()">>></button>
+                                <%--<asp:Button ID="AddToSub" Width="50px" OnClick="AddToSub_Click" OnClientClick="AddSubGroups() " CausesValidation="False" runat="server" Text=">>" />--%>
                                 <br />
                                 <br />
-                                <asp:Button ID="RemoveFromSub" Width="50px" OnClick="RemoveFromSub_Click" CausesValidation="False" runat="server" Text="<<" />
+                                <button id="removeFromSub" type="button" style="width: 50px; height: 20px;" onclick="removeSubGroups()"><<</button>
                             </td>
                         </tr>
                     </table>
                 </div>
 
                 <div style="display: inline" id="upPan2">
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <asp:ListBox ID="SelectedSubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
-                        </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                            <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
+
+                    <asp:ListBox ID="SelectedSubGroups" CssClass="LBXClass" runat="server"></asp:ListBox>
                 </div>
             </div>
         </div>
+
         <div style="max-height: 870px">
 
             <asp:TextBox runat="server" ID="editor1" TextMode="MultiLine"></asp:TextBox>
@@ -121,7 +101,6 @@
 
             <asp:TextBox ID="Tags" Style="max-width: 500px; height: 85px;" data-role="tagsinput" onkeydown="return (event.keyCode!=13);" placeholder="برچسب ها شبه جملاتی چند کلمه ای هستند" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
-
         <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" ChildrenAsTriggers="true" runat="server">
             <ContentTemplate>
                 <div runat="server" class="error" id="diverror">
@@ -135,8 +114,8 @@
                 </div>
             </ContentTemplate>
             <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />
+                <%--<asp:AsyncPostBackTrigger ControlID="AddToSub" EventName="Click" />--%>
+                <%--<asp:AsyncPostBackTrigger ControlID="RemoveFromSub" EventName="Click" />--%>
                 <asp:PostBackTrigger ControlID="btnSave" />
             </Triggers>
         </asp:UpdatePanel>
@@ -144,4 +123,120 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Script" runat="server">
     <script src="../../_Scripts/AddNews.js"></script>
+    <script>
+
+        $(document).ready(function ddlGroups() {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                //url is the path of our web method (Page name/function name)
+                url: "/panels/admin/AddProject.aspx/getGroups",
+                data: "{}",
+                dataType: "json",
+                //called on jquery ajax call success
+                success: function (result) {
+                    $('#DDLGroups').empty();
+                    $('#DDLGroups').append("<option selected value='0'>یک گروه انتخاب کنید</option>");
+                    $.each(result.d, function (key, value) {
+                        $("#DDLGroups").append($("<option></option>").val(value.GroupID).html(value.Title));
+                    });
+                },
+
+                //called on jquery ajax call failure
+                error: function ajaxError(result) {
+                    alert(result.status + ' : ' + result.statusText);
+                }
+
+            });
+        });
+        $(document).on("change", "select", function () {
+            $("option[value=" + this.value + "]", this)
+            .attr("selected", true).siblings()
+            .removeAttr("selected")
+        });
+        function ddlGroups() {
+            var s = $("#Content_ddlGroups").find("option:selected").prop("value");
+            ;
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                //url is the path of our web method (Page name/function name)
+                url: "/panels/admin/AddProject.aspx/getSubgroups",
+                data: JSON.stringify({ Id: $('#DDLGroups').find(":selected").val() }),
+                dataType: "json",
+                //called on jquery ajax call success
+                success: function (result) {
+                    $('#Content_SubGroups').empty();
+
+                    $.each(result.d, function (key, value) {
+                        $("#Content_SubGroups").append($("<option></option>").val(value.GroupID).html(value.Title));
+
+                    });
+                },
+
+                //called on jquery ajax call failure
+                error: function ajaxError(result) {
+                    alert(result.status + ' : ' + result.statusText);
+                }
+            });
+        };
+        function AddSubGroups() {
+            $('#Content_NoItemDiv').html('')
+            if ($('#Content_SubGroups').find(":selected").index() != -1) {
+                var isadd = false;
+                var text = $('#Content_SubGroups').find(":selected").text();
+                var value = $('#Content_SubGroups').find(":selected").val();
+                var myOpts = document.getElementById('Content_SelectedSubGroups').options;
+                $("#Content_SelectedSubGroups option").each(function () {
+                    var optionText = $(this).text()
+
+                    if (optionText == text) {
+                        isadd = true;
+                    }
+                });
+                if (!isadd) {
+                    $("#Content_SelectedSubGroups").append($("<option></option>").val(value).html(text));
+                    $('#Content_btnSave').removeAttr("disabled");
+                    $('#Content_diverror').html('');
+                }
+                else {
+                    $('#Content_NoItemDiv').html('این مورد قبلا اضافه شده است')
+                }
+
+            }
+            else {
+                $('#Content_NoItemDiv').html('شما هیچ موردی را انتخاب نکرده اید!')
+            }
+        };
+        function removeSubGroups() {
+            $('#Content_NoItemDiv').html('')
+            if ($('#Content_SelectedSubGroups').find(":selected").index() != -1) {
+
+                $("#Content_SelectedSubGroups option:selected").remove();
+
+            }
+            else {
+                $('#Content_NoItemDiv').html('شما هیچ موردی را انتخاب نکرده اید!')
+            }
+        }
+        $('#Content_btnSave').click(function selectedGroups() {
+            var arr = [];
+            $("#Content_SelectedSubGroups  option").each(function () {
+                arr.push($(this).val()); // this line push all text in array
+            });
+            ;
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                //url is the path of our web method (Page name/function name)
+                url: "/panels/admin/AddProject.aspx/selectedGroups",
+                data: JSON.stringify({ list: arr }),
+                dataType: "json",
+                //called on jquery ajax call success
+
+                //called on jquery ajax call failure
+
+            });
+        });
+    </script>
 </asp:Content>

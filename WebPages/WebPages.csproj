@@ -864,13 +864,14 @@
     <Content Include="Images\userMD.png" />
     <Content Include="Images\username.png" />
     <Content Include="img\013413960901slide1.png" />
+    <Content Include="img\170913960903profile.png" />
     <Content Include="img\nature-1511287527868-899.jpg" />
     <Content Include="img\notSeenMsg.png" />
-    <Content Include="img\profile.png" />
     <Content Include="img\seenMsg.png" />
     <Content Include="img\slide2.png" />
     <Content Include="img\slide3.png" />
     <Content Include="img\thumb.png" />
+    <Content Include="img\user128px.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.min.js" />
     <Content Include="js\JavaScript.js" />

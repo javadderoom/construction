@@ -15,16 +15,10 @@ namespace WebPages.Panels.EmployeePanel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            setimages();
+
             if (!IsPostBack)
             {
-                EmployeesRepository repemplo = new EmployeesRepository();
-                Employee emp = repemplo.getEmployeeByID(Session["employeeid"].ToString().ToInt());
-                pImg.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
-                pimg2.ImageUrl = setInlineImage(Session["employeeid"].ToString().ToInt());
-                Name.InnerText = emp.FirstName + " " + emp.LastName;
-                MessageRepository repmsg = new MessageRepository();
-                messageCount.InnerText = repmsg.CountUserNewMessages(Session["employeeid"].ToString().ToInt());
-
                 ContactUsRepository repo = new ContactUsRepository();
                 ContactWay cnw = repo.Findcwy(1);
                 phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";
@@ -61,30 +55,15 @@ namespace WebPages.Panels.EmployeePanel
             return ans;
         }
 
-        private string setInlineImage(int arid)
+        public void setimages()
         {
-            string ans = "";
-
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", arid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            ans = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
-
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-
-            return ans;
+            EmployeesRepository repemplo = new EmployeesRepository();
+            Employee emp = repemplo.getEmployeeByID(Session["employeeid"].ToString().ToInt());
+            pImg.ImageUrl = emp.empImage;
+            pimg2.ImageUrl = emp.empImage;
+            Name.InnerText = emp.FirstName + " " + emp.LastName;
+            MessageRepository repmsg = new MessageRepository();
+            messageCount.InnerText = repmsg.CountUserNewMessages(Session["employeeid"].ToString().ToInt());
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

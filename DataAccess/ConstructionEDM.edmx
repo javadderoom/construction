@@ -83,7 +83,7 @@
           <Property Name="Mobile" Type="nvarchar" MaxLength="11" />
           <Property Name="Email" Type="nvarchar" MaxLength="150" />
           <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
-          <Property Name="empImage" Type="varbinary(max)" />
+          <Property Name="empImage" Type="nvarchar(max)" />
           <Property Name="RegSeen" Type="bit" />
           <Property Name="Score" Type="int" />
         </EntityType>
@@ -576,7 +576,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="empImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="empImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="RegSeen" Type="Boolean" />
           <Property Name="Score" Type="Int32" />
           <NavigationProperty Name="City1" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="Employee" ToRole="City" />

@@ -167,7 +167,7 @@ namespace WebPages._construction
                     string score = dt.Rows[i][1].ToString();
                     int id = dt.Rows[i][2].ToString().ToInt();
                     string projectCount = ep.getEmployeeProjectCount(id).ToString();
-                    string img = setImage(id);
+                    string img = er.getEmployeeByID(id).empImage;
 
                     text += "<div class='item '><div class='theBest '><div class='imgDiv'><img class='empImg' src='";
                     text += img;
@@ -189,29 +189,7 @@ namespace WebPages._construction
         }
 
 
-        private string setImage(int empid)
-        {
-            string img = "";
-            using (SqlConnection cn = new SqlConnection(OnlineTools.conString))
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand(string.Format("select empImage from Employees where EmployeeID = {0}", empid), cn))
-                {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
-                    {
-                        if (dr.Read())
-                        {
-                            byte[] fileData = (byte[])dr.GetValue(0);
-                            img = "data:image/png;base64," + Convert.ToBase64String(fileData);
-                        }
 
-                        dr.Close();
-                    }
-                    cn.Close();
-                }
-            }
-            return img;
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

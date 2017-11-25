@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace DataAccess.Repository
 {
@@ -125,8 +131,9 @@ namespace DataAccess.Repository
             bool ans = true;
             try
             {
-                Project selectedArt = new Project();
-                selectedArt = DB.Projects.Where(p => p.ProjectID == id).Single();
+
+                Project selectedArt = DB.Projects.Where(p => p.ProjectID == id).FirstOrDefault();
+
 
                 if (selectedArt != null)
                 {

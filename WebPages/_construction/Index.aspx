@@ -230,14 +230,14 @@
     <!--Elements-->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="map" runat="server">
-    <div class="col-xs-10">
+    <%-- <div class="col-xs-10">
         <div class="mapBox">
             <div class="weHere">
                 <p>ما اینجا هستیم</p>
             </div>
             <div id="map" style="width: 100%; margin-left: auto; margin-right: auto; height: 350px;"></div>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Scripts" runat="server">
     <%--<script src="../_Scripts/slick.js"></script>--%>
@@ -298,50 +298,50 @@
             })
         });
 
-        function myFunc() {
-            $('.ServisDetails').addClass('Active')
-        }
-        $('.btnClose').click(function () {
-            $('.ServisDetails').removeClass('Active')
-            $('#servisContent').innerHtml = "";
+        //function myFunc() {
+        //    $('.ServisDetails').addClass('Active')
+        //}
+        //$('.btnClose').click(function () {
+        //    $('.ServisDetails').removeClass('Active')
+        //    $('#servisContent').innerHtml = "";
 
-        })
+        //})
 
-        var myLatlng = new google.maps.LatLng(36.543681, 52.689014);
-        var imagePath = '/_construction/images/Pin-location.png'
-        var mapOptions = {
-            zoom: 11,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
+        //var myLatlng = new google.maps.LatLng(36.543681, 52.689014);
+        //var imagePath = '/_construction/images/Pin-location.png'
+        //var mapOptions = {
+        //    zoom: 11,
+        //    center: myLatlng,
+        //    mapTypeId: google.maps.MapTypeId.ROADMAP
+        //}
 
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        //Callout Content
-        var contentString = 'ما اینجا هستیم';
-        //Set window width + content
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString,
-            maxWidth: 500
-        });
+        //var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        ////Callout Content
+        //var contentString = 'ما اینجا هستیم';
+        ////Set window width + content
+        //var infowindow = new google.maps.InfoWindow({
+        //    content: contentString,
+        //    maxWidth: 500
+        //});
 
-        //Add Marker
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            icon: imagePath,
-            title: 'image title'
-        });
+        ////Add Marker
+        //var marker = new google.maps.Marker({
+        //    position: myLatlng,
+        //    map: map,
+        //    icon: imagePath,
+        //    title: 'image title'
+        //});
 
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.open(map, marker);
-        });
+        //google.maps.event.addListener(marker, 'click', function () {
+        //    infowindow.open(map, marker);
+        //});
 
-        //Resize Function
-        google.maps.event.addDomListener(window, "resize", function () {
-            var center = map.getCenter();
-            google.maps.event.trigger(map, "resize");
-            map.setCenter(center);
-        });
+        ////Resize Function
+        //google.maps.event.addDomListener(window, "resize", function () {
+        //    var center = map.getCenter();
+        //    google.maps.event.trigger(map, "resize");
+        //    map.setCenter(center);
+        //});
 
         //google.maps.event.addDomListener(window, 'load', initialize);
     </script>

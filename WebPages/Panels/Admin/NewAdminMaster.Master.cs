@@ -26,7 +26,7 @@ namespace WebPages.Panels.Admin
                 ContactWay cnw = repo.Findcwy(1);
                 phone.InnerHtml = "<span><i class='fa fa-phone' style='margin-right: 7px'></i>" + cnw.PhoneNumber + "</span>";
                 mail.InnerHtml = "<span><i class='fa fa-envelope-o' style='margin-right: 7px'></i>" + cnw.Email + "</span>";
-                logo.Attributes["style"] = "background-image:url(" + setLogoImage() + ")";
+                logo.Attributes["style"] = "background-image:url(" + cnw.logo + ")";
             }
         }
 

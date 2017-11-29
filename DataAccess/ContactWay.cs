@@ -20,7 +20,7 @@ namespace DataAccess
         public string Email { get; set; }
         public string AboutUs { get; set; }
         public string AboutPage { get; set; }
-        public byte[] logo { get; set; }
+        public string logo { get; set; }
         public string Telegram { get; set; }
         public string Instagram { get; set; }
     }

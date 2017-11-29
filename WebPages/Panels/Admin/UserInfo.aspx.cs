@@ -12,7 +12,8 @@ namespace WebPages.Panels.Admin
 {
     public partial class UserInfo : System.Web.UI.Page
     {
-        int userid = 0;
+        private int userid = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["adminid"] != null)
@@ -38,6 +39,7 @@ namespace WebPages.Panels.Admin
             lblcitystate.Value = dt.Rows[0][18].ToString();
             lblemail.Value = dt.Rows[0][10].ToString();
             lblfullname.Value = dt.Rows[0][17].ToString();
+            hFullName.InnerText = dt.Rows[0][17].ToString();
             lblid.Value = dt.Rows[0][0].ToString();
             lblmobile.Value = dt.Rows[0][5].ToString();
             lblusername.Value = dt.Rows[0][1].ToString();

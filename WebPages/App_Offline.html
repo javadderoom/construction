@@ -1,6 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <script>
+        var myVar = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+        }
+    </script>
     <link rel="apple-touch-icon" sizes="57x57" href="_construction/favicon/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="_construction/favicon/apple-touch-icon-60x60.png" />
     <link rel="icon" type="image/png" href="_construction/favicon/favicon-16x16.png" sizes="16x16" />
@@ -8,6 +16,7 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <style>
         body, html {
+            font-family: "IranSans","Yekan","IRANSansLight";
             height: 100%;
             margin: 0;
         }
@@ -35,6 +44,16 @@
             left: 16px;
         }
 
+        @font-face {
+            font-family: 'IRANSansLight';
+            src: url('fonts/IRANSansLight.woff') format('woff');
+        }
+
+        @font-face {
+            font-family: 'IranSans';
+            src: url('_construction/fonts/IranSans.woff') format('woff');
+        }
+
         .middle {
             position: absolute;
             top: 50%;
@@ -56,6 +75,8 @@
             <p></p>
         </div>
         <div class="middle">
+            <p id="demo" style="margin-bottom:10px;color: #E91E63;font-weight:bold;"></p>
+
             <h1 style="color: #E91E63;">به زودی برمیگردیم</h1>
             <hr>
             <p style="color: #E91E63;font-weight:bold;">صبور باشید</p>
@@ -64,6 +85,5 @@
             <p></p>
         </div>
     </div>
-
 </body>
 </html>

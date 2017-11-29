@@ -32,7 +32,7 @@ namespace WebPages.Panels.UserPanel
                 contactEmail.InnerHtml = "<i class='fa fa-envelope'></i>" + cnw.Email;
                 contactPhone.InnerHtml = "<i class='fa fa-phone'></i>" + cnw.PhoneNumber;
                 contactHome.InnerHtml = "<i class='fa fa-home'></i>" + cnw.Adrees;
-                logo.Attributes["style"] = "background-image:url(" + setLogoImage() + ")";
+                logo.Attributes["style"] = "background-image:url(" + cnw.logo + ")";
             }
         }
 

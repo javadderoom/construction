@@ -50,7 +50,7 @@ namespace WebPages.Panels.Admin
             lblmobile.Value = dt.Rows[0][9].ToString();
             lblusername.Value = dt.Rows[0][3].ToString();
             lblzip.Value = dt.Rows[0][9].ToString();
-
+            hFullName.InnerText = dt.Rows[0][19].ToString();
             EmployeeJobRepository ejr = new EmployeeJobRepository();
             DataTable dtJob = ejr.getEmployeeJobs(empid);
             lbxJobs.DataSource = dtJob;
@@ -121,8 +121,7 @@ namespace WebPages.Panels.Admin
                         {
                             if (dr.GetValue(0) != DBNull.Value)
                             {
-                                byte[] fileData = (byte[])dr.GetValue(0);
-                                Image1.Src = "data:image/png;base64," + Convert.ToBase64String(fileData);
+                                Image1.Src = (string)dr.GetValue(0);
                             }
                         }
 

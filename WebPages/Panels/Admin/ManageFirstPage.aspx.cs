@@ -87,18 +87,18 @@ namespace WebPages.Panels.Admin
             {
                 string filename = Path.GetFileName(FileUpload1.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
-
                 filename = rand + filename;
                 string ps = Server.MapPath(@"~\img\") + filename;
                 FileUpload1.SaveAs(ps);
-
                 FileStream fStream = File.OpenRead(ps);
                 byte[] contents = new byte[fStream.Length];
                 fStream.Read(contents, 0, (int)fStream.Length);
                 fStream.Close();
-                FileInfo fi = new FileInfo(ps);
-                fi.Delete();
-                cnw.logo = contents;
+                //FileInfo fi = new FileInfo(Server.MapPath(@"~\img\") + cnw.logo.Substring(5));
+                //fi.Delete();
+                //FileInfo fil = new FileInfo(Server.MapPath(@"~\img\") + cnw.logo.Substring(5));
+                //fil.Delete();
+                cnw.logo = "/img/" + filename;
             }
 
             if (repContact.Savecwy(cnw))

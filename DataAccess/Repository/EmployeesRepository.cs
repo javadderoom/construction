@@ -187,10 +187,50 @@ namespace DataAccess.Repository
 
         public void DeleteEmployee(int EID)
         {
-            Employee selectedEmployee = database.Employees.Where(p => p.EmployeeID == EID).Single();
+            Employee selectedEmployee = database.Employees.Where(p => p.EmployeeID == EID).FirstOrDefault();
 
             if (selectedEmployee != null)
             {
+                try
+                {
+                    List<EmployeeProject> ep = database.EmployeeProjects.Where(p => p.EmployeeID == EID).ToList();
+                    foreach (EmployeeProject e in ep)
+                    {
+                        database.EmployeeProjects.Remove(e);
+                    }
+                }
+                catch { }
+                try
+                {
+                    List<JobEmployee> je = database.JobEmployees.Where(p => p.EmployeeID == EID).ToList();
+                    foreach (JobEmployee j in je)
+                    {
+                        database.JobEmployees.Remove(j);
+                    }
+                }
+                catch { }
+                try
+                {
+                    List<Chat> c = database.Chats.Where(p => p.User_Employee_ID == EID).ToList();
+                    List<int> ids = new List<int>();
+                    foreach (Chat ch in c)
+                    {
+                        ids.Add(ch.ChatID);
+                    }
+                    foreach (int id in ids)
+                    {
+                        List<Message> message = database.Messages.Where(p => p.ChatID == id).ToList();
+                        foreach (Message m in message)
+                        {
+                            database.Messages.Remove(m);
+                        }
+                    }
+                    foreach (Chat chat in c)
+                    {
+                        database.Chats.Remove(chat);
+                    }
+                }
+                catch { }
                 database.Employees.Remove(selectedEmployee);
                 database.SaveChanges();
             }
@@ -336,6 +376,7 @@ namespace DataAccess.Repository
             myDataAdapter.Fill(dtResult);
             return dtResult;
         }
+
         public List<int> getEmployeeIDsFromProjectID(int pid)
         {
             List<int?> l = (from r in DB.EmployeeProjects where r.ProjectID == pid select r.EmployeeID).ToList();

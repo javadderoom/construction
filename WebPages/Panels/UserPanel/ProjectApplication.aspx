@@ -38,7 +38,7 @@
                         runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </div>
                 <div class="inputDiv">
-                    <input class="FloatingLabel" runat="server" id="budget" type="text" placeholder="بودجه" alt="بودجه" />
+                    <input class="FloatingLabel" runat="server" id="budget" type="text" placeholder="بودجه(به تومان)" alt="بودجه" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="budget" CssClass="myAlert"
                         runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </div>

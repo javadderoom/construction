@@ -49,13 +49,13 @@
 
 @media(max-width:767px) {
     .content {
-        height: 900px;
+        height: 1141px;
     }
 }
 
 @media(max-width:309px) {
     .content {
-        height: 950px;
+        height: 1191px;
     }
 }
 

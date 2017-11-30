@@ -103,7 +103,7 @@
             </div>
         </div>
         <div style="max-height: 870px">
-
+            <label for="Content_editor1">متن اصلی:</label>
             <asp:TextBox runat="server" ID="editor1" TextMode="MultiLine"></asp:TextBox>
         </div>
         <div class="form-group" style="margin-top: 20px">

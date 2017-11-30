@@ -59,7 +59,7 @@ namespace DataAccess.Repository
 
         public void DeleteUser(int ID)
         {
-            User selectedUser = DB.Users.Where(p => p.UserID == ID).Single();
+            User selectedUser = DB.Users.Where(p => p.UserID == ID).FirstOrDefault();
 
             if (selectedUser != null)
             {

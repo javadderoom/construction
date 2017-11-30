@@ -60,6 +60,10 @@
                                             CommandName="view"
                                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                             Text="مشاهده جزئیات" Width="100" />
+                                        <asp:Button ID="Delete" runat="server"
+                                            CommandName="delete"
+                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                            Text="حذف" Width="100" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

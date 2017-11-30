@@ -60,6 +60,26 @@ namespace WebPages.Panels.Admin
                     Response.Redirect("/Admin/ManageUsers/UserInfo");
                 }
             }
+            if (e.CommandName == "delete")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvUsers.Rows[index];
+                int userid = row.Cells[0].Text.ToInt();
+                Session.Add("useridForAdminDetails", userid);
+
+                if (userid % 2 == 0)
+                {
+                    //karmand
+                    EmployeesRepository ep = new EmployeesRepository();
+                    ep.DeleteEmployee(userid);
+                    //Response.Redirect("/Admin/ManageUsers/EmployeeInfo");
+                }
+                else
+                {
+                    setUserRegSeenTrue(userid);
+                    Response.Redirect("/Admin/ManageUsers/UserInfo");
+                }
+            }
         }
 
         private void setUserRegSeenTrue(int userid)

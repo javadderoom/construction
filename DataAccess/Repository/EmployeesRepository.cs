@@ -195,61 +195,70 @@ namespace DataAccess.Repository
                 try
                 {
                     List<EmployeeProject> ep = database.EmployeeProjects.Where(p => p.EmployeeID == EID).ToList();
-                    foreach (EmployeeProject e in ep)
+                    if (ep.Count > 0)
                     {
-                        database.EmployeeProjects.Remove(e);
+                        foreach (EmployeeProject e in ep)
+                        {
+                            database.EmployeeProjects.Remove(e);
+                        }
                     }
+
                 }
-                catch (ArgumentNullException e)
-                {
-                }
-                catch
+                catch (Exception m)
                 {
                     dontChange = true;
+                    string txt = m.Message;
                 }
+
                 try
                 {
                     List<JobEmployee> je = database.JobEmployees.Where(p => p.EmployeeID == EID).ToList();
-                    foreach (JobEmployee j in je)
+                    if (je.Count > 0)
                     {
-                        database.JobEmployees.Remove(j);
+                        foreach (JobEmployee j in je)
+                        {
+                            database.JobEmployees.Remove(j);
+                        }
                     }
                 }
-                catch (ArgumentNullException e)
+
+                catch (Exception er)
                 {
-                }
-                catch
-                {
+                    string Message = er.Message;
                     dontChange = true;
                 }
                 try
                 {
                     List<Chat> c = database.Chats.Where(p => p.User_Employee_ID == EID).ToList();
-                    List<int> ids = new List<int>();
-                    foreach (Chat ch in c)
+                    if (c.Count > 0)
                     {
-                        ids.Add(ch.ChatID);
-                    }
-                    foreach (int id in ids)
-                    {
-                        List<Message> message = database.Messages.Where(p => p.ChatID == id).ToList();
-                        foreach (Message m in message)
+                        List<int> ids = new List<int>();
+
+                        foreach (Chat ch in c)
                         {
-                            database.Messages.Remove(m);
+                            ids.Add(ch.ChatID);
+                        }
+                        foreach (int id in ids)
+                        {
+                            List<Message> message = database.Messages.Where(p => p.ChatID == id).ToList();
+                            foreach (Message m in message)
+                            {
+                                database.Messages.Remove(m);
+                            }
+                        }
+                        foreach (Chat chat in c)
+                        {
+                            database.Chats.Remove(chat);
                         }
                     }
-                    foreach (Chat chat in c)
-                    {
-                        database.Chats.Remove(chat);
-                    }
+
                 }
-                catch (ArgumentNullException e)
-                {
-                }
-                catch
+                catch (Exception ek)
                 {
                     dontChange = true;
+                    string mess = ek.Message;
                 }
+
                 if (!dontChange)
                 {
                     database.Employees.Remove(selectedEmployee);

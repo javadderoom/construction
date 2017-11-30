@@ -73,8 +73,7 @@ namespace WebPages.Panels.Admin
                     EmployeesRepository ep = new EmployeesRepository();
                     if (ep.DeleteEmployee(userid))
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
-                        fillGV();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف انجام شد'),window.location ='/Admin/ManageUsers'", true);//لینک بشه
                     }
                     else
                     {
@@ -88,8 +87,7 @@ namespace WebPages.Panels.Admin
 
                     if (ur.DeleteUser(userid))
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
-                        fillGV();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف انجام شد'),window.location ='/Admin/ManageUsers'", true);//لینک بشه
                     }
                     else
                     {

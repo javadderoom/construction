@@ -394,6 +394,38 @@ namespace DataAccess.Repository
             return dtResult;
         }
 
+        public DataTable getEmployeesExceptList_JobGroup(List<int> l, int jobGroupid)
+        {
+            List<int> result1 = new List<int>();
+
+            IEnumerable<int> pl =
+                from r in database.Employees
+                select r.EmployeeID;
+
+            result1 = pl.ToList().Except(l).ToList();
+
+            if (result1.Count == 0)
+                return null;
+            string str = "(";
+            str += result1[0].ToString();
+            str += ",";
+
+            for (int i = 1; i < result1.Count - 1; i++)
+            {
+                str += result1[i].ToString();
+                str += ",";
+            }
+            str += result1[result1.Count - 1].ToString();
+            str += ")";
+
+            string Command = string.Format("select*,FirstName+' '+LastName as fullName,StateName+' - '+CityName as addr from Employees left outer join States on Employees.State = States.StateID left outer join Cities on Employees.City = Cities.CityID where EmployeeID IN {0} and(EmployeeID IN(select EmployeeID from JobEmployee where JobID in(select JobID from Jobs where JobGroupID = {1}) ))", str, jobGroupid);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
+
         public DataTable getEmployeesInfoInList(List<int> loid)
         {
             string str = "(";

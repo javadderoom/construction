@@ -185,10 +185,11 @@ namespace DataAccess.Repository
             return dtResult;
         }
 
-        public void DeleteEmployee(int EID)
+        public bool DeleteEmployee(int EID)
         {
+            bool dontChange = false;
             Employee selectedEmployee = database.Employees.Where(p => p.EmployeeID == EID).FirstOrDefault();
-
+            int changes = 0;
             if (selectedEmployee != null)
             {
                 try
@@ -199,7 +200,13 @@ namespace DataAccess.Repository
                         database.EmployeeProjects.Remove(e);
                     }
                 }
-                catch { }
+                catch (ArgumentNullException e)
+                {
+                }
+                catch
+                {
+                    dontChange = true;
+                }
                 try
                 {
                     List<JobEmployee> je = database.JobEmployees.Where(p => p.EmployeeID == EID).ToList();
@@ -208,7 +215,13 @@ namespace DataAccess.Repository
                         database.JobEmployees.Remove(j);
                     }
                 }
-                catch { }
+                catch (ArgumentNullException e)
+                {
+                }
+                catch
+                {
+                    dontChange = true;
+                }
                 try
                 {
                     List<Chat> c = database.Chats.Where(p => p.User_Employee_ID == EID).ToList();
@@ -230,9 +243,26 @@ namespace DataAccess.Repository
                         database.Chats.Remove(chat);
                     }
                 }
-                catch { }
-                database.Employees.Remove(selectedEmployee);
-                database.SaveChanges();
+                catch (ArgumentNullException e)
+                {
+                }
+                catch
+                {
+                    dontChange = true;
+                }
+                if (!dontChange)
+                {
+                    database.Employees.Remove(selectedEmployee);
+                    changes = database.SaveChanges();
+                }
+            }
+            if (changes > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

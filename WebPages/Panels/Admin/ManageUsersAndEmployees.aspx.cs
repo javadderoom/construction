@@ -71,13 +71,31 @@ namespace WebPages.Panels.Admin
                 {
                     //karmand
                     EmployeesRepository ep = new EmployeesRepository();
-                    ep.DeleteEmployee(userid);
+                    if (ep.DeleteEmployee(userid))
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
+                        fillGV();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی پیش آمد ، لطفا دوباره امتحان کنید اگر حل نشد با پشتیبانی تماس بگیرید ');", true);
+                    }
                     //Response.Redirect("/Admin/ManageUsers/EmployeeInfo");
                 }
                 else
                 {
-                    setUserRegSeenTrue(userid);
-                    Response.Redirect("/Admin/ManageUsers/UserInfo");
+                    UsersRepository ur = new UsersRepository();
+
+                    if (ur.DeleteUser(userid))
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف با موفقیت انجام شد ');", true);
+                        fillGV();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی پیش آمد ، لطفا دوباره امتحان کنید اگر حل نشد با پشتیبانی تماس بگیرید ');", true);
+                    }
+                    // Response.Redirect("/Admin/ManageUsers/UserInfo");
                 }
             }
         }

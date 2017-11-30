@@ -57,14 +57,70 @@ namespace DataAccess.Repository
             DB.SaveChanges();
         }
 
-        public void DeleteUser(int ID)
+        public bool DeleteUser(int ID)
         {
+            bool dontChange = false;
             User selectedUser = DB.Users.Where(p => p.UserID == ID).FirstOrDefault();
-
+            int changes = 0;
             if (selectedUser != null)
             {
-                DB.Users.Remove(selectedUser);
-                DB.SaveChanges();
+                try
+                {
+                    List<Order> ep = DB.Orders.Where(p => p.OrderID == ID).ToList();
+
+                    foreach (Order e in ep)
+                    {
+                        DB.Orders.Remove(e);
+                    }
+                }
+                catch (ArgumentNullException e)
+                {
+                }
+                catch
+                {
+                    dontChange = true;
+                }
+                try
+                {
+                    List<Chat> c = DB.Chats.Where(p => p.User_Employee_ID == ID).ToList();
+                    List<int> ids = new List<int>();
+                    foreach (Chat ch in c)
+                    {
+                        ids.Add(ch.ChatID);
+                    }
+                    foreach (int id in ids)
+                    {
+                        List<Message> message = DB.Messages.Where(p => p.ChatID == id).ToList();
+                        foreach (Message m in message)
+                        {
+                            DB.Messages.Remove(m);
+                        }
+                    }
+                    foreach (Chat chat in c)
+                    {
+                        DB.Chats.Remove(chat);
+                    }
+                }
+                catch (ArgumentNullException e)
+                {
+                }
+                catch
+                {
+                    dontChange = true;
+                }
+                if (!dontChange)
+                {
+                    DB.Users.Remove(selectedUser);
+                    changes = DB.SaveChanges();
+                }
+            }
+            if (changes > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

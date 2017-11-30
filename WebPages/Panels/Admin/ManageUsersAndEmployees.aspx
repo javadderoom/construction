@@ -34,7 +34,7 @@
 
         <div id="ContentPlaceHolder1_upGrid">
             <div style="float: right; overflow-x: auto; width: 100%;">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                     <ContentTemplate>
 
                         <asp:GridView ID="gvUsers" runat="server" BackColor="White" BorderColor="#CCCCCC"
@@ -60,7 +60,7 @@
                                             CommandName="view"
                                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                             Text="مشاهده جزئیات" Width="100" />
-                                        <asp:Button ID="Delete" runat="server"
+                                        <asp:Button ID="Delete" OnClientClick="if(!confirm('ایا برای حذف مطمئن هستید؟')) return false;" runat="server"
                                             CommandName="delete"
                                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                             Text="حذف" Width="100" />
@@ -84,6 +84,9 @@
                             <SortedDescendingHeaderStyle BackColor="#242121" />
                         </asp:GridView>
                     </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="gvUsers" EventName="RowCommand" />
+                    </Triggers>
                 </asp:UpdatePanel>
             </div>
         </div>

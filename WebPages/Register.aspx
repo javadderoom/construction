@@ -122,7 +122,7 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12 pull-left">
                                                 ایمیل
                                                     <br />
-                                                <input type="text" class="" placeholder="ایمیل خود را وارد کنید(اختیاری)" required="required" id="txtEmail" runat="server" maxlength="50" />
+                                                <input type="text" class="" placeholder="ایمیل خود را وارد کنید" required="required" id="txtEmail" runat="server" maxlength="50" />
                                                 <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ValidationGroup="Validation" ErrorMessage="فرمت ایمیل وارد شده اشتباه است"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>

@@ -14,6 +14,7 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["adminid"] != null)
             {
                 if (!IsPostBack)

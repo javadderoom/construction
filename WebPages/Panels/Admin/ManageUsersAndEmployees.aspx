@@ -25,6 +25,22 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-4 col-xs-12 text-righ" style="float: right; height: 100px">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" id="btnJobSearch" class="btn btn-primary" runat="server" onserverclick="btnJobSearch_ServerClick">
+                        جستجو
+                    </button>
+                </span>
+
+                <div id="ContentPlaceHolder2_upSearch">
+
+                    <input name="ctl00$ContentPlaceHolder1$tbxnameSearch" style="height: 38px" runat="server" placeholder="جستجوی کارمندان بر حسب شغل" type="text" maxlength="50" id="tbxJobSearch" class="form-control text-right dirRight pull-right" />
+                </div>
+            </div>
+        </div>
+
         <div class="c-title" style="display: block; clear: right">
             <h3>
 

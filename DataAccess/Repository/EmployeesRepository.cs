@@ -458,5 +458,14 @@ namespace DataAccess.Repository
             }
             return l2;
         }
+        public DataTable searchEmployeesWithJobName(string jobname)
+        {
+            string Command = string.Format("select EmployeeID as UserID,RegSeen,UserName,FirstName+' '+LastName as FullName,Mobile,CityName +' - '+StateName as fullAddress,N'کارمند' as urole from Employees left outer join Cities on Employees.City = Cities.CityID left outer join States on Employees.State = States.StateID where EmployeeID in(select EmployeeID from JobEmployee where JobID in(select JobID from Jobs where JobTitle like N'%{0}%'))", jobname);
+            SqlConnection myConnection = new SqlConnection(OnlineTools.conString);
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(Command, myConnection);
+            DataTable dtResult = new DataTable();
+            myDataAdapter.Fill(dtResult);
+            return dtResult;
+        }
     }
 }

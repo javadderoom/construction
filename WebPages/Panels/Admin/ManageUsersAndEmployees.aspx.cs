@@ -13,6 +13,7 @@ namespace WebPages.Panels.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Add("adminid", 1);
             if (Session["adminid"] != null)
             {
                 if (!IsPostBack)
@@ -115,6 +116,7 @@ namespace WebPages.Panels.Admin
         {
             fillGV();
             tbxSearch.Value = "";
+            tbxJobSearch.Value = "";
         }
 
         protected void btnSearch_ServerClick(object sender, EventArgs e)
@@ -123,12 +125,21 @@ namespace WebPages.Panels.Admin
             UsersRepository ur = new UsersRepository();
             gvUsers.DataSource = ur.searchUserUnionEmployee(txt);
             gvUsers.DataBind();
+            tbxJobSearch.Value = "";
         }
 
         protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvUsers.PageIndex = e.NewPageIndex;
             fillGV();
+        }
+
+        protected void btnJobSearch_ServerClick(object sender, EventArgs e)
+        {
+            tbxSearch.Value = "";
+            EmployeesRepository er = new EmployeesRepository();
+            gvUsers.DataSource = er.searchEmployeesWithJobName(tbxJobSearch.Value);
+            gvUsers.DataBind();
         }
     }
 }

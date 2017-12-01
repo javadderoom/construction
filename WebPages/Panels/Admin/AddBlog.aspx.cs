@@ -16,7 +16,6 @@ namespace WebPages.Panels.Admin
         {
             if (Session["adminid"] != null)
             {
-
                 if (!IsPostBack)
                 {
                     btnSave.Enabled = false;
@@ -27,7 +26,6 @@ namespace WebPages.Panels.Admin
                     DDLGroups.DataValueField = "GroupID";
                     DDLGroups.DataBind();
                     DDLGroups.Items.Insert(0, new ListItem("یک گروه انتخاب کنید", "-2"));
-
                 }
             }
             else
@@ -35,8 +33,6 @@ namespace WebPages.Panels.Admin
                 Response.Redirect("/AdminLogin");
             }
         }
-
-
 
         protected void DDLGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -67,9 +63,6 @@ namespace WebPages.Panels.Admin
                 SubGroups.Items.Clear();
                 NoItemDiv.InnerText = "";
             }
-
-
-
         }
 
         protected void AddToSub_Click(object sender, EventArgs e)
@@ -98,22 +91,18 @@ namespace WebPages.Panels.Admin
                     NoItemDiv.InnerText = "این مورد قبلا اضافه شده است!";
                     NoItemDiv.Attributes["class"] = "error";
                 }
-
-
             }
             else
             {
                 NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
                 NoItemDiv.Attributes["class"] = "error";
             }
-
         }
 
         protected void RemoveFromSub_Click(object sender, EventArgs e)
         {
             if (SelectedSubGroups.SelectedIndex != -1)
             {
-
                 SelectedSubGroups.Items.RemoveAt(SelectedSubGroups.SelectedIndex);
                 NoItemDiv.InnerText = "";
                 if (SelectedSubGroups.Items.Count == 0)
@@ -127,13 +116,10 @@ namespace WebPages.Panels.Admin
                 NoItemDiv.InnerText = "شما هیچ موردی را انتخاب نکرده اید!";
                 NoItemDiv.Attributes["class"] = "error";
             }
-
-
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
             if ((String.IsNullOrEmpty(editor1.Text) == false) &&
                 (Abstract.Text.Length >= 130) &&
                 (FileUpload1.HasFile) &&
@@ -154,17 +140,16 @@ namespace WebPages.Panels.Admin
                     return;
                 }
 
-
                 Article ART = new Article();
                 ART.Title = title.Text;
                 ART.Content = editor1.Text;
-
 
                 string filename = Path.GetFileName(FileUpload1.FileName);
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
                 string ps = Server.MapPath(@"~\img\") + filename;
                 FileUpload1.SaveAs(ps);
+
                 FileStream fStream = File.OpenRead(ps);
                 byte[] contents = new byte[fStream.Length];
                 fStream.Read(contents, 0, (int)fStream.Length);
@@ -174,14 +159,13 @@ namespace WebPages.Panels.Admin
                 System.Drawing.Image img = imgResize.ToImage(contents);
                 System.Drawing.Image image = imgResize.Resize(img, 358, 358);
 
-
-
                 string stream = Server.MapPath(@"~\img\") + "s" + filename;
                 switch (FileUpload1.FileName.Substring(FileUpload1.FileName.IndexOf('.') + 1).ToLower())
                 {
                     case "jpg":
                         image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
                         break;
+
                     case "jpeg":
                         image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
                         break;
@@ -189,12 +173,9 @@ namespace WebPages.Panels.Admin
                     case "png":
                         image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
                         break;
-
                 }
 
                 ART.ImgFirstPage = "/img/" + "s" + filename;
-
-
 
                 ART.Abstract = Abstract.Text;
                 ART.PostDateTime = OnlineTools.persianFormatedDate();
@@ -206,7 +187,6 @@ namespace WebPages.Panels.Admin
                 {
                     bool result = true;
                     GroupsConRepository GRConRepo = new GroupsConRepository();
-
 
                     int lastid = ARTRep.GetLastArticleID();
                     int count = SelectedSubGroups.Items.Count;
@@ -221,7 +201,6 @@ namespace WebPages.Panels.Admin
                             {
                                 result = false;
                             }
-
                         }
                     }
                     else
@@ -232,22 +211,17 @@ namespace WebPages.Panels.Admin
                     if (!result)
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageBlogs'", true);
-
                     }
                     else
                     {
                         Response.Redirect("/Admin/ManageBlogs");
                     }
-
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('مشکلی در زمان ثبت به وجود آمد،لطفا دوباره سعی کنید یا با پشتیبانی تماس بگیرید ! ');window.location ='/Admin/ManageBlogs'", true);
-
                 }
             }
-
-
         }
     }
 }

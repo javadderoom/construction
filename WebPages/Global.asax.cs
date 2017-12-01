@@ -29,6 +29,8 @@ namespace WebPages
 
         protected void Application_Error(object sender, EventArgs e)
         {
+            Exception x = Server.GetLastError();
+            string str = x.Message;
         }
 
         protected void Session_End(object sender, EventArgs e)

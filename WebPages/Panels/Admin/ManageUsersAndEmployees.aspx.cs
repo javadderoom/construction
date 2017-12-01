@@ -60,7 +60,7 @@ namespace WebPages.Panels.Admin
                     Response.Redirect("/Admin/ManageUsers/UserInfo");
                 }
             }
-            if (e.CommandName == "delete")
+            if (e.CommandName == "delet")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = gvUsers.Rows[index];
@@ -69,11 +69,12 @@ namespace WebPages.Panels.Admin
 
                 if (userid % 2 == 0)
                 {
-                    //karmand
+                    //karmandep.DeleteEmployee(userid)ur.DeleteUser(userid)
                     EmployeesRepository ep = new EmployeesRepository();
                     if (ep.DeleteEmployee(userid))
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف انجام شد'),window.location ='/Admin/ManageUsers'", true);//لینک بشه
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف انجام شد')", true);//لینک بشه
+                        fillGV();
                     }
                     else
                     {
@@ -87,7 +88,8 @@ namespace WebPages.Panels.Admin
 
                     if (ur.DeleteUser(userid))
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف انجام شد'),window.location ='/Admin/ManageUsers'", true);//لینک بشه
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('حذف انجام شد')", true);//لینک بشه
+                        fillGV();
                     }
                     else
                     {

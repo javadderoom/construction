@@ -38,7 +38,7 @@
                     <ContentTemplate>
 
                         <asp:GridView ID="gvUsers" runat="server" BackColor="White" BorderColor="#CCCCCC"
-                            BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black"
+                            BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" OnRowDele
                             GridLines="Horizontal" AutoGenerateColumns="False" CssClass="dirRight table"
                             HorizontalAlign="Center" OnRowDataBound="gvUsers_RowDataBound" OnPageIndexChanging="gvUsers_PageIndexChanging" AllowCustomPaging="False"
                             AllowPaging="True" OnRowCommand="gvUsers_RowCommand" PageSize="20">
@@ -61,7 +61,7 @@
                                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                             Text="مشاهده جزئیات" Width="100" />
                                         <asp:Button ID="Delete" OnClientClick="if(!confirm('ایا برای حذف مطمئن هستید؟')) return false;" runat="server"
-                                            CommandName="delete"
+                                            CommandName="delet"
                                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
                                             Text="حذف" Width="100" />
                                     </ItemTemplate>

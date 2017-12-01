@@ -21,7 +21,6 @@ namespace WebPages.Panels.EmployeePanel
         {
             if (Session["employeeid"] != null)
             {
-
                 empid = Session["employeeid"].ToString().ToInt();
                 if (!IsPostBack)
                 {
@@ -59,8 +58,6 @@ namespace WebPages.Panels.EmployeePanel
 
             if (dt.Rows[0][12] != DBNull.Value)
                 Image1.Src = dt.Rows[0][12].ToString();
-
-
         }
 
         public void fillDDL()
@@ -127,10 +124,29 @@ namespace WebPages.Panels.EmployeePanel
                     return;
                 }
                 string filename = Path.GetFileName(fileImage.FileName);
+                byte[] imgg = fileImage.FileBytes;
                 string rand = DBManager.CurrentTimeWithoutColons() + DBManager.CurrentPersianDateWithoutSlash();
                 filename = rand + filename;
-                string ps = Server.MapPath(@"~\img\") + filename;
-                fileImage.SaveAs(ps);
+                //string ps = Server.MapPath(@"~\img\") + filename;
+                //fileImage.SaveAs(ps);
+
+                System.Drawing.Image img = imgResize.ToImage(imgg);
+                System.Drawing.Image image = imgResize.Resize(img, 120, 120);
+                string stream = Server.MapPath(@"~\img\") + filename;
+                switch (fileImage.FileName.Substring(fileImage.FileName.LastIndexOf('.') + 1).ToLower())
+                {
+                    case "jpg":
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+
+                    case "jpeg":
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+
+                    case "png":
+                        image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        break;
+                }
 
                 if (em.empImage.Substring(5) != "user128px.png")
                 {
@@ -138,19 +154,14 @@ namespace WebPages.Panels.EmployeePanel
                     fi.Delete();
                 }
 
-
                 em.empImage = "/img/" + filename;
                 lblWarning.Text = "اطلاعات با موفقیت ویرایش شد";
                 lblWarning.ForeColor = System.Drawing.Color.Green;
-
-
             }
             er.SaveEmployees(em);
             (this.Master as EmployeeMaster).setimages();
             setLabels();
         }
-
-
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {

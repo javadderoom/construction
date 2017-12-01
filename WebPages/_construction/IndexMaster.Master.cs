@@ -34,17 +34,21 @@ namespace WebPages._construction
             if (Admin)
             {
                 adminProfile();
+                orderli.Attributes["style"] = "display: none;";
             }
             else if (User)
             {
                 userProfile();
+                orderli.Attributes["style"] = "display: none;";
             }
             else if (Employee)
             {
                 employeeProfile();
+                orderli.Attributes["style"] = "display: none;";
             }
             else
             {
+                orderli.Attributes["style"] = "display: unset;";
                 pContainer.InnerHtml = "<a style='text-align: center' href='/Login'>وارد شوید </a><span>یا </span><a href='/Register'>ثبت نام</a> کنید";
                 profileContainer.InnerHtml = "<a href=\"#\" data-toggle=\"popover\" data-html=\"true\" data-placement=\"bottom\" data-content=\"<a style='text-align: center' href='/Login'>وارد شوید </a><span><br />یا<br /> </span><a href='/Register'>ثبت نام</a> کنید\"> <div class=\"Profile\"></div> </a>";
             }

@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,max-scale=1,min-scale=1" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="StyleSheet" runat="server">
@@ -124,7 +124,7 @@
                             <ul class="nav navbar-nav">
 
                                 <li class="Home active "><a href="/">خانه</a></li>
-                                <li class="order  "><a href="/OrderProject">سفارش پروژه</a></li>
+                                <li runat="server" id="orderli" class="order  "><a href="/OrderProject">سفارش پروژه</a></li>
                                 <li class="Projects"><a href="/Projects">پروژه های ما</a></li>
                                 <li class="Blogs"><a href="/Blogs">وبلاگ </a></li>
                                 <li class="AboutUs"><a href="/AboutUs">درباره ما</a></li>

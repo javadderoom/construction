@@ -31,6 +31,24 @@ namespace WebPages.Panels.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlInputText tbxSearch;
         
         /// <summary>
+        /// btnJobSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnJobSearch;
+        
+        /// <summary>
+        /// tbxJobSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxJobSearch;
+        
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>

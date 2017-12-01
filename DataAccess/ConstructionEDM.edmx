@@ -437,6 +437,7 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <EntitySet Name="Articles" EntityType="ConstructionCompanyModel.Article" />
           <EntitySet Name="Chats" EntityType="ConstructionCompanyModel.Chat" />
           <EntitySet Name="Cities" EntityType="ConstructionCompanyModel.City" />
+          <EntitySet Name="ContactWays" EntityType="ConstructionCompanyModel.ContactWay" />
           <EntitySet Name="EmployeeProjects" EntityType="ConstructionCompanyModel.EmployeeProject" />
           <EntitySet Name="Employees" EntityType="ConstructionCompanyModel.Employee" />
           <EntitySet Name="GroupConnections" EntityType="ConstructionCompanyModel.GroupConnection" />
@@ -491,7 +492,6 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
             <End Role="State" EntitySet="States" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="ContactWays" EntityType="ConstructionCompanyModel.ContactWay" />
           </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -537,6 +537,20 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
           <NavigationProperty Name="Employees" Relationship="ConstructionCompanyModel.FK_Employees_Cities" FromRole="City" ToRole="Employee" />
           <NavigationProperty Name="Orders" Relationship="ConstructionCompanyModel.FK_Orders_Cities" FromRole="City" ToRole="Order" />
           <NavigationProperty Name="Users" Relationship="ConstructionCompanyModel.FK_Users_Cities" FromRole="City" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ContactWay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telegram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="EmployeeProject">
           <Key>
@@ -847,20 +861,6 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ContactWay">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Adrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AboutPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Telegram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -908,6 +908,21 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
                 <ScalarProperty Name="StateID" ColumnName="StateID" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactWays">
+            <EntityTypeMapping TypeName="ConstructionCompanyModel.ContactWay">
+              <MappingFragment StoreEntitySet="ContactWay">
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Telegram" ColumnName="Telegram" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="AboutPage" ColumnName="AboutPage" />
+                <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adrees" ColumnName="Adrees" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1114,21 +1129,6 @@ warning 6002: The table/view 'jabeabza_DB.dbo.EmployeeScore' does not have a pri
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ContactWays">
-            <EntityTypeMapping TypeName="ConstructionCompanyModel.ContactWay">
-              <MappingFragment StoreEntitySet="ContactWay">
-                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-                <ScalarProperty Name="Telegram" ColumnName="Telegram" />
-                <ScalarProperty Name="logo" ColumnName="logo" />
-                <ScalarProperty Name="AboutPage" ColumnName="AboutPage" />
-                <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Adrees" ColumnName="Adrees" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -59,11 +59,12 @@ namespace WebPages.Panels.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["adminid"] != null)
             {
                 if (!IsPostBack)
                 {
-                    viewAll = "false";
+                    viewAll = "true";
                     EmployeesRepository epr = new EmployeesRepository();
                     loi = epr.getEmployeeIDsFromProjectID(Session["ProjectLastIDForEmployeeFilterEdit"].ToString().ToInt());
 
@@ -120,6 +121,16 @@ namespace WebPages.Panels.Admin
                     gvSelected.DataBind();
                 }
                 gvUsers.DataSource = er.getEmployeesExceptList_Search(loi, txt);
+                gvUsers.DataBind();
+            }
+            else if (viewAll == "group")
+            {
+                if (loi.Count > 0)
+                {
+                    gvSelected.DataSource = er.getEmployeesInfoInList(loi);
+                    gvSelected.DataBind();
+                }
+                gvUsers.DataSource = er.getEmployeesExceptList_JobGroup(loi, DDLJobGroup.SelectedValue.ToInt());
                 gvUsers.DataBind();
             }
             else
@@ -187,7 +198,7 @@ namespace WebPages.Panels.Admin
             DDLJob.DataBind();
             DDLJob.Items.Insert(0, new ListItem("-", "-1"));
 
-            viewAll = "false";
+            viewAll = "group";
             fillGrids();
 
             tbxSearch.Value = "";

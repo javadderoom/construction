@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="ConstructionCompanyModel.Article" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Chat" Width="1.5" PointX="7.75" PointY="1.5" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.City" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="ConstructionCompanyModel.ContactWay" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.EmployeeProject" Width="1.5" PointX="10.75" PointY="7.75" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.Employee" Width="1.5" PointX="5.25" PointY="5.875" />
         <EntityTypeShape EntityType="ConstructionCompanyModel.GroupConnection" Width="1.5" PointX="7.75" PointY="10.75" />
@@ -35,7 +36,6 @@
         <AssociationConnector Association="ConstructionCompanyModel.FK_Jobs_JobGroups" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Orders_States1" />
         <AssociationConnector Association="ConstructionCompanyModel.FK_Users_States" />
-        <EntityTypeShape EntityType="ConstructionCompanyModel.ContactWay" Width="1.5" PointX="0.625" PointY="10.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

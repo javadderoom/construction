@@ -222,10 +222,12 @@ namespace WebPages._construction
             }
             else
             {
+
+                ddlSubGroups.Items.Clear();
+                ddlSubGroups.Items.Insert(0, new ListItem("همه زیرگروه ها", "-2"));
                 ArticleRepository ArtRep = new ArticleRepository();
                 List<Article> Articles = ArtRep.AllArticles();
                 fillUl(Articles);
-                ddlSubGroups.SelectedIndex = 0;
                 ddlSubGroups.Enabled = false;
             }
 
@@ -250,18 +252,22 @@ namespace WebPages._construction
             }
             else
             {
-                GroupsRepository Groupsrepo = new GroupsRepository();
-                List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
-                ArticleRepository artrep = new ArticleRepository();
-                List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
-                if (articles.Count != 0)
+                if (ddlGroups.SelectedValue != "-2")
                 {
-                    fillUl(articles);
+                    GroupsRepository Groupsrepo = new GroupsRepository();
+                    List<int> subgroupsid = Groupsrepo.getSubGroupsIDByFatherID(ddlGroups.SelectedValue.ToInt());
+                    ArticleRepository artrep = new ArticleRepository();
+                    List<Article> articles = artrep.ReturnArticlesByCategory(subgroupsid);
+                    if (articles.Count != 0)
+                    {
+                        fillUl(articles);
+                    }
+                    else
+                    {
+                        UlArticles.InnerHtml = " <li class='danger'>در این بخش مقاله ای وجود ندارد!</li> ";
+                    }
                 }
-                else
-                {
-                    UlArticles.InnerHtml = " <li class='danger'>در این بخش مقاله ای وجود ندارد!</li> ";
-                }
+
             }
 
             ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "run()", true);

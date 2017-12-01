@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" href="../../_construction/favicon/favicon-32x32.png" sizes="32x32" />
 
         <meta name="msapplication-TileColor" content="#da532c" />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1,max-scale=1,min-scale=1" />
         <!--Bootstrap and Other Vendors-->
         <link href="../../_construction/css/bootstrap.min.css" rel="stylesheet" />
         <link href="../../_construction/css/bootstrap-theme.min.css" rel="stylesheet" />
@@ -157,7 +157,7 @@
                             <ul class="nav navbar-nav">
 
                                 <li class="active "><a href="/">خانه</a></li>
-                                <li class="order  "><a href="/OrderProject">سفارش پروژه</a></li>
+                                <%--      <li class="order  "><a href="/OrderProject">سفارش پروژه</a></li>--%>
                                 <li><a href="/Projects">پروژه های ما</a></li>
                                 <li><a href="/Blogs">وبلاگ ها</a></li>
                                 <li><a href="/AboutUs">درباره ما</a></li>
@@ -218,7 +218,7 @@
                     </div>
 
                     <div class="row copyrightRow">
-                        شرکت آینده نوین ایران ، 09308352882
+                        &copy; شرکت آینده نوین ایران ، 09308352882
                     </div>
                 </div>
             </footer>

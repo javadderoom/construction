@@ -192,33 +192,6 @@
             </div>
             <div class="row">
                 <div id="best" class="owl-carousel owl-two testimonialSlider row m0" runat="server">
-
-                    <div class="item ">
-                        <div class="theBest ">
-                            <div class="imgDiv">
-                                <img src="images/user128px.png" />
-                            </div>
-                            <div class="employeeName">
-                                <h3>مجید محمدی
-                                </h3>
-                            </div>
-                            <div class="arrow row m0">
-                                <img src="images/testimonial/down-arrow.png" />
-                            </div>
-                            <div class="projectNum">
-                                <h4>تعداد پروژه ها
-                                </h4>
-                                <h3>5
-                                </h3>
-                            </div>
-                            <div class="EmployeeScore">
-                                <h4>امتیاز
-                                </h4>
-                                <h3>2
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

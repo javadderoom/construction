@@ -168,9 +168,7 @@
             <h2 class="sectionTitle">پروژه های ما</h2>
             <div class="sectionSubTitle">آخرین کار ها</div>
         </div>
-
-        <div class="row projects m0" runat="server" id="projectss">
-        </div>
+        <div class="ccontainer" id="proj" runat="server"></div>
     </section>
     <!--Projects-->
 

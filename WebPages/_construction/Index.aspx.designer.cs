@@ -175,13 +175,13 @@ namespace WebPages._construction {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ourServises;
         
         /// <summary>
-        /// projectss control.
+        /// proj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projectss;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl proj;
         
         /// <summary>
         /// blogsContainer control.

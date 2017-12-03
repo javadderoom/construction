@@ -22,18 +22,18 @@ namespace WebPages._construction
         {
             string txt = "";
             ProjectsRepository rep = new ProjectsRepository();
-            List<Project> plist = rep.Top6tProjects();
+            List<Project> plist = rep.Top5tProjects();
 
+            //foreach (Project pr in plist)
+            //{
+            //    txt += "<div class='project mix catHouses'>  <img src='" + pr.ImgFisrtPage + "' alt='Project1' class='projectImg img-responsive'/>  <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href= '" + "/Projects/" + pr.ProjectID + "/" + pr.Title.Replace(' ', '-') + "' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
+            //}
             foreach (Project pr in plist)
             {
-                txt += "<div class='project mix catHouses'>  <img src='" + pr.ImgFisrtPage + "' alt='Project1' class='projectImg img-responsive'/>  <div class='projectDetails row m0'> <div class='fleft projectIcons btn-group' role='group'>  <a href= '" + "/Projects/" + pr.ProjectID + "/" + pr.Title.Replace(' ', '-') + "' class='btn btn-default'><i class='fa fa-file-o'></i></a> </div><div class='fright nameType'> <div class='row m0 projectName'>" + pr.Title + "</div></div></div></div>";
+                txt += "<a href= '" + "/Projects/" + pr.ProjectID + "/" + pr.Title.Replace(' ', '-') + "' ><div style=\"background-image:url('" + pr.ImgFisrtPage + "');\" class='block image '><div class='layer'></div><div class='p-container'><p class='img-p'>" + pr.Title + "</p></div></div></a>";
             }
-            projectss.InnerHtml = txt;
+            proj.InnerHtml = txt;
         }
-
-
-
-
 
         private void LoadSliders()
         {
@@ -45,7 +45,6 @@ namespace WebPages._construction
             bImg1.Src = slide1.BackgroundImg;
             bImg2.Src = slide2.BackgroundImg;
             bImg3.Src = slide3.BackgroundImg;
-
 
             divText1.InnerHtml = slide1.Text;
             divText2.InnerHtml = slide2.Text;
@@ -188,9 +187,6 @@ namespace WebPages._construction
             }
         }
 
-
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             fillServises();
@@ -208,10 +204,6 @@ namespace WebPages._construction
                 bestEmploees();
             }
         }
-
-
-
-
 
         protected void subGroups_ServerClick(object sender, EventArgs e)
         {

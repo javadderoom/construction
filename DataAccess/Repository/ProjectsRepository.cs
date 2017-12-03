@@ -16,6 +16,7 @@ namespace DataAccess.Repository
     public class ProjectsRepository
     {
         private ConstructionCompanyEntities DB = new ConstructionCompanyEntities();
+
         public bool SaveProject(Project Project)
         {
             try
@@ -37,16 +38,12 @@ namespace DataAccess.Repository
             }
             catch (System.Exception)
             {
-
                 return false;
             }
-
-
         }
+
         public int GetLastProjectID()
         {
-
-
             int result = 0;
 
             result = (from r in DB.Projects
@@ -54,12 +51,13 @@ namespace DataAccess.Repository
                       select r.ProjectID).FirstOrDefault();
 
             return result;
-
         }
+
         public Project FindeProjectByID(int id)
         {
             return DB.Projects.Where(p => p.ProjectID == id).FirstOrDefault();
         }
+
         public List<Project> LatestProjects()
         {
             List<Project> list = (from r in DB.Projects
@@ -67,13 +65,15 @@ namespace DataAccess.Repository
                                   select r).Take(5).ToList();
             return list;
         }
-        public List<Project> Top6tProjects()
+
+        public List<Project> Top5tProjects()
         {
             List<Project> list = (from r in DB.Projects
                                   orderby r.ProjectID descending
-                                  select r).Take(6).ToList();
+                                  select r).Take(5).ToList();
             return list;
         }
+
         public List<Project> AllProjects()
         {
             List<Project> list = (from r in DB.Projects
@@ -81,6 +81,7 @@ namespace DataAccess.Repository
                                   select r).ToList();
             return list;
         }
+
         public List<Project> ReturnProjectsByCategory(List<int> IDes)
         {
             List<Project> list = new List<Project>();
@@ -99,7 +100,6 @@ namespace DataAccess.Repository
                         artides.Add(artid);
                     }
                 }
-
             }
             foreach (int id in artides)
             {
@@ -108,6 +108,7 @@ namespace DataAccess.Repository
 
             return list;
         }
+
         public List<Project> ReturnProjectsByCategory(int Subgruopid)
         {
             List<Project> list = new List<Project>();
@@ -123,17 +124,15 @@ namespace DataAccess.Repository
                 list.Add(FindeProjectByID(id));
             }
 
-
             return list;
         }
+
         public bool DeletProjectByID(int id)
         {
             bool ans = true;
             try
             {
-
                 Project selectedArt = DB.Projects.Where(p => p.ProjectID == id).FirstOrDefault();
-
 
                 if (selectedArt != null)
                 {
@@ -141,17 +140,11 @@ namespace DataAccess.Repository
                     DB.SaveChanges();
                 }
                 else { ans = false; }
-
             }
             catch (System.Exception)
             {
-
                 ans = false;
             }
-
-
-
-
 
             return ans;
         }

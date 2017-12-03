@@ -1,0 +1,189 @@
+﻿@font-face {
+    font-family: 'IranSans';
+    src: url('../_construction/fonts/IranSans.woff') format('woff');
+}
+
+.ccontainer {
+    direction: rtl;
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.block {
+    width: 16%;
+    height: 300px;
+    display: inline-block;
+    background-color: #E83F6F;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+    -moz-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+    -ms-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+    -o-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+    transition: width .5s ease-in-out, background-color .5s ease-in-out;
+    text-align: center;
+}
+
+    .block:hover {
+        background-color: #2274A5;
+        width: 30%;
+        -webkit-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+        -moz-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+        -ms-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+        -o-transition: width .5s ease-in-out, background-color .5s ease-in-out;
+        transition: width .5s ease-in-out, background-color .5s ease-in-out;
+    }
+
+        .block:hover .img-p {
+            margin-right: 50px;
+            opacity: 1;
+            -webkit-transition: opacity .5s .51s ease-in-out;
+            -moz-transition: opacity .5s .51s ease-in-out;
+            -ms-transition: opacity .5s .51s ease-in-out;
+            -o-transition: opacity .5s .51s ease-in-out;
+            transition: opacity .5s .51s ease-in-out;
+        }
+
+        .block:hover .layer {
+            opacity: .5;
+            -webkit-transition: opacity .5s ease-in-out;
+            -moz-transition: opacity .5s ease-in-out;
+            -ms-transition: opacity .5s ease-in-out;
+            -o-transition: opacity .5s ease-in-out;
+            transition: opacity .5s ease-in-out;
+        }
+
+.img-p {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0;
+    color: #FFF;
+    text-align: right;
+    line-height: 1.6em;
+}
+
+.p-container {
+    width: 80%;
+    position: relative;
+    top: 30%;
+    margin-left: 5%;
+}
+
+.image {
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.image1 {
+    background-image: url('1.jpg');
+}
+
+.image2 {
+    background-image: url('24406332-Worker-is-thinking-Stock-Photo.jpg');
+}
+
+.image3 {
+    background-image: url('83603-636216266356158373-16x9.jpg');
+}
+
+.image4 {
+    background-image: url('Foto-de-archivo.jpg');
+}
+
+.image5 {
+    background-image: url('24406332-Worker-is-thinking-Stock-Photo.jpg');
+}
+
+.image.fixed {
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+}
+
+.layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .block {
+        width: 100%;
+        height: 200px;
+        -webkit-transition: height .5s ease-in-out;
+        -moz-transition: height .5s ease-in-out;
+        -ms-transition: height .5s ease-in-out;
+        -o-transition: height .5s ease-in-out;
+        transition: height .5s ease-in-out;
+    }
+
+        .block:hover {
+            width: 100%;
+            height: 400px;
+            -webkit-transition: height .5s ease-in-out;
+            -moz-transition: height .5s ease-in-out;
+            -ms-transition: height .5s ease-in-out;
+            -o-transition: height .5s ease-in-out;
+            transition: height .5s ease-in-out;
+        }
+}
+
+@media (min-width: 768px) {
+    .block {
+        width: 15%;
+    }
+}
+
+@media (min-width: 992px) {
+    .block {
+        width: 16%;
+    }
+}
+
+.ua {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    color: #fff;
+    font-size: 2em;
+}
+
+.fa {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.ua:hover .fa {
+    color: #17BEBB;
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}

@@ -1016,6 +1016,12 @@
     <Content Include="TagsInput\bootstrap-tagsinput.css" />
     <Content Include="TagsInput\bootstrap-tagsinput.js" />
     <Content Include="TagsInput\bootstrap-tagsinput.min.js" />
+    <Content Include="test\1.jpg" />
+    <Content Include="test\24406332-Worker-is-thinking-Stock-Photo.jpg" />
+    <Content Include="test\83603-636216266356158373-16x9.jpg" />
+    <Content Include="test\Foto-de-archivo.jpg" />
+    <Content Include="test\styletest.css" />
+    <Content Include="test\testt.html" />
     <Content Include="test\testpage.aspx" />
     <Content Include="test\testscript.js" />
     <Content Include="test\teststyle.css" />

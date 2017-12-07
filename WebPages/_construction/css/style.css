@@ -199,7 +199,7 @@ Base Color 4 : #293133; // less variable @baseColor4
 Base Color 5 : #8a8a8a; // less variable @baseColor5
 Base Color 6 : #4c545f; // less variable @baseColor6
 -------------------------------------------------------------------*/
-.popover; {
+.popover {
     min-width: 6.5em !important;
     text-align: center !important;
 }

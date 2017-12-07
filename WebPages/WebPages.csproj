@@ -890,6 +890,9 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.min.js" />
     <Content Include="js\JavaScript.js" />
+    <Content Include="js\JavaScript.min.js">
+      <DependentUpon>JavaScript.js</DependentUpon>
+    </Content>
     <Content Include="js\jquery-1.11.3.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.validate.min.js" />
@@ -1001,6 +1004,10 @@
     <Content Include="img\Thumbs.db" />
     <Content Include="App_Offline.html" />
     <Content Include="img\_Thumbs.db" />
+    <Content Include="_Styles\simple-sidebar.min.css">
+      <DependentUpon>simple-sidebar.css</DependentUpon>
+    </Content>
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\jabe-abzar.com - Web Deploy %284%29.pubxml" />
@@ -1029,9 +1036,21 @@
     <Content Include="_construction\BlogPost.aspx" />
     <Content Include="_construction\Blogs.aspx" />
     <Content Include="_construction\css\animate.css" />
+    <Content Include="_construction\css\animate.min.css">
+      <DependentUpon>animate.css</DependentUpon>
+    </Content>
     <Content Include="_construction\css\popoverStyle.css" />
+    <Content Include="_construction\css\popoverStyle.min.css">
+      <DependentUpon>popoverStyle.css</DependentUpon>
+    </Content>
     <Content Include="_construction\css\ServiseDetailsStyle.css" />
     <Content Include="FoegotPass.aspx" />
+    <Content Include="_construction\css\ServiseDetailsStyle.min.css">
+      <DependentUpon>ServiseDetailsStyle.css</DependentUpon>
+    </Content>
+    <Content Include="_construction\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="_construction\fonts\fontawesome-webfont78ce.eot" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.ttf" />
     <Content Include="_construction\fonts\fontawesome-webfont78ce.woff" />
@@ -1054,6 +1073,15 @@
     <Content Include="_construction\images\user64pxHover.png" />
     <Content Include="_construction\images\userLogIn.png" />
     <Content Include="_construction\index.aspx" />
+    <Content Include="_construction\js\construction.min.js">
+      <DependentUpon>construction.js</DependentUpon>
+    </Content>
+    <Content Include="_construction\js\contact.min.js">
+      <DependentUpon>contact.js</DependentUpon>
+    </Content>
+    <Content Include="_construction\js\jquery.form.min.js">
+      <DependentUpon>jquery.form.js</DependentUpon>
+    </Content>
     <Content Include="_construction\Projects.aspx" />
     <Content Include="_construction\ShowProject.aspx" />
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.eot" />
@@ -1061,6 +1089,18 @@
     <Content Include="_construction\vendors\rs-plugin\font\revicons90c6.woff" />
     <Content Include="_construction\fonts\IranSans.woff" />
     <Content Include="_construction\IndexMaster.Master" />
+    <Content Include="_Scripts\AddNews.min.js">
+      <DependentUpon>AddNews.js</DependentUpon>
+    </Content>
+    <Content Include="_Scripts\BlogsScript.min.js">
+      <DependentUpon>BlogsScript.js</DependentUpon>
+    </Content>
+    <Content Include="_Scripts\FlotingLables.min.js">
+      <DependentUpon>FlotingLables.js</DependentUpon>
+    </Content>
+    <Content Include="_Scripts\head.min.js">
+      <DependentUpon>head.js</DependentUpon>
+    </Content>
     <Content Include="_Scripts\head.min.js.map" />
   </ItemGroup>
   <ItemGroup>
@@ -1158,29 +1198,98 @@
     <Content Include="_Scripts\head.js" />
     <Content Include="_Scripts\jquery-3.2.1.min.js" />
     <Content Include="_Scripts\jquery.easyPaginate.js" />
+    <Content Include="_Scripts\jquery.easyPaginate.min.js">
+      <DependentUpon>jquery.easyPaginate.js</DependentUpon>
+    </Content>
     <Content Include="_Scripts\jquery.minv1.11.3.js" />
     <Content Include="_Scripts\PlaceHolderScripts.js" />
+    <Content Include="_Scripts\PlaceHolderScripts.min.js">
+      <DependentUpon>PlaceHolderScripts.js</DependentUpon>
+    </Content>
     <Content Include="_Scripts\ScrolToTop.js" />
+    <Content Include="_Scripts\ScrolToTop.min.js">
+      <DependentUpon>ScrolToTop.js</DependentUpon>
+    </Content>
     <Content Include="_Scripts\slick.js" />
+    <Content Include="_Scripts\slick.min.js">
+      <DependentUpon>slick.js</DependentUpon>
+    </Content>
+    <Content Include="_Styles\AdminPanelStyles.min.css">
+      <DependentUpon>AdminPanelStyles.css</DependentUpon>
+    </Content>
+    <Content Include="_Styles\BlogPost.min.css">
+      <DependentUpon>BlogPost.css</DependentUpon>
+    </Content>
+    <Content Include="_Styles\Blogs.min.css">
+      <DependentUpon>Blogs.css</DependentUpon>
+    </Content>
+    <Content Include="_Styles\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\EditSlider.css" />
     <Content Include="_Styles\AdminPanelStyles.css" />
     <Content Include="_Styles\BlogPost.css" />
     <Content Include="_Styles\Blogs.css" />
     <Content Include="_Styles\bootstrap.css" />
     <Content Include="_Styles\custom.min.css" />
+    <Content Include="_Styles\EditSlider.min.css">
+      <DependentUpon>EditSlider.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\FloatingLable.css" />
+    <Content Include="_Styles\FloatingLable.min.css">
+      <DependentUpon>FloatingLable.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\GridView.css" />
+    <Content Include="_Styles\GridView.min.css">
+      <DependentUpon>GridView.css</DependentUpon>
+    </Content>
+    <Content Include="_Styles\HomeStyleSheet.min.css">
+      <DependentUpon>HomeStyleSheet.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\Input&amp;Lable.css" />
+    <Content Include="_Styles\Input&amp;Lable.min.css">
+      <DependentUpon>Input&amp;Lable.css</DependentUpon>
+    </Content>
+    <Content Include="_Styles\LoginStyle.min.css">
+      <DependentUpon>LoginStyle.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\ManageBlogs.css" />
     <Content Include="_Styles\LoginStyle.css" />
+    <Content Include="_Styles\ManageBlogs.min.css">
+      <DependentUpon>ManageBlogs.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\ManageFirstPage.css" />
+    <Content Include="_Styles\ManageFirstPage.min.css">
+      <DependentUpon>ManageFirstPage.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\ManageGroups.css" />
+    <Content Include="_Styles\ManageGroups.min.css">
+      <DependentUpon>ManageGroups.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\ProfileStyles.css" />
+    <Content Include="_Styles\ProfileStyles.min.css">
+      <DependentUpon>ProfileStyles.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\ProjectAppStyles.css" />
+    <Content Include="_Styles\ProjectAppStyles.min.css">
+      <DependentUpon>ProjectAppStyles.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\ProjectDetailStyles.css" />
+    <Content Include="_Styles\ProjectDetailStyles.min.css">
+      <DependentUpon>ProjectDetailStyles.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\RegisterStyles.css" />
+    <Content Include="_Styles\RegisterStyles.min.css">
+      <DependentUpon>RegisterStyles.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\RegStyle.css" />
+    <Content Include="_Styles\RegStyle.min.css">
+      <DependentUpon>RegStyle.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\sasan.css" />
+    <Content Include="_Styles\sasan.min.css">
+      <DependentUpon>sasan.css</DependentUpon>
+    </Content>
     <Content Include="_Styles\simple-sidebar.css" />
     <Content Include="_Styles\HomeStyleSheet.css" />
   </ItemGroup>

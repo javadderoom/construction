@@ -4006,7 +4006,7 @@ header .social_nav {
 
 @media (max-width: 768px) {
     .container {
-        width: 90%;
+        /*width: 90%;*/
         margin: 0 auto;
     }
 

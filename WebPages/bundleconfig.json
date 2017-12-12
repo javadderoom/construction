@@ -1,0 +1,218 @@
+[
+  {
+    "outputFileName": "_construction/js/construction.min.js",
+    "inputFiles": [
+      "_construction/js/construction.js"
+    ]
+  },
+  {
+    "outputFileName": "_construction/js/contact.min.js",
+    "inputFiles": [
+      "_construction/js/contact.js"
+    ]
+  },
+  {
+    "outputFileName": "_construction/js/jquery.form.min.js",
+    "inputFiles": [
+      "_construction/js/jquery.form.js"
+    ]
+  },
+  {
+    "outputFileName": "_construction/css/animate.min.css",
+    "inputFiles": [
+      "_construction/css/animate.css"
+    ]
+  },
+  {
+    "outputFileName": "_construction/css/popoverStyle.min.css",
+    "inputFiles": [
+      "_construction/css/popoverStyle.css"
+    ]
+  },
+  {
+    "outputFileName": "_construction/css/ServiseDetailsStyle.min.css",
+    "inputFiles": [
+      "_construction/css/ServiseDetailsStyle.css"
+    ]
+  },
+  {
+    "outputFileName": "_construction/css/style.min.css",
+    "inputFiles": [
+      "_construction/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/AddNews.min.js",
+    "inputFiles": [
+      "_Scripts/AddNews.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/BlogsScript.min.js",
+    "inputFiles": [
+      "_Scripts/BlogsScript.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/FlotingLables.min.js",
+    "inputFiles": [
+      "_Scripts/FlotingLables.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/head.min.js",
+    "inputFiles": [
+      "_Scripts/head.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/jquery.easyPaginate.min.js",
+    "inputFiles": [
+      "_Scripts/jquery.easyPaginate.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/PlaceHolderScripts.min.js",
+    "inputFiles": [
+      "_Scripts/PlaceHolderScripts.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/ScrolToTop.min.js",
+    "inputFiles": [
+      "_Scripts/ScrolToTop.js"
+    ]
+  },
+  {
+    "outputFileName": "_Scripts/slick.min.js",
+    "inputFiles": [
+      "_Scripts/slick.js"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/AdminPanelStyles.min.css",
+    "inputFiles": [
+      "_Styles/AdminPanelStyles.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/BlogPost.min.css",
+    "inputFiles": [
+      "_Styles/BlogPost.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/Blogs.min.css",
+    "inputFiles": [
+      "_Styles/Blogs.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/bootstrap.min.css",
+    "inputFiles": [
+      "_Styles/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/EditSlider.min.css",
+    "inputFiles": [
+      "_Styles/EditSlider.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/FloatingLable.min.css",
+    "inputFiles": [
+      "_Styles/FloatingLable.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/GridView.min.css",
+    "inputFiles": [
+      "_Styles/GridView.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/HomeStyleSheet.min.css",
+    "inputFiles": [
+      "_Styles/HomeStyleSheet.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/Input&Lable.min.css",
+    "inputFiles": [
+      "_Styles/Input&Lable.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/LoginStyle.min.css",
+    "inputFiles": [
+      "_Styles/LoginStyle.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/ManageBlogs.min.css",
+    "inputFiles": [
+      "_Styles/ManageBlogs.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/ManageFirstPage.min.css",
+    "inputFiles": [
+      "_Styles/ManageFirstPage.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/ManageGroups.min.css",
+    "inputFiles": [
+      "_Styles/ManageGroups.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/ProfileStyles.min.css",
+    "inputFiles": [
+      "_Styles/ProfileStyles.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/ProjectAppStyles.min.css",
+    "inputFiles": [
+      "_Styles/ProjectAppStyles.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/ProjectDetailStyles.min.css",
+    "inputFiles": [
+      "_Styles/ProjectDetailStyles.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/RegisterStyles.min.css",
+    "inputFiles": [
+      "_Styles/RegisterStyles.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/RegStyle.min.css",
+    "inputFiles": [
+      "_Styles/RegStyle.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/sasan.min.css",
+    "inputFiles": [
+      "_Styles/sasan.css"
+    ]
+  },
+  {
+    "outputFileName": "_Styles/simple-sidebar.min.css",
+    "inputFiles": [
+      "_Styles/simple-sidebar.css"
+    ]
+  },
+  {
+    "outputFileName": "js/JavaScript.min.js",
+    "inputFiles": [
+      "js/JavaScript.js"
+    ]
+  }
+]

@@ -10,7 +10,7 @@ namespace Common
 {
     public class OnlineTools
     {
-        static public string conString = "data sourcewww.jabe-abzar.com;initial catalog=jabeabza_DB;user id=jabeabza_javad;password=2210226104H.m;";
+        static public string conString = "data source=www.jabe-abzar.com;initial catalog=jabeabza_DB;user id=jabeabza_javad;password=2210226104H.m;";
         //static public string conString = "data source=.;initial catalog=jabeabza_DB;Integrated Security=True";
 
         public static void ShowMessage(Label lbl, string msg, Color col)

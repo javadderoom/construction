@@ -986,7 +986,7 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="img\Thumbs.db" />
-    <Content Include="App_Offline.htm" />
+    <Content Include="App_Offline.html" />
     <Content Include="img\_Thumbs.db" />
     <Content Include="_Styles\simple-sidebar.min.css">
       <DependentUpon>simple-sidebar.css</DependentUpon>
